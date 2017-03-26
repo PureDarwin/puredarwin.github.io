@@ -20,11 +20,77 @@ Additionally, as an interim measure, a [version of PureDarwin Xmas](https://gith
 Status
 ------
 
-PureDarwin is currently working on AHCI and NVMe family/drivers for Darwin only they will not support/work on Apple's macOS. We have a PoC(Point of Concept) of PureDarwin 2.2 qemu image that's based on from Apple's OpenSource Code of [macOS 10.10.5](http://opensource.apple.com/release/os-x-10105/) that is only currently available to those who join our IRC channel #puredarwin on freenode. 
+PureDarwin is currently working on AHCI and eMMC family/drivers for Darwin only they will not support/work on Apple's macOS. We have a PoC(Point of Concept) of PureDarwin 2.2 qemu image that's based on from Apple's OpenSource Code of [macOS 10.10.5](http://opensource.apple.com/release/os-x-10105/) that is only currently available to those who join our IRC channel #puredarwin on freenode. 
 
-We are currently working on getting a base Image of PureDarwin 3.6 that's based on from Apple's OpenSource Code of [macOS 10.11.6](http://opensource.apple.com/release/os-x-10116/)
+We are currently working on getting a base Image of PureDarwin 3.6 that's based on from Apple's OpenSource Code of [macOS 10.12.3](https://opensource.apple.com/release/macos-10123.html)
 
 We are looking for Supporters/Coders that can help bring about faster Development of PureDarwin while showing Apple that there is still a Community of Open Source Darwin Supporters that would like to see more openness from them whether it be from them releasing Binary formed Drivers for our use as they once did or open source projects like libxpc/launchd again.
+
+## **Something to the Community!**
+
+### **Here's a guide on Building XNU of the 16.4(10.12.3) Kernel!**  
+   
+### Open Terminal && Run these commands in order to build a useable XNU Kernel
+
+### Make a Directory called "xnu_build" on your Desktop && cd to it 
+
+```
+mkdir -p ~/Desktop/xnu_build
+cd ~/Desktop/xun_build
+```
+
+### Curl these files from opensource.apple.com
+
+```
+curl -O https://opensource.apple.com/tarballs/dtrace/dtrace-209.20.4.tar.gz && curl -O https://opensource.apple.com/tarballs/AvailabilityVersions/AvailabilityVersions-26.30.3.tar.gz && curl -O https://opensource.apple.com/tarballs/xnu/xnu-3789.41.3.tar.gz 
+```
+
+### Run this command to untar all downloaded files and rm the tar.gz files
+
+```
+ 	for file in *.tar.gz; do tar -zxf $file; done && rm -f *.tar.gz
+```
+
+### Setting up Pre-build Envoerment 
+```
+git clone https://github.com/PureDarwin/XNU-16.4-Setup-Build.git   
+
+cd XNU-16.4-Setup-Build   
+
+SDK_ROOT=`xcodebuild -version -sdk macosx Path`
+CURRENT_DIR=`pwd`
+sudo mkdir -p "${SDK_ROOT}/usr/local/include/kernel/os"
+sudo mkdir -p "${SDK_ROOT}/usr/local/lib/kernel"
+sudo cp -rf "${CURRENT_DIR}/libdispatch/firehose_buffer_private.h" "${SDK_ROOT}/usr/local/include/kernel/os/"
+sudo cp -rf "${CURRENT_DIR}/libdispatch/libfirehose_kernel.a" "${SDK_ROOT}/usr/local/lib/kernel/"   
+
+cd ../
+
+```
+
+### Building Dtrace and Avaliablilty -- copy each line by line and paste into terminal 
+
+```
+	cd dtrace-209.20.4
+	mkdir -p obj sym dst
+	xcodebuild install -target ctfconvert -target ctfdump -target ctfmerge ARCHS="x86_64" SRCROOT=$PWD OBJROOT=$PWD/obj SYMROOT=$PWD/sym DSTROOT=$PWD/dst
+	sudo ditto $PWD/dst/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain
+	cd ..
+	cd AvailabilityVersions-26.30.3
+	mkdir -p dst
+	make install SRCROOT=$PWD DSTROOT=$PWD/dst
+	sudo ditto $PWD/dst/usr/local `xcrun -sdk macosx -show-sdk-path`/usr/local
+	cd ..
+```
+
+### Building XNU 16.4
+
+```
+cd xnu-3789.41.3/
+sudo make SDKROOT=macosx ARCH_CONFIGS=X86_64 KERNEL_CONFIGS=RELEASE
+```
+
+
 
 Faq's
 -------
