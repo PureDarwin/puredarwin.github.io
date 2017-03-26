@@ -26,7 +26,18 @@ We are currently working on getting a base Image of PureDarwin 3.6 that's based 
 
 We are looking for Supporters/Coders that can help bring about faster Development of PureDarwin while showing Apple that there is still a Community of Open Source Darwin Supporters that would like to see more openness from them whether it be from them releasing Binary formed Drivers for our use as they once did or open source projects like libxpc/launchd again.
 
-## **Something to the Community!**
+Sponsor's and Hardware Donation
+------------
+
+PureDarwin is currently Looking for Sponsor's that could provide a Mac Pro or VM of Cloud macOS Instance that we could allow our projects to build.
+
+PureDarwin is also looking for Apple MacBook Pro's/Pro/Mini's hardware for Development use 
+
+Please join us on freenode.net #puredarwin for our info we have USA/UK/Europe Dev's who which can receive hardware.
+
+
+
+## **Something to the Open Source Community!**
 
 ### **Here's a guide on Building XNU of the 16.4(10.12.3) Kernel!**  
    
@@ -155,16 +166,11 @@ main upstream projects.
 What does the „Pure“ in PureDarwin
 stand for?
 
-Pure as in beer! It means that we just
-use components specifically released
-by Apple for use with Darwin, as well
-as other Open Source components
-(collectively called „upstream code“).
-Specifically, it means that we do not
-use any components from Mac OS X. It
-also means that we try to stay as close
-as possible to the „outside world“ as in
-Mac OS X (e.g., regarding the choice
+Pure as in beer! It means that we just use components specifically released
+by Apple for use with Darwin, as well as other Open Source components (coll
+ectively called „upstream code“). Specifically, it means that we do not
+use any components from macOS. It also means that we try to stay as close
+as possible to the „outside world“ as in macOS (e.g., regarding the choice
 of compilers, options, etc.). It does not
 mean, however, that we do not modify
 and add to the upstream code, to
@@ -190,14 +196,9 @@ We would like to thank
 -   Stuart Crook for his work on PureFoundation
 -   Guillaume Verdeau for his work on X.Org
 -   [Rafirafi](https://github.com/rafirafi) for his work on Generic Platform kexts
--   [Clifford Sekel](https://github.com/csekel/) aka IRC InSaneDarwin for his work on AHCI and NVMe Family/Drivers(still in active development)
+-   [Clifford Sekel](https://github.com/csekel/) aka IRC InSaneDarwin for his work on AHCI and eMMC Family/Drivers(still in active development)
 -   Mac OS Forge 
 -   The DarwinBuild project 
 -   The MacPorts project
 -   The folks at #macosforge, #macports, #macdev, #opendarwin, #puredarwin, 
 -   Everyone else contributing to Darwin 
-
-Sponsor's
-------------
-
-PureDarwin is currently Looking for Sponsor's that could provide a Mac Pro or VM of Cloud macOS Instance that we could allow our projects to build. Please join us on freenode.net #puredarwin
