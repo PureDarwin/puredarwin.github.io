@@ -26,6 +26,8 @@ We are currently working on getting a base Image of PureDarwin 3.6 that's based 
 
 We are looking for Supporters/Coders that can help bring about faster Development of PureDarwin while showing Apple that there is still a Community of Open Source Darwin Supporters that would like to see more openness from them whether it be from them releasing Binary formed Drivers for our use as they once did or open source projects like libxpc/launchd again.
 
+[PureDarwin's Current Build Status](https://puredarwin.github.io/Status.md)
+
 Sponsor's and Hardware Donation
 ------------
 
