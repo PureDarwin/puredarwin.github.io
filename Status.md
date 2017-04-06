@@ -2,6 +2,8 @@
 + PureDarwin Progress and Research +
 ++++++++++++++++++++++++++++++++++++
 
+We've just moved to Apple's latest code of 10.12.4
+
 ______________________________________________
 Currently the project is still moving forward 
 ______________________________________________
@@ -15,7 +17,7 @@ Working on CoreFoundation code pulled from latest https://github.com/apple/swift
 ______________________________________________
 Projects Still to be worked
 
-Port/Upgrade Mac OSX 10.8.4 UsbFamily to macOS 10.12.3 as UsbFamily no longer open sourced (Unless we know some apple people to talk too)
+Port/Upgrade Mac OSX 10.8.4 UsbFamily to macOS 10.12.4 as UsbFamily no longer open sourced (Unless we know some apple people to talk too)
 
 ___________________________________________________________________________________
 Example of command to compile  libfirehose_kernel.a needed for XNU building on OSX
@@ -111,118 +113,54 @@ __________________________________________
 #Roots built so far being updated daily* 
 
 ___________________________________________________________________________________________________________________
--rw-r--r--    1 root    admin   9.2K Mar  6 21:12 AppleAPIC.root.tar.gz
--rw-r--r--    1 root    admin   8.4K Feb 26 13:27 AppleFileSystemDriver.root.tar.gz
--rw-r--r--    1 root    admin    27K Mar  6 21:53 AppleIntelPIIXATA.root.tar.gz
--rw-r--r--    1 insane  admin   807B Feb 25 03:52 AvailabilityVersions.root.tar.gz
--rw-r--r--    1 insane  admin    23M Feb 25 03:52 BerkeleyDB.root.tar.gz
--rw-r--r--    1 insane  admin    17K Feb 25 03:52 CoreOSMakefiles.root.tar.gz
--rw-r--r--    1 insane  admin   605K Feb 25 03:52 CrackLib.root.tar.gz
--rw-r--r--    1 insane  admin   4.0K Feb 25 03:52 Csu.root.tar.gz
--rw-r--r--    1 insane  admin    12M Feb 25 03:52 ICU.root.tar.gz
--rw-r--r--    1 insane  admin    58K Feb 25 03:52 IOATAFamily.root.tar.gz
--rw-r--r--    1 root    admin   127K Mar 29 03:12 IOAudioFamily.root.tar.gz
--rw-r--r--    1 root    admin    26K Mar 28 21:45 IOBDStorageFamily.root.tar.gz
--rw-r--r--    1 root    admin    38K Mar 28 21:45 IOCDStorageFamily.root.tar.gz
--rw-r--r--    1 root    admin    28K Mar 28 21:45 IODVDStorageFamily.root.tar.gz
--rw-r--r--    1 insane  admin   121K Feb 25 03:52 IOPCIFamily.root.tar.gz
--rw-r--r--    1 insane  admin    33K Feb 25 03:52 IOSerialFamily.root.tar.gz
--rw-r--r--    1 root    admin   109K Mar 28 21:45 IOStorageFamily.root.tar.gz
--rw-r--r--    1 root    admin   866B Mar 27 23:54 Libm.root.tar.gz
--rw-r--r--    1 root    admin    36K Mar  6 13:54 Libnotify.root.tar.gz
--rw-r--r--    1 insane  admin    34K Feb 25 03:52 Librpcsvc.root.tar.gz
--rw-r--r--    1 insane  admin   1.4K Feb 25 03:52 Liby.root.tar.gz
--rw-r--r--    1 insane  admin    40K Mar  7 00:13 OpenPAM.root.tar.gz
--rw-r--r--    1 root    admin   2.7K Mar  2 02:05 PowerManagement.root.tar.gz
--rw-r--r--    1 insane  admin   1.2M Feb 25 03:52 TimeZoneData.root.tar.gz
--rw-r--r--    1 insane  admin   2.0K Feb 25 03:52 UserNotification.root.tar.gz
--rw-r--r--    1 root    admin   161K Feb 27 16:51 adv_cmds.root.tar.gz
--rw-r--r--    1 insane  admin   381K Mar  2 03:54 apr.root.tar.gz
--rw-r--r--    1 insane  admin    18K Feb 25 03:52 architecture.root.tar.gz
--rw-r--r--    1 insane  admin    51K Feb 25 03:52 awk.root.tar.gz
--rw-r--r--    1 root    admin   2.2M Mar  6 10:06 bash.root.tar.gz
--rw-r--r--    1 insane  admin    17K Feb 25 03:52 basic_cmds.root.tar.gz
--rw-r--r--    1 insane  admin   5.8M Feb 25 03:52 bind9.root.tar.gz
--rw-r--r--    1 insane  admin   169K Feb 25 03:52 bison.root.tar.gz
--rw-r--r--    1 insane  admin   276K Feb 25 03:52 bmalloc.root.tar.gz
--rw-r--r--    1 insane  admin    74K Feb 25 03:52 bootstrap_cmds.root.tar.gz
--rw-r--r--    1 root    admin    41M Feb 28 02:11 clang.root.tar.gz
--rw-r--r--    1 root    admin    89K Mar 27 23:54 copyfile.root.tar.gz
--rw-r--r--    1 insane  admin   4.6K Mar 14 03:37 coreTLS.root.tar.gz
--rw-r--r--    1 root    admin    94K Mar  2 02:05 ctfconvert.root.tar.gz
--rw-r--r--    1 root    admin    57K Mar  2 02:05 ctfdump.root.tar.gz
--rw-r--r--    1 insane  admin   6.6M Feb 25 03:52 cups.root.tar.gz
--rw-r--r--    1 root    admin   854K Mar 28 21:45 curl.root.tar.gz
--rw-r--r--    1 insane  admin   214K Feb 25 03:52 cxxfilt.root.tar.gz
--rw-r--r--    1 root    admin    86K Feb 26 13:27 developer_cmds.root.tar.gz
--rw-r--r--    1 root    admin    84K Mar  6 09:20 diskdev_cmds.root.tar.gz
--rw-r--r--    1 insane  admin    11K Feb 25 03:52 disklabel.root.tar.gz
--rw-r--r--    1 root    admin    23K Feb 25 03:52 doc_cmds.root.tar.gz
--rw-r--r--    1 insane  admin    57K Feb 27 01:04 dtrace.root.tar.gz
--rw-r--r--    1 insane  admin    32M Feb 25 03:52 emacs.root.tar.gz
--rw-r--r--    1 root    admin    67K Feb 25 03:52 expat.root.tar.gz
--rw-r--r--    1 root    admin   607K Feb 25 03:52 file.root.tar.gz
--rw-r--r--    1 root    admin   1.4M Feb 25 03:52 files.root.tar.gz
--rw-r--r--    1 root    admin    26K Feb 25 03:52 gcc_select.root.tar.gz
--rw-r--r--    1 root    admin    80K Feb 25 03:52 gm4.root.tar.gz
--rw-r--r--    1 root    admin   149K Feb 25 03:52 gnudiff.root.tar.gz
--rw-r--r--    1 root    admin    93K Feb 25 03:52 gnumake.root.tar.gz
--rw-r--r--    1 root    admin    49K Mar  6 09:18 gnuserv.root.tar.gz
--rw-r--r--    1 root    admin   156K Mar  6 09:13 gnutar.root.tar.gz
--rw-r--r--    1 insane  admin    60K Feb 25 03:52 gpatch.root.tar.gz
--rw-r--r--    1 root    admin    49K Feb 25 03:52 gperf.root.tar.gz
--rw-r--r--    1 root    admin    18K Feb 27 01:05 gpt.root.tar.gz
--rw-r--r--    1 root    admin   2.5M Feb 25 03:52 groff.root.tar.gz
--rw-r--r--    1 root    admin   182K Feb 27 01:05 hfs.root.tar.gz
--rw-r--r--    1 root    admin   148K Feb 25 03:52 hunspell.root.tar.gz
--rw-r--r--    1 insane  admin   4.7K Mar 27 23:54 keymgr.root.tar.gz
--rw-r--r--    1 insane  admin   706K Feb 25 03:52 ksh.root.tar.gz
--rw-r--r--    1 insane  admin    85K Mar  6 13:48 less.root.tar.gz
--rw-r--r--    1 insane  admin   8.1K Mar 28 21:45 libauto.root.tar.gz
--rw-r--r--    1 root    admin   6.6K Mar  2 05:06 libclosure.root.tar.gz
--rw-r--r--    1 root    admin   389K Mar 29 01:40 libcxx.root.tar.gz
--rw-r--r--    1 root    admin   957K Mar 29 01:40 libcxx_static.root.tar.gz
--rw-r--r--    1 root    admin    42K Mar 27 23:54 libdispatch.root.tar.gz
--rw-r--r--    1 insane  admin    92K Feb 25 03:52 libedit.root.tar.gz
--rw-r--r--    1 root    admin   368K Mar 14 06:02 libevent.root.tar.gz
--rw-r--r--    1 root    admin    15K Mar  6 09:10 libffi.root.tar.gz
--rw-r--r--    1 root    admin   4.4K Mar  6 13:45 libgcc.root.tar.gz
--rw-r--r--    1 root    admin   748K Mar  6 13:47 libiconv.root.tar.gz
--rw-r--r--    1 root    admin   409K Mar  2 04:17 libmalloc.root.tar.gz
--rw-r--r--    1 root    admin    43K Mar 13 01:01 libplatform.root.tar.gz
--rw-r--r--    1 root    admin   259K Mar 27 23:54 libpthread.root.tar.gz
--rw-r--r--    1 insane  admin   871K Feb 25 03:52 libstdcxx.root.tar.gz
--rw-r--r--    1 root    admin    20K Feb 25 03:52 libtelnet.root.tar.gz
--rw-r--r--    1 root    admin    36K Mar  6 09:10 libunwind.root.tar.gz
--rw-r--r--    1 insane  admin    26K Feb 24 23:36 libutil.root.tar.gz
--rw-r--r--    1 root    admin   651K Feb 28 00:40 libxml2.root.tar.gz
--rw-r--r--    1 insane  admin   166K Feb 25 03:52 libxslt.root.tar.gz
--rw-r--r--    1 root    admin    89K Feb 25 03:52 lukemftp.root.tar.gz
--rw-r--r--    1 root    admin    83K Feb 25 03:52 lukemftpd.root.tar.gz
--rw-r--r--    1 root    admin    69K Feb 25 03:52 mail_cmds.root.tar.gz
--rw-r--r--    1 root    admin   122K Feb 25 03:52 misc_cmds.root.tar.gz
--rw-r--r--    1 root    admin    31K Feb 25 03:52 modemccl.root.tar.gz
--rw-r--r--    1 root    admin    78K Feb 25 03:52 msdosfs.root.tar.gz
--rw-r--r--    1 insane  admin    83K Feb 25 03:52 nano.root.tar.gz
--rw-r--r--    1 root    admin   239K Feb 25 03:52 ntfs.root.tar.gz
--rw-r--r--    1 root    admin    20K Feb 25 03:52 patch_cmds.root.tar.gz
--rw-r--r--    1 insane  admin    53K Feb 25 03:52 pb_makefiles.root.tar.gz
--rw-r--r--    1 root    admin   509K Feb 25 03:52 pcre.root.tar.gz
--rw-r--r--    1 insane  admin    27K Feb 25 03:52 pdisk.root.tar.gz
--rw-r--r--    1 root    admin    29K Mar 27 23:54 removefile.root.tar.gz
--rw-r--r--    1 root    admin   209K Mar 14 06:02 rsync.root.tar.gz
--rw-r--r--    1 root    admin   526K Mar  6 08:22 screen.root.tar.gz
--rw-r--r--    1 root    admin   300K Feb 26 13:27 shell_cmds.root.tar.gz
--rw-r--r--    1 root    admin   304K Feb 25 03:52 sudo.root.tar.gz
--rw-r--r--    1 insane  admin   902K Feb 25 03:52 swig.root.tar.gz
--rw-r--r--    1 insane  admin   2.8K Feb 25 03:52 system_config.root.tar.gz
--rw-r--r--    1 insane  admin   244K Feb 25 03:52 tcsh.root.tar.gz
--rw-r--r--    1 root    admin   913K Feb 25 03:52 texinfo.root.tar.gz
--rw-r--r--    1 root    admin    56K Feb 25 03:52 top.root.tar.gz
--rw-r--r--    1 root    admin   7.1K Feb 25 03:52 usertemplate.root.tar.gz
--rw-r--r--    1 root    admin   584K Feb 25 03:52 uucp.root.tar.gz
--rw-r--r--    1 root    admin   7.3M Feb 25 03:52 vim.root.tar.gz
--rw-r--r--    1 insane  admin   8.1M Mar 27 23:54 xnu.root.tar.gz
--rw-r--r--    1 insane  admin    75K Feb 25 03:52 zlib.root.tar.gz
--rw-r--r--    1 root    admin   2.1M Feb 25 03:52 zsh.root.tar.gz
+-rw-r--r--   1 root    admin    12M Apr  6 12:50 ICU.root.tar.gz
+-rw-r--r--   1 root    admin    58K Apr  6 12:36 IOATAFamily.root.tar.gz
+-rw-r--r--   1 root    admin    26K Apr  6 12:36 IOBDStorageFamily.root.tar.gz
+-rw-r--r--   1 root    admin    38K Apr  6 12:36 IOCDStorageFamily.root.tar.gz
+-rw-r--r--   1 root    admin    28K Apr  6 12:36 IODVDStorageFamily.root.tar.gz
+-rw-r--r--   1 root    admin   122K Apr  6 12:36 IOPCIFamily.root.tar.gz
+-rw-r--r--   1 root    admin    33K Apr  6 12:36 IOSerialFamily.root.tar.gz
+-rw-r--r--   1 root    admin   109K Apr  6 12:36 IOStorageFamily.root.tar.gz
+-rw-r--r--   1 root    admin    61K Apr  6 12:36 Libc.root.tar.gz
+-rw-r--r--   1 root    admin    34K Apr  6 12:36 Librpcsvc.root.tar.gz
+-rw-r--r--   1 root    admin    40K Apr  6 12:36 OpenPAM.root.tar.gz
+-rw-r--r--   1 root    admin   160K Apr  6 12:36 adv_cmds.root.tar.gz
+-rw-r--r--   1 root    admin    17K Apr  6 12:36 basic_cmds.root.tar.gz
+-rw-r--r--   1 root    admin   274K Apr  6 12:36 bmalloc.root.tar.gz
+-rw-r--r--   1 root    admin   6.8M Apr  6 12:36 cups.root.tar.gz
+-rw-r--r--   1 root    admin   568K Apr  6 12:36 curl.root.tar.gz
+-rw-r--r--   1 root    admin    11K Apr  6 12:36 disklabel.root.tar.gz
+-rw-r--r--   1 root    admin    32M Apr  6 12:36 emacs.root.tar.gz
+-rw-r--r--   1 root    admin   254K Apr  6 12:36 file_cmds.root.tar.gz
+-rw-r--r--   1 root    admin   1.4M Apr  6 12:36 files.root.tar.gz
+-rw-r--r--   1 root    admin   544K Apr  6 12:36 hfs.root.tar.gz
+-rw-r--r--   1 root    admin   2.8K Apr  6 12:36 keymgr.root.tar.gz
+-rw-r--r--   1 root    admin   696K Apr  6 12:36 ksh.root.tar.gz
+-rw-r--r--   1 root    admin    85K Apr  6 12:36 less.root.tar.gz
+-rw-r--r--   1 root    admin   7.2K Apr  6 12:36 libauto.root.tar.gz
+-rw-r--r--   1 root    admin    39K Apr  6 12:36 libdispatch.root.tar.gz
+-rw-r--r--   1 root    admin   367K Apr  6 12:36 libevent.root.tar.gz
+-rw-r--r--   1 root    admin    15K Apr  6 12:36 libffi.root.tar.gz
+-rw-r--r--   1 root    admin   4.4K Apr  6 12:36 libgcc.root.tar.gz
+-rw-r--r--   1 root    admin    33K Apr  6 12:36 libkxld.root.tar.gz
+-rw-r--r--   1 root    admin   261K Apr  6 12:36 libpthread.root.tar.gz
+-rw-r--r--   1 root    admin   871K Apr  6 12:36 libstdcxx.root.tar.gz
+-rw-r--r--   1 root    admin    20K Apr  6 12:36 libtelnet.root.tar.gz
+-rw-r--r--   1 root    admin    31K Apr  6 12:36 libutil.root.tar.gz
+-rw-r--r--   1 root    admin   648K Apr  6 12:50 libxml2.root.tar.gz
+-rw-r--r--   1 root    admin   165K Apr  6 12:36 libxslt.root.tar.gz
+-rw-r--r--   1 root    admin    69K Apr  6 12:36 mail_cmds.root.tar.gz
+-rw-r--r--   1 root    admin   122K Apr  6 12:36 misc_cmds.root.tar.gz
+-rw-r--r--   1 root    admin    78K Apr  6 12:36 msdosfs.root.tar.gz
+-rw-r--r--   1 root    admin    82K Apr  6 12:36 nano.root.tar.gz
+-rw-r--r--   1 root    admin   822K Apr  6 12:36 ncurses.root.tar.gz
+-rw-r--r--   1 root    admin   237K Apr  6 12:36 ntfs.root.tar.gz
+-rw-r--r--   1 root    admin    20K Apr  6 12:36 patch_cmds.root.tar.gz
+-rw-r--r--   1 root    admin   208K Apr  6 12:36 rsync.root.tar.gz
+-rw-r--r--   1 root    admin   307K Apr  6 12:36 sudo.root.tar.gz
+-rw-r--r--   1 root    admin   2.8K Apr  6 12:36 system_config.root.tar.gz
+-rw-r--r--   1 root    admin   245K Apr  6 12:36 tcsh.root.tar.gz
+-rw-r--r--   1 root    admin   581K Apr  6 12:36 uucp.root.tar.gz
+-rw-r--r--   1 root    admin   8.1M Apr  6 12:36 xnu.root.tar.gz
+-rw-r--r--   1 root    admin   2.1M Apr  6 12:36 zsh.root.tar.gz
 ___________________________________________________________________________________________________________________________
