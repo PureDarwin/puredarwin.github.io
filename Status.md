@@ -181,6 +181,9 @@ ________________________________________________________________________________
 -rw-r--r--    1 root    admin   4.4K Apr 11 16:39 libgcc.root.tar.gz
 -rw-r--r--    1 root    admin   747K Apr 11 16:39 libiconv.root.tar.gz
 -rw-r--r--    1 root    admin    33K Apr 11 16:39 libkxld.root.tar.gz
+-rw-r--r--    1 root    admin   104K Apr 12 01:48 libplatform.root.tar.gz
+-rw-r--r--    1 root    admin   104K Apr 12 01:49 libplatform_dyld.root.tar.gz
+-rw-r--r--    1 root    admin   104K Apr 12 01:49 libplatform_static.root.tar.gz
 -rw-r--r--    1 root    admin   261K Apr 11 16:39 libpthread.root.tar.gz
 -rw-r--r--    1 root    admin    98K Apr 11 16:39 libresolv.root.tar.gz
 -rw-r--r--    1 root    admin   871K Apr 11 16:39 libstdcxx.root.tar.gz
