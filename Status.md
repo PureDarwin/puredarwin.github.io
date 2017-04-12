@@ -113,6 +113,7 @@ __________________________________________
 #Roots built so far being updated daily* 
 
 ___________________________________________________________________________________________________________________
+InSanes-iMac:InSaneDarwin insane$ ls -alh Packages/ | grep .root.tar.gz
 -rw-r--r--    1 root    admin   8.4K Apr 11 16:38 AppleFileSystemDriver.root.tar.gz
 -rw-r--r--    1 root    admin   814B Apr 11 16:38 AvailabilityVersions.root.tar.gz
 -rw-r--r--    1 root    admin    24M Apr 11 16:38 BerkeleyDB.root.tar.gz
@@ -186,7 +187,10 @@ ________________________________________________________________________________
 -rw-r--r--    1 root    admin   104K Apr 12 01:48 libplatform.root.tar.gz
 -rw-r--r--    1 root    admin   104K Apr 12 01:49 libplatform_dyld.root.tar.gz
 -rw-r--r--    1 root    admin   104K Apr 12 01:49 libplatform_static.root.tar.gz
--rw-r--r--    1 root    admin   261K Apr 11 16:39 libpthread.root.tar.gz
+-rw-r--r--    1 root    admin    27K Apr 12 08:35 libpthread.root.tar.gz
+-rw-r--r--    1 root    admin    33K Apr 12 08:45 libpthread_dyld_static.root.tar.gz
+-rw-r--r--    1 root    admin    83K Apr 12 08:45 libpthread_eOS_static.root.tar.gz
+-rw-r--r--    1 root    admin    83K Apr 12 08:45 libpthread_generic_static.root.tar.gz
 -rw-r--r--    1 root    admin    98K Apr 11 16:39 libresolv.root.tar.gz
 -rw-r--r--    1 root    admin   871K Apr 11 16:39 libstdcxx.root.tar.gz
 -rw-r--r--    1 root    admin    20K Apr 11 16:39 libtelnet.root.tar.gz
@@ -205,6 +209,7 @@ ________________________________________________________________________________
 -rw-r--r--    1 root    admin    20K Apr 11 16:39 patch_cmds.root.tar.gz
 -rw-r--r--    1 root    admin   507K Apr 11 16:39 pcre.root.tar.gz
 -rw-r--r--    1 root    admin    27K Apr 11 16:39 pdisk.root.tar.gz
+-rw-r--r--    1 root    admin    27K Apr 12 08:35 pthread_kext.root.tar.gz
 -rw-r--r--    1 root    admin    16K Apr 11 16:39 removefile.root.tar.gz
 -rw-r--r--    1 root    admin   208K Apr 11 16:39 rsync.root.tar.gz
 -rw-r--r--    1 root    admin   307K Apr 11 16:39 sudo.root.tar.gz
@@ -219,7 +224,7 @@ ________________________________________________________________________________
 -rw-r--r--    1 root    admin   7.3M Apr 11 16:39 vim.root.tar.gz
 -rw-r--r--    1 root    admin   115K Apr 11 16:39 xar.root.tar.gz
 -rw-r--r--    1 root    admin   8.1M Apr 11 16:39 xnu.root.tar.gz
--rw-r--r--    1 root    admin    75K Apr 11 16:39 zlib.root.tar.gz
+-rw-r--r--    1 root    admin    75K Apr 12 06:28 zlib.root.tar.gz
 -rw-r--r--    1 root    admin   2.1M Apr 11 16:39 zsh.root.tar.gz
 
 ___________________________________________________________________________________________________________________________
