@@ -3,6 +3,7 @@
 ++++++++++++++++++++++++++++++++++++
 
 We've just moved to Apple's latest code of 10.12.4
+This is a living Document that is always being updated!
 
 ______________________________________________
 ## Currently the project is still moving forward 
@@ -75,36 +76,47 @@ libplatform has been built**** Ethan rocks!
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
  BUILD TIME: 0h 0m 2s
 EXIT STATUS: 0
-libplatform - 23 files registered.
+libplatform - 27 files registered.
                                          40755 0 0 0 ./usr
                                          40755 0 0 0 ./usr/include
-d699b626d16c8271fdef328f1da84f95946bb2f2 100644 0 0 1651 ./usr/include/OSAtomic.h
-58481d3f98392795650329fc456e51f087edfb91 100644 0 0 43094 ./usr/include/OSAtomicDeprecated.h
-c260f5ba655dc7c1b6ee5e11f7bf7a9cc29923ed 100644 0 0 6662 ./usr/include/OSAtomicQueue.h
-cfe2e5f61f05eced206eaab55aa1e6dcd8b9a4f0 100644 0 0 2344 ./usr/include/OSCacheControl.h
-3a1e10e4fcb8781e68dc30001a1ed51017c37437 100644 0 0 6632 ./usr/include/OSSpinLockDeprecated.h
 3de726adedb1c184243d04eee2528368742fb51f 100644 0 0 5682 ./usr/include/_simple.h
-29ae8f4a130f58f1eba6ab291c738fcb6133d67e 100644 0 0 2614 ./usr/include/alloc_once_impl.h
-9da4359535b777460d0ebdd6baf2cd4aaf566012 100644 0 0 15300 ./usr/include/atomic.h
-8d0493ad759089903983797cd90b2b41172491be 100644 0 0 7167 ./usr/include/base.h
-254ca8737698de8ffcb9b64a9497d9eee2b41d07 100644 0 0 1138 ./usr/include/base_private.h
-5e3181377f01dc0b30b366d4ba3019703e1e2566 100644 0 0 2368 ./usr/include/compat.h
-6f069e852ff3d00bfaf31628e2bc2d5e89303096 100644 0 0 1678 ./usr/include/crashlog.h
-3cc65922de5049d8345bb504553bf3661f0db1fb 100644 0 0 1785 ./usr/include/internal_shared.h
-69e27b55c2d1de6aeb5a852cddb230f849701b3a 100644 0 0 12484 ./usr/include/introspection_private.h
-17e697b9c6e75dd650cdaa2965e82939ad0b94e1 100644 0 0 4382 ./usr/include/lock.h
-99f1158b2f88c89b6f6bb9bac4f28f389ec5c6bd 100644 0 0 20652 ./usr/include/lock_private.h
-77b1c40e6004be6fdef3bd29eae6e0e4af888944 100644 0 0 1851 ./usr/include/once_private.h
-3dde0d4b8cef814c45bcdf34bd1a6ff548abb679 100644 0 0 2401 ./usr/include/semaphore_private.h
+                                         40755 0 0 0 ./usr/include/libkern
+d699b626d16c8271fdef328f1da84f95946bb2f2 100644 0 0 1651 ./usr/include/libkern/OSAtomic.h
+58481d3f98392795650329fc456e51f087edfb91 100644 0 0 43094 ./usr/include/libkern/OSAtomicDeprecated.h
+c260f5ba655dc7c1b6ee5e11f7bf7a9cc29923ed 100644 0 0 6662 ./usr/include/libkern/OSAtomicQueue.h
+cfe2e5f61f05eced206eaab55aa1e6dcd8b9a4f0 100644 0 0 2344 ./usr/include/libkern/OSCacheControl.h
+3a1e10e4fcb8781e68dc30001a1ed51017c37437 100644 0 0 6632 ./usr/include/libkern/OSSpinLockDeprecated.h
+                                         40755 0 0 0 ./usr/include/os
+29ae8f4a130f58f1eba6ab291c738fcb6133d67e 100644 0 0 2614 ./usr/include/os/alloc_once_impl.h
+8d0493ad759089903983797cd90b2b41172491be 100644 0 0 7167 ./usr/include/os/base.h
+254ca8737698de8ffcb9b64a9497d9eee2b41d07 100644 0 0 1138 ./usr/include/os/base_private.h
+                                         40755 0 0 0 ./usr/include/os/internal
+da4bc957cdea68419e06953574bc25d65641d4b7 100644 0 0 9987 ./usr/include/os/internal/atomic.h
+6f069e852ff3d00bfaf31628e2bc2d5e89303096 100644 0 0 1678 ./usr/include/os/internal/crashlog.h
+3cc65922de5049d8345bb504553bf3661f0db1fb 100644 0 0 1785 ./usr/include/os/internal/internal_shared.h
+17e697b9c6e75dd650cdaa2965e82939ad0b94e1 100644 0 0 4382 ./usr/include/os/lock.h
+6dd615291abe72e916ff06bce4de199a9b52f100 100644 0 0 20651 ./usr/include/os/lock_private.h
+77b1c40e6004be6fdef3bd29eae6e0e4af888944 100644 0 0 1851 ./usr/include/os/once_private.h
+3dde0d4b8cef814c45bcdf34bd1a6ff548abb679 100644 0 0 2401 ./usr/include/os/semaphore_private.h
+                                         40755 0 0 0 ./usr/include/platform
+5e3181377f01dc0b30b366d4ba3019703e1e2566 100644 0 0 2368 ./usr/include/platform/compat.h
+69e27b55c2d1de6aeb5a852cddb230f849701b3a 100644 0 0 12484 ./usr/include/platform/introspection_private.h
+b108c703fa83cf3145743844646ea977dd2dd732 100644 0 0 3127 ./usr/include/platform/string.h
 79d7c60b7fe04d405d6b053e357dad4e8915e59d 100644 0 0 3139 ./usr/include/setjmp.h
-b108c703fa83cf3145743844646ea977dd2dd732 100644 0 0 3127 ./usr/include/string.h
 2b808d6255928e200b4e7a15a105ee63b09bf658 100644 0 0 2054 ./usr/include/ucontext.h
                                          40755 0 0 0 ./usr/lib
                                          40755 0 0 0 ./usr/lib/system
-da39a3ee5e6b4b0d3255bfef95601890afd80709 100755 0 0 42712 ./usr/lib/system/libsystem_platform.dylib
+da39a3ee5e6b4b0d3255bfef95601890afd80709 100755 0 0 38548 ./usr/lib/system/libsystem_platform.dylib
                                          40755 0 0 0 ./usr/local
                                          40755 0 0 0 ./usr/local/include
-d00e308ffee156e164dd5c76f63f2f8fa77647a3 100644 0 0 1410 ./usr/local/include/OSAtomic.h
+                                         40755 0 0 0 ./usr/local/include/libkern
+d00e308ffee156e164dd5c76f63f2f8fa77647a3 100644 0 0 1410 ./usr/local/include/libkern/OSAtomic.h
+e7ad001908cbd437e48a9fd347a4399bd12e1f84 100644 0 0 123 ./usr/local/include/libkern/module.modulemap
+                                         40755 0 0 0 ./usr/local/include/os
+cec7efca5a198fc2f1cb06ca7201c678be33d1e5 100644 0 0 3892 ./usr/local/include/os/internal.h
+fdb5862c640f6d779e8bb91c2546378714bebbdf 100644 0 0 2712 ./usr/local/include/os/internal_asm.h
+f86466e8cb0ee71de4173b8ef15b3786024d9eb9 100644 0 0 2486 ./usr/local/include/os/yield.h
+
 ______________________________________________________________________________________________________________________
 
 
@@ -235,3 +247,10 @@ ________________________________________________________________________________
 
 Todos:
 
+port libktrace and few others to Darwin. 
+
+Project's to look forward to on PureDarwin
+SwiftFoundation for Darwin
+Darwin's Own AHCI Family OpenSource
+Darwin's eMMC Family for both arm and x86_64 (great for those smaller embedded internal SSD's)
+Darwin's XNU Arm port
