@@ -1,19 +1,20 @@
 ++++++++++++++++++++++++++++++++++++
-+ PureDarwin Progress and Research +
+ ## PureDarwin Progress and Research 
 ++++++++++++++++++++++++++++++++++++
 
 We've just moved to Apple's latest code of 10.12.4
 
 ______________________________________________
-Currently the project is still moving forward 
+## Currently the project is still moving forward 
 ______________________________________________
-Current Projects being actively worked
-
-Working on Dyld patching currently 
-Completed on libplatform project files as not opensourced with the code This has been fixed due to some amazing help from Ethan and we have a build working correctly. 
-Working on libdispatch and Libsystem(Patching Required)
+#### Current Projects being actively worked
 Working on ACHI Family and Kext work for Darwin use only it will have private headers that will be built into the Kext.
 Working on CoreFoundation code pulled from latest https://github.com/apple/swift-corelibs-foundation/tree/master/CoreFoundation
+
+#### Completed Lib's 
+
+Thanks to Ethan we have dyld, libdispatch and libsystem patches along with libplatform project code and built Roots. 
+
 ______________________________________________
 Projects Still to be worked
 
