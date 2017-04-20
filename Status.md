@@ -161,6 +161,7 @@ InSanes-iMac:InSaneDarwin insane$ ls -alh Packages/ | grep .root.tar.gz
 -rw-r--r--    1 root    admin   389K Apr 11 16:38 apr.root.tar.gz
 -rw-r--r--    1 root    admin    18K Apr 11 16:38 architecture.root.tar.gz
 -rw-r--r--    1 root    admin    51K Apr 11 16:38 awk.root.tar.gz
+-rw-r--r--    1 root    admin   2.2M Apr 19 22:27 bash.root.tar.gz
 -rw-r--r--    1 root    admin    17K Apr 11 16:38 basic_cmds.root.tar.gz
 -rw-r--r--    1 root    admin   5.7M Apr 11 16:39 bind9.root.tar.gz
 -rw-r--r--    1 root    admin   271K Apr 11 16:39 bmalloc.root.tar.gz
@@ -174,6 +175,7 @@ InSanes-iMac:InSaneDarwin insane$ ls -alh Packages/ | grep .root.tar.gz
 -rw-r--r--    1 root    admin    84K Apr 11 16:39 diskdev_cmds.root.tar.gz
 -rw-r--r--    1 root    admin    11K Apr 11 16:39 disklabel.root.tar.gz
 -rw-r--r--    1 root    admin    23K Apr 11 16:39 doc_cmds.root.tar.gz
+-rw-r--r--    1 root    admin   193K Apr 19 22:27 dyld.root.tar.gz
 -rw-r--r--    1 root    admin    32M Apr 11 16:39 emacs.root.tar.gz
 -rw-r--r--    1 root    admin    66K Apr 11 16:39 expat.root.tar.gz
 -rw-r--r--    1 root    admin   606K Apr 11 16:39 file.root.tar.gz
@@ -199,8 +201,8 @@ InSanes-iMac:InSaneDarwin insane$ ls -alh Packages/ | grep .root.tar.gz
 -rw-r--r--    1 root    admin   147K Apr 12 06:17 libfirehose_server.root.tar.gz
 -rw-r--r--    1 root    admin   4.4K Apr 11 16:39 libgcc.root.tar.gz
 -rw-r--r--    1 root    admin   747K Apr 11 16:39 libiconv.root.tar.gz
--rw-r--r--    1 root    admin    33K Apr 11 16:39 libkxld.root.tar.gz
--rw-r--r--    1 root    admin   104K Apr 12 01:48 libplatform.root.tar.gz
+-rw-r--r--    1 root    admin    33K Apr 19 22:27 libkxld.root.tar.gz
+-rw-r--r--    1 root    admin    44K Apr 18 13:11 libplatform.root.tar.gz
 -rw-r--r--    1 root    admin   104K Apr 12 01:49 libplatform_dyld.root.tar.gz
 -rw-r--r--    1 root    admin   104K Apr 12 01:49 libplatform_static.root.tar.gz
 -rw-r--r--    1 root    admin    27K Apr 12 08:35 libpthread.root.tar.gz
@@ -230,6 +232,7 @@ InSanes-iMac:InSaneDarwin insane$ ls -alh Packages/ | grep .root.tar.gz
 -rw-r--r--    1 root    admin   208K Apr 11 16:39 rsync.root.tar.gz
 -rw-r--r--    1 root    admin   307K Apr 11 16:39 sudo.root.tar.gz
 -rw-r--r--    1 root    admin   899K Apr 11 16:39 swig.root.tar.gz
+-rw-r--r--    1 root    admin   135K Apr 19 22:27 syslog.root.tar.gz
 -rw-r--r--    1 root    admin   2.8K Apr 11 16:39 system_config.root.tar.gz
 -rw-r--r--    1 root    admin   245K Apr 11 16:39 tcsh.root.tar.gz
 -rw-r--r--    1 root    admin   912K Apr 11 16:39 texinfo.root.tar.gz
@@ -239,7 +242,7 @@ InSanes-iMac:InSaneDarwin insane$ ls -alh Packages/ | grep .root.tar.gz
 -rw-r--r--    1 root    admin   581K Apr 11 16:39 uucp.root.tar.gz
 -rw-r--r--    1 root    admin   7.3M Apr 11 16:39 vim.root.tar.gz
 -rw-r--r--    1 root    admin   115K Apr 18 11:46 xar.root.tar.gz
--rw-r--r--    1 root    admin   8.1M Apr 18 11:46 xnu.root.tar.gz
+-rw-r--r--    1 root    admin   8.1M Apr 19 22:27 xnu.root.tar.gz
 -rw-r--r--    1 root    admin    75K Apr 12 06:28 zlib.root.tar.gz
 -rw-r--r--    1 root    admin   2.1M Apr 11 16:39 zsh.root.tar.gz
 
