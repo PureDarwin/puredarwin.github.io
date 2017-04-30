@@ -28,13 +28,6 @@ We are looking for Supporters/Coders that can help bring about faster Developmen
 
 [PureDarwin's Current Build Status](https://puredarwin.github.io/Status.md)
 
-Sponsor's and Hardware Donation
-------------
-
-PureDarwin is currently Looking for Sponsor's that could provide a Mac Pro or VM of Cloud macOS Instance that we could allow our projects to build.
-
-PureDarwin is also looking for Apple MacBook Pro's/Pro/Mini's hardware for Development use 
-
 Please join us on freenode.net #puredarwin for our info we have USA/UK/Europe Dev's who which can receive hardware.
 
 
