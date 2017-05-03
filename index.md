@@ -3,7 +3,7 @@
 [Darwin](http://en.wikipedia.org/wiki/Darwin_%28operating_system%29) is the Open Source operating system from Apple that forms the basis for macOS, and PureDarwin is a community project to make Darwin more usable (some people think of it as the informal successor to OpenDarwin).
 
 One current goal of this project is to provide a useful bootable IMG and Virtual of Darwin 10.x
-Another goal of this project is to provide additional documentation. [More](wiki/About)...
+Another goal of this project is to provide additional documentation. [More](https://github.com/PureDarwin/PureDarwin/wiki/About)...
 
 Documentation and quick hints
 -----------------------------
