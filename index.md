@@ -20,15 +20,15 @@ Additionally, as an interim measure, a [version of PureDarwin Xmas](https://gith
 Status
 ------
 
-PureDarwin is currently working on AHCI and eMMC family/drivers for Darwin only they will not support/work on Apple's macOS. We have a PoC(Point of Concept) of PureDarwin 2.2 qemu image that's based on from Apple's OpenSource Code of [macOS 10.10.5](http://opensource.apple.com/release/os-x-10105/) that is only currently available to those who join our IRC channel #puredarwin on freenode. 
+PureDarwin is currently working on AHCI and eMMC family/drivers for Darwin only they will not support/work on Apple's macOS. We have a PoC(Point of Concept) of PureDarwin 2.2 qemu image that's based on Apple's open source code of [macOS 10.10.5](http://opensource.apple.com/release/os-x-10105/) that is only currently available to those who join our IRC channel #puredarwin on freenode. 
 
-We are currently working on getting a base Image of PureDarwin 3.6 that's based on from Apple's OpenSource Code of [macOS 10.12.3](https://opensource.apple.com/release/macos-10123.html)
+We are currently working on getting a base Image of PureDarwin 3.6 that's based on  Apple's open source code of [macOS 10.12.3](https://opensource.apple.com/release/macos-10123.html)
 
-We are looking for Supporters/Coders that can help bring about faster Development of PureDarwin while showing Apple that there is still a Community of Open Source Darwin Supporters that would like to see more openness from them whether it be from them releasing Binary formed Drivers for our use as they once did or open source projects like libxpc/launchd again.
+We are looking for supporters/coders that can help bring about faster Development of PureDarwin while showing Apple that there is still a community of Open Source Darwin Supporters that would like to see more openness from them whether it be from them releasing Binary Drivers for our use as they once did or open source projects like libxpc/launchd again.
 
 [PureDarwin's Current Build Status](https://puredarwin.github.io/Status.md)
 
-Please join us on freenode.net #puredarwin for our info we have USA/UK/Europe Dev's who which can receive hardware.
+Please join us on freenode.net #puredarwin for our info we have USA/UK/Europe Devs who which can receive hardware.
 
 
 
