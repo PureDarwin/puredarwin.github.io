@@ -197,3 +197,5 @@ We would like to thank
 -   The MacPorts project
 -   The folks at #macosforge, #macports, #macdev, #opendarwin, #puredarwin, 
 -   Everyone else contributing to Darwin 
+
+© 2017 PureDarwin Foundation 
