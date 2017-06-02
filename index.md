@@ -32,7 +32,7 @@ Please join us on freenode.net #puredarwin for our info we have USA/UK/Europe De
 
 ## Here's a ScreenShot of Our Latest Build!
 ![](/ScreenShot_Latest_Test_Build.png)
-### It's a work in progress but it's going along and yes all built from OpenSource based on 10.12.4 Released Code.
+#### It's a work in progress but it's going along and yes all built from OpenSource based on 10.12.4 Released Code.
 
 ## **Something to the Open Source Community!**
 
