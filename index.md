@@ -22,7 +22,7 @@ Status
 
 PureDarwin is currently working on AHCI and eMMC family/drivers for Darwin only they will not support/work on Apple's macOS. We have a PoC(Point of Concept) of PureDarwin 2.2 qemu image that's based on Apple's open source code of [macOS 10.10.5](http://opensource.apple.com/release/os-x-10105/) that is only currently available to those who join our IRC channel #puredarwin on freenode. 
 
-We are currently working on getting a base Image of PureDarwin 3.6 that's based on  Apple's open source code of [macOS 10.12.3](https://opensource.apple.com/release/macos-10123.html)
+We are currently working on getting a base Image of PureDarwin 16.5 that's based on  Apple's open source code of [macOS 10.12.4](https://opensource.apple.com/release/macos-10124.html)
 
 We are looking for supporters/coders that can help bring about faster Development of PureDarwin while showing Apple that there is still a community of Open Source Darwin Supporters that would like to see more openness from them whether it be from them releasing Binary Drivers for our use as they once did or open source projects like libxpc/launchd again.
 
@@ -133,8 +133,8 @@ We would like to thank
 -   The xnu-dev team for their work on the XNU kernel
 -   Stuart Crook for his work on PureFoundation
 -   Guillaume Verdeau for his work on X.Org
--   [Rafirafi](https://github.com/rafirafi) for his work on Generic Platform kexts
--   [Clifford Sekel](https://github.com/csekel/) aka IRC InSaneDarwin for his work on AHCI and eMMC Family/Drivers(still in active development)
+-   [Rafirafi](https://github.com/rafirafi) for his work on Generic Platform and PDCrypto kexts
+-   [InSaneDarwin](https://github.com/csekel/) aka IRC InSaneDarwin for his work on AHCI and eMMC Family/Drivers(still in active development)
 -   Mac OS Forge 
 -   The DarwinBuild project 
 -   The MacPorts project
