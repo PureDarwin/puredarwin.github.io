@@ -1,5 +1,5 @@
 ++++++++++++++++++++++++++++++++++++
- ## PureDarwin Progress and Research 
+## PureDarwin Progress and Research 
 ++++++++++++++++++++++++++++++++++++
 
 We've just moved to Apple's latest code of 10.12.4
@@ -26,8 +26,9 @@ Example of command to compile  libfirehose_kernel.a needed for XNU building on O
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ___________________
+
 Using Darwinbuild
- 
+```sh 
 sudo darwinbuild -nochroot -target=libfirehose_kernel libdispatch
 
 ** INSTALL SUCCEEDED **
@@ -46,11 +47,11 @@ ee27353e97833d9a61d67724b5330e74634f7fce 100644 0 0 3273 ./usr/local/include/ker
 a99bc86fe2a3a0b967c9da72102ea6dc2ad7b2a1 100644 0 0 36184 ./usr/local/lib/kernel/libfirehose_kernel.a
 5829603c6ba1eecb57e05272440364ab63712aad 100644 0 0 37464 ./usr/local/lib/kernel/libfirehose_kernel_debug.a
 a99bc86fe2a3a0b967c9da72102ea6dc2ad7b2a1 100644 0 0 36184 ./usr/local/lib/kernel/libfirehose_kernel_profile.a
-
+```
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 __________________
 Using Xcodebuild
-
+```sh
 xcodebuild -sdk macosx10.12 install -target=libfirehose_kernel -project=libdispatch.xcodeproj
 The following build commands
 	build/Release/libfirehose_server.a 
@@ -58,7 +59,7 @@ The following build commands
 	build/Release/libfirehose_server_debug.a 
 
 
-
+```
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 Built Roots with OpenSource Headers added into the macosx10.12.sdk under Xcode
 This plist https://github.com/PureDarwin/PureDarwin-System-Plist/blob/master/16D32pd1.plist
@@ -74,6 +75,7 @@ libplatform has been built**** Ethan rocks!
 ** INSTALL SUCCEEDED **
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+```sh
  BUILD TIME: 0h 0m 2s
 EXIT STATUS: 0
 libplatform - 27 files registered.
@@ -116,7 +118,7 @@ e7ad001908cbd437e48a9fd347a4399bd12e1f84 100644 0 0 123 ./usr/local/include/libk
 cec7efca5a198fc2f1cb06ca7201c678be33d1e5 100644 0 0 3892 ./usr/local/include/os/internal.h
 fdb5862c640f6d779e8bb91c2546378714bebbdf 100644 0 0 2712 ./usr/local/include/os/internal_asm.h
 f86466e8cb0ee71de4173b8ef15b3786024d9eb9 100644 0 0 2486 ./usr/local/include/os/yield.h
-
+```
 ______________________________________________________________________________________________________________________
 
 
@@ -126,6 +128,7 @@ __________________________________________
 #Roots built so far being updated daily* 
 
 ___________________________________________________________________________________________________________________
+```
 InSanes-iMac:InSaneDarwin insane$ ls -alh Packages/ | grep .root.tar.gz
 -rw-r--r--    1 root    admin   9.2K Apr 18 11:46 AppleAPIC.root.tar.gz
 -rw-r--r--    1 root    admin   8.4K Apr 11 16:38 AppleFileSystemDriver.root.tar.gz
@@ -248,7 +251,7 @@ InSanes-iMac:InSaneDarwin insane$ ls -alh Packages/ | grep .root.tar.gz
 -rw-r--r--    1 root    admin   8.1M Apr 19 22:27 xnu.root.tar.gz
 -rw-r--r--    1 root    admin    75K Apr 12 06:28 zlib.root.tar.gz
 -rw-r--r--    1 root    admin   2.1M Apr 11 16:39 zsh.root.tar.gz
-
+```
 ___________________________________________________________________________________________________________________________
 
 Todos:
