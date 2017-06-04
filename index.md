@@ -1,4 +1,4 @@
-![](/puredarwin.png)
+[](/puredarwin.png)
 
 [Darwin](http://en.wikipedia.org/wiki/Darwin_%28operating_system%29) is the Open Source operating system from Apple that forms the basis for macOS, and PureDarwin is a community project to make Darwin more usable (some people think of it as the informal successor to OpenDarwin).
 
@@ -134,7 +134,7 @@ We would like to thank
 -   Stuart Crook for his work on PureFoundation
 -   Guillaume Verdeau for his work on X.Org
 -   [Rafirafi](https://github.com/rafirafi) for his work on Generic Platform and PDCrypto kexts
--   [InSaneDarwin](https://github.com/csekel/) aka IRC InSaneDarwin for his work on AHCI and eMMC Family/Drivers(still in active development)
+-   [InSaneDarwin](https://github.com/csekel/) for his work on AHCI and eMMC Family/Drivers(still in active development)
 -   Mac OS Forge 
 -   The DarwinBuild project 
 -   The MacPorts project
