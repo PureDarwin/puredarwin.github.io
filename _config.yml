@@ -2,7 +2,7 @@ title: "PureDarwin"
 description: Moving the Darwin Community in the Right Direction!
 google_analytics: 
 show_downloads: false
-theme: jekyll-theme-slate
+theme: jekyll-theme-tactile
 
 gems:
   - jekyll-mentions
