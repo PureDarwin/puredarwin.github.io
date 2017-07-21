@@ -5,6 +5,13 @@
 One current goal of this project is to provide a useful bootable IMG and Virtual of Darwin 10.x
 Another goal of this project is to provide additional documentation. [More](https://github.com/PureDarwin/PureDarwin/wiki/About)...
 
+
+# Teaser the Darwin Community!
+
+## Here's a ScreenShot of Our Latest Build!
+![](/Screen Shot 2017-07-20 at 8.05.16 PM.png)
+##### It's all most there guys!!! Work in progress but it's going along and yes all built from OpenSource based on 10.12.4 Released Code.
+
 Documentation and quick hints
 -----------------------------
 Please see our [PureDarwin Wiki](https://github.com/PureDarwin/PureDarwin/wiki/) It would be very kind if you could fix the wiki as we have links that are broken as we p
@@ -29,10 +36,6 @@ We are looking for supporters/coders that can help bring about faster Developmen
 [PureDarwin's Current Build Status](https://puredarwin.github.io/Status.md)
 
 Please join us on freenode.net #puredarwin for our info we have USA/UK/Europe Devs who which can receive hardware.
-
-## Here's a ScreenShot of Our Latest Build!
-![](/ScreenShot_Latest_Test_Build.png)
-#### It's a work in progress but it's going along and yes all built from OpenSource based on 10.12.4 Released Code.
 
 ## **Something to the Open Source Community!**
 
