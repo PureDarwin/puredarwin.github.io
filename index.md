@@ -146,9 +146,11 @@ We would like to thank
 
 Contact Us! 
 -------
-Admins/Core Dev's
+Admins
 -  Ferdinand Klinzer bart@pd-devs.org
 -  Clifford Sekel insanedarwin@pd-devs.org
+
+Core Dev's
 -  Ethan Sherriff libsystem_ethan@pd-devs.org
 -  Avi Saven avisaven@pd-devs.org
 
