@@ -146,10 +146,10 @@ We would like to thank
 
 Contact Us! 
 -------
-
-Ferdinand Klinzer bart@pd-devs.org
-Clifford Sekel insanedarwin@pd-devs.org
-Ethan Sherriff libsystem_ethan@pd-devs.org
-Avi Saven avisaven@pd-devs.org
+Admins/Core Dev's
+-  Ferdinand Klinzer bart@pd-devs.org
+-  Clifford Sekel insanedarwin@pd-devs.org
+-  Ethan Sherriff libsystem_ethan@pd-devs.org
+-  Avi Saven avisaven@pd-devs.org
 
 © 2017 PureDarwin Foundation 
