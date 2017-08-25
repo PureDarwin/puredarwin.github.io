@@ -137,7 +137,7 @@ We would like to thank
 -   Stuart Crook for his work on PureFoundation
 -   Guillaume Verdeau for his work on X.Org
 -   [Rafirafi](https://github.com/rafirafi) for his work on Generic Platform and PDCrypto kexts
--   [InSaneDarwin](https://github.com/csekel/) for his work on AHCI and eMMC Family/Drivers(still in active development)
+-   [InSaneDarwin](https://github.com/csekel/) for his work on AHCI and eMMC Family/Drivers(still in active private development)
 -   Mac OS Forge 
 -   The DarwinBuild project 
 -   The MacPorts project
@@ -153,5 +153,6 @@ Admins
 Core Dev's
 -  Ethan Sherriff - libsystem_ethan@pd-devs.org
 -  Avi Saven - avisaven@pd-devs.org
+-  William Kent - wjk@pd-devs.org
 
 © 2017 PureDarwin Foundation 
