@@ -26,7 +26,7 @@ Additionally, as an interim measure, a [version of PureDarwin Xmas](https://gith
 
 ## **Something to the Open Source Community!**
 
-### **Here's a [Guide](https://github.com/PureDarwin/Building-XNU-16.7-Kernel-Guide/) on Building XNU of the 16.5(10.12.4) Kernel!** 
+### **Here's a [Guide](https://github.com/PureDarwin/Building-XNU-16.7-Kernel-Guide/) on Building XNU of the 16.7(10.12.6) Kernel!** 
 
 Status
 ------
