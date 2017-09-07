@@ -22,7 +22,11 @@ See the [Changelog](https://github.com/PureDarwin/PureDarwin/wiki/_history) for 
 -------------------------
 We have [GitHub](https://github.com/PureDarwin/), and encourage visitors to use the GitHub repository for both contribution, and checking out the latest build source. 
 
-Additionally, as an interim measure, a [version of PureDarwin Xmas](https://github.com/PureDarwin/LegacyDownloads/releases/download/PDXMASNBE01/NewBootEnvironment-XMas-1.7z) with a fixed boot sector, which is compatible with QEMU is also available. 
+Additionally, as an interim measure, a [version of PureDarwin Xmas](https://github.com/PureDarwin/LegacyDownloads/releases/download/PDXMASNBE01/NewBootEnvironment-XMas-1.7z) with a fixed boot sector, which is compatible with QEMU is also available.
+
+## **Something to the Open Source Community!**
+
+### **Here's a [Guide](https://github.com/PureDarwin/Building-XNU-16.7-Kernel-Guide/) on Building XNU of the 16.5(10.12.4) Kernel!** 
 
 Status
 ------
@@ -36,12 +40,6 @@ We are looking for supporters/coders that can help bring about faster Developmen
 [PureDarwin's Current Build Status](https://puredarwin.github.io/Status.md)
 
 Please join us on freenode.net #puredarwin for our info we have USA/UK/Europe Devs who which can receive hardware.
-
-## **Something to the Open Source Community!**
-
-### **Here's a [Guide](https://github.com/PureDarwin/Building-XNU-16.5_3789.51.2/) on Building XNU of the 16.5(10.12.4) Kernel!**  
-   
-
 
 
 FAQ
