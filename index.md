@@ -38,10 +38,10 @@ We are looking for supporters/coders that can help bring about faster Developmen
 
 [PureDarwin's Current Build Status](https://puredarwin.github.io/Status.md)
 
-# PureDarwin IRC Channel!
+### PureDarwin IRC Channel!
 Please join us on freenode.net #puredarwin for our info we have USA/UK/Europe Devs who which can receive hardware.
-# New PureDarwin Community Forum!
-Please come join Us over at https://www.pd-devs.org!
+### New PureDarwin Community Forum!
+Please come join Us over at [PureDarwin Developers](https://www.pd-devs.org)
 
 FAQ
 -------
