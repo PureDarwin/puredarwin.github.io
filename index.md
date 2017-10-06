@@ -5,7 +5,6 @@
 One current goal of this project is to provide a useful bootable IMG and Virtual of Darwin 10.x
 Another goal of this project is to provide additional documentation. [More](https://github.com/PureDarwin/PureDarwin/wiki/About)...
 
-
 # Teaser the Darwin Community!
 
 ## Here's a ScreenShot of Our Latest Build!
@@ -39,8 +38,10 @@ We are looking for supporters/coders that can help bring about faster Developmen
 
 [PureDarwin's Current Build Status](https://puredarwin.github.io/Status.md)
 
+# PureDarwin IRC Channel!
 Please join us on freenode.net #puredarwin for our info we have USA/UK/Europe Devs who which can receive hardware.
-
+# New PureDarwin Community Forum!
+Please come join Us over at https://www.pd-devs.org!
 
 FAQ
 -------
