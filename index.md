@@ -154,12 +154,6 @@ Core Dev's
 -  Avi Saven - avisaven@pd-devs.org
 -  William Kent - wjk@pd-devs.org
 
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<script>
-  (adsbygoogle = window.adsbygoogle || []).push({
-    google_ad_client: "ca-pub-4825458773777796",
-    enable_page_level_ads: true
-  });
-</script>
+{% include footer.html %}
 
 © 2017 PureDarwin Foundation 
