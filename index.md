@@ -30,7 +30,7 @@ Additionally, as an interim measure, a [version of PureDarwin Xmas](https://gith
 Status
 ------
 
-PureDarwin is currently working on AHCI and eMMC family/drivers for Darwin only they will not support/work on Apple's macOS. We have a PoC(Point of Concept) of PureDarwin 2.2 qemu image that's based on Apple's open source code of [macOS 10.10.5](http://opensource.apple.com/release/os-x-10105/) that is only currently available to those who join our IRC channel #puredarwin on freenode. 
+PureDarwin is currently working on AHCI and eMMC family/drivers for Darwin only they will not support/work on Apple's macOS. We have a PoC(Proof of Concept) of PureDarwin 2.2 qemu image that's based on Apple's open source code of [macOS 10.10.5](http://opensource.apple.com/release/os-x-10105/) that is only currently available to those who join our IRC channel #puredarwin on freenode. 
 
 We are currently working on getting a base Image of PureDarwin 16.5 that's based on  Apple's open source code of [macOS 10.12.4](https://opensource.apple.com/release/macos-10124.html)
 
