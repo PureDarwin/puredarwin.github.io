@@ -5,6 +5,9 @@
 One current goal of this project is to provide a useful bootable IMG and Virtual of Darwin 10.x
 Another goal of this project is to provide additional documentation. [More](https://github.com/PureDarwin/PureDarwin/wiki/About)...
 
+ 
+
+
 # Teaser the Darwin Community!
 
 ## Here's a ScreenShot of Our Latest Build!
@@ -32,7 +35,7 @@ Status
 
 PureDarwin is currently working on AHCI and eMMC family/drivers for Darwin only they will not support/work on Apple's macOS. We have a PoC(Proof of Concept) of PureDarwin 2.2 qemu image that's based on Apple's open source code of [macOS 10.10.5](http://opensource.apple.com/release/os-x-10105/) that is only currently available to those who join our IRC channel #puredarwin on freenode. 
 
-We are currently working on getting a base Image of PureDarwin 16.5 that's based on  Apple's open source code of [macOS 10.12.4](https://opensource.apple.com/release/macos-10124.html)
+Update: Hey, guys, we're still moving along we will be providing an SDK that is native of an Apple release on opensource.apple.com and a modified version that is PureDarwin targeted as we are working on XNU modified Kernel with some other BSD/POSIX features that don't require us to rely on Apple's Closed sources that we'll never release.
 
 We are looking for supporters/coders that can help bring about faster Development of PureDarwin while showing Apple that there is still a community of Open Source Darwin Supporters that would like to see more openness from them whether it be from them releasing Binary Drivers for our use as they once did or open source projects like libxpc/launchd again.
 
