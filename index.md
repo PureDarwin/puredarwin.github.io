@@ -33,7 +33,7 @@ Additionally, as an interim measure, a [version of PureDarwin Xmas](https://gith
 Status
 ------
 
-PureDarwin is currently working on AHCI and eMMC family/drivers for Darwin only they will not support/work on Apple's macOS. We have a PoC(Proof of Concept) of PureDarwin 2.2 qemu image that's based on Apple's open source code of [macOS 10.10.5](http://opensource.apple.com/release/os-x-10105/) that is only currently available to those who join our IRC channel #puredarwin on freenode. 
+PureDarwin is currently working on AHCI/NMVe and eMMC family/drivers for Darwin only they will not support/work on Apple's macOS. We have a PoC(Proof of Concept) of PureDarwin 17.6 qemu image that's based on Apple's open source code of [macOS 10.13.3](https://opensource.apple.com/release/macos-10133.html) that is only currently available to those Dev's who join our IRC channel #puredarwin on freenode. 
 
 Update: Hey, guys, we're still moving along we will be providing an SDK that is native of an Apple release on opensource.apple.com and a modified version that is PureDarwin targeted as we are working on XNU modified Kernel with some other BSD/POSIX features that don't require us to rely on Apple's Closed sources that they'll never release.
 
@@ -153,10 +153,12 @@ Admins
 -  Clifford Sekel - insanedarwin@pd-devs.org
 
 Core Dev's
--  Ethan Sherriff - libsystem_ethan@pd-devs.org
+
 -  Avi Saven - avisaven@pd-devs.org
+-  Ethan Sherriff - libsystem_ethan@pd-devs.org
+-  Stuart Cook - sjc@pd-devs.org
 -  William Kent - wjk@pd-devs.org
 
 {% include footer.html %}
 
-© 2017 PureDarwin Foundation 
+© 2017 PureDarwin / PD-Devs
