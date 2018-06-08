@@ -10,8 +10,9 @@ Another goal of this project is to provide additional documentation. [More](htt
 
 # Teaser the Darwin Community!
 
-## Here's a ScreenShot of Our Latest Build!
+## Here's a ScreenShot and a Video of Our Latest Build!
 ![](Screenshots/Screenshot-2018-03-02.png)
+<iframe width="560" height="315" src="https://www.youtube.com/embed/oCYpCOq0RJg?rel=0&amp;start=30" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 ##### It's all most there guys!!! Work in progress but it's going along and yes all built from OpenSource based on 10.13.3 Released Code.
 
 Documentation and quick hints
