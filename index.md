@@ -5,10 +5,11 @@
 One current goal of this project is to provide a useful bootable IMG and Virtual of Darwin 10.x
 Another goal of this project is to provide additional documentation. [More](https://github.com/PureDarwin/PureDarwin/wiki/About)...
 
- 
+# For the Darwin Community!
 
+## Here's our Beta Build!
 
-# Teaser the Darwin Community!
+[PD-17.4-Beta Build](https://github.com/PureDarwin/PD-17.4-Beta)
 
 ## Here's a ScreenShot and a Video of Our Latest Build!
 ![](Screenshots/Screenshot-2018-03-02.png)
