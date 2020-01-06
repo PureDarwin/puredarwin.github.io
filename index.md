@@ -47,9 +47,6 @@ We are looking for supporters/coders that can help bring about faster Developmen
 Please join us on freenode.net #puredarwin for our info we have USA/UK/Europe Devs who which can receive hardware.
 Also Due to Spamming on IRC please contact bart- or InSaneDarwin on IRC for Invite to the channel
 
-### New PureDarwin Community Forum!
-Please come join Us over at [PureDarwin Developers](https://www.pd-devs.org)
-
 FAQ
 -------
 
