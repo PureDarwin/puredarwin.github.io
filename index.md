@@ -41,7 +41,7 @@ Update: Hey, guys, we're still moving along we will be providing an SDK that is 
 
 We are looking for supporters/coders that can help bring about faster Development of PureDarwin while showing Apple that there is still a community of Open Source Darwin Supporters that would like to see more openness from them whether it be from them releasing Binary Drivers for our use as they once did or open source projects like libxpc/launchd again.
 
-[PureDarwin's Current Build Status](https://puredarwin.github.io/Status.md)
+[PureDarwin's Current Build Status](Status.md)
 
 ### PureDarwin IRC Channel!
 Please join us on freenode.net #puredarwin for our info we have USA/UK/Europe Devs who which can receive hardware.
