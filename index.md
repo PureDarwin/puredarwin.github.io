@@ -128,6 +128,12 @@ you are skilled in C, C++, ObjC, Mac OS
 X, BSD, etc. you should consider joining
 #puredarwin on irc.freenode.net
 
+
+Sponsors
+-------
+MacStadium - for use of a Mac Mini for active development!
+![](https://uploads-ssl.webflow.com/5ac3c046c82724970fc60918/5c019d917bba312af7553b49_MacStadium-developerlogo.png)
+
 Credits
 -------
 
