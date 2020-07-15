@@ -128,6 +128,12 @@ you are skilled in C, C++, ObjC, Mac OS
 X, BSD, etc. you should consider joining
 #puredarwin on irc.freenode.net
 
+Follow Us!
+-------
+Twitter : [PureDarwin Twitter](https://www.twitter.com/puredarwin)
+Facebook : [PureDarwin Facebook](https://www.facebook.com/groups/puredarwin/)
+Reddit : [PureDarwin Reddit](https://www.reddit.com/r/PureDarwin/)
+
 
 Sponsors
 -------
