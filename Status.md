@@ -236,11 +236,11 @@ InSanes-iMac:InSaneDarwin insane$ ls -alh Packages/ | grep .root.tar.gz
 -rw-r--r--    1 root    admin   2.1M Apr 11 16:39 zsh.root.tar.gz
 ```
 
-#### Todos:
+### Todos:
 
 port libktrace and few others to Darwin. 
 
-#### Projects to look forward to on PureDarwin:
+### Projects to look forward to on PureDarwin:
 
 SwiftFoundation for Darwin
 
