@@ -240,7 +240,8 @@ InSanes-iMac:InSaneDarwin insane$ ls -alh Packages/ | grep .root.tar.gz
 
 port libktrace and few others to Darwin. 
 
-#### Projects to look forward to on PureDarwin
+#### Projects to look forward to on PureDarwin:
+
 SwiftFoundation for Darwin
 
 Darwin's Own AHCI Family OpenSource
