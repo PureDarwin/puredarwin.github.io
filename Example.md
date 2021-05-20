@@ -1,4 +1,4 @@
-###Example of how to build a plist for Darwinbuild if a project requires it and it's not in the default SDK from Xcode.
+### Example of how to build a plist for Darwinbuild if a project requires it and it's not in the default SDK from Xcode.
     
     <key>AppleI386PCI</key>
 		<dict>
