@@ -35,7 +35,7 @@ Additionally, as an interim measure, we have a [version of PureDarwin Xmas](http
 Status
 ------
 
-PureDarwin is currently working on AHCI/NMVe and eMMC family/drivers for Darwin only they will not support/work on Apple's macOS. We have a PoC(Proof of Concept) of a PureDarwin 17.6 QEMU image that's based on Apple's open source code of [macOS 10.13.3](https://opensource.apple.com/release/macos-10133.html) that's only currently available to devs who join our IRC channel (#puredarwin on FreeNode). 
+PureDarwin is currently working on AHCI/NMVe and eMMC family/drivers for Darwin only they will not support/work on Apple's macOS. We have a PoC(Proof of Concept) of a PureDarwin 17.6 QEMU image that's based on Apple's open source code of [macOS 10.13.3](https://opensource.apple.com/release/macos-10133.html) that's only currently available to devs who join our IRC channel (#puredarwin on Libera). 
 
 **Update:** Hey, guys, we're still moving along. We'll be providing an SDK that is native of an Apple release on opensource.apple.com and a modified version that is PureDarwin targeted, as we are working on a modified XNU kernel with some other BSD/POSIX features that don't require us to rely on Apple's Closed sources that they'll never release.
 
@@ -44,8 +44,7 @@ We are looking for supporters/coders that can help bring about faster Developmen
 [PureDarwin's Current Build Status](Status.md)
 
 ### PureDarwin IRC Channel!
-Please join us on freenode.net #puredarwin for our info we have USA/Europe Devs who can receive hardware.
-Due to spam on IRC, please contact bart- or InSaneDarwin on IRC for an invite to the channel
+Please join us in #puredarwin on irc.libera.chat for more info - we have USA/Europe Devs who can receive hardware.
 
 FAQ
 -------
@@ -62,7 +61,7 @@ The goal of this project is to make
 Darwin more usable by providing an
 installation ISO, documentation, and
 add-on software. You are welcome to
-join #puredarwin on irc.freenode.net
+join #puredarwin on irc.libera.chat
 if you would like to join PureDarwin
 development and to add to
 www.puredarwin.org
@@ -120,7 +119,7 @@ allow.
 Pretty much on all fronts. Especially if
 you are skilled in C, C++, ObjC, Mac OS
 X, BSD, etc. you should consider joining
-#puredarwin on irc.freenode.net
+#puredarwin on irc.libera.chat
 
 Follow Us!
 -------
