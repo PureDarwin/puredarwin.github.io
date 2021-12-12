@@ -1,4 +1,4 @@
-![](/puredarwin.png)
+![](/PureDarwin.png)
 
 [Darwin](http://en.wikipedia.org/wiki/Darwin_%28operating_system%29) is the open source operating system from Apple that forms the base for macOS. PureDarwin is a community project that aims to make Darwin more usable (some people think of it as the informal successor to OpenDarwin).
 
@@ -12,7 +12,7 @@ Another goal of this project is to provide additional documentation. [More](htt
 [PD-17.4-Beta Build](https://github.com/PureDarwin/PD-17.4-Beta)
 
 ## Here's a screenshot and a video of our latest build!
-![](Screenshots/Screenshot-2018-03-02.png)
+![](Screenshots/Screenshot 2018-03-02.png)
 <iframe width="560" height="315" src="https://www.youtube.com/embed/oCYpCOq0RJg?rel=0&amp;start=30" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
 Documentation and quick hints
@@ -34,7 +34,7 @@ Additionally, as an interim measure, we have a [version of PureDarwin Xmas](http
 Status
 ------
 
-PureDarwin is currently working on AHCI/NMVe and eMMC family/drivers for Darwin only they will not support/work on Apple's macOS. We have a PoC (Proof of Concept) of a PureDarwin 17.6 QEMU image that's based on Apple's open source code of [macOS 10.13.3](https://opensource.apple.com/release/macos-10133.html) that's only currently available to devs who join our IRC channel (#puredarwin on Freenode). 
+PureDarwin is currently working on AHCI/NMVe and eMMC family/drivers for Darwin, only they will not support/work on Apple's macOS. We have a PoC (Proof of Concept) of a PureDarwin 17.6 QEMU image that's based on Apple's open source code of [macOS 10.13.3](https://opensource.apple.com/release/macos-10133.html) that's only currently available to devs who join our IRC channel (#puredarwin on Freenode). 
 
 **Update:** Hey, guys, we're still moving along. We'll be providing an SDK that is native of an Apple release on opensource.apple.com and a modified version that is PureDarwin targeted, as we are working on a modified XNU kernel with some other BSD/POSIX features that don't require us to rely on Apple's closed sources that they'll never release.
 
