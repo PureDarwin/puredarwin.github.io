@@ -12,7 +12,7 @@ Another goal of this project is to provide additional documentation. [More](htt
 [PD-17.4-Beta Build](https://github.com/PureDarwin/PD-17.4-Beta)
 
 ## Here's a screenshot and a video of our latest build!
-![](Screenshots/Screenshot-2018-03-02.png)
+![](Screenshots/2018-03-02.png)
 <iframe width="560" height="315" src="https://www.youtube.com/embed/oCYpCOq0RJg?rel=0&amp;start=30" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
 Documentation and quick hints
