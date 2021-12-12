@@ -17,24 +17,22 @@ Another goal of this project is to provide additional documentation. [More](htt
 
 Documentation and quick hints
 -----------------------------
-Please see the [PureDarwin Wiki](https://github.com/PureDarwin/PureDarwin/wiki/), it would be very kind if anyone could contribute and fix the wiki as we have links and formatting there that is broken.
+Please see the [PureDarwin Wiki](https://github.com/PureDarwin/PureDarwin/wiki/), it would be very kind if anyone could contribute and fix the wiki as we have links and formatting there that are broken.
 
 See the [changelog](https://github.com/PureDarwin/PureDarwin/wiki/_history) for recent updates to the Wiki.
 
 Getting the code
 -------------------------
-We have a [GitHub repo](https://github.com/PureDarwin/), and encourage visitors to use it for both contribution, and checking out the latest build sources. 
+We have a [GitHub repo](https://github.com/PureDarwin/), and encourage visitors to use it for both contribution, and for checking out the latest build sources.
 
 Additionally, as an interim measure, we have a [version of PureDarwin Xmas](https://github.com/PureDarwin/LegacyDownloads/releases/download/PDXMASNBE01/NewBootEnvironment-XMas-1.7z) with a fixed boot sector, which is compatible with QEMU.
-
-## **Something to the Open Source Community!**
 
 ### **Here's a [guide](https://github.com/PureDarwin/Building-XNU-16.7-Kernel-Guide/) on building XNU of the 16.7 (10.12.6) kernel!** 
 
 Status
 ------
 
-PureDarwin is currently working on AHCI/NMVe and eMMC family/drivers for Darwin, only they will not support/work on Apple's macOS. We have a PoC (Proof of Concept) of a PureDarwin 17.6 QEMU image that's based on Apple's open source code of [macOS 10.13.3](https://opensource.apple.com/release/macos-10133.html) that's only currently available to devs who join our IRC channel (#puredarwin on Freenode). 
+PureDarwin is currently working on AHCI/NVMe and eMMC family/drivers for Darwin, only they will not support/work on Apple's macOS. We have a PoC (Proof of Concept) of a PureDarwin 17.6 QEMU image that's based on Apple's open source code of [macOS 10.13.3](https://opensource.apple.com/release/macos-10133.html) that's only currently available to devs who join our IRC channel (#puredarwin on Freenode). 
 
 **Update:** Hey, guys, we're still moving along. We'll be providing an SDK that is native of an Apple release on opensource.apple.com and a modified version that is PureDarwin targeted, as we are working on a modified XNU kernel with some other BSD/POSIX features that don't require us to rely on Apple's closed sources that they'll never release.
 
