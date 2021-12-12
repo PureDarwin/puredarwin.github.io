@@ -1,2 +1,2 @@
 # puredarwin.github.io
-WebSite for PureDarwin Project
+Website for the PureDarwin project
