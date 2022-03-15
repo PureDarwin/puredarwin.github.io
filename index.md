@@ -49,13 +49,13 @@ FAQ
 
 ### What is Darwin?
 
-Darwin is the open source operating
-system from Apple that forms the
-base for macOS.
+Darwin is an open-source *Unix-like* 
+operating system released by Apple Inc.
+that forms the base for macOS.
 
 ### What is PureDarwin?
 
-The goal of this project is to make
+The goal of PureDarwin is to make
 Darwin more usable by providing an
 installation ISO, documentation, and
 add-on software. You are welcome to
@@ -76,7 +76,7 @@ and others.
 
 ### Why spend time on Darwin?
 
-For learning and for fun.
+For learning BSD stuff and for fun.
 
 ### How does PureDarwin relate to the former OpenDarwin project?
 
