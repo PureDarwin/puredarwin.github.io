@@ -1,3 +1,4 @@
+# Welcome to PureDarwin
 ![](/puredarwin.png)
 
 [Darwin](http://en.wikipedia.org/wiki/Darwin_%28operating_system%29) is the open source operating system from Apple that forms the base for macOS. PureDarwin is a community project that aims to make Darwin more usable (some people think of it as the informal successor to OpenDarwin).
@@ -5,13 +6,13 @@
 One current goal of this project is to provide useful bootable media of Darwin 10.x.
 Another goal of this project is to provide additional documentation. [More](https://github.com/PureDarwin/PureDarwin/wiki/About)...
 
-# For the Darwin community!
+## For the Darwin community!
 
-## Here's our Beta build!
+### Here's our Beta build!
 
 [PD-17.4-Beta Build](https://github.com/PureDarwin/PD-17.4-Beta)
 
-## Here's a screenshot and a video of our latest build!
+### Here's a screenshot and a video of our latest build!
 ![](Screenshots/2018-03-02.png)
 <iframe width="560" height="315" src="https://www.youtube.com/embed/oCYpCOq0RJg?rel=0&amp;start=30" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
@@ -27,7 +28,7 @@ We have a [GitHub repo](https://github.com/PureDarwin/), and encourage visitors 
 
 Additionally, as an interim measure, we have a [version of PureDarwin Xmas](https://github.com/PureDarwin/LegacyDownloads/releases/download/PDXMASNBE01/NewBootEnvironment-XMas-1.7z) with a fixed boot sector, which is compatible with QEMU.
 
-### **Here's a [guide](https://github.com/PureDarwin/Building-XNU-16.7-Kernel-Guide/) on building XNU of the 16.7 (10.12.6) kernel!** 
+#### **Here's a [guide](https://github.com/PureDarwin/Building-XNU-16.7-Kernel-Guide/) on building XNU of the 16.7 (10.12.6) kernel!** 
 
 Status
 ------
@@ -40,20 +41,20 @@ We are looking for supporters/coders that can help bring about faster developmen
 
 [PureDarwin's Current Build Status](Status.md)
 
-### PureDarwin IRC Channel!
+#### PureDarwin IRC Channel!
 Please join us on freenode.net #puredarwin for our info we have USA/Europe Devs who can receive hardware.
 Due to spam on IRC, please contact bart- or InSaneDarwin on IRC for an invite to the channel.
 
 FAQ
 -------
 
-### What is Darwin?
+#### What is Darwin?
 
 Darwin is an open-source *Unix-like* 
 operating system released by Apple Inc.
 that forms the base for macOS.
 
-### What is PureDarwin?
+#### What is PureDarwin?
 
 The goal of PureDarwin is to make
 Darwin more usable by providing an
@@ -64,7 +65,7 @@ if you would like to join PureDarwin
 development and to add to
 www.puredarwin.org
 
-### How usable is PureDarwin?
+#### How usable is PureDarwin?
 
 PureDarwin can run on VMware as well
 as on real Intel-based hardware. We are
@@ -74,11 +75,11 @@ with MacPorts running on PureDarwin,
 including ssh, apache2, tightvnc, Xfce,
 and others.
 
-### Why spend time on Darwin?
+#### Why spend time on Darwin?
 
 For learning BSD stuff and for fun.
 
-### How does PureDarwin relate to the former OpenDarwin project?
+#### How does PureDarwin relate to the former OpenDarwin project?
 
 Although some people have been
 seeing PureDarwin as the informal
@@ -94,12 +95,12 @@ to be able to benefit from the valuable
 contributions that were rooted in the
 OpenDarwin project.
 
-### How does PureDarwin relate to the DarwinBuild project?
+#### How does PureDarwin relate to the DarwinBuild project?
 
 DarwinBuild is one of PureDarwin‘s
 main upstream projects.
 
-### What does the "Pure" in PureDarwin stand for?
+#### What does the "Pure" in PureDarwin stand for?
 
 Pure as in beer! It means that we just use components specifically released
 by Apple for use with Darwin, as well as other Open Source components (coll
@@ -112,7 +113,7 @@ and add to the upstream code, to
 the extent that the respective licenses
 allow.
 
-### How can I help PureDarwin?
+#### How can I help PureDarwin?
 
 Pretty much on all fronts. Especially if
 you are skilled in C, C++, ObjC, Mac OS
@@ -128,12 +129,6 @@ Facebook: [PureDarwin Facebook](https://www.facebook.com/groups/puredarwin/)
 Reddit: [PureDarwin Reddit](https://www.reddit.com/r/PureDarwin/)
 
 Discord: [PureDarwin Discord](https://discord.gg/9kz8XXRRcT)
-
-
-Sponsors
--------
-MacStadium - for use of a Mac Mini for active development!
-![](https://uploads-ssl.webflow.com/5ac3c046c82724970fc60918/5c019d917bba312af7553b49_MacStadium-developerlogo.png)
 
 Credits
 -------
@@ -154,19 +149,6 @@ We would like to thank
 -   The folks at #macosforge, #macports, #macdev, #opendarwin, #puredarwin, 
 -   Everyone else contributing to Darwin 
 
-Contact Us! 
--------
-Admins
--  Ferdinand Klinzer - bart@pd-devs.org
--  Clifford Sekel - insanedarwin@pd-devs.org
-
-Core Dev's
-
--  Avi Saven - avisaven@pd-devs.org
--  Ethan Sherriff - libsystem_ethan@pd-devs.org
--  Stuart Cook - sjc@pd-devs.org
--  William Kent - wjk@pd-devs.org
-
 {% include footer.html %}
 
-© 2017 PureDarwin / PD-Devs
+© 2024 PureDarwin / PD-Devs
