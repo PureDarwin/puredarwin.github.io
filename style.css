@@ -39,6 +39,7 @@ footer ul {
   padding-bottom: 60px;
 }
 .bg-hero {
+  background-color: #151515;
   background: url('./images/bg-hero.svg');
   background-size: cover;
   background-repeat: no-repeat;
