@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PureDarwin | Status</title>
+    <meta property="og:title" content="Welcome to PureDarwin" />
+    <meta property="og:locale" content="en_US" />
+    <meta name="description" content="Moving the Darwin community in the right direction!" />
+    <meta property="og:description" content="Moving the Darwin community in the right direction!" />
+    <link rel="canonical" href="https://www.puredarwin.org/" />
+    <meta property="og:url" content="https://www.puredarwin.org/" />
+    <meta property="og:site_name" content="PureDarwin" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary" />
+    <meta property="twitter:title" content="Welcome to PureDarwin" />
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link href="style.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="./favicon.png">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/2.1.0/showdown.min.js"></script>
+</head>
+
+
+<body style="background: #F6F6F6;">
+
+    <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-black">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <img src="images/logo-mark-text-fff.svg" alt="PureDarwin" height="30px" class="pb-1">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+                aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarText">
+                <span class="me-auto"></span>
+                <ul class="navbar-nav mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page"
+                            href="https://puredarwinwiki.amankhanna.me/#/about/_About">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/#beta">Download</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://puredarwinwiki.amankhanna.me/">Documentation</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="status.html">Status</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link"
+                            href="https://puredarwinwiki.amankhanna.me/#/about/_About?id=frequently-asked-questions">FAQ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://github.com/pureDarwin/" target="_blank">GitHub</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-11 mt-5 pt-5">
+                <div id="content">You must have jquery enabled to view this page.</div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <div style="height:20vh"></div>
+    <footer class="py-4" style="background-color: #E5E4E4;">
+        <div class="container">
+            <div class="row p-4">
+                <div class="col-12 col-lg-6 text-center text-lg-start">
+                    <img src="images/logo-mark-text-1B1B1B.svg" height="30px">
+                    <br>
+                    <br>
+
+                </div>
+
+                <div class="col-12 col-lg-6">
+                    <div class="text-center text-lg-end text-black">
+                        © 2024 Copyright PureDarwin. All rights reserved.
+                        <br>
+                        <small>
+                            <ul class="mt-2 text-right">
+
+                                <li><a href="https://puredarwinwiki.amankhanna.me/#/?id=credits"
+                                        class="text-black">Project Credits</a></li>
+                                <li>ysUI Icons are licensed under MIT License</li>
+                                <li><a href="http://www.hexley.com/" class="text-black" target="_blank">Hexley DarwinOS
+                                        Mascot</a> Copyright 2000 by Jon Hooper.</li>
+                                <li>Site Theme by <a href="https://github.com/kevdoy" target="_blank"
+                                        class="text-black">@KevDoy</a> on <a
+                                        href="https://github.com/PureDarwin/puredarwin.github.io" class="text-black"
+                                        target="_blank">GitHub</a></li>
+
+                            </ul>
+                        </small>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        </div>
+        </div>
+        <div>
+    </footer>
+
+
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+
+
+    <script>
+        var conv = new showdown.Converter();
+
+        $.get("./md/status.md", function (data) {
+            document.getElementById('content').innerHTML = conv.makeHtml(data);
+            console.log(conv.makeHtml(data));
+        });
+
+    </script>
+
+
+</body>
+
+</html>
