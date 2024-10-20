@@ -1,4 +1,5 @@
-- [Home](/)
+- [Home](https://www.puredarwin.org)
+- [Docs](/)
 - [About](/about/_About)
 - [Developers](/developers/_Developers)
 - [Users](/users/_Users)

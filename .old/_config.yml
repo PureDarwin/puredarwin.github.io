@@ -1,8 +1,0 @@
-title: "PureDarwin"
-description: Moving the Darwin community in the right direction!
-google_analytics: 
-show_downloads: false
-theme: jekyll-theme-slate
-
-gems:
-  - jekyll-mentions
