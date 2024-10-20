@@ -1,6 +1,6 @@
 # Welcome
 
-![](/img/Open%20now.jpg)
+![](/img/pd-logo-bg000.jpg)
 
 [Darwin](http://en.wikipedia.org/wiki/Darwin_%28operating_system%29) is the open source operating system from Apple that forms the base for macOS, iOS, tvOS, etc.
 
