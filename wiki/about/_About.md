@@ -50,4 +50,8 @@ Probably when the DarwinBuild project and the MacPorts project will be able to r
 
 ### PureDarwin Logo
 
-![](/img/PureDarwin.png)
+![PureDarwin Logo](/img/homepage/logo-mark-text-1B1B1B-medium.svg)
+
+### PureDarwin Mascot
+
+![Hexley](/img/PureDarwin.png)
