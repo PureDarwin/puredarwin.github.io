@@ -40,7 +40,7 @@ footer ul {
 }
 .bg-hero {
   background-color: #151515;
-  background: url('./images/bg-hero.svg');
+  background: url('./img/homepage/bg-hero.svg');
   background-size: cover;
   background-repeat: no-repeat;
 }

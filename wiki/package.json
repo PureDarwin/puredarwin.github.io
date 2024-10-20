@@ -1,0 +1,9 @@
+{
+	"scripts": {
+		"serve": "vite --open --host",
+		"sidebar": "node sidebar.js"
+	},
+	"devDependencies": {
+		"vite": "^4.4.9"
+	}
+}
