@@ -3,7 +3,7 @@ Website for the PureDarwin project
 
 
 ### Credits
-[ninjadev64](https://github.com/ninjadev64) for creating the new docsify-based documentation site.
+[ninjadev64](https://github.com/ninjadev64) for creating the new docsify-based documentation and [wiki clean-up](https://github.com/ninjadev64/puredarwin-wiki/commits/main/).
 
 [KevDoy](https://github.com/kevdoy) for the new homepage and PureDarwin logo.
 
