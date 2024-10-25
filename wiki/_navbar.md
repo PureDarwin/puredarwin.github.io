@@ -4,3 +4,5 @@
 - [Developers](/developers/_Developers)
 - [Users](/users/_Users)
 - [News](/news/_News)
+- [Download](https://www.puredarwin.org/#beta)
+- [GitHub](https://github.com/pureDarwin/)
