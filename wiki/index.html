@@ -1,36 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<title> PureDarwin Wiki </title>
-		<link rel="icon" href="/img/PureDarwin.png" />
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css" />
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-plugin-toc@1.3.2/dist/light.css">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	</head>
 
-	<body>
-		
-		<div id="app"></div>
-		<script>
-			window.$docsify = {
-				homepage: "Home.md",
-				auto2top: true,
-				loadNavbar: true,
-				loadSidebar: true,
-				relativePath: true,
-				alias: { "/.*/_navbar.md": "/_navbar.md", "/_sidebar.md": "/_navbar.md" },
-				markdown: {
-					renderer: { image: (href, title) => `<img src="${href}" data-origin="${href}" alt="${title}">` }
-				},
-				toc: {
-					tocMaxLevel: 3,
-					target: "h2, h3, h4, h5, h6",
-					ignoreHeaders:  ["<!-- {docsify-ignore} -->", "<!-- {docsify-ignore-all} -->"]
-				}
+<head>
+	<meta charset="UTF-8" />
+	<title> PureDarwin Wiki </title>
+	<link rel="icon" href="/img/PureDarwin.png" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-plugin-toc@1.3.2/dist/light.css">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+	<style>
+		.app-nav {
+			margin: 0 0 20px 0;
+		}
+
+		.app-nav.no-badge {
+			margin-right: 0;
+		}
+
+		.nav-link {
+			display: block !important;
+			padding: var(--bs-nav-link-padding-y) var(--bs-nav-link-padding-x) !important;
+			font-size: var(--bs-nav-link-font-size) !important;
+			font-weight: var(--bs-nav-link-font-weight) !important;
+			color: var(--bs-nav-link-color) !important;
+			text-decoration: none !important;
+			transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out !important;
+		}
+
+		.content {
+			margin-top: 30px;
+		}
+	</style>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+
+<body>
+	<nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-black" style="z-index: 9999;">
+		<div class="container">
+			<a class="navbar-brand" href="/">
+				<img src="../img/homepage/logo-mark-text-fff.svg" alt="PureDarwin" height="30px" class="pb-1">
+			</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+				aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarText">
+				<span class="me-auto"></span>
+				<ul class="navbar-nav mb-2 mb-lg-0">
+					<li class="nav-item">
+						<a class="nav-link" href="/">Home</a>
+					  </li>
+					  <li class="nav-item">
+						<a class="nav-link" href="/wiki">Docs</a>
+					  </li>
+					  <li class="nav-item">
+						<a class="nav-link" href="/wiki#/about/_About">About</a>
+					  </li>
+					  <li class="nav-item">
+						<a class="nav-link" href="/wiki#/developers/_Developers">Developers</a>
+					  </li>
+					  <li class="nav-item">
+						<a class="nav-link" href="/wiki#/users/_Users">Users</a>
+					  </li>
+					  <li class="nav-item">
+						<a class="nav-link" href="/wiki#/news/_News">News</a>
+					  </li>
+					  <li class="nav-item">
+						<a class="nav-link" href="/#beta">Download</a>
+					  </li>
+					  <li class="nav-item">
+						<a class="nav-link" href="https://github.com/pureDarwin/" target="_blank">GitHub</a>
+					  </li>
+				</ul>
+			</div>
+		</div>
+		</div>
+	</nav>
+	<div id="app"></div>
+	<script>
+		window.$docsify = {
+			homepage: "Home.md",
+			auto2top: true,
+			loadSidebar: true,
+			relativePath: true,
+			alias: { "/.*/_navbar.md": "/_navbar.md", "/_sidebar.md": "/_navbar.md" },
+			markdown: {
+				renderer: { image: (href, title) => `<img src="${href}" data-origin="${href}" alt="${title}">` }
+			},
+			toc: {
+				tocMaxLevel: 3,
+				target: "h2, h3, h4, h5, h6",
+				ignoreHeaders: ["<!-- {docsify-ignore} -->", "<!-- {docsify-ignore-all} -->"]
 			}
-		</script>
-		<script src="https://cdn.jsdelivr.net/npm/docsify@4"></script>
-		<script src="https://cdn.jsdelivr.net/npm/docsify-plugin-toc@1.3.2/dist/docsify-plugin-toc.min.js"></script>
-	</body>
+		}
+	</script>
+	<script src="https://cdn.jsdelivr.net/npm/docsify@4"></script>
+	<script src="https://cdn.jsdelivr.net/npm/docsify-plugin-toc@1.3.2/dist/docsify-plugin-toc.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+		crossorigin="anonymous"></script>
+</body>
+
 </html>
