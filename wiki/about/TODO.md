@@ -1,5 +1,7 @@
 # TODO
 
+![This article is outdated and its information and may no longer relevant.](/img/notice/article-oudated-oct2024.svg)
+
 Would you like to help out with PureDarwin?
 Don't know where to start? 
 

@@ -1,5 +1,7 @@
 # Wiki
 
+![This article is outdated and its information and may no longer relevant.](/img/notice/article-oudated-oct2024.svg)
+
 ## State
 
 This wiki originated as a [Google Site](https://sites.google.com/a/puredarwin.org/puredarwin/), then was migrated to a GitHub Wiki, and then ported to this website.

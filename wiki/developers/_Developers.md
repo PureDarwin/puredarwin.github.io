@@ -1,6 +1,8 @@
 For developers
 ==============
 
+![This article is outdated and its information and may no longer relevant.](/img/notice/article-oudated-oct2024.svg)
+
 ### Prerequisites ###
 In order to do any serious PureDarwin development, please familiarize yourself with the [DarwinBuild](developers/darwinbuild.html) project and the [MacPorts](developers/macports.1.html) project, as these are the key components of building software for Darwin.
 ### PureDarwin releases ###

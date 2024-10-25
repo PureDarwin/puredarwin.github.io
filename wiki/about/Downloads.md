@@ -1,5 +1,7 @@
 # Downloads
 
+![This article is outdated and its information and may no longer relevant.](/img/notice/article-oudated-oct2024.svg)
+
 To the best of our knowledge, we followed all [licenses](Legal) that apply.
 Please [contact us](Contact) if you believe otherwise and we will work immediately to correct the situation.
 

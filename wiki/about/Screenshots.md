@@ -1,5 +1,7 @@
 # Screenshots
 
+![This article is outdated and its information and may no longer relevant.](/img/notice/article-oudated-oct2024.svg)
+
 ![](/img/screenshots/pd201001.jpg)
 
 PureDarwin 9 running XFCE from MacPorts
