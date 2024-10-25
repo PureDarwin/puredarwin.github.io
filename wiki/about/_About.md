@@ -1,5 +1,7 @@
 # About
 
+![This article is outdated and its information and may no longer relevant.](/img/notice/article-oudated-oct2024.svg)
+
 This page describes some part of the PureDarwin project and the motivation behind it, as well as how it relates to other projects.
 
 ### Goals
