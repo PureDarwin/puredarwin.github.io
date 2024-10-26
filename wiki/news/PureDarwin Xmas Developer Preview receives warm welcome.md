@@ -1,5 +1,8 @@
 # PureDarwin Xmas Developer Preview receives warm welcome
 
+![This article is outdated and its information and may no longer relevant.](/img/notice/article-oudated-oct2024.svg)
+
+
 ![](/img/downloads/xmas/PD-Xmas.jpg)
 
 "(...) Most of you will know that the underlying core set of components of Mac OS X and the iPhone operating system are released under the Apple Public Source License, an FSF-approved open source license. Few of you, however, will have actually used Darwin in any other form than Mac OS X or the iPhone OS. Despite numerous projects attempting so, Darwin has never gained any significant traction apart from Apple's own interest. The PureDarwin project tries to rise from the ashes of the OpenDarwin project, and has just released a Christmas developer preview. (...)"

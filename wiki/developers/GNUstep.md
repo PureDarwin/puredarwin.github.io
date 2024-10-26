@@ -1,5 +1,8 @@
 # GNUstep
 
+![This article is outdated and its information and may no longer relevant.](/img/notice/article-oudated-oct2024.svg)
+
+
 GNUstep is a cross-platform environment that provides partially Cocoa-compatible frameworks.
 This page is a work in progress and is currently just a placeholder and space for collecting all things related to GNUstep.
 

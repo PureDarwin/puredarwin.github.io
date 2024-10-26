@@ -1,5 +1,9 @@
 GNOME
 =====
+
+![This article is outdated and its information and may no longer relevant.](/img/notice/article-oudated-oct2024.svg)
+
+
 <div style="display:inline;float:right;margin-top:5px;margin-right:10px;margin-bottom:5px;margin-left:10px">
 ![](/img/users/gnome/gnome-logo.jpg)
 GNOME is a graphical desktop environment and development platform. For more information, see <http://www.gnome.org/>.

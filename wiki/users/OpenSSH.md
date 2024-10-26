@@ -1,6 +1,9 @@
 OpenSSH
 =======
 
+![This article is outdated and its information and may no longer relevant.](/img/notice/article-oudated-oct2024.svg)
+
+
 This page describes how to use ssh (SSH client and OpenSSH daemon) on PureDarwin.
 
 ### Installing the SSH server

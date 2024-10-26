@@ -1,5 +1,9 @@
 Halting the system
 ==================
+
+![This article is outdated and its information and may no longer relevant.](/img/notice/article-oudated-oct2024.svg)
+
+
 The command `halt' is used to shut down the system.
 
 *kext_tools* needs to be installed for \`halt' to work properly, because \`halt' calls *com.apple.KernelExtensionServer* and locks \`kextd'.

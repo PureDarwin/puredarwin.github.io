@@ -1,5 +1,9 @@
 RPM Package Manager
 ===================
+
+![This article is outdated and its information and may no longer relevant.](/img/notice/article-oudated-oct2024.svg)
+
+
 <div style="display:inline;float:right;margin-top:5px;margin-right:10px;margin-bottom:5px;margin-left:10px">
 [![](http://rpm5.org/files/arc/artwork/rpm-logo-150x150.png)](http://rpm5.org/files/arc/artwork/rpm-logo-150x150.png)
 The RPM Package Manager is a package manager and package format commonly used for Linux distributions. RPM also runs on Darwin. MacPorts is capable of producing RPMs including depencency information.

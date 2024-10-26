@@ -1,5 +1,9 @@
 The Installer
 =============
+
+![This article is outdated and its information and may no longer relevant.](/img/notice/article-oudated-oct2024.svg)
+
+
 This page is a "request for comments" related to the general installation process. Please feel free to contribute and comment.
 Through the general install process the installer should be able to also install itself.
 

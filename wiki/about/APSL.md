@@ -1,5 +1,8 @@
 # APSL
 
+![This article is outdated and its information and may no longer relevant.](/img/notice/article-oudated-oct2024.svg)
+
+
 Please obtain, read, and make sure you understand the [full text of the APSL](https://opensource.apple.com/apsl/).
 For a quick first glance, here is an excerpt (emphasis added):
 ```

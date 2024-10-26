@@ -1,5 +1,8 @@
 # BinaryDrivers
 
+![This article is outdated and its information and may no longer relevant.](/img/notice/article-oudated-oct2024.svg)
+
+
 Apple has been making available certain drivers in binary form under the Apple Binary License. Without these, Darwin as coming from Apple in its current form would not be usable (in fact, not even the XNU kernel could boot). However, third parties have been developing replacements for some of the key binary components, e.g., [GenericPlatform-darwin10.zip](http://smuckola.org/projects/puredarwin/GenericPlatform-darwin10.zip).
 
 Here is an incomplete list of such drivers. This is for quick reference only, please refer to official Apple documentation for authoritative information.

@@ -1,6 +1,9 @@
 Bonjour
 =======
 
+![This article is outdated and its information and may no longer relevant.](/img/notice/article-oudated-oct2024.svg)
+
+
 ![](http://upload.wikimedia.org/wikipedia/en/9/91/Apple_Bonjour_Icon.png)
 
 Bonjour is Apple's implementation of the [Zeroconf](http://en.wikipedia.org/wiki/Zeroconf) service discovery protocol. mDNSResponder is the open source software from Apple that implements Bonjour in both Mac OS X and Darwin.

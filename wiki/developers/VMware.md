@@ -1,6 +1,9 @@
 VMware
 ======
 
+![This article is outdated and its information and may no longer relevant.](/img/notice/article-oudated-oct2024.svg)
+
+
 <div style="margin:5px 10px;display:inline;float:right">
 !(../_/rsrc/1247515808697/developers/vmware/vmware.gif)(vmware/vmware.gif%3Fattredirects=0)
 

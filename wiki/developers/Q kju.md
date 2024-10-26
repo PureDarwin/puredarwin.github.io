@@ -1,5 +1,9 @@
 Q - [kju:]
 ============
+
+![This article is outdated and its information and may no longer relevant.](/img/notice/article-oudated-oct2024.svg)
+
+
 Some QEMU attempts through [Q](http://www.kju-app.org/), A CPU emulator for Macintosh.
 
 Status

@@ -1,6 +1,9 @@
 Apache
 ======
 
+![This article is outdated and its information and may no longer relevant.](/img/notice/article-oudated-oct2024.svg)
+
+
 Apache is the most popular HTTP server software in use. It can be installed on PureDarwin, e.g., from the MacPorts project.
 
 Installing apache

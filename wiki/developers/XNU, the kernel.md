@@ -1,6 +1,9 @@
 XNU, the kernel
 ===============
 
+![This article is outdated and its information and may no longer relevant.](/img/notice/article-oudated-oct2024.svg)
+
+
 **Please note:** This page has not been updated to take changes made in Darwin 10, or later into account.
 
 This page is about the XNU kernel.

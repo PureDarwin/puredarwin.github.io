@@ -1,5 +1,9 @@
 otool
 =====
+
+![This article is outdated and its information and may no longer relevant.](/img/notice/article-oudated-oct2024.svg)
+
+
 otool is a tool that, among other things, can show which shared libraries an application needs to run (similar to "ldd" on Linux).
 
 ### When to use otool

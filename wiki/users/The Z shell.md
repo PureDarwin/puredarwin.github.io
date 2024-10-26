@@ -1,5 +1,9 @@
 The Z shell
 ===========
+
+![This article is outdated and its information and may no longer relevant.](/img/notice/article-oudated-oct2024.svg)
+
+
 <div style="margin:5px 10px;display:inline;float:right">
 ![](/img/users/zsh/wizard.gif)
 This page is about using zsh on PureDarwin system.

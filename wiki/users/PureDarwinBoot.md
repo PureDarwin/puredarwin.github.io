@@ -1,5 +1,9 @@
 PureDarwinBoot
 ==============
+
+![This article is outdated and its information and may no longer relevant.](/img/notice/article-oudated-oct2024.svg)
+
+
 PureDarwin Boot is a minimal Darwin distribution, based on Nano, with a few extra packages added and many unnecessary files removed. It takes up approximately 64Mb, and can be compressed down to 28Mb. By default it runs an installation script (based on the one from Darwin 8, which will partition and format a disk, install bootloaders, and copy across a number of root archives), but you can also drop into a shell where many useful diagnostic and repair tools are available to you.
 
 A binary root of PureDarwin Boot is available below.

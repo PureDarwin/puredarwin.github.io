@@ -1,5 +1,9 @@
 Links
 =====
+
+![This article is outdated and its information and may no longer relevant.](/img/notice/article-oudated-oct2024.svg)
+
+
 #### Apple
 -   [Apple Open Source](http://www.opensource.apple.com/darwinsource/)
 -   [Apple man pages](http://developer.apple.com/documentation/Darwin/Reference/ManPages/) (command line documentation)

@@ -1,6 +1,9 @@
 Prerequisites
 =============
 
+![This article is outdated and its information and may no longer relevant.](/img/notice/article-oudated-oct2024.svg)
+
+
 This list does not consider the PowerPC platform since no PowerPC hardware is available in the marketplace any more to our knowledge, other than used vintage Macs (which already come with Mac OS X).
 
 +--------------------------------------+--------------------------------------+

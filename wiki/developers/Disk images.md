@@ -1,5 +1,8 @@
 # Disk images
 
+![This article is outdated and its information and may no longer relevant.](/img/notice/article-oudated-oct2024.svg)
+
+
 This page describes various formats for disk images used in Darwin, Mac OS X, and Linux.
  This is a work in progress. Please add to the table.
 

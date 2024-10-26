@@ -1,5 +1,9 @@
 Live CD
 =======
+
+![This article is outdated and its information and may no longer relevant.](/img/notice/article-oudated-oct2024.svg)
+
+
 Live CDs are a very popular way to distribute operating systems.
 
 ### How Live CDs work

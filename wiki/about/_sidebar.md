@@ -4,6 +4,7 @@
 - [BinaryDrivers](/about/BinaryDrivers.md)
 - [Contact](/about/Contact.md)
 - [Downloads](/about/Downloads.md)
+- [Hexley](/about/Hexley.md)
 - [Legal](/about/Legal.md)
 - [Open](/about/Open.md)
 - [Screenshots](/about/Screenshots.md)

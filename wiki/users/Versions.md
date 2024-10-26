@@ -1,5 +1,8 @@
 Versions
 ========
+
+![This article is outdated and its information and may no longer relevant.](/img/notice/article-oudated-oct2024.svg)
+
 |  Version|  OS X Version        | Name          |  Build  |  XNU          
 |-----------|------------------------|-----------------|-----------|------------
 |  9.6.0  |  10.5.6              |  Leopard      |  9G55   |  1228.9.59 

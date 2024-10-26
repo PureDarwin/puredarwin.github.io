@@ -1,5 +1,9 @@
 X.Org
 =====
+
+![This article is outdated and its information and may no longer relevant.](/img/notice/article-oudated-oct2024.svg)
+
+
 <div style="margin:5px 10px;display:inline;float:right">
 [![](http://upload.wikimedia.org/wikipedia/commons/thumb/9/90/X.Org_Logo.svg/431px-X.Org_Logo.svg.png)](http://upload.wikimedia.org/wikipedia/commons/thumb/9/90/X.Org_Logo.svg/431px-X.Org_Logo.svg.png)
 This page is about X.Org on Darwin.
