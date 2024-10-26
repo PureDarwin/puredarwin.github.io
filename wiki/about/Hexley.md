@@ -16,7 +16,7 @@ Visit <http://www.hexley.com/> for the full story.
 
 
 
-Hexley has also appeared in [supertuxkart](https://supertuxkart.net/)..
+Hexley has also appeared in [supertuxkart](https://supertuxkart.net/).
 
 
 ![](/img/curious/hexley/hexley-supertuxkart.jpg)

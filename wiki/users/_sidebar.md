@@ -6,7 +6,6 @@
 - [Compatible Hardware](/users/Compatible%20Hardware.md)
 - [Filesystem hierarchy](/users/Filesystem%20hierarchy.md)
 - [GNOME](/users/GNOME.md)
-- [Hexley](/users/Hexley.md)
 - [Installing PureDarwin](/users/Installing%20PureDarwin.md)
 - [Links](/users/Links.md)
 - [Netatalk](/users/Netatalk.md)
