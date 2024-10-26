@@ -1,5 +1,9 @@
 Armoring PureDarwin
 ===================
+
+![This article is outdated and its information and may no longer relevant.](/img/notice/article-oudated-oct2024.svg)
+
+
 This page describes some ways to hardening PureDarwin (and intrinsically Darwin 9).
 Please feel free to contribute.
 

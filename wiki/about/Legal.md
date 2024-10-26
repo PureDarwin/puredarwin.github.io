@@ -1,5 +1,8 @@
 # Legal
 
+![This article is outdated and its information and may no longer relevant.](/img/notice/article-oudated-oct2024.svg)
+
+
 This part is as complex as the technical one.
 The PureDarwin project tries and tends to respect as much as possible the legal aspects involved and avoid conflicts, however this process must be at least improved, and at best maintained. Feel free to contact us if you would like to give advice or contribute.
 

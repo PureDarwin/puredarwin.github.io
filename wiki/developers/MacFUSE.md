@@ -1,5 +1,9 @@
 MacFUSE
 =======
+
+![This article is outdated and its information and may no longer relevant.](/img/notice/article-oudated-oct2024.svg)
+
+
 <div style="display:inline;float:right;margin-top:5px;margin-right:10px;margin-bottom:5px;margin-left:10px">
 ![](/img/developers/macfuse/macfuse-icon.png)
 [MacFUSE](http://code.google.com/p/macfuse/) is a filesystem in userland. It runs well on PureDarwin and can be used to mount sshfs, ramdisk and other FUSE-based filesystems. It is, according to its maintainers, "The Easiest and Fastest Way to Create File Systems for Mac OS X" (and PureDarwin, one might add).

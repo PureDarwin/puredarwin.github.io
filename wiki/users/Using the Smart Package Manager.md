@@ -1,5 +1,8 @@
 Using the Smart Package Manager
 ===============================
+
+![This article is outdated and its information and may no longer relevant.](/img/notice/article-oudated-oct2024.svg)
+
 Smart manages RPM packages on PureDarwin. This page describes how to use it.
 
 ### What is smart

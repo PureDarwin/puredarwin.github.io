@@ -1,5 +1,9 @@
 top
 ===
+
+![This article is outdated and its information and may no longer relevant.](/img/notice/article-oudated-oct2024.svg)
+
+
 This page is about the well-known UNIX tool 'top', which display and update sorted information about processes, but differs a little bit from the 'top' on other BSDs and/or GNU/Linux.
 
 **Problem:** logged as a user, `top' fails in "Bus error" as illustrated below:

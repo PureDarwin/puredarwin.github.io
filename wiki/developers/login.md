@@ -1,5 +1,9 @@
 login
 =====
+
+![This article is outdated and its information and may no longer relevant.](/img/notice/article-oudated-oct2024.svg)
+
+
 Since multi-user support is available, managing logins (so that users run with only the permissions they have been granted) follows naturally.
 
 ### Console login

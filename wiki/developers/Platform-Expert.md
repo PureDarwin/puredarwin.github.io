@@ -1,6 +1,9 @@
 Platform Expert
 ===============
 
+![This article is outdated and its information and may no longer relevant.](/img/notice/article-oudated-oct2024.svg)
+
+
 The Platform Expert is a vital part of the Darwin kernel environment. It contains the hardware abstraction layer, that is hardware specific parts of the kernel space. The Platform Expert for Intel machines is contained in `AppleACPIPlatform.kext`, which is available under the Apple Binary Driver License.
 
 ### What the Platform Expert does

@@ -1,6 +1,9 @@
 NetBSD and the experimental Darwin binary compatibility
 =======================================================
 
+![This article is outdated and its information and may no longer relevant.](/img/notice/article-oudated-oct2024.svg)
+
+
 <div style="display:inline;float:right;margin-top:5px;margin-right:10px;margin-bottom:5px;margin-left:10px">
 ![](/img/developers/universal-binaries/netbsd-compat-darwin/netbsd_logo.png)
 This is a work in progress, attempting to run some mach-o binaries on NetBSD (macppc in this case).

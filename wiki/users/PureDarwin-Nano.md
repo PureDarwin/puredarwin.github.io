@@ -1,5 +1,10 @@
 # PureDarwin Nano
 
+
+![This article is outdated and its information and may no longer relevant.](/img/notice/article-oudated-oct2024.svg)
+
+
+
 This page describes the minimal components needed for a minimal PureDarwin system (also known as "PureDarwin Nano"). 
 
 This system is a **proof-of-concept** of a minimal bootable Darwin 9 system that can be built from the components that Apple provides through the [DarwinBuild](http://darwinbuild.macosforge.org/) project.

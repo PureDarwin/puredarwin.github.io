@@ -17,12 +17,6 @@ For versions from Darwin 9 (the version that matches Leopard) onwards, the PureD
 
     If you are a [developer](https://github.com/PureDarwin/PureDarwin/wiki/For-developers), you can create your own full PureDarwin 9 ISOs and virtual machines with our scripts and tools as described [here](PureDarwin_repository).
 
-* **Darwin 8**
-For versions up to Darwin 8, Apple and the OpenDarwin project provided [installation ISOs](http://opensource.apple.com/static/iso/).
-These are probably mainly of historical value today since the i386 version is binary incompatible to both newer versions of Darwin and Mac OS X, and hardware support is limited to older systems.
-
-Please watch this space for changes, and have a look at the [prerequisites](#2-prerequisites).
-
 ### 1.2 Other
 [Historic Apple Darwin ISOs](http://opensource.apple.com/static/iso/)
 

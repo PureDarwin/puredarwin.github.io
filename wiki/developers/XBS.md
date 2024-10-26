@@ -1,5 +1,9 @@
 XBS
 ===
+
+![This article is outdated and its information and may no longer relevant.](/img/notice/article-oudated-oct2024.svg)
+
+
 ### What is XBS?
 In case you come across the term "**XBS**": Apparently, this is what Apple's **Build and Integration team** uses to compile projects for Mac OS X. It is a proprietary build system and is not available outside Apple. 
 

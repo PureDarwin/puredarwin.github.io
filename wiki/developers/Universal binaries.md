@@ -1,6 +1,9 @@
 Universal binaries
 ==================
 
+![This article is outdated and its information and may no longer relevant.](/img/notice/article-oudated-oct2024.svg)
+
+
 <div style="display:inline;float:right;margin-top:5px;margin-right:10px;margin-bottom:5px;margin-left:10px">
 ![](/img/developers/universal-binaries/175px-Universal_Binary_Logo.png)
 Mac OS X and Darwin can use so-called Mach-O (Mach Object) "fat" files, or universal binaries that contain code for more than one architecture, e.g., ppc and i386.

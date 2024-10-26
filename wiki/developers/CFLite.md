@@ -1,5 +1,11 @@
 CFLite
 ======
+
+
+![This article is outdated and its information and may no longer relevant.](/img/notice/article-oudated-oct2024.svg)
+
+
+
 This page covers the differences between CoreFoundation as found on Mac OS X ("CF") and CoreFoundation as found on Darwin ("CFLite"). 
 
 ### Versions discussed

@@ -1,5 +1,9 @@
 The world of bootstrapping
 ==========================
+
+![This article is outdated and its information and may no longer relevant.](/img/notice/article-oudated-oct2024.svg)
+
+
 This page gives an overview over some basic concepts about booting operating systems.
 It is based on a conversation with dfe in #puredarwin.
 

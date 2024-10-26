@@ -1,5 +1,9 @@
 # Thoughts on PureDarwin
 
+
+![This article is outdated and its information and may no longer relevant.](/img/notice/article-oudated-oct2024.svg)
+
+
 Looks like the latest wave of publicity started with this [mention](http://theocacao.com/document.page/594) on Theocacao:
 
 > "*Visit *[*PureDarwin.org*](../index.html)* for a few more of these gotchas and progress trying to get things working. Apple will fix these problems when people find them, so the more of us looking at the code the better.*"

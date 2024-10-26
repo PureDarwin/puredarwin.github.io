@@ -1,5 +1,9 @@
 QEMU
 ====
+
+![This article is outdated and its information and may no longer relevant.](/img/notice/article-oudated-oct2024.svg)
+
+
 This page is about running PureDarwin on the QEMU emulator and is *not *about running Mac OS X.
 
 [QEMU](http://en.wikipedia.org/wiki/QEMU) is a hardware emulator that can be used to run operating systems on virtualized hardware, not unlike VMware or Parallels. It is an open source project.

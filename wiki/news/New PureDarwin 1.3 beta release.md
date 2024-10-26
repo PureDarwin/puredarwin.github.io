@@ -1,5 +1,8 @@
 # New PureDarwin 1.3 beta release
 
+![This article is outdated and its information and may no longer relevant.](/img/notice/article-oudated-oct2024.svg)
+
+
 Hi everyone. Thanks to the work of rafirafi, there is a new beta release of PureDarwin which is available for testing. This has yet to be completely verified or replicated (rebuilt from source code, and free licenses verified) by anyone else, but it does boot in QEMU and other virtual machines.
 
 Rafirafi has rewritten the remaining binary roots of Darwin 9, including a completely new platform expert called GenericPlatform. He says that there is complete network support including DNS, via his ported E1000 and pcnet32 drivers. It has the latest MacPorts and OpenDirectory. The user's password is 'darwin' and 'sudo' is activated. The documentation for this build is located in the default home directory, which you'll see upon booting. The image is in the form of a qemu qcow2 image, which can be used or converted by various virtual machines.

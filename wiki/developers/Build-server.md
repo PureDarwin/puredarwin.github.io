@@ -1,5 +1,8 @@
 # Build server
 
+![This article is outdated and its information and may no longer relevant.](/img/notice/article-oudated-oct2024.svg)
+
+
 Special thanks to [MacStadium](http://www.macstadium.com) for sponsoring a hosted Mac mini, and for voltagex for organizing and setting it up.
 
 [![MacStadium](https://cloud.githubusercontent.com/assets/125011/22776032/097557ac-eea6-11e6-8ba8-eff22dfd58f1.png)](https://www.macstadium.com)

@@ -1,5 +1,9 @@
 Package management
 ==================
+
+![This article is outdated and its information and may no longer relevant.](/img/notice/article-oudated-oct2024.svg)
+
+
 Historically, Darwin did not have package management. However, DarwinBuild has many elements already in place to make one.
  This page is for discussion what needs to be there, what is already there, and what hence needs to be done.
 **This page is currently in brainstorming mode. Please join the discussion!**

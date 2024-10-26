@@ -1,5 +1,9 @@
 TightVNC
 ========
+
+![This article is outdated and its information and may no longer relevant.](/img/notice/article-oudated-oct2024.svg)
+
+
 TightVNC is a way to use X11 applications over the network. ![](http://www.tightvnc.com/logo/tightvnc-logo-90x90.png)
 <div style="display:block;margin-left:auto;text-align:right">
 

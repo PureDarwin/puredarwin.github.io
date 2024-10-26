@@ -1,5 +1,8 @@
 Xfce
 ====
+
+![This article is outdated and its information and may no longer relevant.](/img/notice/article-oudated-oct2024.svg)
+
 "Xfce is a lightweight desktop environment for various *NIX systems. Designed for productivity, it loads and executes applications fast, while conserving system resources." - Olivier Fourdan, creator of Xfce 
 
 <div style="display:inline;float:right;margin-top:5px;margin-right:10px;margin-bottom:5px;margin-left:10px"><a href="https://raw.github.com/wiki/PureDarwin/PureDarwin/images/600px-xfce_logo.png?attredirects=0" imageanchor="1"><img border="0" height="100" src="https://raw.github.com/wiki/PureDarwin/PureDarwin/images/600px-xfce_logo.png?height=100&amp;width=100" width="100"></a></div>

@@ -1,5 +1,8 @@
 # Bochs, the Open Source IA-32 emulation project
 
+![This article is outdated and its information and may no longer relevant.](/img/notice/article-oudated-oct2024.svg)
+
+
 ![The Bochs logo](https://sites.google.com/a/puredarwin.org/puredarwin/developers/bochs/Bochs%20logo.gif?attredirects=0)
 
 ## Boot sequence

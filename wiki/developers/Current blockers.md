@@ -1,5 +1,9 @@
 Current Blockers
 ================
+
+![This article is outdated and its information and may no longer relevant.](/img/notice/article-oudated-oct2024.svg)
+
+
 This page lists the current issues we are having that prevent us from making a Darwin 9 ISO. The contents of this page are subject to change.
 
 ### 1. Problems to be solved

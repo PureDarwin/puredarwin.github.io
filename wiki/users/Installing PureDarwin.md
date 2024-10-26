@@ -1,6 +1,9 @@
 Installing PureDarwin
 =====================
 
+![This article is outdated and its information and may no longer relevant.](/img/notice/article-oudated-oct2024.svg)
+
+
 Don't get too excited: we haven't put together a full "How to" yet. This page will provide a selection of pointers.
 
 ### Installing PureDarwin using GRUB and CHAMELEON

@@ -1,6 +1,9 @@
 CFNetwork
 =========
 
+![This article is outdated and its information and may no longer relevant.](/img/notice/article-oudated-oct2024.svg)
+
+
 CFNetwork is a companion to CoreFoundation, and provides key networking features to applications.
 
 While it was available as part of Darwin 8 (OS X 10.4), with the release of Darwin 9 (OS X 10.5) it became closed source. However, the source code for the last version released under Darwin 8 is still available from Apple, and with minor patching can be made to compile in the darwinbuild chroot.

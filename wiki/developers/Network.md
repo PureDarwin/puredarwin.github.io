@@ -1,6 +1,9 @@
 Network
 =======
 
+![This article is outdated and its information and may no longer relevant.](/img/notice/article-oudated-oct2024.svg)
+
+
 This page primarily details how to get networking working in PureDarwinXmas, but these steps should be applicable to any Darwin installation.
 Next releases should/could include some part present here.
 

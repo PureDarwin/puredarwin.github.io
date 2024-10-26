@@ -1,6 +1,8 @@
 PureDarwin Xmas
 ===============
 
+![This article is outdated and its information and may no longer relevant.](/img/notice/article-oudated-oct2024.svg)
+
 ![](https://raw.github.com/wiki/PureDarwin/PureDarwin/images/PD-Xmas.jpg)
 
 The PureDarwin project announces the immediate availability of "PureDarwin Xmas", a developer preview of the upcoming operating system based on Apple's Darwin 9 sources and other Open Source projects such as X11. At the same time, the PureDarwin project would like to invite the community to discuss, participate and contribute. The developer preview is available for download as a pre-configured virtual machine for VMware Fusion 2.0 on Macintosh, and the code used to generate it is available in a Subversion repository.

@@ -1,5 +1,9 @@
 PureFoundation
 ==============
+
+![This article is outdated and its information and may no longer relevant.](/img/notice/article-oudated-oct2024.svg)
+
+
 This page is about the use of PureFoundation on Darwin. For details about its development, see the links section below. 
 
 About PureFoundation

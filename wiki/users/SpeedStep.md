@@ -1,5 +1,9 @@
 SpeedStep
 =========
+
+![This article is outdated and its information and may no longer relevant.](/img/notice/article-oudated-oct2024.svg)
+
+
 SpeedStep is a technology from Intel to throttle the CPU's clock speed when it is not fully utilized in order to save power. This is especially useful for mobile devices and servers.
 
 On a PureDarwin system, you can use the [VoodooPower](http://code.google.com/p/voodoo-power/) kernel extension in order to use SpeedStep.

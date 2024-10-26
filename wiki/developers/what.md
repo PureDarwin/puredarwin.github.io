@@ -1,6 +1,9 @@
 what
 ====
 
+![This article is outdated and its information and may no longer relevant.](/img/notice/article-oudated-oct2024.svg)
+
+
 `what` is a tool showing what versions of object modules were used to construct a file.
 
 Using `what`

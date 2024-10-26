@@ -1,5 +1,9 @@
 PureDarwin Core
 ===============
+
+![This article is outdated and its information and may no longer relevant.](/img/notice/article-oudated-oct2024.svg)
+
+
 PureDarwin Core is a collection of packages which seeks to provide a Darwin system with networking and the features which make Darwin differ from other OSes (eg. the main security and configuration daemons). PureDarwin Core will be the first set of packages installed on a system, and will run the second stage of the installation process.
 
 A possible package list would be (in no particular order):

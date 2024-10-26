@@ -1,6 +1,9 @@
 ZFS
 ===
-.
+
+![This article is outdated and its information and may no longer relevant.](/img/notice/article-oudated-oct2024.svg)
+
+
  
 MacZFS.org {style="font-family:Arial,Verdana,sans-serif;line-height:normal"}
 ----------

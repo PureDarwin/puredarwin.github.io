@@ -1,5 +1,9 @@
 HFS+
 ====
+
+![This article is outdated and its information and may no longer relevant.](/img/notice/article-oudated-oct2024.svg)
+
+
 This page describes the HFS+ filesystem and how to interact with it.
 This is a work in progress; please contribute to this page.
 

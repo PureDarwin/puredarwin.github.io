@@ -1,5 +1,9 @@
 Graphics
 ========
+
+![This article is outdated and its information and may no longer relevant.](/img/notice/article-oudated-oct2024.svg)
+
+
 This page describes the graphics infrastructure on both Darwin and Mac OS X.
 
 Sections marked with the "X" logo only apply to Mac OS X and not to Darwin. They are included here to increase the understanding of the differences between PureDarwin and Mac OS X only. 

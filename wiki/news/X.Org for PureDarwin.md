@@ -1,5 +1,7 @@
 # X.Org for PureDarwin
 
+![This article is outdated and its information and may no longer relevant.](/img/notice/article-oudated-oct2024.svg)
+
 When we started PureDarwin, it was not possible to run X.Org on it since support for native IOKit mode had been removed from its sources. This situation is changing now.
 
 Guillaume Verdeau has released patches to get X.Org running on PureDarwin.

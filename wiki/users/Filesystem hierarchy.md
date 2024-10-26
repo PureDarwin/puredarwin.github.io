@@ -1,6 +1,9 @@
 Filesystem hierarchy
 ====================
 
+![This article is outdated and its information and may no longer relevant.](/img/notice/article-oudated-oct2024.svg)
+
+
 Ever wondered what /etc, /usr, /opt, and so on mean?
 Ever wondered what the differences between /lib, /usr/lib, /usr/local/lib are?
 Ever wondered what libexec and standalone mean?
