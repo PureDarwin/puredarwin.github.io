@@ -44,4 +44,4 @@ There are too many to thank, but here are some highlights:
 
 ## Notice
 
-PureDarwin and the PureDarwin website are independent resources and are not affiliated with, endorsed by, or sponsored by Apple Inc. Apple, Macintosh, macOS, and related trademarks and logos are the property of Apple Inc., registered in the U.S. and other countries. Darwin (operating system) is licensed under the [Public Source License (APSL)](https://opensource.apple.com/apsl/). All other trademarks are the property of their respective owners.
+PureDarwin and the PureDarwin website are independent resources and are not affiliated with, endorsed by, or sponsored by Apple Inc. Apple, Macintosh, macOS, and related trademarks and logos are the property of Apple Inc., registered in the U.S. and other countries. Darwin (operating system) is licensed under the [Apple Public Source License (APSL)](https://opensource.apple.com/apsl/). All other trademarks are the property of their respective owners.
