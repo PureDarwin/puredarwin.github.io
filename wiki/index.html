@@ -11,6 +11,11 @@
 		integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 
 	<style>
+		:root {
+			--theme-color: #0d6efd;
+			--sidebar-nav-link-color--active: #0d6efd;
+		}
+
 		.app-nav {
 			margin: 0 0 20px 0;
 		}
@@ -36,6 +41,27 @@
 		.sidebar {
 			margin-top: 40px;
 		}
+
+		.app-nav li {
+			margin: 0;
+			padding: 0 5px;
+		}
+
+		.app-nav {
+			padding-top: 10px;
+			border-bottom: solid 0.25px #fff;
+		}
+
+		@media (max-width: 991px) {
+			.app-nav li {
+				display: block;
+				text-align: left;
+			}
+
+			.navbar-collapse {
+				text-align: left;
+			}
+		}
 	</style>
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -57,18 +83,19 @@
 					<li class="nav-item">
 						<a class="nav-link" href="/">Home</a>
 					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="/wiki">Docs</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="/wiki#/about/_About">About</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="/wiki#/developers/_Developers">Developers</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="/wiki#/users/_Users">Users</a>
-					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="/wiki" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						  Docs
+						</a>
+						<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+			
+						  <li><a class="dropdown-item" href="/wiki/">Documentation</a></li>
+						  <li><a class="dropdown-item" href="/wiki/#/about/_About">About</a></li>
+						  <li><a class="dropdown-item" href="/wiki/#/developers/_Developers">Developers</a></li>
+						  <li><a class="dropdown-item" href="/wiki/#/users/_Users">Users</a></li>
+						  <li><a class="dropdown-item" href="/wiki/#/news/_News">News</a></li>
+						</ul>
+					  </li>
 					<li class="nav-item">
 						<a class="nav-link" href="/wiki#/news/_News">News</a>
 					</li>
