@@ -1,6 +1,5 @@
-**<p style="margin-left: 15px;">News</p>**
-- [News](/news/_News.md)
-- [News](/news/archive/_News%20Archive.md)
+**<p style="margin-left: 15px;">News Archive</p>**
+- [News Archive](/news/archive/_News%20Archive.md)
 - [Darwin XNU kernel patches released by Voodoo Labs](/news/archive/Darwin%20XNU%20kernel%20patches%20released%20by%20Voodoo%20Labs.md)
 - [Generic platform kext for PureDarwin](/news/archive/Generic%20platform%20kext%20for%20PureDarwin.md)
 - [Networking comes to PureDarwin Xmas](/news/archive/Networking%20comes%20to%20PureDarwin%20Xmas.md)

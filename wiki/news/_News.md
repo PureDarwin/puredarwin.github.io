@@ -1,5 +1,12 @@
 # News
 
-![This article is outdated and its information and may no longer relevant.](/img/notice/article-oudated-oct2024.svg)
+This category contains the latest news and an archive of old news. 
 
-This category contains an archive of announcements and release notes from the early days of the PureDarwin project.
+
+
+### [Release: PD 17.4 Test Build](/news/PD17-4-released.md)
+July 1, 2018 — "This is not a full OS like PureDarwin Xmas was, as Apple have closed down a lot of core components, we the community have to pick up the slack."
+
+
+### [News Archive](/news/archive/_News%20Archive.md)
+Looking for older news? You'll find it here.
