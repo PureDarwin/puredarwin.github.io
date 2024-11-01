@@ -39,12 +39,12 @@
             <a class="nav-link" href="/">Home</a>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="/wiki" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a class="nav-link dropdown-toggle" href="/wiki" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
               Docs
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 
-              <li><a class="dropdown-item" href="/wiki/">Documentation</a></li>
               <li><a class="dropdown-item" href="/wiki/#/about/_About">About</a></li>
               <li><a class="dropdown-item" href="/wiki/#/developers/_Developers">Developers</a></li>
               <li><a class="dropdown-item" href="/wiki/#/users/_Users">Users</a></li>
@@ -148,22 +148,11 @@
         <div class="row">
           <div class="col-12 col-lg-4 pb-4">
             <div class="bg-white px-4 py-3 rounded feature-card">
-              <img src="img/homepage/internet-news-reader.png" height="80px;">
+              <img src="img/homepage/wiki.png" height="80px;">
               <h3>Documentation</h3>
               <p>Please see the PureDarwin Wiki, it would be very kind if anyone could contribute and fix the wiki as we
                 have links and formatting there that are broken.</p>
               <a href="/wiki" class="btn btn-outline-primary rounded-pill btn-sm mb-2">Documentation</a>
-            </div>
-          </div>
-          <div class="col-12 col-lg-4 pb-4">
-            <div class="bg-white px-4 py-3 rounded feature-card">
-              <img src="img/homepage/utilities-sdk.png" height="80px;">
-              <h3>Native SDK</h3>
-              <p>An SDK that is native of an Apple release modified to target PureDarwin. We are working on a modified
-                XNU kernel with additional BSD/POSIX features that don’t require us to rely on Apple’s closed sources.
-              </p>
-              <button type="button" class="btn btn-outline-secondary rounded-pill btn-sm mb-2" disabled>Coming
-                Later</button>
             </div>
           </div>
           <div class="col-12 col-lg-4 pb-4">
@@ -176,11 +165,24 @@
                 class="btn btn-outline-primary rounded-pill btn-sm mb-2">PureDarwin GitHub</a>
             </div>
           </div>
+          <div class="col-12 col-lg-4 pb-4">
+            <div class="bg-white px-4 py-3 rounded feature-card">
+              <img src="img/homepage/internet-news-reader.png" height="80px;">
+              <h3>News</h3>
+              <p>
+                <small>
+                  Dec. 1, 2018
+                </small>
+                <br>
+                <strong><a href="/wiki#/news/PD17-4-released" class="text-decoration-none text-black">Release: PD 17.4
+                    Test Build</a></strong>
+              </p>
+              <a href="/wiki#/news/_News" target="_blank"
+                class="btn btn-outline-primary rounded-pill btn-sm mb-2">News</a>
+            </div>
+          </div>
         </div>
         <div class="row">
-          <div class="col-2 col-md-0">
-            <!-- OFFSET -->
-          </div>
           <div class="col-12 col-lg-4 pb-4">
             <div class="bg-white px-4 py-3 rounded feature-card">
               <img src="img/homepage/internet-group-chat.png" height="80px;">
@@ -197,6 +199,18 @@
               <h3>Status</h3>
               <p>PureDarwin is progressing steadily, with ongoing research behind the scenes. There's no GUI yet, and
                 the system remains minimal, but key foundations are being built for future updates.</p>
+                <a href="/wiki/#/about/_About?id=status" class="btn btn-outline-primary rounded-pill btn-sm mb-2">Status</a>
+            </div>
+          </div>
+          <div class="col-12 col-lg-4 pb-4">
+            <div class="bg-white px-4 py-3 rounded feature-card">
+              <img src="img/homepage/utilities-sdk.png" height="80px;">
+              <h3>Native SDK</h3>
+              <p>An SDK that is native of an Apple release modified to target PureDarwin. We are working on a modified
+                XNU kernel with additional BSD/POSIX features that don’t require us to rely on Apple’s closed sources.
+              </p>
+              <button type="button" class="btn btn-outline-secondary rounded-pill btn-sm mb-2" disabled>Coming
+                Later</button>
             </div>
           </div>
         </div>
