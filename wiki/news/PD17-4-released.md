@@ -2,7 +2,7 @@
 
 July 1, 2018 - _Clifford Sekel_
 
-![Test Build 17.4 Based on Darwin 17](/img/news/news-cover-17-4-test.jpg)
+![Test Build 17.4 Based on Darwin 17](/img/news/2024/news-cover-17-4-test.jpg)
 
 ### Download 
 
