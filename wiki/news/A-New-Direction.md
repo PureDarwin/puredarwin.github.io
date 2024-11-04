@@ -73,6 +73,11 @@ This update allows the team to communicate PureDarwin’s independent progress w
     <img src="/img/news/2024/a-new-direction/Figure-6_thumb.jpg" width="300" class="border mb-1" alt>
 </a>
 
+#### Additional Goals
+These goals may not be something in scope right at this time, but should be kept in mind for the distant future:
+- API compatibility with macOS?
+  - e.g. CoreGraphics, CoreDisplay, reimplementing public APIs and trying to cover for ones we don’t have headers for, so there’s some compatibility with macOS Apps.
+
 ### Conclusion
 
 With these new targets, the PureDarwin project is heading in an exciting direction, finally giving us the foundation to start building a roadmap for the future. These short-term goals and big-picture aspirations give us something solid to aim for and help shape where we’re going next. While it’s not perfect yet, we’re laying the groundwork and setting a clear direction that’s flexible enough to evolve as we go. The updated versioning system also makes it easier for everyone to follow along with PureDarwin’s progress. Altogether, this new focus brings a sense of purpose to the project and sets us up for a promising future.
