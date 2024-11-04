@@ -24,6 +24,7 @@ This update allows the team to communicate PureDarwin’s independent progress w
 - Identify additional community volunteers that would like to focus on a specific area of the project
 - Clean and reorganize PureDarwin Repositories where required. 
 - Update Darwinbuild to work with Github and Meta's xcbuild that was forked to PureDarwin to update and allow PureDarwin to build on itself. 
+- Mark all documentation as outdated until an audit of each page is complete.
 
 #### Core OS - Kexts and Userland
 - Build All Core Kexts that are required to allow PureDarwin to boot. (IONVMeFamily, DarwinACPIPlatform, etc)
