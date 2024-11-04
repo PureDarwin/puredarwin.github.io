@@ -49,6 +49,7 @@ This update allows the team to communicate PureDarwin’s independent progress w
 
 #### Core OS
   - Build a proper installer that will integrate with Darwinbuild for continuous CI build and test process. 
+  - Build PureDarwin on BSD/linux.
   - More to add from Community!
 
 #### Design Focus -  Our Own Vision for UI Elements 
