@@ -1,8 +1,8 @@
 # Release: PureDarwin 17.4 Test Build for Developers
 
-July 1, 2018
+July 1, 2018 - _Clifford Sekel_
 
-<img src="/img/homepage/screenshot-hexley.png" alt="Screenshot of PureDarwin 17.4 with Hexley" width="500">
+![Test Build 17.4 Based on Darwin 17](/img/news/2024/news-cover-17-4-test.jpg)
 
 ### Download 
 
