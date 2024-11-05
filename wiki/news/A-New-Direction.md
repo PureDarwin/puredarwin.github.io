@@ -49,6 +49,7 @@ This update allows the team to communicate PureDarwin’s independent progress w
 
 #### Core OS
   - Build a proper installer that will integrate with Darwinbuild for continuous CI build and test process. 
+  - Build PureDarwin on BSD/linux.
   - More to add from Community!
 
 #### Design Focus -  Our Own Vision for UI Elements 
@@ -71,6 +72,11 @@ This update allows the team to communicate PureDarwin’s independent progress w
 <a href="/img/news/2024/a-new-direction/Figure-6.jpg" target="_blank">
     <img src="/img/news/2024/a-new-direction/Figure-6_thumb.jpg" width="300" class="border mb-1" alt>
 </a>
+
+#### Additional Goals
+These goals may not be something in scope right at this time, but should be kept in mind for the distant future:
+- API compatibility with macOS?
+  - e.g. CoreGraphics, CoreDisplay, reimplementing public APIs and trying to cover for ones we don’t have headers for, so there’s some compatibility with macOS Apps.
 
 ### Conclusion
 
