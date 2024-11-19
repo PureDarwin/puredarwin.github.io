@@ -4,9 +4,6 @@ VMware
 ![This article is outdated and its information and may no longer relevant.](/img/notice/article-oudated-oct2024.svg)
 
 
-<div style="margin:5px 10px;display:inline;float:right">
-!(../_/rsrc/1247515808697/developers/vmware/vmware.gif)(vmware/vmware.gif%3Fattredirects=0)
-
 Many [VMware](http://www.vmware.com/) products are now able to run a Darwin system (e.g., PureDarwin).
 From *VMware Fusion 2.0* (Mac OS X) to *VMware Player 2.5* (free download for Windows and Linux) via *VMware ESX* and later versions, PureDarwin should boot without any troubles.
 
