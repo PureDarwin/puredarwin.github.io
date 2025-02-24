@@ -3,6 +3,10 @@
 This category contains the latest news and an archive of old news. 
 
 
+### [Support Cliff Sekel](/news/Support-Cliff-Sekel.md)
+February 24, 2025 — "PureDarwin's Lead Developer; A Passionate Cybersecurity Architect and Open Source Champion"
+
+
 ### [A New Direction](/news/A-New-Direction.md)
 November 3, 2024 — "Short Term and Long Term Goals"
 
