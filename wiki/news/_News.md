@@ -2,6 +2,9 @@
 
 This category contains the latest news and an archive of old news. 
 
+### [Remembering Cliff Sekel](/news/Remembering-Cliff-Sekel.md)
+January 3, 2026 — "The PureDarwin project has lost its leader."
+
 
 ### [Support Cliff Sekel](/news/Support-Cliff-Sekel.md)
 February 24, 2025 — "PureDarwin's Lead Developer; A Passionate Cybersecurity Architect and Open Source Champion"

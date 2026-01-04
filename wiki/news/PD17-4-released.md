@@ -1,6 +1,6 @@
 # Release: PureDarwin 17.4 Test Build for Developers
 
-July 1, 2018 - _Clifford Sekel_
+July 1, 2018 - [InSaneDarwin (csekel)](https://github.com/csekel) _Clifford Sekel_ 
 
 ![Test Build 17.4 Based on Darwin 17](/img/news/2024/news-cover-17-4-test.jpg)
 
