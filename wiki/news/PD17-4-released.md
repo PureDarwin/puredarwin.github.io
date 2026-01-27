@@ -6,7 +6,7 @@ July 1, 2018 - [InSaneDarwin (csekel)](https://github.com/csekel) _Clifford Seke
 
 ### Download 
 
-* This Test Build can be downloaded from here [PD-Devs](https://www.pd-devs.org/Beta/pd_17_4.vmdk.xz) (vmdk).
+* This Test Build can be downloaded from here [GitHub](https://github.com/PureDarwin/PureDarwin/releases/tag/17.4) (vmdk).
 
 ### VMDK
 
