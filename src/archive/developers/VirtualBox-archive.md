@@ -5,7 +5,7 @@ VirtualBox archive
 
 
 **as of 2011 January: Virtualbox runs with PureDarwin nano**
-**please see: **[http://www.puredarwin.org/developers/virtualbox](developers/virtualbox.html)
+**please see: **[http://www.puredarwin.org/developers/virtualbox](VirtualBox.md)
 **
 **
 **

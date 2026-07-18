@@ -52,7 +52,7 @@ kextfind -case-insensitive -bundle-id -substring 'com.apple.iokit.IOUSBFamily' -
 
 Of course, `IOUSBFamily.kext` itself has its own dependencies, so we need to make that recursive if we want to find out all dependencies.
 #### A visual overview of dependencies
-Take a look at [Visualize KEXTs dependencies](kexts/kexts-dependencies-overview.html) page.
+Take a look at [Visualize KEXTs dependencies](Visualize%20KEXTs%20dependencies.md) page.
 ### Extensions.mkext
 A cache of installed KEXTs is kept in order to speed up boot time.
 #### Unpack Extensions.mkext

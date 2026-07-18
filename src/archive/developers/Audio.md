@@ -22,7 +22,7 @@ IOAudioFamily and VoodooHDA
 VoodooHDA cannot be loaded, because one of its dependencies (IOAudioFamily.kext) is not satisifed.
 <http://code.google.com/p/voodoohda/issues/detail?id=38>
 
-Since IOAudioFamily has been patched for [purity](macports/purity.html) purpose, IOAudioFamily.kext can now be loaded without OSvKernDSPLib.kext. See <http://darwinbuild.macosforge.org/trac/ticket/89>.
+Since IOAudioFamily has been patched for [purity](Using%20MacPorts/Purity.md) purpose, IOAudioFamily.kext can now be loaded without OSvKernDSPLib.kext. See <http://darwinbuild.macosforge.org/trac/ticket/89>.
 Consequently, VoodooHDA can also be loaded, its Info.plist has been modified in order to match the virtual devices of VMware but the "start" method doesn't seem to succeed.
 
 No sound nor good symptoms.

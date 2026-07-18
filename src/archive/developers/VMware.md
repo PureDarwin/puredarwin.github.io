@@ -7,7 +7,7 @@ VMware
 Many [VMware](http://www.vmware.com/) products are now able to run a Darwin system (e.g., PureDarwin).
 From *VMware Fusion 2.0* (Mac OS X) to *VMware Player 2.5* (free download for Windows and Linux) via *VMware ESX* and later versions, PureDarwin should boot without any troubles.
 
-**A more precise list will be constituted if respective [feedback](../todo.html) is received.**
+**A more precise list will be constituted if respective [feedback](/archive/about/TODO.md) is received.**
 
 Running PureDarwin in VMware
 ----------------------------
@@ -27,7 +27,7 @@ Two KEXTs appeard useful for VMware release(s) other than Fusion:
 
 -   LegacyAppleIntelPIIXATA
 -   NullCPUPowerManagement
-They can be found in VMware-Drivers-OpenSource.zip. See [Downloads](../downloads.html) page.
+They can be found in VMware-Drivers-OpenSource.zip. See [Downloads](/archive/about/Downloads.md) page.
 
 Settings
 --------
@@ -197,7 +197,7 @@ Mac OS X contains a driver (AppleIntel8254XEthernet) for the chip emulated by VM
 **But** this driver is __not available__ for Darwin yet, neither in source nor binary form.
 
 We found also two KEXTs close (but not enough "by nature") to the VMware 82545EM virtual device:
--   AppleIntel8255x (built from the [Darwinbuild](darwinbuild.html) project)
+-   AppleIntel8255x (built from the [Darwinbuild](Using%20DarwinBuild/DarwinBuild.md) project)
 -   [82566mm-osx-driver](http://code.google.com/p/82566mm-osx-driver/) (an OpenSource one)
 Both of the two KEXTs personality file (Info.plist) can be modified to match the VMware virtual device in order to be (kext)loaded at boot.
 **But no interface (e.g., en0) is affected...**

@@ -31,7 +31,7 @@ Three kinds of dependencies can be found in MacPorts:
 -   Library dependencies
 -   Runtime dependencies
 Sometimes there isn't any dependency, or the port is not installed ("Not here" in the legend), so we cannot scrutinize the content since there is no content.
-When a port is already installed, the content is examined in order to find and count "[current blocker](../../blockers.html)".
+When a port is already installed, the content is examined in order to find and count "[current blocker](/archive/developers/Current%20blockers.md)".
 Also, notice any variant explicitly given will be detected (if available) and highlighted on any dependencies.
 #### An example across rrdtool dependencies
 An example of hierarchical overview of *rrdtool* dependencies, where *glib2* (18 problematic objects) is identified as "impure":
@@ -259,7 +259,7 @@ And the corresponding result:
 
 
 
-Also, see the [purity checking](purity.html) page.
+Also, see the [purity checking](Purity.md) page.
 
 
 ### Miscellaneous

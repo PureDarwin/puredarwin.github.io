@@ -6,7 +6,7 @@ launchd
 launchd is a central component of the Darwin and Mac OS X boot process.
 
 ### About launchd
-Starting with Darwin 8, launchd replaces different mechanisms for starting and stopping processes, thus replacing more traditional mechanisms found in other UNIX-like systems such as init, rc, the init.d and rc.d scripts, SystemStarter (Mac OS X), inetd and xinetd, atd, crond and watchdogd. As such, it plays a central role in the Darwin and Mac OS X [boot process](../booting.1.html). It is also a key element of [Mach IPC](../../curious/ipc.html) on Darwin and Mac OS X systems.
+Starting with Darwin 8, launchd replaces different mechanisms for starting and stopping processes, thus replacing more traditional mechanisms found in other UNIX-like systems such as init, rc, the init.d and rc.d scripts, SystemStarter (Mac OS X), inetd and xinetd, atd, crond and watchdogd. As such, it plays a central role in the Darwin and Mac OS X [boot process](The%20boot%20process.md). It is also a key element of Mach IPC on Darwin and Mac OS X systems.
 ### Making launchd verbose
 Whenever you need to debug boot problems that occur after the root device has been found, you should make launchd verbose. Put the following in your /etc/launchd.conf:
     log level debug

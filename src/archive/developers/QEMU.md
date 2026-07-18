@@ -13,7 +13,7 @@ The ability to run PureDarwin on emulated hardware can be very useful, especiall
 Running PureDarwin Xmas on QEMU
 -------------------------------
 ### On Linux hosts
-~~To get [PureDarwin Xmas](../downloads/xmas.html) to run in QEMU, fetch QEMU from svn, compile, run without kqemu (it might work on OSX-supported cpus). **Update:** if you can get a **0.10** binary of qemu for your platform (some are linked below), you don't necessarily need to compile from svn any more.~~ **Update 2:** As of Ubuntu 9.10, the QEMU that can be installed with sudo apt-get install qemu is sufficient, so you don't need to compile or download a special version of QEMU any more. Use the following configuration:
+~~To get [PureDarwin Xmas](/archive/users/Xmas.md) to run in QEMU, fetch QEMU from svn, compile, run without kqemu (it might work on OSX-supported cpus). **Update:** if you can get a **0.10** binary of qemu for your platform (some are linked below), you don't necessarily need to compile from svn any more.~~ **Update 2:** As of Ubuntu 9.10, the QEMU that can be installed with sudo apt-get install qemu is sufficient, so you don't need to compile or download a special version of QEMU any more. Use the following configuration:
 
 
 
@@ -371,7 +371,7 @@ References
 -   [T2 KVM packages](http://www.t2-project.org/packages/kvm.html) which are able to boot PureDarwin nano (thanks rxr)
 -   [QEMU 0.10 binary for Windows](http://www.coresystems.de/%7Epatrick/qemu-0.10.0-bin.zip) which is able to boot PureDarwin (thanks oxygene)
 -   [QEMU 0.10 binary for Ubuntu](http://www.getdeb.net/release/4079) which is able to boot PureDarwin
--   [QEMU 0.10.1 binary for Mac OS X ](../downloads.html)which is able to boot PureDarwin
+-   [QEMU 0.10.1 binary for Mac OS X ](/archive/about/Downloads.md) which is able to boot PureDarwin
 -   <http://bellard.org/qemu/> (QEMU)
 -   <http://www.kju-app.org/> (Q) this front-end is unfortunately not usable (last update was one year ago) for PureDarwin.
 

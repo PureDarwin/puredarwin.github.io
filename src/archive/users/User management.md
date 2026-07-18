@@ -27,7 +27,7 @@ PAM Error (line 396): Cannot make/remove an entry for the specified session`
 
 Examining the config file /etc/pam.d/login, it would appear that the modules `pam_launchd` and `pam_uwtmp` are responsible for creating sessions. Further, it seems from debug output that the problem lies within `pam_launchd`.
 
-Thanks to Apple's Damien Sorresso on the launchd-dev mailing list for providing the answer to this. login needs a new security session created for it before it can set it up for the new user. This is what sshd does for in-coming users, and what loginwindow.app does for GUI users under OS X. For the moment, a small PAM module (pam_sessioncreate, available on the [Downloads](../downloads.html) page) can be added to /usr/lib/pam/ and to /etc/pam.d/login just above pam_launchd ("session required pam_sessioncreate.so") to create the necessary session. The file should now include:
+Thanks to Apple's Damien Sorresso on the launchd-dev mailing list for providing the answer to this. login needs a new security session created for it before it can set it up for the new user. This is what sshd does for in-coming users, and what loginwindow.app does for GUI users under OS X. For the moment, a small PAM module (pam_sessioncreate, available on the [Downloads](/archive/about/Downloads.md) page) can be added to /usr/lib/pam/ and to /etc/pam.d/login just above pam_launchd ("session required pam_sessioncreate.so") to create the necessary session. The file should now include:
 
 
 [...]
@@ -250,7 +250,7 @@ Notes: It seems random UUID is allowed.
 The *dscl* ** (Directory Service Command Line) tool is used in Darwin to manage users. *dscl* is part of the Darwin project DSTools. *dscl* is now (mostly) usable in a PureDarwin environment using the latest PureFoundation.root. (Not every option has been explored yet, so use may result in unpredictable results.)
 ### passwd tool
 So classic.
-Caution: If root account is disabled, using `*passwd root*` will enable it, leading to potential security flaw (see [Armoring PureDarwin](../curious/armoring-puredarwin.html) page).
+Caution: If root account is disabled, using `*passwd root*` will enable it, leading to potential security flaw (see [Armoring PureDarwin](Armoring-PureDarwin.md) page).
 
 PAM
 ---

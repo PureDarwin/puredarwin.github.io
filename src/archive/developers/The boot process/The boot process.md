@@ -18,8 +18,8 @@ The firmware (either BIOS or EFI) initializes the hardware
 -   On BIOS machines, the screen is black and shows white text during this process
 -   On EFI machines, the screen is gray and shows nothing during this process (this applies to Intel Macs, other EFI machines might have other implementations)
 The boot loader is loaded by the firmware
--   On BIOS machines, [boot](booting/boot.html) is loaded and a boot-132 message is shown
--   On EFI machines, [efiboot](booting/efiboot.html) is loaded and an Apple logo but no spinner is shown (this applies to Intel Macs, other EFI machines might have other implementations)
+-   On BIOS machines, [boot](boot.md) is loaded and a boot-132 message is shown
+-   On EFI machines, [efiboot](efiboot.md) is loaded and an Apple logo but no spinner is shown (this applies to Intel Macs, other EFI machines might have other implementations)
 The boot loader reads /Library/Preferences/SystemConfiguration/com.apple.Boot.plist
 -   If the file is not present, the boot loader prints an error message
 The boot loader loads XNU and the kernel extensions (kexts)

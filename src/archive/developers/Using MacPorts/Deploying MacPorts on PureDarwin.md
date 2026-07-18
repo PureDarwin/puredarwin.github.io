@@ -30,7 +30,7 @@ MacPorts 1.8.0 states depending its host.
   ----------------------------------------------------------------------------------------------------------- ----------------------------------------------------------------------------------------------------------------------------------------------------------------- ------------------------------------------------------------------------------------------------------------------------------- -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ```
 
-As an example, the fortune project (one workaround consists to fetch the source only in a puredarwin chroot where the network is available from Mac OS X or to use [QEMU](../qemu.html) user mode network stack ) built and run:
+As an example, the fortune project (one workaround consists to fetch the source only in a puredarwin chroot where the network is available from Mac OS X or to use [QEMU](/archive/developers/QEMU.md) user mode network stack ) built and run:
 
 
 ![](/archive/img/developers/macports/macportsonpuredarwin/fortune_from_macports.png)
@@ -49,7 +49,7 @@ Getting MacPorts
 ----------------
 ### Fetching MacPorts in a PureDarwin VM
 #### Via Network
-With [QEMU user mode network stack](../qemu.html), retrieve MacPorts sources via curl 
+With [QEMU user mode network stack](/archive/developers/QEMU.md), retrieve MacPorts sources via curl 
 
 ![](/archive/img/developers/macports/macportsonpuredarwin/macportscurldownload.png)
 #### Local copy
@@ -228,7 +228,7 @@ Running MacPorts
 ### Running a compiled MacPorts on PureDarwin
 ![](/archive/img/developers/macports/macportsonpuredarwin/running_macports_in_puredarwin.png)
 
-The next step involves network support (but could be also done via a local repository (see MacPorts documentation for more information)), which is at this time only functional via [QEMU](../qemu.html) user mode network stack and some workaround.
+The next step involves network support (but could be also done via a local repository (see MacPorts documentation for more information)), which is at this time only functional via [QEMU](/archive/developers/QEMU.md) user mode network stack and some workaround.
 #### port selfupdate
 
 ![](/archive/img/developers/macports/macportsonpuredarwin/macportsselfupdateqemu.png)
@@ -237,7 +237,7 @@ The end of the selfupdate process should look like:
 
 ![](/archive/img/developers/macports/macportsonpuredarwin/macportsselfupdated.png)
 #### port install most
-For more information, see the [Using MacPorts](../macports.1.html) page.
+For more information, see the [Using MacPorts](Using-MacPorts.md) page.
 
 
 As an example with a port called `most' which is built (+ deps) then run:
@@ -567,7 +567,7 @@ cp /opt/local/etc/macports/macports.conf.default /opt/local/etc/macports/macport
 cp /opt/local/etc/macports/sources.conf.default /opt/local/etc/macports/sources.conf
 cp /opt/local/etc/macports/variants.conf.default /opt/local/etc/macports/variants.conf
 
-**Important: **Now we need to configure MacPorts as described on the [MacPorts](../macports.1.html) page.
+**Important: **Now we need to configure MacPorts as described on the [MacPorts](Using-MacPorts.md) page.
 
 At this point, the port command should be launchable and working.
 

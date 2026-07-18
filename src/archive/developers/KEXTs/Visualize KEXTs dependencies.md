@@ -3,7 +3,7 @@ Visualize KEXTs dependencies
 
 ![This article is outdated and its information may no longer be relevant.](/archive/img/notice/article-outdated.svg)
 
-In the spirit of [Vizualize dependencies in MacPorts](../macports/macports-dependencies-overview.html), this page describes a way to track kernel extension dependencies and related satellite information (e.g: blockers).
+In the spirit of [Visualize dependencies in MacPorts](/archive/developers/Using%20MacPorts/Visualize%20dependencies%20in%20MacPorts.md), this page describes a way to track kernel extension dependencies and related satellite information (e.g: blockers).
 
 ### Prerequisites
 [Graphviz](http://www.graphviz.org/) is an opensource graph visualization software from AT&T Laboratories and Bell Laboratories (Lucent Technologies).
@@ -25,7 +25,7 @@ A KEXT is simply linked to ia bundle identifier (which can be linked to one or m
 
 For clarity purpose, the bundle identifiers are hidden by default.
 
-For purity purpose, each KEXT is examined once in order to find and count potential "[current blocker](../../blockers.html)".
+For purity purpose, each KEXT is examined once in order to find and count potential "[current blocker](/archive/developers/Current%20blockers.md)".
 
 The number of symbols missing (returned by *kextlibs*) is also displayed on the respective KEXT.
 #### An example across IOBDStorageFamily.kext
@@ -142,4 +142,4 @@ The Mac OS X whole graph:
 ![](/archive/img/developers/kexts/kexts-dependencies-overview/pd_kextviz%20all%20KEXTs%20in%20MacOSX.png)
 ### Ressources
 [http://www.graphviz.org](http://www.graphviz.org/)
-The [Kernel Extensions (KEXTs)](../kexts.html) page
+The [Kernel Extensions (KEXTs)](kexts.md) page

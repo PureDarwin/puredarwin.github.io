@@ -23,7 +23,7 @@ export DISPLAY=:1
 
 in order to launch graphical applications.
 
-To announce the server on the network with [Bonjour](bonjour.html), you can use
+To announce the server on the network with [Bonjour](Bonjour.md), you can use
 
 <span style="font-size:small">dns-sd -R . _rfb._tcp . 5901 &</span>
 

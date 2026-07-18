@@ -79,7 +79,7 @@ __
 
 Correctly setting up bootloaders is a tricky business, especially in a multi-boot environment. One of the advantages of this two stage approach is that the user will find out if the system can successfully boot into Darwin before spending time installing (potentially involving lengthy downloads) all the packages needed by a complete system. 
 
-**Comment: ***See the *[*boot*](../booting/boot.html)* page for setting up the bootloader*
+**Comment: ***See the *[*boot*](The%20boot%20process/boot.md)* page for setting up the bootloader*
 ### Second stage
 The second stage installer will be designed to run in a Darwin environment, meaning that it will be exactly the same no matter what the first stage installer was.
 
@@ -93,7 +93,7 @@ It should be possible for the user to chose not to install anything an be left w
 
 ("PureDarwin Boot" above is a fictional version of Nano equipped with the extra packages needed to run `pd_setup`)
 #### Copying across and installing packages
-This is covered on the [Package management](../package-management.html) page.
+This is covered on the [Package management](Package%20management.md) page.
 #### Post-configuration
 This will include adding users (a default one is provided if no user account has been created) to the system and some settings.
 

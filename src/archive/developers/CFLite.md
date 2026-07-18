@@ -15,7 +15,7 @@ The latest published CFLite source is [CF-476.15.tar.gz](http://src.macosforge.o
 
 An experimental binary root of CFLite also compiled through DarwinBuild (but includes patches from [9F33pd1.plist](https://github.com/PureDarwin/PureDarwin/blob/master/plists/9F33pd1.plist)) can be found [here](http://code.google.com/p/puredarwin/source/browse/Roots/9F33pd1/CF.root.tar.gz).
 
-The [PureFoundation](../purefoundation.html) project also provides patched binaries of CFLite. These combine patches necessary to fix some short-comings with CFLite with those needed by the cloned Foundation.framework, and as a result require the presence of that framework.
+The [PureFoundation](PureFoundation.md) project also provides patched binaries of CFLite. These combine patches necessary to fix some short-comings with CFLite with those needed by the cloned Foundation.framework, and as a result require the presence of that framework.
 
 __Notes:__ Please, read [Apple CFLite](http://developer.apple.com/opensource/cflite.html) page for more information.
 
@@ -23,7 +23,7 @@ There is also [OpenCFLite](http://opencflite.svn.sourceforge.net/viewvc/opencfli
 
 ### Exported symbols
 
-Let's compare the number of symbols exported by CF and CF-Lite with `[nm](cf-lite/nm.html)'.
+Let's compare the number of symbols exported by CF and CF-Lite with `nm`.
 
 #### Number of exported symbols
 
@@ -45,7 +45,7 @@ The same test with CF-Lite shows that CF-Lite exports 1287 symbols.
 
 Hence, CF-Lite contains about 78% of the symbols of the full CF, and about 22% were stripped away.
 
-It is probably fair to assume that the Darwin sources should either not make use of the 28% of symbols that are missing from CF-Lite, or Apple should release the source for the missing symbols. See [Current Blockers](../blockers.html) for a short list of some of the projects where these missing symbols (and the functions they represent) are causing us problems.
+It is probably fair to assume that the Darwin sources should either not make use of the 28% of symbols that are missing from CF-Lite, or Apple should release the source for the missing symbols. See [Current Blockers](Current%20blockers.md) for a short list of some of the projects where these missing symbols (and the functions they represent) are causing us problems.
 
 #### Symbols
 

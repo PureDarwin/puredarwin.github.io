@@ -34,7 +34,7 @@ See [here](http://developer.apple.com/documentation/Darwin/Conceptual/KernelProg
 
 ### Creating a prelinked mach_kernel
 
-XNU cannot boot by itself, since it always needs a [certain set](../downloads/puredarwin-nano.html) of kernel extensions (kexts) to be present. However, you can create a mach_kernel file that not only contains XNU itself, but also a defined set of kexts:
+XNU cannot boot by itself, since it always needs a [certain set](/archive/users/PureDarwin-Nano.md) of kernel extensions (kexts) to be present. However, you can create a mach_kernel file that not only contains XNU itself, but also a defined set of kexts:
 ```
 kextcache -a i386 -K  /Volumes/PureDarwin/mach_kernel  -c /tmp/mach_kernel.prelinked /Volumes/PureDarwin/System/Library/Extensions
 ```

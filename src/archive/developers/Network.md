@@ -11,7 +11,7 @@ Network support
 ---------------
 A must.
 ### Install Network Drivers
-Network drivers are provided in the form of [Kernel Extensions (KEXTs)](kexts.html).
+Network drivers are provided in the form of [Kernel Extensions (KEXTs)](KEXTs/kexts.md).
 While Apple has made a few available in either source or binary form, these are nowhere near as many as are provided with OS X.
 In particular, although the *AppleIntel8254XEthernet.kext* which is needed for VMWare exists, it is not available for redistribution in any form.
 
@@ -36,7 +36,7 @@ ethernet0.virtualDev = "e1000"`
 
 /System/Library/Extensions/IONetworkingFamily.kext/Contents/PlugIns/.
 
-But since this isn't available ([blocker](../blockers.html)) for general distribution you're pretty much stuck.
+But since this isn't available ([blocker](Current%20blockers.md)) for general distribution you're pretty much stuck.
 
 **__Blocker:__ no kext available which will match the e1000 device in VMware**
 ### QEMU settings

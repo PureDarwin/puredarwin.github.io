@@ -56,7 +56,7 @@ Somebody needs to fix that (**TODO:** add `darwinbuild`)
 
 ### Compiling Darwinbuild in a PureDarwin chroot
 
-See [Deploying MacPorts on PureDarwin](../macports/macportsonpuredarwin.html) for some prerequisites (gcc stuff and some usefull dev tools).
+See [Deploying MacPorts on PureDarwin](/archive/developers/Using%20MacPorts/Deploying%20MacPorts%20on%20PureDarwin.md) for some prerequisites (gcc stuff and some usefull dev tools).
 
 ```
 cd /Volumes/PureDarwin

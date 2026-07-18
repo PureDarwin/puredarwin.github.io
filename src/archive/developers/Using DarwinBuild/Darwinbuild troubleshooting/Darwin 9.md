@@ -9966,7 +9966,7 @@ Again, all the projects will be built (or not). As a result, nothing will be b
 Finally, we reach the point where no buildable (without alteration, patch, etc..) dependency is missing.
 
 
-Let's also now add [PureFoundation](../../../purefoundation.html) in *[...]/9J61/BuildRoot* folder with: `tar xzf ../../../hg/Roots/pd/PureFoundation.root.tar.gz`.
+Let's also now add [PureFoundation](/archive/developers/PureFoundation.md) in *[...]/9J61/BuildRoot* folder with: `tar xzf ../../../hg/Roots/pd/PureFoundation.root.tar.gz`.
 And go for a 5 round..
 #### 5-pass
 After trying again to build all projects, it appears that 6 additional projects have been successfully built:
@@ -10272,7 +10272,7 @@ The state is beyond the 12th pass now..
 
 **Problem:** The Mac OS X platform is missing...
 
-**Solution: **It is more than recommended to avoid using HFS+ as the filesystem of your BuildRoot volume with DarwinBuild (precisely Xcode in this case). An UFS disk image works, alternatively you can also *fool* Xcode using NFS as described [there](../../darwinbuild.html#TOC-Work-around-DarwinBuild-ticket-1). Also note that on Mac OS X 10.5, there is a bug in `hdiutil' which prevents to create large UFS disk image (around 12g max). The trick is to use a Tiger machine to create a larger image.
+**Solution: **It is more than recommended to avoid using HFS+ as the filesystem of your BuildRoot volume with DarwinBuild (precisely Xcode in this case). An UFS disk image works, alternatively you can also *fool* Xcode using NFS as described [there](/archive/developers/Using%20DarwinBuild/DarwinBuild.md#workaround-darwinbuild-ticket-1-no-longer-needed). Also note that on Mac OS X 10.5, there is a bug in `hdiutil' which prevents to create large UFS disk image (around 12g max). The trick is to use a Tiger machine to create a larger image.
 Example with an UFS disk image:
 
 hdiutil create -size 30g -type UDIF -fs UFS -volname Builds -attach Builds.dmg
@@ -10425,10 +10425,10 @@ then 
 
 ![](/archive/img/developers/darwinbuild/troubleshooting/CF.png)
 
-**Problem: **In fact, CF-lite appears to missing many functions. Although the CF-lite built just above is enough for [PureDarwin nano](../../../downloads/puredarwin-nano.html), it won't be sufficient in a full PureDarwin release since many vital daemons may use these missing functions. Some have been already patched or can be short-circuited with an empty body, but others clearly need some code inside their body.
+**Problem: **In fact, CF-lite appears to missing many functions. Although the CF-lite built just above is enough for [PureDarwin nano](/archive/users/PureDarwin-Nano.md), it won't be sufficient in a full PureDarwin release since many vital daemons may use these missing functions. Some have been already patched or can be short-circuited with an empty body, but others clearly need some code inside their body.
 
 
-For more information about the differences between the CF from Mac OS X and the CF-lite from DarwinBuild (the one we use) which explain why some expected symbols are missing, please take a look at [CF-lite](../../cf-lite.html) page.
+For more information about the differences between the CF from Mac OS X and the CF-lite from DarwinBuild (the one we use) which explain why some expected symbols are missing, please take a look at [CF-lite](/archive/developers/CFLite.md) page.
 
 This is a non exhaustive list of missing symbols found, from darwinbuild compilation or at runtime.
 
@@ -10447,7 +10447,7 @@ This is a non exhaustive list of missing symbols found, from darwinbuild compila
 
 **
 **
-**Solution: **Build using the PureDarwin .plist (see [Integrating patches and additional sources](../patchfiles.html) for instructions), which includes patches to resolve most of these problems.
+**Solution: **Build using the PureDarwin .plist, which includes patches to resolve most of these problems.
 ------------------------------------------------------------------------
 ### CFNetwork
 #### 9J61
@@ -10842,7 +10842,7 @@ gcc-4.0: Invalid arch name : -D__MACH30__
 **echo 'uname -p' > /usr/bin/arch**
 **chmod +x /usr/bin/arch**
 
-**Alternative solution:** [PureFoundation](../../../purefoundation.html) can be added manually in the buildroot to satisfy dependency referenced to Foundation.framework.
+**Alternative solution:** [PureFoundation](/archive/developers/PureFoundation.md) can be added manually in the buildroot to satisfy dependency referenced to Foundation.framework.
 `root@europa:/Volumes/Builds/``9G55/BuildRoot# mv PureFoundation/Foundation.``framework System/Library/Frameworks`
 `root@europa:/Volumes/Builds/``9G55/BuildRoot# chroot .
 europa# arch
@@ -11818,7 +11818,7 @@ darwinbuild launchd
 `  Referenced from: /usr/lib/libobjc.A.dylib`
 `  Reason: image not found`
 **Old-Solution: ******
-**Solution:** Good [news](../../../news/autozone.html) on 11/12/2008, the AutoZone project sources have been released by Apple: <span style="font-family:courier new,monospace"><span style="font-size:small">darwinbuild autozone && darwinbuild -load autozone</span></span>
+**Solution:** Good news on 11/12/2008, the AutoZone project sources have been released by Apple: <span style="font-family:courier new,monospace"><span style="font-size:small">darwinbuild autozone && darwinbuild -load autozone</span></span>
 
 **Problem:** `/SourceCache/launchd/launchd-258.18/launchd/src/launchctl.c:37:28: error: IOKit/IOKitLib.h: No such file or directory`
 ****
@@ -12594,7 +12594,7 @@ Problem:
 Referenced from: /usr/bin/arch
 Reason: image not found
 gcc-4.0: Invalid arch name : -D__MACH30__
-**Solution:** `darwinbuild  -load system_cmds` (also add manually [PureFoundation](../../../purefoundation.html).root.tar.bz2 in order to satisfy arch dependency to Foundation.framework)
+**Solution:** `darwinbuild  -load system_cmds` (also add manually [PureFoundation](/archive/developers/PureFoundation.md).root.tar.bz2 in order to satisfy arch dependency to Foundation.framework)
 
 dynamic_pager.c:35:42: error: IOKit/pwr_mgt/IOPMLibPrivate.h: No such file or directory
 dynamic_pager.c:36:37: error: IOKit/ps/IOPowerSources.h: No such file or directory
@@ -12624,7 +12624,7 @@ cp -R /System/Library/Frameworks/IOKit.framework.origin/* /System/Library/Fra
 ``
 Since Foundation is not part of Darwin, we need to patch the source so that it doesn't need Foundation any more (Sometimes older versions of the same source can give a hint).
 
-Alternative Solution: [PureFoundation](../../../purefoundation.html) can be added manually to satisfy arch dependency to *Foundation.framework*.
+Alternative Solution: [PureFoundation](/archive/developers/PureFoundation.md) can be added manually to satisfy arch dependency to *Foundation.framework*.
 root@europa:/Volumes/Builds/9G55/BuildRoot# mv PureFoundation/Foundation.framework System/Library/Frameworks
 root@europa:/Volumes/Builds/9G55/BuildRoot# chroot .
 europa# arch

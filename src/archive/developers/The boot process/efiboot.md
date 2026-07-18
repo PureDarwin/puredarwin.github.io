@@ -43,6 +43,6 @@ UEFI 2.0 defines that the firmware looks for an EFI bootloader at the following 
 of FAT16-formatted volumes. Whether this can also be used to boot a Darwin system from a HFS+ volume needs to be verified.
 
 ### Using boot.efi in VirtualBox
-EFI emulation in [VirtualBox](../virtualbox.html) 4 is capable of loading and executing boot.efi as the bootloader. Hence boot-132 or its derivatives are no longer needed in VirtualBox. We were able to boot PureDarwinNano.iso this way.
+EFI emulation in [VirtualBox](/archive/developers/VirtualBox.md) 4 is capable of loading and executing boot.efi as the bootloader. Hence boot-132 or its derivatives are no longer needed in VirtualBox. We were able to boot PureDarwinNano.iso this way.
 
 ![](https://raw.github.com/wiki/PureDarwin/PureDarwin/images/boot.efi.png)

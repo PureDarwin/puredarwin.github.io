@@ -4,7 +4,7 @@ The Darwin Package Manager
 ![This article is outdated and its information may no longer be relevant.](/archive/img/notice/article-outdated.svg)
 
 
-This is Stuart and Aladin's proposal for "dm", a Darwin Package Manager. It is based on the discussion on the [Package management](../package-management.html) page.
+This is Stuart and Aladin's proposal for "dm", a Darwin Package Manager. It is based on the discussion on the [Package management](Package%20management.md) page.
 
 Feel free to rip it apart.
 

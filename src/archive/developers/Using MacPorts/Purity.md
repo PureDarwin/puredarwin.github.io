@@ -20,7 +20,7 @@ So it is really crucial to check that no unneccessary links are introduced into 
 ### Script
 
 The script at the bottom of this page will help you checking the "purity" of a given RPM package 
-Also, take a look at [Visualize dependencies in MacPorts page](macports-dependencies-overview.html) if you want to check (and have an overview) of the "purity" of all dependencies (installed ports) for a given portname.
+Also, take a look at [Visualize dependencies in MacPorts page](Visualize%20dependencies%20in%20MacPorts.md) if you want to check (and have an overview) of the "purity" of all dependencies (installed ports) for a given portname.
     Alternatively, you can use something like this to see impurities as they happen during the build process:sh-3.2# port clean cairo
     --->  Cleaning cairo
     sh-3.2# port -v -d build cairo +puredarwin 2>&1 | grep Services

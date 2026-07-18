@@ -4,7 +4,7 @@ Visualize mach-o dependencies
 ![This article is outdated and its information may no longer be relevant.](/archive/img/notice/article-outdated.svg)
 
 
-In the spirit of [Vizualize dependencies in MacPorts](../macports/macports-dependencies-overview.html) and [Vizualize KEXTs dependencies](../kexts/kexts-dependencies-overview.html), this page describes a way to track mach-o file dependencies and related satellite information (e.g: blockers).
+In the spirit of [Vizualize dependencies in MacPorts](Using%20MacPorts/Visualize%20dependencies%20in%20MacPorts.md) and [Vizualize KEXTs dependencies](KEXTs/Visualize%20KEXTs%20dependencies.md), this page describes a way to track mach-o file dependencies and related satellite information (e.g: blockers).
 
 ### Prerequisites
 
@@ -93,4 +93,4 @@ Generation of otool.dot_undirectedBIS.png complete.
 
 ### Resources {style="margin:10px 10px 10px 0px;background-color:transparent;color:rgb(0,0,0);font-family:Arial,Verdana,sans-serif;font-size:18px"}
 [http://www.graphviz.org](http://www.graphviz.org/)
-the [otool](../otool.html) page
+the [otool](otool.md) page

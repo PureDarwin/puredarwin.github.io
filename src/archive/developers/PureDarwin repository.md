@@ -52,7 +52,7 @@ Simply fetch binaryroots, thin them and build/deploy PureDarwin to the requested
 1.  `./pd_fetch`
 2.  `./pd_thin`
 3.  `./pd_setup` (a usage should display potential choices)
-    **Important:** Be aware that a full (non-nano) PureDarwin system currently cannot be run from a read-only disk such as a CD-ROM, DVD, or an ISO file. It needs a r/w hard disk (real hardware) or virtual disk. This might be solved once we go the [Live CD](live-cd.html) way.
+    **Important:** Be aware that a full (non-nano) PureDarwin system currently cannot be run from a read-only disk such as a CD-ROM, DVD, or an ISO file. It needs a r/w hard disk (real hardware) or virtual disk. This might be solved once we go the [Live CD](Live%20CD.md) way.
 
 !![](/archive/img/developers/repository/setup_process_overview.gif)
 
@@ -132,7 +132,7 @@ This variable is used by:
 
 #### DARWINBUILD_DIR
 
-Binaryroots built locally via [DarwinBuild](darwinbuild.html) can be used (prior to the one fetched remotely on MacOS Forge in case it has not already been fetched) if `DARWINBUILD_DIR` variable is correctly filled in [pd_config](http://code.google.com/p/puredarwin/source/browse/setup/pd_config). However that can also result in one or more conflict between all the dependents and the dependencies living in the system (e.g., missing symbols) if you tend to mix binaryroots built in different BuildRoots.
+Binaryroots built locally via [DarwinBuild](Using%20DarwinBuild/DarwinBuild.md) can be used (prior to the one fetched remotely on MacOS Forge in case it has not already been fetched) if `DARWINBUILD_DIR` variable is correctly filled in [pd_config](http://code.google.com/p/puredarwin/source/browse/setup/pd_config). However that can also result in one or more conflict between all the dependents and the dependencies living in the system (e.g., missing symbols) if you tend to mix binaryroots built in different BuildRoots.
 
 ```
 #
@@ -190,7 +190,7 @@ The black arrow represents a successful deployment.
 
 A blue dotted arrow shows that the deployment could be successful if the expected binaryroots are present.
 
-A red one faces [a blocker](../blockers.html).
+A red one faces [a blocker](Current%20blockers.md).
 
 
 ![](/archive/img/developers/repository/releases_chicken_egg_x2.gif)

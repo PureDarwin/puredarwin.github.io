@@ -45,7 +45,7 @@ This section is about announcing the server on the local network, so that it sho
 
 [![](https://raw.github.com/wiki/PureDarwin/PureDarwin/images/Bildschirmfoto%202010-01-17%20um%2002.58.49.png)](netatalk/Bildschirmfoto%202010-01-17%20um%2002.58.49.png%3Fattredirects=0)
 
-[](netatalk/Bildschirmfoto%202010-01-17%20um%2002.58.49.png%3Fattredirects=0)On the Mac, the AppleFileServer is launched and announced on the local network via [Bonjour](bonjour.html) using the following LaunchDaemons plist file. We would like to do the same with netatalk, but we are running into problems...
+[](netatalk/Bildschirmfoto%202010-01-17%20um%2002.58.49.png%3Fattredirects=0)On the Mac, the AppleFileServer is launched and announced on the local network via [Bonjour](Bonjour.md) using the following LaunchDaemons plist file. We would like to do the same with netatalk, but we are running into problems...
 
 
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">

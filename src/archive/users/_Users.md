@@ -15,7 +15,7 @@ For versions up to Darwin10 (e.g.: the one included in Snow Leopard), the PureDa
 * **Darwin 9**
 For versions from Darwin 9 (the version that matches Leopard) onwards, the PureDarwin project is providing ISOs and a way to code, build and use it. Currently, there is a minimal Darwin 9 ISO ("[PureDarwin Nano](PureDarwin-Nano.md)", can boot into bash) and a Developer Preview with X11 ("[PureDarwin Xmas](Xmas.md)", can boot into a X11 desktop). 
 
-    If you are a [developer](https://github.com/PureDarwin/PureDarwin/wiki/For-developers), you can create your own full PureDarwin 9 ISOs and virtual machines with our scripts and tools as described [here](PureDarwin_repository.md).
+    If you are a [developer](https://github.com/PureDarwin/PureDarwin/wiki/For-developers), you can create your own full PureDarwin 9 ISOs and virtual machines with our scripts and tools as described [here](/archive/developers/PureDarwin%20repository.md).
 
 ### 1.2 Other
 [Historic Apple Darwin ISOs](http://opensource.apple.com/static/iso/)
@@ -59,13 +59,13 @@ Pseudo-legend:
 > -   *cpu + info(s)*
 
 **Apple Mac OS X (Snow) Leopard**
-[QEMU](QEMU.md) > v0.9.0
+[QEMU](/archive/developers/QEMU.md) > v0.9.0
 -   Intel Core 2 Duo (T7400)
-[VMware Fusion](VMware.md)
+[VMware Fusion](/archive/developers/VMware.md)
 -   Intel Core 2 Duo (T7400)
 MS Windows
 QEMU v0.10.0 (XP 32 bits SP3)
--   AMD Sempron 2800+ (specific version from "Patrick", see [QEMU](QEMU.md) page)
+-   AMD Sempron 2800+ (specific version from "Patrick", see [QEMU](/archive/developers/QEMU.md) page)
 VMware Server 2.0 nc (AMD 64bits)
 VMware Player 2.5.1 (XP 32 bits SP3)
 VMware Player 2.5.2 (WIN7 64bits RC)

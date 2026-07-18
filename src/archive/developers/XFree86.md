@@ -10,11 +10,11 @@ __
 __
 
 ### XFree86 4.7.0
-XFree86 is another X11 implementation besides [X.Org](xorg.html). Version 4.7.0 was released in 2007.
+XFree86 is another X11 implementation besides [X.Org](X.Org.md). Version 4.7.0 was released in 2007.
 Most binaries you can find on the net (e.g., in fink) are built for Mac OS X, and will fail to run on PureDarwin since they depend on closed frameworks such as ApplicationServices. Hence, we need to compile XFree86 specifically for PureDarwin, and MacPorts can help us with this task.
 ``
 ### XFree86 in MacPorts
-MacPorts contains a portfile which can be used to compile XFree86 for PureDarwin. In old release notes, it is stated that "*Darwin/Mac OS X uses IOKit drivers and does not use the module loader drivers listed above. Further information can be found in [README.Darwin](http://cvsweb.xfree86.org/cvsweb/xc/programs/Xserver/hw/xfree86/doc/README.Darwin?rev=1.28&content-type=text/vnd.viewcvs-markup)*". Also take a look at [Using the MacPorts project](macports.1.html) page for more information about MacPorts.
+MacPorts contains a portfile which can be used to compile XFree86 for PureDarwin. In old release notes, it is stated that "*Darwin/Mac OS X uses IOKit drivers and does not use the module loader drivers listed above. Further information can be found in [README.Darwin](http://cvsweb.xfree86.org/cvsweb/xc/programs/Xserver/hw/xfree86/doc/README.Darwin?rev=1.28&content-type=text/vnd.viewcvs-markup)*". Also take a look at [Using the MacPorts project](Using%20MacPorts/Using-MacPorts.md) page for more information about MacPorts.
 ``
 The portfile shows the following information about Xfree86, among other things:
 
@@ -46,7 +46,7 @@ In the case of `+puredarwin` variant is choosen, this is what happens:
 `}`
 
 #### Compiling XFree86 for PureDarwin
-We are using MacPorts on a Mac and transfer the final build products to a PureDarwin system thereafter, as described on the [MacPorts](macports.1.html) page. Later, we will be able to bootstrap MacPorts on PureDarwin in order to provide products built on a PureDarwin system for a PureDarwin system.
+We are using MacPorts on a Mac and transfer the final build products to a PureDarwin system thereafter, as described on the [MacPorts](Using%20MacPorts/Using-MacPorts.md) page. Later, we will be able to bootstrap MacPorts on PureDarwin in order to provide products built on a PureDarwin system for a PureDarwin system.
 
 __Note:__ You should configure MacPorts to procuce tbz2 archives as described on that page.
 
@@ -154,7 +154,7 @@ The compiled XFree86 from the MacPorts project has the following library depende
 You also need to have in the PureDarwin system:
 
 -   IOGraphicsFamily.kext (from DarwinBuild)
--   [VMwareIOFramebuffer.kext](../downloads.html) (optional - if using VMware; from the VMware Tools)
+-   [VMwareIOFramebuffer.kext](/archive/about/Downloads.md) (optional - if using VMware; from the VMware Tools)
 
 **Running XFree86 on PureDarwin**
 <span style="font-size:13px">
@@ -167,7 +167,7 @@ Make sure the KEXTs are loaded:
 
 `kextload /System/Library/Extensions/VMwareIOFramebuffer.kext`
 
-Additionally, in order to add your keyboard, mouse and/or trackpad support for XFree86, you should load the corresponding kernel extension. In case of PS2, take a look at the [PS2 Controller](xnu/ps2-controller.html) page.
+Additionally, in order to add your keyboard, mouse and/or trackpad support for XFree86, you should load the corresponding kernel extension. In case of PS2, take a look at the [PS2 Controller](PS2%20Controller.md) page.
 
 
 __Notes__: USB mouse and Apple MacBook trackpad works. PS2 not (yet) tested.

@@ -12,7 +12,7 @@ GNUstep is a cross-platform environment loosely compatible with Cocoa. It is ava
 
 ## Building GNUstep for PureDarwin
 
-Follow the instructions on the [MacPorts](macports.1.html) page (important) and <https://trac.macports.org/ticket/14176>, <https://trac.macports.org/ticket/16425>, then do
+Follow the instructions on the [MacPorts](Using%20MacPorts/Using-MacPorts.md) page (important) and <https://trac.macports.org/ticket/14176>, <https://trac.macports.org/ticket/16425>, then do
 
 ```sh
 sudo /opt/local/bin/port archive gnustep +puredarwin

@@ -10,7 +10,7 @@ This page is about X.Org on Darwin.
 
 Update June 2012:
 Guillaume Verdeau has released patches to get Xorg running on PureDarwin.
-Please see the [announcement](../news/xorgforpuredarwin.html).
+Please see the [announcement](/archive/news/X.Org%20for%20PureDarwin.md).
 The remainder of this page is left here for historical reasons. It needs to be rewritten to reflect the above.
 
 

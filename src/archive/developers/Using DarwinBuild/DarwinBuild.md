@@ -276,7 +276,7 @@ Whenever you build something using DarwinBuild and don't specifiy otherwise (usi
     Consequently, your build results, hence, will be "built on Darwin" as opposed to "built on Mac OS X".
     If during the process of downloading you get errors like "ERROR: could not find root: AppleUSBIrDA", this simply means that a binary root of the respective project has not been uploaded to the DarwinBuild server yet.
     (Perhaps it does not build correctly with DarwinBuild yet.)
-The file xref.db contains the [Darwin xref database](darwinbuild/xref.html). It keeps track of the Darwin projects installed in your BuildRoot and their files and version numbers (think of xref roughly as a package manager like "apt" for Darwin binary roots). The xref database has been filled by the darwinbuild -load command, and will be updated whenever you build something with DarwinBuild.
+The file xref.db contains the [Darwin xref database](xref.md). It keeps track of the Darwin projects installed in your BuildRoot and their files and version numbers (think of xref roughly as a package manager like "apt" for Darwin binary roots). The xref database has been filled by the darwinbuild -load command, and will be updated whenever you build something with DarwinBuild.
 
 #### CoreFoundation as a first test case
 
@@ -285,7 +285,7 @@ To build a specific package, e.g., CF, type:
 $ darwinbuild CF
 ```
 
-[Troubles with CF building](darwinbuild/troubleshooting.html#TOC-CF-ok-)
+[Troubles with CF building](Darwinbuild%20troubleshooting/DarwinBuild%20troubleshooting.md)
 
 CF is a test case to build. On the first build in the new BuildRoot, DarwinBuild will do some initializations, e.g., copy some header files from the host OS. If it fails, then some prerequisites might be missing or you might need to use -nochroot (in case not all prerequisites are uploaded to DarwinBuild yet; this would then use the files from the currently running OS rather than from DarwinBuild).
 If the build succeeds, you should see a Roots/CF/CF-476.10.root~1 directory containing the files you just built.

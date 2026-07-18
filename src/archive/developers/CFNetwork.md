@@ -20,7 +20,7 @@ Also included is the *CarbonCore.framework*, which contains only header files.
 Code written, compiled and linked to CoreServices on OS X will run successfully on PureDarwinXmas.
 The CFNetService type (the only part tested so far) operates correctly.
 
-This software is covered by the [APSL](../legal/apsl.html).
+This software is covered by the [APSL](/archive/about/APSL.md).
 
 #### Resources
 

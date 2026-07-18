@@ -67,14 +67,14 @@ GraphicsDrivers is a proprietary, closed-source project that consists (or doesn'
 -   NVDA**NV20**Hal.kext: Driver for a series of [NV20](http://en.wikipedia.org/wiki/GeForce_3_Series)-based graphics cards from 2001 known as "GeForce 3 Series"
 -   NVDA**NV30**Hal.kext: Driver for a series of [NV30](http://en.wikipedia.org/wiki/GeForce_FX_Series)-based graphics cards from 2003 known as "GeForce FX Series"/"GeForce 5"
 -   NVDA**NV40**Hal.kext: Driver for a series of [NV40](http://en.wikipedia.org/wiki/GeForce_6_Series)-based graphics cards from 2004 known as "GeForce 6 Series"
--   NVDA**NV50**Hal.kext (missing): Driver for a series of [G8x](../index.html)-based graphics cards from 2006 known as "GeForce 8 Series", "8x00" models
+-   NVDA**NV50**Hal.kext (missing): Driver for a series of G8x-based graphics cards from 2006 known as "GeForce 8 Series", "8x00" models
 -   NVDAResman.kext
 The GraphicsDrivers project is available for use with Darwin under the Apple Driver License.
 The drivers in Mac OS X 10.5.5 are SourceVersion 53017 (GraphicsDrivers-5.30.17). The [MacBook, MacBook Pro Software Update 1.2](http://www.apple.com/downloads/macosx/apple/application_updates/macbookmacbookprosoftwareupdate12.html) contains SourceVersion 53410 (GraphicsDrivers-5.34.10). The version available for Darwin seems to be still 40024.
 
 #### X server
 
-Like most other UNIX-like operating systems, PureDarwin uses an X server to display on-screen graphics. Please see the [XFree86](xfree86.html) and [X.Org](xorg.html) pages for details.
+Like most other UNIX-like operating systems, PureDarwin uses an X server to display on-screen graphics. Please see the [XFree86](XFree86.md) and [X.Org](X.Org.md) pages for details.
 
 #### VMware framebuffer
 

@@ -28,7 +28,7 @@ make or become hard or harder : [ intrans. ] _wait for the glue to harden_ | [ t
 **
 
 See above, you have been warned in red.
-Also, take a look at [Legal](../legal.html) page.
+Also, take a look at [Legal](/archive/about/Legal.md) page.
 
 
 
@@ -121,7 +121,7 @@ System startup
 --------------
 ### Extensible Firmware Interface (EFI)
 EFI determines which partition or disk to load. It also determines whether the user can enter (or not) in singe-user mode.
-More information in [efiboot](../developers/booting/efiboot.html), [boot](../developers/booting/boot.html) and [the boot process](../developers/booting.1.html) pages.
+More information in [efiboot](/archive/developers/The%20boot%20process/efiboot.md), [boot](/archive/developers/The%20boot%20process/boot.md) and [the boot process](/archive/developers/The%20boot%20process/The%20boot%20process.md) pages.
 
 Creating an EFI password disables:
 -   the single-user mode
@@ -438,7 +438,7 @@ FIXME
 FIXME
 ### Users & accounts
 #### Creating user account
-Some scripts as `pd_adduser' or `pd_injectuser', or the more regular `dscl' and `passwd' binaries can be used in order to create and manage user accounts. See [Download](../downloads.html) page and [User management](../users/users.1.html) page.
+Some scripts as `pd_adduser' or `pd_injectuser', or the more regular `dscl' and `passwd' binaries can be used in order to create and manage user accounts. See [Download](/archive/about/Downloads.md) page and [User management](User%20management.md) page.
 #### Reset a user's password in single user mode
 Boot into single user mode. Replace username with the targeted user and password with the desired password, then:
 
@@ -450,7 +450,7 @@ dscl . -passwd /Users/username [password]
 
 Then reboot, or relaunch DirectoryServices.
 
-Note that you can also use [pd_injectuser](../downloads.html) to recreate a user account, including his password.
+Note that you can also use [pd_injectuser](/archive/about/Downloads.md) to recreate a user account, including his password.
 
 /usr/local/sbin/pd_injectuser
 ****
@@ -655,7 +655,7 @@ To increase the level of debugging:
 `sudo launchctl log level debug Password: ********`
 
 FIXME
-See [launchd](../developers/booting/launchd.html) page.
+See [launchd](/archive/developers/The%20boot%20process/launchd.md) page.
 #### Enable lookupd debugging
 `sudo dscl . create /dsRecTypeStandard:Config/lookupd Debug YES`
 `sudo dscl . create /dsRecTypeStandard:Config/lookupd Trace YES`
@@ -709,12 +709,12 @@ Identify files used by an application at launchtime:
 FIXME
 #### DTrace {style="margin-top:10px;margin-bottom:10px;color:rgb(0,0,0);margin-left:10px;margin-right:0px"}
 The generic front-end to the DTrace facility is a powerfull dynamic debugger and analysis tool.
-See the [DTrace](dtrace.html) page.
+See the [DTrace](/archive/developers/DTrace.md) page.
 
 
 ### Recompiling XNU
 FIXME
-See [The XNU kernel](../developers/xnu.1.html) page.
+See [The XNU kernel](/archive/developers/XNU,%20the%20kernel.md) page.
 #### Usefull MacPorts
 `kernel-tools sysutils/kernel-tools 8J2135 Tools required to build xnu for Intel
 gcc_select sysutils/gcc_select 0.1 Switch the default compiler
@@ -820,7 +820,7 @@ Network
 ### ifconfig
 Use a restrictive netmask.
 ### Detecting promiscuous mode
-Several ways exist to detect promiscuous mode (potential running sniffer), you can use [DTrace](dtrace.html), simply parse `ifconfig' or even run a sniffer.
+Several ways exist to detect promiscuous mode (potential running sniffer), you can use [DTrace](/archive/developers/DTrace.md), simply parse `ifconfig' or even run a sniffer.
 Without promisc mode, ifconfig looks like
 ```
 /sbin/ifconfig en0
@@ -1068,7 +1068,7 @@ Named after physicist [Michael Faraday](http://en.wikipedia.org/wiki/Michael_Fa
 
 You can also encrypt your communication and/or add noise if you cannot managed to block output emits, though according to "[Shannon](http://en.wikipedia.org/wiki/Claude_E._Shannon)", it's probably not the most efficient way.
 #### Wireless emission
-No driver reported to work at this time. See [Network page](../developers/network.html) for update.
+No driver reported to work at this time. See [Network page](/archive/developers/Network.md) for update.
 freeradius and openradius (802.11X could be then tested, though wireless is not mandatory for this kind of service).
 Reduce power emit.
 Add "many" fakeap clones.

@@ -15,13 +15,13 @@ Status
 ------
 **v0.003 (15/03/2009)** Latest test target, `dscl`, seems to run correctly.
 ### How to recognise a dependency on Foundation
-At compile time, in the [darwinbuild](developers/darwinbuild.html) chroot, dependencies appear as missing header files (eg. "Foundation.h") or linker errors (eg. "unable to link to Foundation.framework"). At run time, dependencies are signalled by linker errors like:
+At compile time, in the [darwinbuild](Using%20DarwinBuild/DarwinBuild.md) chroot, dependencies appear as missing header files (eg. "Foundation.h") or linker errors (eg. "unable to link to Foundation.framework"). At run time, dependencies are signalled by linker errors like:
 > ` `
 >
 > <span>   dyld: Library not loaded: /System/Library/Frameworks/Foundation.framework/Versions/C/Foundation
 >       Referenced from: /System/Library/PrivateFrameworks/OpenDirectory.framework/Versions/A/OpenDirectory</span>
 or alternatively with a message like ``. Typically, if the symbol begins "NS", it is a problem which PureFoundation should be able to solve.
-See [Current Blockers](blockers.html) for a list of some of the components affected.
+See [Current Blockers](Current%20blockers.md) for a list of some of the components affected.
 ### Report a dependent on Foundation
 If (when) you encounter a tool or application which looks like it needs Foundation, please report it via the PureFoundation issue tracker at <http://code.google.com/p/purefoundation/issues/list>. 
 Links
@@ -30,7 +30,7 @@ PureFoundation is now hosted on Google Code, at <http://code.google.com/p/puref
 Resources {style="background-color:transparent;color:rgb(0,0,0);font-family:Arial,Verdana,sans-serif;font-size:22px;margin-top:10px;margin-right:10px;margin-bottom:10px;margin-left:0px"}
 ---------
 <http://www.hereapi.com/pf/index.html> 
-[http://www.puredarwin.org/news/purefoundation](news/purefoundation.html) 
+[http://www.puredarwin.org/news/purefoundation](/archive/news/PureFoundation%20aims%20to%20become%20Foundation%20compatible%20substitute.md) 
 
 <http://developer.apple.com/DOCUMENTATION/Cocoa/Reference/Foundation/ObjC_classic/FoundationObjC.pdf> 
 

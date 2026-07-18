@@ -18,7 +18,7 @@ However, the binary root does not contain the actual `CFOpenDirectory` file ([ht
 The sources cannot be built without being patched because it depends on missing `CoreFoundation` headers (e.g., `CoreFoundation/CFBridgingPriv.h`) and on `DirectoryServiceCore` (part of `DirectoryService` which cannot yet be built too).
 
 #### 1.2 `IOHDIXController.kext` needed (image boot support)
-BinaryDriver `IOHDIXController.kext` is missing ([used to be available](Legal.md#licensed-material) under Apple Driver License) in order to use [imageboot](Live_CD.md#alternative-2-using-imageboot).
+BinaryDriver `IOHDIXController.kext` is missing ([used to be available](/archive/about/Legal.md#licensed-material) under Apple Driver License) in order to use [imageboot](Live%20CD.md#alternative-2-using-imageboot).
 Please let us know if you know a solution.
 #### 1.3 `OSvKernDSPLib.kext` needed (audio support)
 BinaryDriver `OSvKernDSPLib.kext` is missing, consequently `IOAudioFamily.kext` cannot be loaded resulting in no audio support.
@@ -68,9 +68,9 @@ This is a mission critical component of Darwin.
 <http://darwinbuild.macosforge.org/trac/ticket/9>
 Maybe related: "Logged as radar 5802196: Unable to build TOT launchd from macosforge.org" ([source](http://www.nabble.com/launchd-(257)-not-building-td16087000.html))
 
-[Patched](Purity_patches_for_IOKitUser,_launchd,_objc4.md) its sources. Please let us know if you know a cleaner solution.
+[Patched](/archive/news/Purity%20patches%20for%20IOKitUser,%20launchd,%20objc4.md) its sources. Please let us know if you know a cleaner solution.
 #### 2.3 IOKitUser does not build
-[Patched](Purity_patches_for_IOKitUser,_launchd,_objc4.md) its sources. Please let us know if you know a cleaner solution.
+[Patched](/archive/news/Purity%20patches%20for%20IOKitUser,%20launchd,%20objc4.md) its sources. Please let us know if you know a cleaner solution.
 
 ------------------------------------------------------------------------
 
@@ -78,6 +78,6 @@ Maybe related: "Logged as radar 5802196: Unable to build TOT launchd from macosf
 #### 3.1 diskarbitrationd fails with "_SCSerialize() failure" errors
 This was caused by CFLite not supporting a certain mode of operation of a particular CF function. Building CFLite with the latest PureDarwin patch will restore this functionality and allow diskarbitrationd to run correctly.
 #### 3.2 CF missing symbols
-__kCFBundleResourceSpecificationKey referenced by some dependents (e.g., Security framework) is expected in CF but missing. Patching the source code to restore this symbol and others (for example, exception names) has proved successful. To apply these patches, follows the instructions for initialising the darwinbuild environment as described in [Using DarwinBuild](DarwinBuild.md).
+__kCFBundleResourceSpecificationKey referenced by some dependents (e.g., Security framework) is expected in CF but missing. Patching the source code to restore this symbol and others (for example, exception names) has proved successful. To apply these patches, follows the instructions for initialising the darwinbuild environment as described in [Using DarwinBuild](Using%20DarwinBuild/DarwinBuild.md).
 #### 3.3 libauto.dylib ~~missing~~
-Apple has [released](news/autozone.html) autozone-77 under the Apache License 2.0. Thanks, Apple!
+Apple has released autozone-77 under the Apache License 2.0. Thanks, Apple!

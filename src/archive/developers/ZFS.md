@@ -14,7 +14,7 @@ Enthusiasts of ZFS and of PureDarwin will want to read the whole web site from t
 
 The ZFS implementation that runs on Mac OS X (and Darwin) can be downloaded or compiled.
 
-Fyi, ZFS is [pure](../developers/macports/purity.html).
+Fyi, ZFS is [pure](Using%20MacPorts/Purity.md).
 Parts of ZFS
 ------------
 On Mac OS X (and Darwin), ZFS consists of the following parts:
@@ -37,7 +37,7 @@ Sun (and the FreeBSD project) recommend that at least 512MB of RAM is available,
 ### Building ZFS
 *This section will be updated, pending the official integration of MacZFS into PureDarwin.  The old instructions are provided for reference in the hope that you will help to update it.*
 
-Our favorite way is through [darwinbuild](../developers/darwinbuild.html) via a custom plist containing the paste below. You will notice that only two architectures have been specified, because it does not yet build on 64bits arch (ppc64 or x86_64). `darwinbuild zfs' is pretty straight forward.
+Our favorite way is through [darwinbuild](Using%20DarwinBuild/DarwinBuild.md) via a custom plist containing the paste below. You will notice that only two architectures have been specified, because it does not yet build on 64bits arch (ppc64 or x86_64). `darwinbuild zfs' is pretty straight forward.
 
  `zfs = {`
  `configuration = "Leopard_Release";`

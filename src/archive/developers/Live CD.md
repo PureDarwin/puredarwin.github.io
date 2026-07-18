@@ -117,7 +117,7 @@ launchctl load -D system
 # this script sleeps forever; the installer or startup disk will always reboot the system.
 sleep 9999999
 ````
-How does this script get called? **How can hdik be replaced with what is in Darwin? **Please let us know. Perhaps we could use a [MacFUSE](macfuse.html) based ramdisk from http://thebends.googlecode.com/svn/trunk/ramdisk/
+How does this script get called? **How can hdik be replaced with what is in Darwin? **Please let us know. Perhaps we could use a [MacFUSE](MacFUSE.md) based ramdisk from http://thebends.googlecode.com/svn/trunk/ramdisk/
 
 So far, when replacing the above RAMDisk function with one based on MacFUSE's mount_ramdisk, we get
 launchctl error: launch_msg(): Socket is not connected

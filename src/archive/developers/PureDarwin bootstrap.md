@@ -48,7 +48,7 @@ This is not really problematic and should lead to the next screen.
 
 The bootloader does not come from the media (bootstrap.iso) but from VMware (as displayed version shows).
 
-See the [VMware](../vmware.html#TOC-darwin.iso) page for more information.
+See the [VMware](VMWare.md) page for more information.
 
 ![](/archive/img/developers/repository/puredarwin-bootstrap/boostrap%20vmware%20bootloader%20countdown.png)
 If [F8] is pressed, additional boot arguments can be passed to the kernel.

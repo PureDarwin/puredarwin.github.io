@@ -7,7 +7,7 @@ HFS+ partial raw approach
 draft.
 
 
-How did we get there? Needed to replace some [blocker](../../blockers.html) as `hdid' in [pd_setup](http://code.google.com/p/puredarwin/source/browse/setup/pd_setup) in order to be able to build PureDarwin images not only from Mac but also from PureDarwin.
+How did we get there? Needed to replace some [blocker](Current%20blockers.md) as `hdid' in [pd_setup](http://code.google.com/p/puredarwin/source/browse/setup/pd_setup) in order to be able to build PureDarwin images not only from Mac but also from PureDarwin.
 
 
 Each piece is build and then "assembled" on this example:

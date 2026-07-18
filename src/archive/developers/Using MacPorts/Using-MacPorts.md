@@ -5,7 +5,7 @@ Using MacPorts
 
 ![](/archive/img/developers/macports/macports-logo-top.png)
 [MacPorts](http://www.macports.org/), formerly known as DarwinPorts, is a variant of the BSD ports system for Darwin and Mac OS X.
-This page describes how to use MacPorts to create binary packages that can be deployed to PureDarwin. We now have [MacPorts running on PureDarwin](macports/macportsonpuredarwin.html) itself. Deploying MacPorts on a PureDarwin system and building binaries there is preferable, since you will save a lot of hassle.
+This page describes how to use MacPorts to create binary packages that can be deployed to PureDarwin. We now have [MacPorts running on PureDarwin](Deploying%20MacPorts%20on%20PureDarwin.md) itself. Deploying MacPorts on a PureDarwin system and building binaries there is preferable, since you will save a lot of hassle.
 
 ### Prerequisites
 For MacPorts, you need
@@ -69,7 +69,7 @@ To build XFree86, for example, use:
 
 `sudo port -d archive xfree86 +puredarwin`
 
-This is just an example. If you really want to build XFree86, see the [XFree86](xfree86.html) page for additional information.
+This is just an example. If you really want to build XFree86, see the [XFree86](XFree86.md) page for additional information.
 This should download, compile, and after a while return
  
 
@@ -116,7 +116,7 @@ Do that by adding "+puredarwin" to variants.conf:
     echo "-macosx" >> /opt/local/etc/macports/variants.conf
 
 #### Purity checking
-It is crucial that you [check the build results for "purity"](macports/purity.html).
+It is crucial that you [check the build results for "purity"](Purity.md).
 
 #### Updating MacPorts
 Do not hesitate to "cron" it.
@@ -151,4 +151,4 @@ Thanks afb for lots of help with MacPorts and for the portmain.tcl patch below.
 
 ### Resources
 [MacPorts.org](http://www.macports.org/)
-[man port](macports/port.html)
+[man port](MacPorts%20man%20port.md)

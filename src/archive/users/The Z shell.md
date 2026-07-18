@@ -13,14 +13,14 @@ Some users might prefer to use zsh however. This page is a work in progress, ple
 Available.
 #### In the DarwinBuild project
 Available.
-See the [DarwinBuild](../developers/darwinbuild.html) page on how to compile a project if needed.
+See the [DarwinBuild](/archive/developers/Using%20DarwinBuild/DarwinBuild.md) page on how to compile a project if needed.
 #### In the MacPorts project
 Available.
-Take a look at [Using the MacPorts project](../developers/macports.1.html) page for more information about MacPorts if you don't know how to build it.
+Take a look at [Using the MacPorts project](/archive/developers/Using%20MacPorts/Using-MacPorts.md) page for more information about MacPorts if you don't know how to build it.
 
 
 __Note:__ You should also take a look in the available variants (you can use `port info zsh` or `port variants zsh` if you want to know the description associated to the respective variant).
-The zsh port appears to be "[pure](../developers/macports/purity.html)" as shown below.
+The zsh port appears to be "[pure](/archive/developers/Using%20MacPorts/Purity.md)" as shown below.
 
 ![](/archive/img/users/zsh/pd_portviz%20zsh_directed.png)
 

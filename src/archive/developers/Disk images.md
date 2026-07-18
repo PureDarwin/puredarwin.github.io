@@ -197,6 +197,6 @@ Also have a look at this:
 
 >   (11:09:29 AM) errordeveloper: now
 
->  (11:09:53 AM) errordeveloper: the problem is that [http://www.puredarwin.org/developers/diskimages](diskimages.html) is not a wiki page
+>  (11:09:53 AM) errordeveloper: the problem is that http://www.puredarwin.org/developers/diskimages is not a wiki page
 
 >   (11:10:10 AM) errordeveloper: and I cannot simpy add this info there, so other might find it usefull

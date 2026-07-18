@@ -8,7 +8,7 @@ Some QEMU attempts through [Q](http://www.kju-app.org/), A CPU emulator for Maci
 
 Status
 ------
-As of January 2010, Q.app still uses qemu 0.9.x, whereas PureDarwin needs 0.10 to function properly. Hence, we recommend to use [QEMU](../qemu.html) instead for now.
+As of January 2010, Q.app still uses qemu 0.9.x, whereas PureDarwin needs 0.10 to function properly. Hence, we recommend to use [QEMU](QEMU.md) instead for now.
 
 The latest version (Q-0.9.1d118) has been updated last year, creating a big gap between the latest official QEMU and the one used in Q front-end.
 Consequently, Q is not usable for PureDarwin at this time.
@@ -40,7 +40,7 @@ SMBIOS well-known problem is bypassed with Voodoo kernel (xnu-dev).
 
 ![](/archive/img/developers/qemu/qemu-q/Q%20SMBIOS%20not%20found.png)
 
-Then, the real boot begins, but quickly ends with a problem related to APIC similar to the one in [VirtualBox](../virtualbox.html) page.
+Then, the real boot begins, but quickly ends with a problem related to APIC similar to the one in [VirtualBox](VirtualBox.md) page.
 
 
 ![](/archive/img/developers/qemu/qemu-q/Q%20local%20APIC%20version%20not%20as%20expected.png)

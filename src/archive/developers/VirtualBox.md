@@ -110,4 +110,4 @@ See also
 --------
 
 -   "[VirtualBox 3.2 supports Mac OS X guests out-of-the-box](http://forums.virtualbox.org/viewtopic.php?t=2076)"
--   [http://www.puredarwin.org/virtualbox-archive](../virtualbox-archive.html)
+-   [http://www.puredarwin.org/virtualbox-archive](VirtualBox-archive.md)

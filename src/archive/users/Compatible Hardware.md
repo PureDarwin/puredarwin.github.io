@@ -14,13 +14,13 @@ Pseudo-legend:
 
 -   *cpu + info(s)*
 Apple Mac OS X (Snow) Leopard
-[QEMU](../developers/qemu.html) &gt; v0.9.0
+[QEMU](/archive/developers/QEMU.md) &gt; v0.9.0
 -   Intel Core 2 Duo (T7400)
-[VMware Fusion](../developers/vmware.html)
+[VMware Fusion](/archive/developers/VMWare.md)
 -   Intel Core 2 Duo (T7400)
 MS Windows
 QEMU v0.10.0 (XP 32 bits SP3)
--   AMD Sempron 2800+ (specific version from "Patrick", see [QEMU](../developers/qemu.html) page)
+-   AMD Sempron 2800+ (specific version from "Patrick", see [QEMU](/archive/developers/QEMU.md) page)
 VMware Server 2.0 nc (AMD 64bits)
 VMware Player 2.5.1 (XP 32 bits SP3)
 VMware Player 2.5.2 (WIN7 64bits RC)
