@@ -1,0 +1,7 @@
+[book]
+title = "PureDarwin"
+language = "en"
+
+[output.html]
+fold = { enable = true, level = 0 }
+no-section-label = true
