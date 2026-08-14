@@ -1,0 +1,309 @@
+:root {
+  --puredarwin-blue: #0d6efd;
+  --puredarwin-header: #000;
+  --puredarwin-canvas: #f6f6f6;
+  --puredarwin-border: #e3e3e3;
+  --sidebar-width: min(var(--sidebar-target-width), 80vw);
+  --content-max-width: 900px;
+}
+
+.light,
+.rust,
+.coal,
+.navy,
+.ayu {
+  --bg: var(--puredarwin-canvas);
+  --fg: #2f2f2f;
+  --sidebar-bg: #fff;
+  --sidebar-fg: #4a4a4a;
+  --sidebar-non-existant: #aaa;
+  --links: var(--puredarwin-blue);
+  --sidebar-active: var(--puredarwin-blue);
+  --sidebar-spacer: #eee;
+  --sidebar-header-border-color: transparent;
+  --icons: #fff;
+  --icons-hover: #ccc;
+  --table-border-color: #ddd;
+  --table-header-bg: #eee;
+  --table-alternate-bg: #fafafa;
+  --color-scheme: light;
+}
+
+html {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
+}
+
+html,
+body,
+.page,
+.page-wrapper {
+  background: var(--puredarwin-canvas);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 51px;
+  background: var(--puredarwin-header);
+}
+
+.page-wrapper {
+  min-height: 100vh;
+}
+
+/* Recreate the old fixed black navigation bar. */
+.menu-bar,
+.menu-bar-hover-placeholder {
+  height: 51px;
+}
+
+#mdbook-menu-bar {
+  position: fixed !important;
+  z-index: 102;
+  top: 0;
+  right: 0;
+  left: 0;
+  box-sizing: border-box;
+  width: 100vw;
+  margin: 0;
+  padding: 0 24px;
+  background-color: var(--puredarwin-header);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+#mdbook-menu-bar:hover,
+#mdbook-menu-bar.sticky,
+html.sidebar-visible #mdbook-menu-bar {
+  position: fixed !important;
+  top: 0 !important;
+}
+
+#mdbook-menu-bar .left-buttons {
+  position: absolute;
+  left: 12px;
+}
+
+#mdbook-menu-bar .right-buttons {
+  position: absolute;
+  right: 12px;
+}
+
+#mdbook-menu-bar .fa-svg,
+#mdbook-menu-bar .icon-button {
+  padding-right: 5px;
+  padding-left: 5px;
+}
+
+[dir="rtl"] #mdbook-menu-bar .left-buttons {
+  right: 12px;
+  left: auto;
+}
+
+[dir="rtl"] #mdbook-menu-bar .right-buttons {
+  right: auto;
+  left: 12px;
+}
+
+.menu-bar .left-buttons,
+.menu-bar .right-buttons {
+  align-items: center;
+  height: 50px;
+}
+
+.menu-bar .icon-button,
+.menu-bar .icon-button:hover,
+.menu-bar .icon-button:focus {
+  color: #fff;
+}
+
+/* The branded theme is deliberately fixed, like the former Docsify site. */
+#mdbook-theme-toggle,
+#mdbook-theme-list {
+  display: none;
+}
+
+.menu-title {
+  position: absolute;
+  top: 7px;
+  left: 50%;
+  width: 172px;
+  height: 36px;
+  margin: 0;
+  overflow: hidden;
+  color: transparent;
+  background: url("../img/homepage/logo-mark-text-fff.svg") center / contain
+    no-repeat;
+  font-size: 0;
+  transform: translateX(-50%);
+}
+
+a.menu-title {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+a.menu-title:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+.sidebar {
+  top: 51px;
+  background: #fff;
+  border-right: 1px solid var(--puredarwin-border);
+}
+
+.sidebar-scrollbox {
+  padding: 28px 18px 28px 28px;
+}
+
+.sidebar .chapter li a {
+  border-radius: 4px;
+  color: #4a4a4a;
+  line-height: 1.5;
+}
+
+.sidebar .chapter li a:hover {
+  color: var(--puredarwin-blue);
+  text-decoration: none;
+}
+
+.sidebar .chapter li a.active {
+  color: var(--puredarwin-blue);
+  font-weight: 600;
+}
+
+.sidebar .chapter li a.active::before {
+  color: var(--puredarwin-blue);
+}
+
+/* Keep article heading outlines, but suppress the orphaned rule mdBook emits
+   when a page has no eligible subsections. */
+.sidebar .on-this-page:not(:has(a)) {
+  display: none;
+}
+
+.sidebar .on-this-page > ol {
+  padding-inline-start: 0;
+}
+
+/* mdBook inserts empty list levels when a document starts at h3 or deeper. */
+.sidebar .on-this-page > ol > ol {
+  padding-inline-start: 0;
+}
+
+.sidebar .on-this-page {
+  margin-inline-start: 4px;
+}
+
+/* Keep the Docsify-style sidebar fixed-width and remove mdBook's chapter
+   paging controls. Navigation remains available through the sidebar. */
+.nav-wide-wrapper,
+.nav-wrapper {
+  display: none;
+}
+
+#mdbook-sidebar-resize-handle .sidebar-resize-indicator {
+  opacity: 0;
+}
+
+.page-wrapper {
+  background: var(--puredarwin-canvas);
+}
+
+.content {
+  box-sizing: border-box;
+  margin-top: 32px;
+  margin-bottom: 48px;
+  padding: 42px 54px 64px;
+  background: #fff;
+  border: 1px solid var(--puredarwin-border);
+  border-radius: 8px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+}
+
+.content main {
+  color: #2f2f2f;
+  line-height: 1.65;
+}
+
+.content h1,
+.content h2,
+.content h3,
+.content h4 {
+  color: #1b1b1b;
+  font-weight: 600;
+}
+
+.content a.header {
+  color: inherit;
+}
+
+.content h1 {
+  padding-bottom: 0.3em;
+  border-bottom: 1px solid var(--puredarwin-border);
+}
+
+.content a {
+  color: var(--puredarwin-blue);
+}
+
+.content code {
+  border-radius: 4px;
+}
+
+.content blockquote {
+  border-left-color: var(--puredarwin-blue);
+}
+
+@media (max-width: 1080px) {
+  .content {
+    margin: 24px 20px 40px;
+    padding: 34px 38px 50px;
+  }
+}
+
+@media (max-width: 700px) {
+  .menu-bar {
+    padding: 0 8px;
+  }
+
+  #mdbook-menu-bar .left-buttons {
+    left: 4px;
+  }
+
+  #mdbook-menu-bar .right-buttons {
+    right: 4px;
+  }
+
+  .menu-title {
+    width: 145px;
+  }
+
+  .content {
+    margin: 0;
+    padding: 28px 22px 44px;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+}
+
+@media print {
+  body::before {
+    display: none;
+  }
+}
+
+/* Keep alternate mdBook color schemes readable inside the white Docsify card. */
+.coal .content main,
+.navy .content main,
+.ayu .content main,
+.rust .content main {
+  color: #2f2f2f;
+}

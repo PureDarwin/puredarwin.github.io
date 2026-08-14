@@ -5,3 +5,7 @@ language = "en"
 [output.html]
 fold = { enable = true, level = 0 }
 no-section-label = true
+additional-css = ["theme/puredarwin.css"]
+additional-js = ["theme/puredarwin.js"]
+default-theme = "light"
+preferred-dark-theme = "light"
