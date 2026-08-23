@@ -2,7 +2,7 @@
 
 August 23, 2026 - [Vali](https://github.com/Vali0004)
 
-![PureDarwin running Xfce under Xwayland on sway, with the LunarG Vulkan cube on Mesa, Wine, and fastfetch reporting Darwin 20.5.0](/img/news/2026/news-cover-road-to-20-5-0.png)
+![PureDarwin running Xfce under Xwayland on sway, with the LunarG Vulkan cube on Mesa, Wine, and fastfetch reporting Darwin 20.5.0](/img/news/2026/news-cover-road-to-20-5-0-wide.png)
 
 PureDarwin is preparing its first release in eight years, and the first one with a
 graphical desktop since PureDarwin Xmas in 2007. This post covers where the system

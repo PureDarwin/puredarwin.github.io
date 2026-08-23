@@ -19,6 +19,10 @@
 #define NEWS_DIR "src/news"
 #define NEWS_INDEX "src/news/_News.md"
 #define SUMMARY "src/SUMMARY.md"
+#define HOME_PAGE "src/index.html"
+#define HOME_BEGIN "<!-- pdnews:latest -->"
+#define HOME_END "<!-- /pdnews:latest -->"
+#define HOME_COUNT 3
 
 static const char *months[12] = {
 	"January", "February", "March", "April", "May", "June",
@@ -663,6 +667,63 @@ static void update_summary(const char *root, const char *slug, const char *title
 	buf_free(&ins);
 }
 
+/*
+ * The landing page shows the newest few entries. It is generated from the same
+ * data as the news index rather than kept by hand, so the two cannot disagree.
+ */
+static void update_home(const char *root, struct entry *list, size_t n)
+{
+	char full[4096];
+	char *text;
+	const char *begin, *end;
+	struct buf out = {0};
+	size_t i, limit = n < HOME_COUNT ? n : HOME_COUNT;
+
+	joinpath(full, sizeof(full), root, HOME_PAGE);
+	if (access(full, R_OK) != 0)
+		return;
+	text = read_file(full, NULL);
+
+	begin = strstr(text, HOME_BEGIN);
+	end = begin ? strstr(begin, HOME_END) : NULL;
+	if (!begin || !end) {
+		free(text);
+		fprintf(stderr, "pdnews: no %s block in %s, leaving it alone\n",
+			HOME_BEGIN, HOME_PAGE);
+		return;
+	}
+
+	buf_add(&out, text, (size_t)(begin - text));
+	buf_puts(&out, HOME_BEGIN "\n");
+	buf_puts(&out, "      <ul class=\"mt-5 space-y-4\">\n");
+	for (i = 0; i < limit; i++) {
+		buf_puts(&out, "        <li>\n");
+		buf_printf(&out,
+			   "          <div class=\"text-sm text-pd-muted\">%s</div>\n",
+			   list[i].date);
+		buf_printf(&out,
+			   "          <a href=\"/news/%s.html\" class=\"font-medium text-pd-ink hover:text-pd-blue\">\n",
+			   list[i].slug);
+		buf_printf(&out, "            %s\n", list[i].title);
+		buf_puts(&out, "          </a>\n");
+		buf_puts(&out, "        </li>\n");
+	}
+	buf_puts(&out, "      </ul>\n      ");
+	buf_puts(&out, end);
+
+	write_file(full, out.data, out.len);
+	buf_free(&out);
+	free(text);
+}
+
+static void sync_home(const char *root)
+{
+	size_t n;
+	struct entry *list = collect(root, &n);
+
+	update_home(root, list, n);
+}
+
 static int cmd_new(const char *root, int argc, char **argv)
 {
 	const char *title = NULL, *author = NULL, *summary = NULL;
@@ -747,10 +808,12 @@ static int cmd_new(const char *root, int argc, char **argv)
 	update_index(root, slug, title, date, summary[0] ? summary : title);
 	update_summary(root, slug, title);
 
+	sync_home(root);
+
 	printf("created %s\n", path);
 	printf("updated %s\n", NEWS_INDEX);
 	printf("updated %s\n", SUMMARY);
-	printf("note: the three highlights on src/index.html are hand-maintained\n");
+	printf("updated %s\n", HOME_PAGE);
 
 	buf_free(&doc);
 	free(body);
@@ -769,6 +832,7 @@ static void usage(FILE *out)
 "      [--force]\n"
 "                       create an entry and link it from the news index\n"
 "                       and SUMMARY.md\n"
+"  sync                 regenerate the landing page's latest-news block\n"
 "  help                 show this text\n"
 "\n"
 "--root defaults to $PDNEWS_ROOT, else the current directory. Text is\n"
@@ -813,6 +877,13 @@ int main(int argc, char **argv)
 	}
 	if (strcmp(cmd, "new") == 0)
 		return cmd_new(root, argc - i, argv + i);
+	if (strcmp(cmd, "sync") == 0) {
+		if (i < argc)
+			die("unknown option for \"sync\": %s", argv[i]);
+		sync_home(root);
+		printf("updated %s\n", HOME_PAGE);
+		return 0;
+	}
 
 	die("unknown command \"%s\" (try \"pdnews help\")", cmd);
 	return 2;
