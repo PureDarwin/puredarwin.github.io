@@ -58,19 +58,21 @@ jobs:
         env:
           CANONICAL_REPO: PureDarwin/puredarwin.github.io
 
+      # Not gated on `push`: a manual run is how you deploy after enabling
+      # Pages on a fork, without having to invent a commit.
       - name: Configure Pages
-        if: github.event_name == 'push'
+        if: github.event_name != 'pull_request'
         uses: actions/configure-pages@v5
 
       - name: Upload artifact
-        if: github.event_name == 'push'
+        if: github.event_name != 'pull_request'
         uses: actions/upload-pages-artifact@v3
         with:
           path: site
 
   deploy:
     name: Deploy to GitHub Pages
-    if: github.event_name == 'push'
+    if: github.event_name != 'pull_request'
     needs: build
     runs-on: ubuntu-latest
     permissions:
