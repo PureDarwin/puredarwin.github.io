@@ -1,7 +1,8 @@
 # Building
 
 PureDarwin is built with Nix. Every artifact the project produces, from a single library
-to a bootable disk image, is a flake output. The short version, on a Linux host:
+to a bootable disk image, is a flake output: components, kernel collections, disk
+images, and the QEMU runners that boot them. The short version, on a Linux host:
 
 ```
 nix-store --add-fixed sha256 /path/to/MacOSX11.3.sdk.tar.xz
@@ -9,8 +10,10 @@ nix build .#image-minimal
 nix run .#vm
 ```
 
-Under the Nix layer, the Darwin sources themselves are compiled by CMake, and both
-layers rely on a cross toolchain the project builds for itself. There is also one
+Under the Nix layer, the Darwin sources themselves are compiled by CMake. That CMake
+tree exists because Apple's Xcode projects had to be ported to it, and it is driven by
+Nix rather than used on its own; configuring it by hand is not a supported path. Both
+layers rely on a cross toolchain the project builds for itself, and there is one
 proprietary prerequisite that has not yet been designed out. Those four topics get a
 page each:
 
