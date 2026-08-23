@@ -81,7 +81,7 @@ There are too many to thank, but some highlights:
 * Mac OS Forge, the DarwinBuild project, and the MacPorts project
 * The OpenDarwin project, whose contributions PureDarwin still benefits from
 * [Probono](https://github.com/probonopd) for founding PureDarwin
-* [csekel](https://github.com/csekel) for believing and keeping PureDarwin going when nobody would — Rest in Peace
+* [csekel](https://github.com/csekel) for believing and keeping PureDarwin going when nobody would. Rest in Peace
 * [vali0004](https://github.com/Vali0004) for pushing PureDarwin into a modern era
 * Everyone else contributing to Darwin
 
