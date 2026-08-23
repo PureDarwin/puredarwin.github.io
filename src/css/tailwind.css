@@ -1,0 +1,39 @@
+@import "tailwindcss";
+
+/* Only the landing page uses Tailwind. The handbook is mdBook plus
+   theme/puredarwin.css, and the tokens below are copied from it so the two
+   halves of the site read as one. */
+@source "../index.html";
+
+@theme {
+  --color-pd-blue: #0d6efd;
+  --color-pd-ink: #1b1b1b;
+  --color-pd-body: #2f2f2f;
+  --color-pd-muted: #6f6f6f;
+  --color-pd-canvas: #f6f6f6;
+  --color-pd-border: #e3e3e3;
+
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
+
+  --radius-card: 8px;
+  --shadow-card: 0 4px 14px rgb(0 0 0 / 0.05);
+}
+
+/* The handbook renders its body copy at this measure and leading; matching it
+   keeps the two halves from feeling like different sites. */
+@layer base {
+  body {
+    background: var(--color-pd-canvas);
+    color: var(--color-pd-body);
+    font-family: var(--font-sans);
+    line-height: 1.65;
+  }
+
+  h1,
+  h2,
+  h3 {
+    color: var(--color-pd-ink);
+    font-weight: 600;
+  }
+}

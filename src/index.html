@@ -5,257 +5,271 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PureDarwin</title>
-  <meta property="og:title" content="Welcome to PureDarwin" />
+  <meta property="og:title" content="PureDarwin" />
   <meta property="og:locale" content="en_US" />
-  <meta name="description" content="Moving the Darwin community in the right direction!" />
-  <meta property="og:description" content="Moving the Darwin community in the right direction!" />
+  <meta name="description"
+    content="Darwin you can actually boot. A community project that fills in what Apple leaves out." />
+  <meta property="og:description"
+    content="Darwin you can actually boot. A community project that fills in what Apple leaves out." />
   <meta property="og:image" content="/img/ogimg.jpg" />
   <link rel="canonical" href="https://www.puredarwin.org/" />
   <meta property="og:url" content="https://www.puredarwin.org/" />
   <meta property="og:site_name" content="PureDarwin" />
   <meta property="og:type" content="website" />
-  <meta name="twitter:card" content="summary" />
-  <meta property="twitter:title" content="Welcome to PureDarwin" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-  <link href="style.css" rel="stylesheet">
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta property="twitter:title" content="PureDarwin" />
+  <link href="/css/site.css" rel="stylesheet">
   <link rel="icon" type="image/png" href="/img/favicon.png">
 </head>
 
-<body style="background: #F6F6F6;">
-  <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-black">
-    <div class="container">
-      <a class="navbar-brand" href="/">
-        <img src="img/homepage/logo-mark-text-fff.svg" alt="PureDarwin" height="30px" class="pb-1">
+<body class="font-sans">
+
+  <header class="fixed inset-x-0 top-0 z-50 bg-black">
+    <nav class="mx-auto flex max-w-6xl items-center gap-6 px-5 py-3">
+      <a href="/" class="shrink-0" aria-label="PureDarwin home">
+        <img src="/img/homepage/logo-mark-text-fff.svg" alt="PureDarwin" height="28" class="h-7 w-auto">
       </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
-        aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarText">
-        <span class="me-auto"></span>
-        <ul class="navbar-nav mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link" href="/">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/news/_News.html">News</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#beta">Download</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="https://github.com/pureDarwin/" target="_blank">GitHub</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/archive/_Archive.html">Archive</a>
-          </li>
-        </ul>
+      <ul class="ml-auto flex flex-wrap items-center gap-x-5 gap-y-1 text-sm text-white/80">
+        <li><a class="hover:text-white" href="/">Home</a></li>
+        <li><a class="hover:text-white" href="/handbook/_Handbook.html">Handbook</a></li>
+        <li><a class="hover:text-white" href="/news/_News.html">News</a></li>
+        <li><a class="hover:text-white" href="#get-it">Get it</a></li>
+        <li><a class="hover:text-white" href="https://github.com/PureDarwin/PureDarwin">GitHub</a></li>
+        <li><a class="hover:text-white" href="/archive/_Archive.html">Archive</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="mx-auto max-w-6xl px-5 pt-24 pb-16">
+
+    <section class="pt-6 pb-10">
+      <h1 class="max-w-3xl text-4xl leading-tight font-semibold sm:text-5xl">
+        Darwin you can actually boot.
+      </h1>
+      <p class="mt-5 max-w-2xl text-lg text-pd-body">
+        Apple publishes the Darwin kernel and a large amount of userland, but never the pieces that turn it into a
+        system: no bootloader, no modern launchd, few drivers. PureDarwin writes those, and everything else it takes
+        to reach a desktop.
+      </p>
+      <div class="mt-7 flex flex-wrap gap-3">
+        <a href="/handbook/_Handbook.html"
+          class="inline-flex items-center gap-2 rounded-full bg-pd-blue px-5 py-2.5 text-sm font-medium text-white hover:bg-blue-700">
+          <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 7v14" /> <path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z" /></svg>
+          Read the Handbook
+        </a>
+        <a href="#get-it"
+          class="inline-flex items-center gap-2 rounded-full border border-pd-border bg-white px-5 py-2.5 text-sm font-medium text-pd-ink hover:border-pd-blue hover:text-pd-blue">
+          <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19h8" /> <path d="m4 17 6-6-6-6" /></svg>
+          Get it
+        </a>
       </div>
+
+      <figure class="mt-10">
+        <img src="/img/news/2026/news-cover-road-to-20-5-0.png"
+          alt="PureDarwin running Xfce under Xwayland on sway, with the LunarG Vulkan cube, Wine, and fastfetch reporting Darwin 20.5.0"
+          class="w-full rounded-card border border-pd-border shadow-card" loading="lazy">
+        <figcaption class="mt-3 text-sm text-pd-muted">
+          PureDarwin running Xfce under Xwayland on sway, with the Vulkan cube on Mesa lavapipe, Wine, and a shell
+          reporting Darwin 20.5.0.
+        </figcaption>
+      </figure>
+    </section>
+
+    <section class="rounded-card border border-pd-border bg-white p-7 shadow-card sm:p-9">
+      <h2 class="text-2xl">What works today</h2>
+      <p class="mt-3 max-w-3xl">
+        PureDarwin boots to a shell on four targets. A fifth, the ARMv6 Pi Zero, reaches userspace but not yet a
+        prompt.
+      </p>
+      <ul class="mt-6 grid gap-x-8 gap-y-3 sm:grid-cols-2">
+        <li class="border-l-2 border-pd-blue pl-4">
+          <strong class="flex items-center gap-2 text-pd-ink"><svg class="h-4 w-4 shrink-0 text-pd-blue" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20v2" /> <path d="M12 2v2" /> <path d="M17 20v2" /> <path d="M17 2v2" /> <path d="M2 12h2" /> <path d="M2 17h2" /> <path d="M2 7h2" /> <path d="M20 12h2" /> <path d="M20 17h2" /> <path d="M20 7h2" /> <path d="M7 20v2" /> <path d="M7 2v2" /> <rect x="4" y="4" width="16" height="16" rx="2" /> <rect x="8" y="8" width="8" height="8" rx="1" /></svg>x86_64</strong>
+          <span class="block text-sm text-pd-muted">QEMU and real hardware. The release target.</span>
+        </li>
+        <li class="border-l-2 border-pd-blue pl-4">
+          <strong class="flex items-center gap-2 text-pd-ink"><svg class="h-4 w-4 shrink-0 text-pd-blue" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="8" x="2" y="2" rx="2" ry="2" /> <rect width="20" height="8" x="2" y="14" rx="2" ry="2" /> <line x1="6" x2="6.01" y1="6" y2="6" /> <line x1="6" x2="6.01" y1="18" y2="18" /></svg>arm64, QEMU virt</strong>
+          <span class="block text-sm text-pd-muted">Boots to a shell; Xorg starts.</span>
+        </li>
+        <li class="border-l-2 border-pd-blue pl-4">
+          <strong class="flex items-center gap-2 text-pd-ink"><svg class="h-4 w-4 shrink-0 text-pd-blue" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2" /> <path d="M11 9h4a2 2 0 0 0 2-2V3" /> <circle cx="9" cy="9" r="2" /> <path d="M7 21v-4a2 2 0 0 1 2-2h4" /> <circle cx="15" cy="15" r="2" /></svg>Raspberry Pi 3</strong>
+          <span class="block text-sm text-pd-muted">arm64, on real hardware.</span>
+        </li>
+        <li class="border-l-2 border-pd-blue pl-4">
+          <strong class="flex items-center gap-2 text-pd-ink"><svg class="h-4 w-4 shrink-0 text-pd-blue" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="16" height="20" x="4" y="2" rx="2" ry="2" /> <line x1="12" x2="12.01" y1="18" y2="18" /></svg>iPad 6 (T8010)</strong>
+          <span class="block text-sm text-pd-muted">Via checkm8 and PongoOS, on the device's own display.</span>
+        </li>
+      </ul>
+      <p class="mt-6 max-w-3xl">
+        On x86_64 that means an ext4 root, DHCP end to end, a real Xorg server, Wayland through sway and wlroots,
+        Xfce, Wine running GUI applications, and a compiler toolchain that runs on PureDarwin itself.
+      </p>
+      <a href="/handbook/status.html" class="mt-5 inline-block text-sm font-medium text-pd-blue hover:underline">
+        Full status matrix, per target
+      </a>
+    </section>
+
+    <section id="get-it" class="mt-8 scroll-mt-24 rounded-card border border-pd-border bg-white p-7 shadow-card sm:p-9">
+      <h2 class="flex items-center gap-2.5 text-2xl"><svg class="h-6 w-6 text-pd-blue" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19h8" /> <path d="m4 17 6-6-6-6" /></svg>Get it</h2>
+
+      <div class="mt-4 rounded border-l-4 border-amber-500 bg-amber-50 px-4 py-3">
+        <p class="flex gap-2.5 text-sm">
+          <svg class="mt-0.5 h-4 w-4 shrink-0 text-amber-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3" /> <path d="M12 9v4" /> <path d="M12 17h.01" /></svg>
+          <span><strong class="text-pd-ink">These are previews, not a release.</strong> They are development images, they
+          will have bugs, and they should not be treated as a stable version of anything. PureDarwin 20.5.0 is the
+          release being worked towards; see the <a href="/handbook/roadmap.html"
+            class="text-pd-blue hover:underline">roadmap</a>.</span>
+        </p>
+      </div>
+
+      <ul class="mt-6 space-y-3">
+        <li class="flex gap-3">
+          <svg class="mt-1 h-4 w-4 shrink-0 text-pd-muted" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v8" /> <path d="m16 6-4 4-4-4" /> <rect width="20" height="8" x="2" y="14" rx="2" /> <path d="M6 18h.01" /> <path d="M10 18h.01" /></svg>
+          <div>
+          <a href="https://internal.lab004.dev/private/images/puredarwin.img"
+            class="font-medium text-pd-blue hover:underline">puredarwin.img</a>
+          <span class="block text-sm text-pd-muted">The full x86_64 system: X11, Wayland, Xfce, Wine, toolchains.</span>
+          </div>
+        </li>
+        <li class="flex gap-3">
+          <svg class="mt-1 h-4 w-4 shrink-0 text-pd-muted" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v8" /> <path d="m16 6-4 4-4-4" /> <rect width="20" height="8" x="2" y="14" rx="2" /> <path d="M6 18h.01" /> <path d="M10 18h.01" /></svg>
+          <div>
+          <a href="https://internal.lab004.dev/private/images/puredarwin-minimal.img"
+            class="font-medium text-pd-blue hover:underline">puredarwin-minimal.img</a>
+          <span class="block text-sm text-pd-muted">Small x86_64 image, the one used for most boot testing.</span>
+          </div>
+        </li>
+        <li class="flex gap-3">
+          <svg class="mt-1 h-4 w-4 shrink-0 text-pd-muted" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v8" /> <path d="m16 6-4 4-4-4" /> <rect width="20" height="8" x="2" y="14" rx="2" /> <path d="M6 18h.01" /> <path d="M10 18h.01" /></svg>
+          <div>
+          <a href="https://internal.lab004.dev/private/images/puredarwin-acpi-experimental.img"
+            class="font-medium text-pd-blue hover:underline">puredarwin-acpi-experimental.img</a>
+          <span class="block text-sm text-pd-muted">Full image with the experimental ACPI platform.</span>
+          </div>
+        </li>
+        <li class="flex gap-3">
+          <svg class="mt-1 h-4 w-4 shrink-0 text-pd-muted" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v8" /> <path d="m16 6-4 4-4-4" /> <rect width="20" height="8" x="2" y="14" rx="2" /> <path d="M6 18h.01" /> <path d="M10 18h.01" /></svg>
+          <div>
+          <a href="https://internal.lab004.dev/private/images/puredarwin-minimal-acpi-experimental.img"
+            class="font-medium text-pd-blue hover:underline">puredarwin-minimal-acpi-experimental.img</a>
+          <span class="block text-sm text-pd-muted">Minimal image with the experimental ACPI platform.</span>
+          </div>
+        </li>
+        <li class="flex gap-3">
+          <svg class="mt-1 h-4 w-4 shrink-0 text-pd-muted" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2" /> <path d="M7 3v18" /> <path d="M3 7.5h4" /> <path d="M3 12h18" /> <path d="M3 16.5h4" /> <path d="M17 3v18" /> <path d="M17 7.5h4" /> <path d="M17 16.5h4" /></svg>
+          <div>
+          <a href="https://internal.lab004.dev/private/images/puredarwin-arm64-rpi3-shell.mp4"
+            class="font-medium text-pd-blue hover:underline">puredarwin-arm64-rpi3-shell.mp4</a>
+          <span class="block text-sm text-pd-muted">Video: PureDarwin booting to a shell on a Raspberry Pi 3.</span>
+          </div>
+        </li>
+      </ul>
+
+      <h3 class="mt-8 text-lg">Or build it yourself</h3>
+      <p class="mt-2 max-w-3xl">
+        Nix is the build system. On a Linux host with flakes enabled:
+      </p>
+      <pre
+        class="mt-3 overflow-x-auto rounded border border-pd-border bg-pd-canvas p-4 text-sm"><code>nix-store --add-fixed sha256 /path/to/MacOSX11.3.sdk.tar.xz
+nix build .#image-minimal
+nix run .#vm</code></pre>
+      <p class="mt-3 max-w-3xl text-sm text-pd-muted">
+        Apple's SDK is proprietary and cannot be redistributed, so you have to supply that file yourself. Removing
+        that requirement is on the roadmap.
+      </p>
+      <a href="/handbook/getting-started.html" class="mt-4 inline-block text-sm font-medium text-pd-blue hover:underline">
+        Getting Started, in full
+      </a>
+    </section>
+
+    <div class="mt-8 grid gap-6 md:grid-cols-3">
+
+      <section class="rounded-card border border-pd-border bg-white p-6 shadow-card">
+        <h2 class="flex items-center gap-2 text-lg"><svg class="h-5 w-5 text-pd-blue" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 7v14" /> <path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z" /></svg>Documentation</h2>
+        <p class="mt-2 text-sm">
+          How the build works, what lives where, how an image is assembled, per-target status, a porting guide and a
+          debugging guide.
+        </p>
+        <a href="/handbook/_Handbook.html" class="mt-4 inline-block text-sm font-medium text-pd-blue hover:underline">
+          Handbook
+        </a>
+      </section>
+
+      <section class="rounded-card border border-pd-border bg-white p-6 shadow-card">
+        <h2 class="flex items-center gap-2 text-lg"><svg class="h-5 w-5 text-pd-blue" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="18" r="3" /> <circle cx="6" cy="6" r="3" /> <path d="M13 6h3a2 2 0 0 1 2 2v7" /> <line x1="6" x2="6" y1="9" y2="21" /></svg>Contribute</h2>
+        <p class="mt-2 text-sm">
+          Development happens on the <code class="text-[0.9em]">next</code> branch. Packaging is the most useful place
+          to start, and the contribution policy explains what we accept and why.
+        </p>
+        <a href="https://github.com/PureDarwin/PureDarwin"
+          class="mt-4 inline-flex items-center gap-2 text-sm font-medium text-pd-blue hover:underline">
+          <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" /> <path d="M9 18c-4.51 2-5-2-7-2" /></svg>
+          GitHub
+        </a>
+      </section>
+
+      <section class="rounded-card border border-pd-border bg-white p-6 shadow-card">
+        <h2 class="flex items-center gap-2 text-lg"><svg class="h-5 w-5 text-pd-blue" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" /></svg>Community</h2>
+        <p class="mt-2 text-sm">
+          Development happens in the open. Ask questions, watch the work, or chip in.
+        </p>
+        <div class="mt-4 flex items-center gap-3">
+          <a href="https://discord.gg/9kz8XXRRcT" class="inline-flex items-center gap-1.5 text-sm font-medium text-pd-blue hover:underline">Discord<svg class="h-3 w-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6" /> <path d="M10 14 21 3" /> <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /></svg></a>
+          <a href="https://t.me/puredarwin" class="inline-flex items-center gap-1.5 text-sm font-medium text-pd-blue hover:underline">Telegram<svg class="h-3 w-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6" /> <path d="M10 14 21 3" /> <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /></svg></a>
+          <a href="https://x.com/puredarwin" class="inline-flex items-center gap-1.5 text-sm font-medium text-pd-blue hover:underline">X<svg class="h-3 w-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6" /> <path d="M10 14 21 3" /> <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /></svg></a>
+        </div>
+      </section>
+
     </div>
-    </div>
-  </nav>
 
-  <div class="container-fluid hero bg-hero">
-    <div class="row">
-      <div class="col-11 col-lg-6 mx-auto py-5 text-white text-center">
-        <h1 class="pt-5">Welcome to PureDarwin</h1>
-        <p>Darwin is the open source operating system from Apple that forms the base for macOS. PureDarwin is a
-          community project that fills in the gaps to make Darwin usable.</p>
+    <section class="mt-8 rounded-card border border-pd-border bg-white p-7 shadow-card sm:p-9">
+      <h2 class="flex items-center gap-2.5 text-2xl"><svg class="h-6 w-6 text-pd-blue" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18h-5" /> <path d="M18 14h-8" /> <path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-4 0v-9a2 2 0 0 1 2-2h2" /> <rect width="8" height="4" x="10" y="6" rx="1" /></svg>Latest news</h2>
+      <ul class="mt-5 space-y-4">
+        <li>
+          <div class="text-sm text-pd-muted">August 23, 2026</div>
+          <a href="/news/The-Road-to-20-5-0.html" class="font-medium text-pd-ink hover:text-pd-blue">
+            The Road to 20.5.0
+          </a>
+        </li>
+        <li>
+          <div class="text-sm text-pd-muted">January 3, 2026</div>
+          <a href="/news/Remembering-Cliff-Sekel.html" class="font-medium text-pd-ink hover:text-pd-blue">
+            Remembering Cliff Sekel
+          </a>
+        </li>
+        <li>
+          <div class="text-sm text-pd-muted">November 3, 2024</div>
+          <a href="/news/A-New-Direction.html" class="font-medium text-pd-ink hover:text-pd-blue">
+            A New Direction
+          </a>
+        </li>
+      </ul>
+      <a href="/news/_News.html" class="mt-5 inline-block text-sm font-medium text-pd-blue hover:underline">
+        All news
+      </a>
+    </section>
+
+  </main>
+
+  <footer class="border-t border-pd-border bg-[#e5e4e4]">
+    <div class="mx-auto max-w-6xl px-5 py-10">
+      <div class="flex flex-wrap items-center gap-4">
+        <img src="/img/homepage/logo-mark-text-1B1B1B.svg" alt="PureDarwin" height="28" class="h-7 w-auto">
+        <span class="ml-auto text-sm">Copyright 2026 PureDarwin / PD-Devs. All rights reserved.</span>
       </div>
-    </div>
-  </div>
-
-  <div class="container">
-    <div class="row">
-      <div class="col-11 mx-auto bg-white rounded mt-5">
-        <div class="row">
-          <div class="col-8 col-md-4 mx-auto text-center py-5">
-            <img src="img/homepage/logo-mark-text-1B1B1B-medium.svg" class="img-fluid" alt="PureDarwin">
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-10 col-lg-8 mx-auto mb-4 text-center">
-            <p>
-              The PureDarwin project, which aims to make Apple's open-source Darwin OS more usable, is still actively
-              maintained as of 2024. While development has been relatively slow, the project continues to progress
-              through
-              community contributions. PureDarwin focuses on creating a usable bootable system that is independent of
-              macOS
-              components, relying solely on Darwin and other open-source tools.</p>
-            <p>The project's main focus is providing useful documentation and making it easier for developers and
-              open-source enthusiasts to engage with Darwin.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="container mt-5" id="beta">
-    <div class="row pt-5">
-      <div class="col-11 col-md-10 mx-auto mt-2">
-        <div class="row">
-          <div class="col-12 col-lg-5 col-xl-6 pb-4">
-            <h2>
-              Test Build
-            </h2>
-            <p>
-              The PD-17.4 Test Build is a minimal system, unlike previous versions like PureDarwin Xmas with a graphical
-              interface. It’s distributed as a virtual machine disk (VMDK) and runs via software like QEMU.
-
-              <br><br>Due to the lack of proprietary macOS components, the community must develop alternatives, leaving
-              elements like
-              network drivers and hardware support incomplete. This build is intended for developers and open-source
-              enthusiasts to explore Darwin development outside of macOS.
-              <br><br><small><i>Based on Darwin 17, which corresponds to macOS High Sierra (10.13.x).</i>
-              </small>
-            </p>
-            <a href="/news/PD17-4-released.html" class="btn btn-primary rounded-pill">PD-17.4 Test Build</a>
-            <br>
-
-          </div>
-          <div class="col-12 col-lg-7 col-xl-6 pb-4">
-            <img src="img/homepage/screenshot-hexley.png" class="img-fluid">
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="container">
-    <div class="row mt-5">
-      <div class="col-11 col-md-10 mx-auto">
-        <div class="row">
-          <div class="col-12 col-lg-4 pb-4">
-            <div class="bg-white px-4 py-3 rounded feature-card">
-              <img src="img/homepage/wiki.png" height="80px;">
-              <h3>Archive</h3>
-              <p>The PureDarwin Archive contains documentation material and news articles from prior to 2020.</p>
-              <a href="/archive/_Archive.html" class="btn btn-outline-primary rounded-pill btn-sm mb-2">Archive</a>
-            </div>
-          </div>
-          <div class="col-12 col-lg-4 pb-4">
-            <div class="bg-white px-4 py-3 rounded feature-card">
-              <img src="img/homepage/utilities-terminal.png" height="80px;">
-              <h3>Code</h3>
-              <p>We have a GitHub org, and encourage visitors to use it for both contribution, and for checking out the
-                latest build sources.</p>
-              <a href="https://github.com/PureDarwin/PureDarwin" target="_blank"
-                class="btn btn-outline-primary rounded-pill btn-sm mb-2">PureDarwin GitHub</a>
-            </div>
-          </div>
-          <div class="col-12 col-lg-4 pb-4">
-            <div class="bg-white px-4 py-3 rounded feature-card">
-              <img src="img/homepage/internet-news-reader.png" height="80px;">
-              <h3>News</h3>
-              <p>
-                <small>
-                  Jan. 3, 2026
-                </small>
-                <br>
-                <strong><a href="/news/Remembering-Cliff-Sekel.html" class="text-decoration-none text-black">Remembering Cliff Sekel</a></strong>
-              </p>
-              <p>
-                <small>
-                  Nov. 3, 2024
-                </small>
-                <br>
-                <strong><a href="/news/A-New-Direction.html" class="text-decoration-none text-black">A New Direction</a></strong>
-              </p>
-              <p>
-                <small>
-                  Jul. 1, 2018
-                </small>
-                <br>
-                <strong><a href="/news/PD17-4-released.html" class="text-decoration-none text-black">Release: PD 17.4
-                    Test Build</a></strong>
-              </p>
-              <a href="/news/_News.html" class="btn btn-outline-primary rounded-pill btn-sm mb-2">News</a>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-12 col-lg-4 pb-4">
-            <div class="bg-white px-4 py-3 rounded feature-card">
-              <img src="img/homepage/internet-group-chat.png" height="80px;">
-              <h3>Community</h3>
-              <p>Join in on the conversation, talk and watch development, ask questions, chip in, and so much more on
-                our Discord server.</p>
-              <a href="https://discord.gg/9kz8XXRRcT" target="_blank"
-                class="btn btn-outline-primary rounded-pill btn-sm mb-2">Discord Server</a>
-
-                <br>
-                <a href="https://discord.gg/9kz8XXRRcT" target="_blank" class="text-decoration-none">
-                  <img src="img/social-discord.svg" height="26" width="26" alt="Discord" class="mx-1">
-                </a>
-                <a href="https://t.me/puredarwin" target="_blank" class="text-decoration-none">
-                  <img src="img/social-telegram.svg" height="24" width="24" alt="Telegram" class="mx-1">
-                </a>
-                <a href="https://x.com/puredarwin" target="_blank" class="text-decoration-none">
-                  <img src="img/social-x.svg" height="22" width="22" alt="X (Previously Twitter)" class="mx-1">
-                </a>
-            </div>
-          </div>
-          <div class="col-12 col-lg-4 pb-4">
-            <div class="bg-white px-4 py-3 rounded feature-card">
-              <img src="img/homepage/preferences-desktop-locale.png" height="80px;">
-              <h3>Status</h3>
-              <p>PureDarwin is progressing steadily, with ongoing research behind the scenes. There's no GUI yet, and
-                the system remains minimal, but key foundations are being built for future updates.</p>
-            </div>
-          </div>
-          <div class="col-12 col-lg-4 pb-4">
-            <div class="bg-white px-4 py-3 rounded feature-card">
-              <img src="img/homepage/utilities-sdk.png" height="80px;">
-              <h3>Native SDK</h3>
-              <p>An SDK that is native of an Apple release modified to target PureDarwin. We are working on a modified
-                XNU kernel with additional BSD/POSIX features that don’t require us to rely on Apple’s closed sources.
-              </p>
-              <button type="button" class="btn btn-outline-secondary rounded-pill btn-sm mb-2" disabled>Coming
-                Later</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="pt-4"></div>
-  <footer class="py-4" style="background-color: #E5E4E4;">
-    <div class="container">
-      <div class="row p-4">
-        <div class="col-12 col-lg-4 text-center text-lg-start">
-          <img src="img/homepage/logo-mark-text-1B1B1B.svg" height="30px">
-          <br>
-          <br>
-
-        </div>
-
-        <div class="col-12 col-lg-8">
-          <div class="text-center text-lg-end text-black">
-            © 2024 Copyright PureDarwin / PD-Devs. All rights reserved.
-            <br>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-10 mx-auto text-center">
-          <small>PureDarwin and the PureDarwin website are independent resources and are not affiliated with, endorsed
-            by, or sponsored by Apple Inc. Apple, Macintosh, macOS, and related trademarks and logos are the property of
-            Apple Inc., registered in the U.S. and other countries. Darwin (operating system) is licensed under the
-            <a href="https://opensource.apple.com/apsl/" target="_blank">Apple Public Source License (APSL)</a>.
-            All other trademarks are the property of their respective owners.
-            <br><br>
-            Site Theme by <a href="https://github.com/kevdoy" target="_blank" class="text-dark">@KevDoy</a> on
-            <a href="https://github.com/PureDarwin/puredarwin.github.io" class="text-dark" target="_blank">GitHub</a>.
-          </small>
-        </div>
-      </div>
+      <p class="mt-6 text-xs text-pd-muted">
+        PureDarwin and the PureDarwin website are independent resources and are not affiliated with, endorsed by, or
+        sponsored by Apple Inc. Apple, Macintosh, macOS, and related trademarks and logos are the property of Apple
+        Inc., registered in the U.S. and other countries. Darwin (operating system) is licensed under the
+        <a href="https://opensource.apple.com/apsl/" class="text-pd-blue hover:underline">Apple Public Source License
+          (APSL)</a>. All other trademarks are the property of their respective owners.
+      </p>
+      <p class="mt-3 text-xs text-pd-muted">
+        Original site theme by <a href="https://github.com/kevdoy" class="text-pd-blue hover:underline">@KevDoy</a>.
+        Source on <a href="https://github.com/PureDarwin/puredarwin.github.io"
+          class="text-pd-blue hover:underline">GitHub</a>.
+      </p>
     </div>
   </footer>
-  <!-- JavaScript Bundle with Popper -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
-    crossorigin="anonymous"></script>
 
 </body>
 

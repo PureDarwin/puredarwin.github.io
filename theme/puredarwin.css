@@ -188,10 +188,6 @@ a.menu-title:focus-visible {
   display: none;
 }
 
-.sidebar .on-this-page > ol {
-  padding-inline-start: 0;
-}
-
 /* mdBook inserts empty list levels when a document starts at h3 or deeper. */
 .sidebar .on-this-page > ol > ol {
   padding-inline-start: 0;
@@ -199,6 +195,25 @@ a.menu-title:focus-visible {
 
 .sidebar .on-this-page {
   margin-inline-start: 4px;
+}
+
+/* Sections of the current page sit in the same list as sibling chapters, so
+   without this they read as pages that do not exist. A rail plus a lighter,
+   smaller face keeps the two apart however deeply the book nests. */
+.sidebar .on-this-page > ol {
+  border-inline-start: 1px solid #dcdcdc;
+  margin-inline-start: 10px;
+  padding-inline-start: 10px;
+}
+
+.sidebar .on-this-page a.header-in-summary {
+  color: #6f6f6f;
+  font-size: 0.92em;
+}
+
+.sidebar .on-this-page a.header-in-summary:hover,
+.sidebar .on-this-page a.header-in-summary.active {
+  color: var(--puredarwin-blue);
 }
 
 /* Keep the Docsify-style sidebar fixed-width and remove mdBook's chapter
@@ -259,6 +274,21 @@ a.menu-title:focus-visible {
 
 .content blockquote {
   border-left-color: var(--puredarwin-blue);
+}
+
+/* mdBook centres tables and sizes them to their content, so a page with
+   several of them gets a different width and a different left edge for each.
+   Pin them to the text column instead. */
+.content table {
+  width: 100%;
+  margin-inline: 0;
+}
+
+/* Identifiers in table cells are code, not prose: let the column widen rather
+   than break `IOIntelFramebuffer` across two lines. */
+.content table td code,
+.content table th code {
+  white-space: nowrap;
 }
 
 @media (max-width: 1080px) {

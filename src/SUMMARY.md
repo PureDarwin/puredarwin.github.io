@@ -3,10 +3,41 @@
 [Home](index.html)
 
 - [News](news/_News.md)
+	- [The Road to 20.5.0](news/The-Road-to-20-5-0.md)
 	- [Remembering Cliff Sekel](news/Remembering-Cliff-Sekel.md)
 	- [Support Cliff Sekel](news/Support-Cliff-Sekel.md)
 	- [A New Direction](news/A-New-Direction.md)
 	- [Release: PD 17.4 Test Build](news/PD17-4-released.md)
+
+# Handbook
+
+- [Overview](handbook/_Handbook.md)
+- [Getting Started](handbook/getting-started.md)
+- [Building](handbook/building.md)
+	- [The Nix flake](handbook/building/flake.md)
+	- [The CMake tree](handbook/building/cmake.md)
+	- [Host tools and toolchains](handbook/building/toolchains.md)
+	- [The Apple SDK requirement](handbook/building/apple-sdk.md)
+- [Source Tree](handbook/source-tree.md)
+- [Images and Boot](handbook/images.md)
+	- [Image flavours](handbook/images/flavours.md)
+	- [Boot chain](handbook/images/boot-chain.md)
+	- [Kernel collections](handbook/images/kernel-collections.md)
+	- [Running in QEMU](handbook/images/running.md)
+	- [Running on real hardware](handbook/images/hardware.md)
+- [Targets](handbook/targets.md)
+	- [x86_64](handbook/targets/x86_64.md)
+	- [arm64 virt](handbook/targets/arm64-virt.md)
+	- [arm64 Raspberry Pi 3](handbook/targets/arm64-bcm2837.md)
+	- [arm64 T8010](handbook/targets/arm64-t8010.md)
+	- [armv6 Raspberry Pi Zero](handbook/targets/armv6-bcm2835.md)
+- [Porting Guide](handbook/porting.md)
+	- [Adding a package](handbook/porting/adding-a-package.md)
+	- [Recurring traps](handbook/porting/traps.md)
+- [Debugging](handbook/debugging.md)
+- [Contributing](handbook/contributing.md)
+- [Roadmap](handbook/roadmap.md)
+- [Status](handbook/status.md)
 
 # Archive
 

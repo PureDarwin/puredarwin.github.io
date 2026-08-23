@@ -20,20 +20,59 @@
         version = "0-unstable";
         src = self;
 
-        nativeBuildInputs = [ pkgs.mdbook ];
+        nativeBuildInputs = [ pkgs.mdbook pkgs.tailwindcss_4 ];
 
-        dontBuild = true;
+        # The landing page (src/index.html) is Tailwind; the handbook is mdBook
+        # plus theme/puredarwin.css. Tailwind runs first and writes into src/,
+        # which mdBook then copies out along with the other static files.
+        buildPhase = ''
+          runHook preBuild
+          tailwindcss \
+            --input src/css/tailwind.css \
+            --output src/css/site.css \
+            --minify
+          runHook postBuild
+        '';
+
         installPhase = ''
           runHook preInstall
           mdbook build --dest-dir "$out"
+          # GitHub Pages reads the custom domain from a CNAME in the published
+          # artifact. It lives at the repository root, which mdBook does not
+          # copy, so put it in the output here rather than in the workflow.
+          # Optional, so a fork can simply delete it and still build.
+          if [ -e CNAME ]; then
+            cp CNAME "$out/CNAME"
+          fi
           runHook postInstall
         '';
       };
 
+      pdnews = pkgs.stdenv.mkDerivation {
+        pname = "pdnews";
+        version = "1.0.0";
+        src = ./tools/pdnews;
+
+        nativeBuildInputs = [ pkgs.cmake ];
+
+        meta = {
+          description = "List and create PureDarwin news entries";
+          mainProgram = "pdnews";
+        };
+      };
+
       serve = pkgs.writeShellApplication {
         name = "serve-puredarwin-docs";
-        runtimeInputs = [ pkgs.mdbook ];
+        runtimeInputs = [ pkgs.mdbook pkgs.tailwindcss_4 ];
         text = ''
+          # Keep the landing page stylesheet in step while serving. --watch
+          # would hold the terminal, so this is a one-shot build; re-run the
+          # app after editing index.html classes.
+          tailwindcss \
+            --input src/css/tailwind.css \
+            --output src/css/site.css \
+            --minify
+
           exec mdbook serve \
             --hostname "''${MDBOOK_HOST:-127.0.0.1}" \
             --port "''${MDBOOK_PORT:-3000}" \
@@ -42,7 +81,7 @@
       };
     in {
       default = book;
-      inherit book serve;
+      inherit book serve pdnews;
     });
 
     apps = forAllSystems (system: {
@@ -51,13 +90,22 @@
         type = "app";
         program = "${self.packages.${system}.serve}/bin/serve-puredarwin-docs";
       };
+      pdnews = {
+        type = "app";
+        program = "${self.packages.${system}.pdnews}/bin/pdnews";
+      };
     });
 
     devShells = forAllSystems (system: let
       pkgs = nixpkgs.legacyPackages.${system};
     in {
-      default = pkgs.mkShellNoCC {
-        packages = [ pkgs.mdbook ];
+      default = pkgs.mkShell {
+        packages = [
+          pkgs.mdbook
+          pkgs.tailwindcss_4
+          pkgs.cmake
+          self.packages.${system}.pdnews
+        ];
       };
     });
   };
