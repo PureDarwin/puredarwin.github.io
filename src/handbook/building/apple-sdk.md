@@ -48,25 +48,13 @@ Never hardcode a path to your own copy into a Nix file. The `requireFile` patter
 deliberate: it fails with instructions rather than with a path that only works on one
 machine.
 
-## The same pattern for external sources
+## Other licensing
 
-fbDOOM is handled the same way for a different reason. The project avoids adding GPL
-components where it can, so fbDOOM is kept as an external checkout rather than a flake
-input, pointed at by `PUREDARWIN_FBDOOM_SOURCE_ENV` and built with `--impure`.
-
-This is not an objection to the GPL. It is that a GPL component in the tree
-brings obligations along with it, and those obligations then apply to anyone
-packaging or redistributing PureDarwin. Keeping it opt-in and external
-means the default build has one less licence to reason about, and people
-who want fbDOOM can still have it. `corecrypto` is the counterexample:
-it is GPL and it is in the tree, because there was no alternative, and
-[replacing it](../roadmap.md#replace-corecrypto---blocked-on-an-alternative) is on the
-roadmap for exactly this reason.
-
-If you need to add something that must remain external to the tree, copy the fbDOOM
-shape. The principle is not specific to the GPL: avoid folding another independently
-licensed substantial component into the default distribution when keeping it external
-works just as well. ZFS, under the CDDL, is the other obvious candidate.
+The SDK is the one proprietary prerequisite, but it is not the only licensing question
+in the tree: corecrypto is GPL and in the default build, some of Apple's published
+source carries no usable grant, and GPL-licensed extras like fbDOOM are deliberately
+kept outside the tree using the same `requireFile`-style opt-in as the SDK. See
+[Licensing](../licensing.md).
 
 ## Why it is still needed
 

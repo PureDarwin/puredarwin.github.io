@@ -79,18 +79,9 @@ hatch.
 
 ## Published by Apple is not the same as licensed
 
-Some of Apple's released source has no usable licence on it. The pattern is a repository
-where only some files carry a per-file licence header and there is no repository-wide
-`LICENSE` file, which leaves everything unheaded with no grant at all.
-
-CommonCrypto is the example that costs the project most: it is published, it is exactly
-what we want, and the unheaded parts of it cannot be used. That is why `corecrypto` in
-this tree is a GPL descendant of rafirafi's pdcrypto rather than Apple's own code.
-libDER arrived the same way.
-
-So before building a port around an Apple component, check the licensing file by file
-rather than assuming the repository has one. Finding out late is expensive, because by
-then somebody has read the code.
+Some source Apple has published carries no usable licence grant, so check it file by
+file before building a port around an Apple component. Finding out late is expensive,
+because by then somebody has read the code. See [Licensing](../licensing.md).
 
 ## Never hardcode CFTypeIDs
 

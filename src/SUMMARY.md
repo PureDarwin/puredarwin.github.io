@@ -33,6 +33,7 @@
 	- [Adding a package](handbook/porting/adding-a-package.md)
 	- [Recurring traps](handbook/porting/traps.md)
 - [Debugging](handbook/debugging.md)
+- [Licensing](handbook/licensing.md)
 - [Contributing](handbook/contributing.md)
 - [Roadmap](handbook/roadmap.md)
 - [Status](handbook/status.md)

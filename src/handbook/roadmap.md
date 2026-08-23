@@ -112,11 +112,10 @@ same reason the project cannot simply lift them: code with no licence is code we
 touch, and Apple publishing it does not change that. libDER arrived with the same
 problem.
 
-corecrypto is the exception to how the project handles this
-elsewhere: an independently licensed substantial component folded
-into the default distribution, where such things are normally kept
-[external](building/apple-sdk.md#the-same-pattern-for-external-sources). It is in the
-tree because nothing else does the job, and it is not optional at boot.
+corecrypto is the exception to how the project handles this elsewhere: an independently
+licensed substantial component folded into the default distribution, where such things
+are normally kept [external](licensing.md#code-kept-outside-the-tree). It is in the tree
+because nothing else does the job, and it is not optional at boot.
 
 [NeoDarwinOS/corecrypto](https://github.com/NeoDarwinOS/corecrypto) is the intended
 replacement, so this item is waiting on that work rather than on anything in this tree.

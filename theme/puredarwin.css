@@ -504,7 +504,18 @@ a.menu-title:focus-visible {
   border-radius: 4px;
 }
 
-.content pre code {
+/* The highlight themes paint their own background on .hljs, which differs per
+   theme and does not follow our tokens. Own the box here and let the
+   highlighter deal only with the text colours. */
+.content pre {
+  padding: 0.85em 1em;
+  background: var(--pd-elevated);
+  border: 1px solid var(--pd-border);
+  border-radius: 6px;
+}
+
+.content pre code,
+.content pre code.hljs {
   padding: 0;
   background: none;
 }

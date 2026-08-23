@@ -73,40 +73,34 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const paint = (dark) => {
       toggle.innerHTML = '<span class="fa-svg">' + (dark ? SUN : MOON) + "</span>";
-      const next = dark ? "light" : "dark";
-      toggle.title = "Switch to " + next + " theme";
+      toggle.title = "Switch to " + (dark ? "light" : "dark") + " theme";
       toggle.setAttribute("aria-label", toggle.title);
     };
 
     paint(isDark());
 
+    // Click mdBook's own (hidden) entry rather than setting the class here:
+    // it owns the stylesheet switching for the highlight themes, the stored
+    // preference and the theme-color meta tag. Removing its picker from the
+    // DOM would make all of that throw, which is how the code blocks ended up
+    // with the dark highlight sheet in light mode.
     toggle.addEventListener("click", () => {
       const dark = !isDark();
-      const root = document.documentElement;
-      root.classList.remove("light", "rust", "coal", "navy", "ayu");
-      root.classList.add(dark ? DARK_THEME : LIGHT_THEME);
-      try {
-        localStorage.setItem(
-          "mdbook-theme",
-          JSON.stringify(dark ? DARK_THEME : LIGHT_THEME),
-        );
-      } catch (e) {
-        /* storage disabled; the choice just will not persist */
+      const target = document.getElementById(
+        dark ? "mdbook-theme-navy" : "mdbook-theme-light",
+      );
+      if (target) {
+        target.click();
       }
       paint(dark);
     });
 
-    picker.replaceWith(toggle);
-
-    // Leftmost in the group, ahead of the sidebar button, so it lands in the
-    // same place as the landing page's toggle.
-    const leftButtons = menu.querySelector(".left-buttons");
+    // Leftmost in the group, matching where the landing page puts it.
+    const leftButtons = picker.closest(".left-buttons");
     if (leftButtons) {
       leftButtons.prepend(toggle);
-    }
-    const list = document.querySelector("#mdbook-theme-list");
-    if (list) {
-      list.remove();
+    } else {
+      picker.after(toggle);
     }
   }
 

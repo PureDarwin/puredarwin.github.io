@@ -23,10 +23,13 @@ page each:
 * [The Apple SDK requirement](building/apple-sdk.md) - the one file you have to supply
   yourself.
 
-Two things are worth learning before any of that. **Untracked files are invisible**: the
-flake is evaluated from a `git+file://` source, so a new file that has not been `git
-add`ed does not exist as far as the build is concerned, and the failure mode is a build
-that quietly uses the old state. And **do not guess at the CMake layer**: it is driven
-by Nix, so if you want to iterate on a component quickly, use the dev shell and read
-[The CMake tree](building/cmake.md) first to know what that shell can and cannot give
-you.
+## Two traps
+
+**Untracked files are invisible.** The flake is evaluated from a `git+file://`
+source, so a file you have not `git add`ed does not exist as far as the build is
+concerned. The failure mode is not an error: the build quietly uses the old state, and
+your change appears to do nothing. Stage before you build.
+
+**CMake is not an entry point.** It is driven by Nix. The dev shell is for iterating on
+a single component, not for producing a system, so read
+[The CMake tree](building/cmake.md) before reaching for it.
