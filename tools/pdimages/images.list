@@ -1,0 +1,17 @@
+# Preview images offered on the landing page, in the order they appear there.
+#
+# One record per line, fields separated by tabs:
+#
+#   file<TAB>kind<TAB>description
+#
+# kind picks the icon: "disk" for a disk image, "video" for a recording.
+# The base URL is set by PDIMAGES_BASE_URL, and defaults to the one below.
+# Lines starting with # and blank lines are ignored.
+
+puredarwin.img	disk	The full x86_64 system: X11, Wayland, Xfce, Wine, toolchains.
+puredarwin-minimal.img	disk	Small x86_64 image, the one used for most boot testing.
+puredarwin-acpi-experimental.img	disk	Full image with the experimental ACPI platform.
+puredarwin-minimal-acpi-experimental.img	disk	Minimal image with the experimental ACPI platform.
+puredarwin-arm64-virt.img	disk	Full arm64 image for the QEMU virt machine.
+puredarwin-arm64-virt-minimal.img	disk	Small arm64 virt image, the one used for most boot testing.
+puredarwin-arm64-rpi3-shell.mp4	video	Video: PureDarwin booting to a shell on a Raspberry Pi 3.

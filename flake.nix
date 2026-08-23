@@ -61,6 +61,14 @@
         };
       };
 
+      pdimages = pkgs.writeShellApplication {
+        name = "pdimages";
+        runtimeInputs = [ pkgs.curl pkgs.coreutils pkgs.gawk pkgs.gnused ];
+        text = builtins.readFile ./tools/pdimages/pdimages.sh;
+        # The manifest is read relative to the repository, not the store, so
+        # the tool stays usable from a checkout the way pdnews is.
+      };
+
       serve = pkgs.writeShellApplication {
         name = "serve-puredarwin-docs";
         runtimeInputs = [ pkgs.mdbook pkgs.tailwindcss_4 ];
@@ -84,7 +92,7 @@
 
     in {
       default = book;
-      inherit book serve pdnews;
+      inherit book serve pdnews pdimages;
     });
 
     apps = forAllSystems (system: {
@@ -97,6 +105,10 @@
         type = "app";
         program = "${self.packages.${system}.pdnews}/bin/pdnews";
       };
+      pdimages = {
+        type = "app";
+        program = "${self.packages.${system}.pdimages}/bin/pdimages";
+      };
     });
 
     devShells = forAllSystems (system: let
@@ -108,6 +120,7 @@
           pkgs.tailwindcss_4
           pkgs.cmake
           self.packages.${system}.pdnews
+          self.packages.${system}.pdimages
         ];
       };
     });
