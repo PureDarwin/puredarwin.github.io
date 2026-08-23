@@ -7,7 +7,9 @@
      gutter, so the logo and nav sit in the same place on both halves of the
      site. The landing page scrolls the document and so reserves a scrollbar;
      the handbook scrolls inside its own pane and does not, which would centre
-     its bar half a scrollbar further right. Subtract that width to match. */
+     its bar half a scrollbar further right. Subtract that width to match.
+     15px is only a no-script fallback: overlay scrollbars (macOS) take no
+     space at all, so puredarwin.js measures the real width and overrides. */
   --pd-scrollbar: 15px;
   --pd-gutter: max(20px, calc((100% - var(--pd-scrollbar) - 1152px) / 2 + 20px));
 }
@@ -203,7 +205,6 @@ html.sidebar-visible #mdbook-menu-bar {
   stroke: currentColor;
   vertical-align: -0.35em;
 }
-
 .menu-title {
   position: absolute;
   top: 11px;
@@ -243,9 +244,121 @@ html.sidebar-visible #mdbook-menu-bar {
   color: #fff;
 }
 
-@media (max-width: 760px) {
+/* The hamburger and its dropdown exist only below 760px, where the inline
+   links are hidden. Both are injected in puredarwin.js. */
+#pd-nav-toggle {
+  display: none;
+}
+
+#pd-nav-toggle .fa-svg svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  vertical-align: -0.35em;
+}
+
+#pd-mobile-nav {
+  position: fixed;
+  z-index: 101;
+  top: 51px;
+  right: 0;
+  left: 0;
+  display: none;
+  margin: 0;
+  padding: 8px 20px 12px;
+  list-style: none;
+  background: var(--pd-header-bg);
+  border-bottom: 1px solid var(--pd-header-border);
+}
+
+#pd-mobile-nav a {
+  display: block;
+  padding: 10px 0;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 14px;
+  text-decoration: none;
+}
+
+#pd-mobile-nav a:hover {
+  color: #fff;
+}
+
+#pd-mobile-nav .pd-mobile-theme-item {
+  margin-top: 6px;
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
+  padding-top: 6px;
+}
+
+#pd-mobile-theme {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+  border: none;
+  background: none;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 14px;
+  cursor: pointer;
+}
+
+#pd-mobile-theme:hover {
+  color: #fff;
+}
+
+#pd-mobile-theme .fa-svg {
+  display: inline-flex;
+}
+
+#pd-mobile-theme .fa-svg svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+}
+
+/* 767.98px matches the landing page's `md` breakpoint (768px), so the two
+   bars change shape at the same window width. */
+@media (max-width: 767.98px) {
   #pd-nav {
     display: none;
+  }
+
+  #pd-nav-toggle {
+    display: inline-block;
+  }
+
+  #pd-mobile-nav.open {
+    display: block;
+  }
+
+  /* Centred between the buttons either side, like the landing page. The box
+     is wider than the ~137px mark it holds, so the image is centred within
+     it too; left-aligned it would sit a few pixels off true centre. */
+  .menu-title {
+    left: 50%;
+    background-position: center;
+    transform: translateX(-50%);
+  }
+
+  /* Print is a desktop affordance; on a phone it crowds the hamburger. */
+  #mdbook-menu-bar .right-buttons a[href$="print.html"] {
+    display: none;
+  }
+
+  /* The theme toggle moves into the hamburger menu on mobile. It stays in
+     the DOM because the menu item relays clicks to it. */
+  #pd-theme-toggle {
+    display: none;
+  }
+
+  /* Lands the hamburger glyph 26px from the right edge: 16px offset plus
+     5px of button and 5px of .fa-svg padding, matching the landing page's
+     20px gutter plus 6px button padding. mdBook's own 15px margin on this
+     group would throw the sum off, so it goes. */
+  #mdbook-menu-bar .right-buttons {
+    right: 16px;
+    margin: 0;
   }
 }
 
@@ -258,6 +371,15 @@ a.menu-title {
 a.menu-title:focus-visible {
   outline: 2px solid var(--pd-header-fg);
   outline-offset: 2px;
+}
+
+/* mdBook offsets the page with a placeholder that its own in-flow menu bar
+   normally sits in (.page carries a compensating negative margin). This
+   theme moves the bar out of the page and fixes it to the viewport, so the
+   searchbar mdBook reveals at the top of the page would open underneath it.
+   Clear the bar's height by hand. */
+#mdbook-search-wrapper {
+  padding-top: 51px;
 }
 
 .sidebar {
@@ -416,14 +538,6 @@ a.menu-title:focus-visible {
 @media (max-width: 700px) {
   .menu-bar {
     padding: 0 8px;
-  }
-
-  #mdbook-menu-bar .left-buttons {
-    left: 4px;
-  }
-
-  #mdbook-menu-bar .right-buttons {
-    right: 4px;
   }
 
   .menu-title {

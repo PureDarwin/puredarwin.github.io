@@ -1,6 +1,6 @@
 # Remembering Cliff Sekel (InsaneDarwin)
 
-January 3, 2026 - PD-Team
+January 3, 2026 - [KevDoy](https://github.com/kevdoy) and PD-Team
 
 ![Portrait of Cliff Sekel](/img/news/2026/news-cover-remembering-cliff.jpg)
 

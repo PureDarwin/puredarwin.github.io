@@ -39,17 +39,21 @@
 <body class="font-sans">
 
   <header class="fixed inset-x-0 top-0 z-50 border-b border-white/25 bg-black dark:border-white/85">
-    <nav class="mx-auto flex h-[50px] max-w-6xl items-center gap-3 pr-5 pl-16 min-[1284px]:pl-5">
+    <nav class="mx-auto flex h-[50px] max-w-6xl items-center gap-3 px-5">
       <button type="button" id="theme-toggle"
-        class="absolute left-[19px] top-1/2 z-10 -translate-y-1/2 rounded p-1.5 text-white/80 hover:text-white"
+        class="absolute left-[19px] top-[25px] z-10 -translate-y-1/2 rounded p-1.5 text-white/80 hover:text-white max-md:hidden"
         aria-label="Toggle light and dark theme">
         <svg class="hidden h-5 w-5 dark:block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4" /> <path d="M12 2v2" /> <path d="M12 20v2" /> <path d="m4.93 4.93 1.41 1.41" /> <path d="m17.66 17.66 1.41 1.41" /> <path d="M2 12h2" /> <path d="M20 12h2" /> <path d="m6.34 17.66-1.41 1.41" /> <path d="m19.07 4.93-1.41 1.41" /></svg>
         <svg class="h-5 w-5 dark:hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401" /></svg>
       </button>
-      <a href="/" class="shrink-0" aria-label="PureDarwin home">
+      <!-- Anchored to the viewport with the same formula the handbook theme
+           uses for its logo, so the mark does not shift between the two. -->
+      <a href="/"
+        class="absolute shrink-0 max-md:left-1/2 max-md:-translate-x-1/2 md:left-[max(calc((100%_-_1152px)/2_+_20px),132px)]"
+        aria-label="PureDarwin home">
         <img src="/img/homepage/logo-mark-text-fff.svg" alt="PureDarwin" height="28" class="h-7 w-auto">
       </a>
-      <ul class="ml-auto flex flex-wrap items-center gap-x-5 gap-y-1 text-sm text-white/80">
+      <ul class="ml-auto hidden items-center gap-x-5 text-sm text-white/80 md:flex">
         <li><a class="hover:text-white" href="/">Home</a></li>
         <li><a class="hover:text-white" href="/handbook/_Handbook.html">Handbook</a></li>
         <li><a class="hover:text-white" href="/news/_News.html">News</a></li>
@@ -57,49 +61,165 @@
         <li><a class="hover:text-white" href="https://github.com/PureDarwin/PureDarwin">GitHub</a></li>
         <li><a class="hover:text-white" href="/archive/_Archive.html">Archive</a></li>
       </ul>
+      <button type="button" id="nav-toggle"
+        class="ml-auto rounded p-1.5 text-white/80 hover:text-white md:hidden"
+        aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-nav">
+        <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16" /> <path d="M4 12h16" /> <path d="M4 18h16" /></svg>
+        <svg class="hidden h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18" /> <path d="m6 6 12 12" /></svg>
+      </button>
     </nav>
+    <div id="mobile-nav" class="hidden border-t border-white/25 md:hidden">
+      <ul class="mx-auto max-w-6xl px-5 py-2 text-sm text-white/80">
+        <li><a class="block py-2.5 hover:text-white" href="/">Home</a></li>
+        <li><a class="block py-2.5 hover:text-white" href="/handbook/_Handbook.html">Handbook</a></li>
+        <li><a class="block py-2.5 hover:text-white" href="/news/_News.html">News</a></li>
+        <li><a class="block py-2.5 hover:text-white" href="#get-it">Get it</a></li>
+        <li><a class="block py-2.5 hover:text-white" href="https://github.com/PureDarwin/PureDarwin">GitHub</a></li>
+        <li><a class="block py-2.5 hover:text-white" href="/archive/_Archive.html">Archive</a></li>
+        <li class="mt-2 border-t border-white/25 pt-2">
+          <button type="button" id="mobile-theme-toggle"
+            class="flex w-full items-center gap-2.5 py-2.5 hover:text-white"
+            aria-label="Toggle light and dark theme">
+            <svg class="hidden h-4.5 w-4.5 dark:block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4" /> <path d="M12 2v2" /> <path d="M12 20v2" /> <path d="m4.93 4.93 1.41 1.41" /> <path d="m17.66 17.66 1.41 1.41" /> <path d="M2 12h2" /> <path d="M20 12h2" /> <path d="m6.34 17.66-1.41 1.41" /> <path d="m19.07 4.93-1.41 1.41" /></svg>
+            <svg class="h-4.5 w-4.5 dark:hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401" /></svg>
+            <span class="dark:hidden">Dark mode</span>
+            <span class="hidden dark:inline">Light mode</span>
+          </button>
+        </li>
+      </ul>
+    </div>
   </header>
 
   <main class="mx-auto max-w-6xl px-5 pt-24 pb-16">
 
     <section class="pt-6 pb-10">
-      <h1 class="max-w-3xl text-4xl leading-tight font-semibold sm:text-5xl">
-        Darwin you can actually boot.
-      </h1>
-      <p class="mt-5 max-w-2xl text-lg text-pd-body">
-        Apple publishes the Darwin kernel and a large amount of userland, but never the pieces that turn it into a
-        system: no bootloader, no modern launchd, few drivers. PureDarwin writes those, and everything else it takes
-        to reach a desktop.
-      </p>
-      <div class="mt-7 flex flex-wrap gap-3">
-        <a href="/handbook/_Handbook.html"
-          class="inline-flex items-center gap-2 rounded-full bg-pd-blue px-5 py-2.5 text-sm font-medium text-white hover:bg-blue-700 dark:bg-white dark:text-black dark:hover:bg-neutral-200">
-          <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 7v14" /> <path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z" /></svg>
-          Read the Handbook
-        </a>
-        <a href="#get-it"
-          class="inline-flex items-center gap-2 rounded-full border border-pd-border bg-pd-surface px-5 py-2.5 text-sm font-medium text-pd-ink hover:border-pd-blue hover:text-pd-blue dark:border-white dark:bg-transparent dark:text-white dark:hover:border-white dark:hover:text-white">
-          <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19h8" /> <path d="m4 17 6-6-6-6" /></svg>
-          Get it
-        </a>
+      <div class="grid items-center gap-8 lg:grid-cols-2 lg:gap-10">
+        <div>
+          <img src="/img/homepage/logo-mark-text-1B1B1B.svg" alt="PureDarwin" height="28"
+            class="mb-2 h-7 w-auto dark:hidden">
+          <img src="/img/homepage/logo-mark-text-fff.svg" alt="PureDarwin" height="28"
+            class="mb-2 hidden h-7 w-auto dark:block">
+          <h1 class="text-4xl leading-tight font-semibold sm:text-5xl">
+            Darwin you can boot.
+          </h1>
+          <!-- <p class="mt-2 text-lg text-pd-body">
+            Darwin is the operating system from Apple that forms the base for macOS and iOS.
+          </p> -->
+          <p class="mt-5 text-lg text-pd-body">
+            <strong>PureDarwin writes the pieces Apple leaves out,</strong> and everything else it takes to reach a
+            desktop. Apple publishes the kernel and a large amount of userland, but never the parts that turn Darwin
+            into a system: no bootloader, no modern launchd, few drivers.
+          </p>
+          <div class="mt-7 flex flex-wrap gap-3">
+            <a href="/handbook/_Handbook.html"
+              class="inline-flex items-center gap-2 rounded-full bg-pd-blue px-5 py-2.5 text-sm font-medium text-white hover:bg-blue-700 dark:bg-white dark:text-black dark:hover:bg-neutral-200">
+              <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 7v14" /> <path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z" /></svg>
+              Read the Handbook
+            </a>
+            <a href="#get-it"
+              class="inline-flex items-center gap-2 rounded-full border border-pd-border bg-pd-surface px-5 py-2.5 text-sm font-medium text-pd-ink hover:border-pd-blue hover:text-pd-blue dark:border-white dark:bg-transparent dark:text-white dark:hover:border-white dark:hover:text-white">
+              <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19h8" /> <path d="m4 17 6-6-6-6" /></svg>
+              Get it
+            </a>
+          </div>
+        </div>
+        <figure>
+          <img src="/img/homepage/screenshot-hexley-2026.png"
+            width="1803" height="1057"
+            alt class="w-full">
+          <figcaption class="mt-3 text-sm text-pd-muted pr-5">
+            PureDarwin running Xfce under Xwayland on sway, with the Vulkan cube on Mesa lavapipe, Wine, and a shell
+            reporting Darwin 20.5.0.
+          </figcaption>
+        </figure>
       </div>
-
-      <figure class="mt-10">
-        <img src="/img/news/2026/news-cover-road-to-20-5-0-1112.webp"
-          srcset="/img/news/2026/news-cover-road-to-20-5-0-1112.webp 1112w,
-                  /img/news/2026/news-cover-road-to-20-5-0-wide.png 1920w"
-          sizes="(min-width: 1192px) 1112px, calc(100vw - 40px)"
-          width="1920" height="1080"
-          alt="PureDarwin running Xfce under Xwayland on sway, with the LunarG Vulkan cube, Wine, and fastfetch reporting Darwin 20.5.0"
-          class="w-full rounded-card border border-pd-border shadow-card" loading="lazy">
-        <figcaption class="mt-3 text-sm text-pd-muted">
-          PureDarwin running Xfce under Xwayland on sway, with the Vulkan cube on Mesa lavapipe, Wine, and a shell
-          reporting Darwin 20.5.0.
-        </figcaption>
-      </figure>
     </section>
 
-    <section class="rounded-card border border-pd-border bg-pd-surface p-7 shadow-card sm:p-9">
+    <div class="mt-8 grid gap-6 md:grid-cols-2">
+
+      <section class="rounded-card border border-pd-border bg-pd-surface p-6 shadow-card">
+        <h2 class="flex items-center gap-2 text-lg"><svg class="h-5 w-5 text-pd-ink" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 7v14" /> <path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z" /></svg>Documentation</h2>
+        <p class="mt-2 text-sm">
+          How the build works, what lives where, how an image is assembled, per-target status, a porting guide and a
+          debugging guide.
+        </p>
+        <a href="/handbook/_Handbook.html" class="mt-4 inline-block text-sm font-medium text-pd-blue hover:underline">
+          Handbook
+        </a>
+      </section>
+
+      <section class="rounded-card border border-pd-border bg-pd-surface p-6 shadow-card">
+        <h2 class="flex items-center gap-2 text-lg"><svg class="h-5 w-5 text-pd-ink" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="18" r="3" /> <circle cx="6" cy="6" r="3" /> <path d="M13 6h3a2 2 0 0 1 2 2v7" /> <line x1="6" x2="6" y1="9" y2="21" /></svg>Contribute</h2>
+        <p class="mt-2 text-sm">
+          Development happens on the <code class="text-[0.9em]">next</code> branch. Packaging is the most useful place
+          to start, and the contribution policy explains what we accept and why.
+        </p>
+        <a href="https://github.com/PureDarwin/PureDarwin"
+          class="mt-4 inline-flex items-center gap-2 text-sm font-medium text-pd-blue hover:underline">
+          <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" /> <path d="M9 18c-4.51 2-5-2-7-2" /></svg>
+          GitHub
+        </a>
+      </section>
+
+      <section class="rounded-card border border-pd-border bg-pd-surface p-6 shadow-card">
+        <h2 class="flex items-center gap-2 text-lg"><svg class="h-5 w-5 text-pd-ink" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" /></svg>Community</h2>
+        <p class="mt-2 text-sm">
+          Development happens in the open. Ask questions, watch the work, or chip in.
+        </p>
+        <ul class="mt-4 space-y-2">
+          <li>
+            <a href="https://discord.gg/9kz8XXRRcT"
+              class="inline-flex items-center gap-2 text-sm font-medium text-pd-blue hover:underline">
+              <svg class="h-4 w-4 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M26.413,6.536c-1.971-.902-4.052-1.543-6.189-1.904-.292,.523-.557,1.061-.793,1.612-2.277-.343-4.592-.343-6.869,0-.236-.551-.5-1.089-.793,1.612-2.139,.365-4.221,1.006-6.194,1.909C1.658,12.336,.596,17.987,1.127,23.558h0c2.294,1.695,4.861,2.984,7.591,3.811,.615-.827,1.158-1.704,1.626-2.622-.888-.332-1.744-.741-2.56-1.222,.215-.156,.425-.316,.628-.472,4.806,2.26,10.37,2.26,15.177,0,.205,.168,.415,.328,.628,.472-.817,.483-1.676,.892-2.565,1.225,.467,.918,1.011,1.794,1.626,2.619,2.732-.824,5.301-2.112,7.596-3.808h0c.623-6.461-1.064-12.06-4.46-17.025Zm-15.396,13.596c-1.479,0-2.702-1.343-2.702-2.994s1.18-3.006,2.697-3.006,2.73,1.354,2.704,3.006-1.192,2.994-2.699,2.994Zm9.967,0c-1.482,0-2.699-1.343-2.699-2.994s1.18-3.006,2.699-3.006,2.723,1.354,2.697,3.006-1.189,2.994-2.697,2.994Z"></path></svg>Discord<svg class="h-3 w-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6" /> <path d="M10 14 21 3" /> <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /></svg>
+            </a>
+          </li>
+          <li>
+            <a href="https://t.me/puredarwin"
+              class="inline-flex items-center gap-2 text-sm font-medium text-pd-blue hover:underline">
+              <svg class="h-4 w-4 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16,2c-7.732,0-14,6.268-14,14s6.268,14,14,14,14-6.268,14-14S23.732,2,16,2Zm6.489,9.521c-.211,2.214-1.122,7.586-1.586,10.065-.196,1.049-.583,1.401-.957,1.435-.813,.075-1.43-.537-2.218-1.053-1.232-.808-1.928-1.311-3.124-2.099-1.382-.911-.486-1.412,.302-2.23,.206-.214,3.788-3.472,3.858-3.768,.009-.037,.017-.175-.065-.248-.082-.073-.203-.048-.29-.028-.124,.028-2.092,1.329-5.905,3.903-.559,.384-1.065,.571-1.518,.561-.5-.011-1.461-.283-2.176-.515-.877-.285-1.574-.436-1.513-.92,.032-.252,.379-.51,1.042-.773,4.081-1.778,6.803-2.95,8.164-3.517,3.888-1.617,4.696-1.898,5.222-1.907,.116-.002,.375,.027,.543,.163,.142,.115,.181,.27,.199,.379,.019,.109,.042,.357,.023,.551Z" fill-rule="evenodd"></path></svg>Telegram<svg class="h-3 w-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6" /> <path d="M10 14 21 3" /> <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /></svg>
+            </a>
+          </li>
+          <li>
+            <a href="https://x.com/puredarwin"
+              class="inline-flex items-center gap-2 text-sm font-medium text-pd-blue hover:underline">
+              <svg class="h-4 w-4 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M18.42,14.009L27.891,3h-2.244l-8.224,9.559L10.855,3H3.28l9.932,14.455L3.28,29h2.244l8.684-10.095,6.936,10.095h7.576l-10.301-14.991h0Zm-3.074,3.573l-1.006-1.439L6.333,4.69h3.447l6.462,9.243,1.006,1.439,8.4,12.015h-3.447l-6.854-9.804h0Z"></path></svg>X<svg class="h-3 w-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6" /> <path d="M10 14 21 3" /> <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /></svg>
+            </a>
+          </li>
+        </ul>
+      </section>
+
+      <section class="rounded-card border border-pd-border bg-pd-surface p-6 shadow-card">
+        <h2 class="flex items-center gap-2 text-lg"><svg class="h-5 w-5 text-pd-ink" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18h-5" /> <path d="M18 14h-8" /> <path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-4 0v-9a2 2 0 0 1 2-2h2" /> <rect width="8" height="4" x="10" y="6" rx="1" /></svg>News</h2>
+        <!-- pdnews:latest -->
+        <ul class="mt-4 space-y-3">
+          <li>
+            <div class="text-sm text-pd-muted">August 23, 2026</div>
+            <a href="/news/The-Road-to-20-5-0.html" class="font-medium text-pd-ink hover:text-pd-blue">
+              The Road to 20.5.0
+            </a>
+          </li>
+          <li>
+            <div class="text-sm text-pd-muted">January 3, 2026</div>
+            <a href="/news/Remembering-Cliff-Sekel.html" class="font-medium text-pd-ink hover:text-pd-blue">
+              Remembering Cliff Sekel (InsaneDarwin)
+            </a>
+          </li>
+          <li>
+            <div class="text-sm text-pd-muted">February 24, 2025</div>
+            <a href="/news/Support-Cliff-Sekel.html" class="font-medium text-pd-ink hover:text-pd-blue">
+              Support Cliff Sekel: PureDarwin's Lead Developer
+            </a>
+          </li>
+        </ul>
+        <!-- /pdnews:latest -->
+        <a href="/news/_News.html" class="mt-4 inline-block text-sm font-medium text-pd-blue hover:underline">
+          All news
+        </a>
+      </section>
+
+    </div>
+
+    <section class="mt-8 rounded-card border border-pd-border bg-pd-surface p-7 shadow-card sm:p-9">
       <h2 class="text-2xl">What works today</h2>
       <p class="mt-3 max-w-3xl">
         PureDarwin boots to a shell on four targets. A fifth, the ARMv6 Pi Zero, reaches userspace but not yet a
@@ -204,88 +324,77 @@ nix run .#vm</code></pre>
       </a>
     </section>
 
-    <div class="mt-8 grid gap-6 md:grid-cols-3">
-
-      <section class="rounded-card border border-pd-border bg-pd-surface p-6 shadow-card">
-        <h2 class="flex items-center gap-2 text-lg"><svg class="h-5 w-5 text-pd-ink" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 7v14" /> <path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z" /></svg>Documentation</h2>
-        <p class="mt-2 text-sm">
-          How the build works, what lives where, how an image is assembled, per-target status, a porting guide and a
-          debugging guide.
-        </p>
-        <a href="/handbook/_Handbook.html" class="mt-4 inline-block text-sm font-medium text-pd-blue hover:underline">
-          Handbook
-        </a>
-      </section>
-
-      <section class="rounded-card border border-pd-border bg-pd-surface p-6 shadow-card">
-        <h2 class="flex items-center gap-2 text-lg"><svg class="h-5 w-5 text-pd-ink" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="18" r="3" /> <circle cx="6" cy="6" r="3" /> <path d="M13 6h3a2 2 0 0 1 2 2v7" /> <line x1="6" x2="6" y1="9" y2="21" /></svg>Contribute</h2>
-        <p class="mt-2 text-sm">
-          Development happens on the <code class="text-[0.9em]">next</code> branch. Packaging is the most useful place
-          to start, and the contribution policy explains what we accept and why.
-        </p>
-        <a href="https://github.com/PureDarwin/PureDarwin"
-          class="mt-4 inline-flex items-center gap-2 text-sm font-medium text-pd-blue hover:underline">
-          <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" /> <path d="M9 18c-4.51 2-5-2-7-2" /></svg>
-          GitHub
-        </a>
-      </section>
-
-      <section class="rounded-card border border-pd-border bg-pd-surface p-6 shadow-card">
-        <h2 class="flex items-center gap-2 text-lg"><svg class="h-5 w-5 text-pd-ink" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" /></svg>Community</h2>
-        <p class="mt-2 text-sm">
-          Development happens in the open. Ask questions, watch the work, or chip in.
-        </p>
-        <ul class="mt-4 space-y-2">
-          <li>
-            <a href="https://discord.gg/9kz8XXRRcT"
-              class="inline-flex items-center gap-2 text-sm font-medium text-pd-blue hover:underline">
-              <svg class="h-4 w-4 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M26.413,6.536c-1.971-.902-4.052-1.543-6.189-1.904-.292,.523-.557,1.061-.793,1.612-2.277-.343-4.592-.343-6.869,0-.236-.551-.5-1.089-.793-1.612-2.139,.365-4.221,1.006-6.194,1.909C1.658,12.336,.596,17.987,1.127,23.558h0c2.294,1.695,4.861,2.984,7.591,3.811,.615-.827,1.158-1.704,1.626-2.622-.888-.332-1.744-.741-2.56-1.222,.215-.156,.425-.316,.628-.472,4.806,2.26,10.37,2.26,15.177,0,.205,.168,.415,.328,.628,.472-.817,.483-1.676,.892-2.565,1.225,.467,.918,1.011,1.794,1.626,2.619,2.732-.824,5.301-2.112,7.596-3.808h0c.623-6.461-1.064-12.06-4.46-17.025Zm-15.396,13.596c-1.479,0-2.702-1.343-2.702-2.994s1.18-3.006,2.697-3.006,2.73,1.354,2.704,3.006-1.192,2.994-2.699,2.994Zm9.967,0c-1.482,0-2.699-1.343-2.699-2.994s1.18-3.006,2.699-3.006,2.723,1.354,2.697,3.006-1.189,2.994-2.697,2.994Z"></path></svg>Discord<svg class="h-3 w-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6" /> <path d="M10 14 21 3" /> <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /></svg>
-            </a>
-          </li>
-          <li>
-            <a href="https://t.me/puredarwin"
-              class="inline-flex items-center gap-2 text-sm font-medium text-pd-blue hover:underline">
-              <svg class="h-4 w-4 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16,2c-7.732,0-14,6.268-14,14s6.268,14,14,14,14-6.268,14-14S23.732,2,16,2Zm6.489,9.521c-.211,2.214-1.122,7.586-1.586,10.065-.196,1.049-.583,1.401-.957,1.435-.813,.075-1.43-.537-2.218-1.053-1.232-.808-1.928-1.311-3.124-2.099-1.382-.911-.486-1.412,.302-2.23,.206-.214,3.788-3.472,3.858-3.768,.009-.037,.017-.175-.065-.248-.082-.073-.203-.048-.29-.028-.124,.028-2.092,1.329-5.905,3.903-.559,.384-1.065,.571-1.518,.561-.5-.011-1.461-.283-2.176-.515-.877-.285-1.574-.436-1.513-.92,.032-.252,.379-.51,1.042-.773,4.081-1.778,6.803-2.95,8.164-3.517,3.888-1.617,4.696-1.898,5.222-1.907,.116-.002,.375,.027,.543,.163,.142,.115,.181,.27,.199,.379,.019,.109,.042,.357,.023,.551Z" fill-rule="evenodd"></path></svg>Telegram<svg class="h-3 w-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6" /> <path d="M10 14 21 3" /> <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /></svg>
-            </a>
-          </li>
-          <li>
-            <a href="https://x.com/puredarwin"
-              class="inline-flex items-center gap-2 text-sm font-medium text-pd-blue hover:underline">
-              <svg class="h-4 w-4 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M18.42,14.009L27.891,3h-2.244l-8.224,9.559L10.855,3H3.28l9.932,14.455L3.28,29h2.244l8.684-10.095,6.936,10.095h7.576l-10.301-14.991h0Zm-3.074,3.573l-1.006-1.439L6.333,4.69h3.447l6.462,9.243,1.006,1.439,8.4,12.015h-3.447l-6.854-9.804h0Z"></path></svg>X<svg class="h-3 w-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6" /> <path d="M10 14 21 3" /> <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /></svg>
-            </a>
-          </li>
-        </ul>
-      </section>
-
-    </div>
-
     <section class="mt-8 rounded-card border border-pd-border bg-pd-surface p-7 shadow-card sm:p-9">
-      <h2 class="flex items-center gap-2.5 text-2xl"><svg class="h-6 w-6 text-pd-ink" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18h-5" /> <path d="M18 14h-8" /> <path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-4 0v-9a2 2 0 0 1 2-2h2" /> <rect width="8" height="4" x="10" y="6" rx="1" /></svg>Latest news</h2>
-      <!-- pdnews:latest -->
-      <ul class="mt-5 space-y-4">
-        <li>
-          <div class="text-sm text-pd-muted">August 23, 2026</div>
-          <a href="/news/The-Road-to-20-5-0.html" class="font-medium text-pd-ink hover:text-pd-blue">
-            The Road to 20.5.0
-          </a>
-        </li>
-        <li>
-          <div class="text-sm text-pd-muted">January 3, 2026</div>
-          <a href="/news/Remembering-Cliff-Sekel.html" class="font-medium text-pd-ink hover:text-pd-blue">
-            Remembering Cliff Sekel (InsaneDarwin)
-          </a>
-        </li>
-        <li>
-          <div class="text-sm text-pd-muted">February 24, 2025</div>
-          <a href="/news/Support-Cliff-Sekel.html" class="font-medium text-pd-ink hover:text-pd-blue">
-            Support Cliff Sekel: PureDarwin's Lead Developer
-          </a>
-        </li>
-      </ul>
-      <!-- /pdnews:latest -->
-      <a href="/news/_News.html" class="mt-5 inline-block text-sm font-medium text-pd-blue hover:underline">
-        All news
-      </a>
+      <h2 class="flex items-center gap-2.5 text-2xl"><svg class="h-6 w-6 text-pd-ink" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" /> <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" /> <path d="M12 17h.01" /></svg>Frequently asked questions</h2>
+
+      <div class="mt-4 divide-y divide-pd-border">
+
+        <details class="group py-4">
+          <summary class="flex cursor-pointer list-none items-center justify-between gap-3 font-medium text-pd-ink marker:hidden [&::-webkit-details-marker]:hidden">
+            What is Darwin?
+            <svg class="h-4 w-4 shrink-0 text-pd-muted transition-transform group-open:rotate-180" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
+          </summary>
+          <p class="mt-3 max-w-3xl text-sm">
+            Darwin is the open-source core of macOS and iOS: the XNU kernel plus a large part of the Unix userland,
+            published by Apple under the <a href="https://opensource.apple.com/apsl/"
+              class="text-pd-blue hover:underline">Apple Public Source License</a>. Every Mac and iPhone runs on it,
+            but Apple only ships it as source code, not as an operating system you can install.
+          </p>
+        </details>
+
+        <details class="group py-4">
+          <summary class="flex cursor-pointer list-none items-center justify-between gap-3 font-medium text-pd-ink marker:hidden [&::-webkit-details-marker]:hidden">
+            What is PureDarwin, and what is it not?
+            <svg class="h-4 w-4 shrink-0 text-pd-muted transition-transform group-open:rotate-180" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
+          </summary>
+          <p class="mt-3 max-w-3xl text-sm">
+            PureDarwin is a community project that turns Apple's Darwin releases into a standalone, bootable operating
+            system, writing the missing pieces ourselves: bootloader, drivers, init, and a desktop. It is not macOS,
+            not a macOS clone, and not affiliated with or endorsed by Apple. There are no proprietary Apple binaries
+            in our images.
+          </p>
+        </details>
+
+        <details class="group py-4">
+          <summary class="flex cursor-pointer list-none items-center justify-between gap-3 font-medium text-pd-ink marker:hidden [&::-webkit-details-marker]:hidden">
+            What can I actually do with it?
+            <svg class="h-4 w-4 shrink-0 text-pd-muted transition-transform group-open:rotate-180" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
+          </summary>
+          <p class="mt-3 max-w-3xl text-sm">
+            Boot a real Darwin system in QEMU or on hardware, get a shell, run an Xfce desktop over X11 or Wayland,
+            compile software with the on-system toolchain, and explore how the XNU kernel works outside of macOS. It
+            is a system for developers and the curious, not a daily driver &mdash; see
+            <a href="/handbook/status.html" class="text-pd-blue hover:underline">what works today</a>.
+          </p>
+        </details>
+
+        <details class="group py-4">
+          <summary class="flex cursor-pointer list-none items-center justify-between gap-3 font-medium text-pd-ink marker:hidden [&::-webkit-details-marker]:hidden">
+            Can it run macOS or iOS apps?
+            <svg class="h-4 w-4 shrink-0 text-pd-muted transition-transform group-open:rotate-180" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
+          </summary>
+          <p class="mt-3 max-w-3xl text-sm">
+            No. Graphical macOS and iOS apps need frameworks Apple never open-sourced, like AppKit and UIKit, so they
+            cannot run here. Command-line Darwin binaries and open-source software generally can, and Wine even runs
+            Windows GUI applications on the desktop. Ironically, Windows apps work; Mac apps do not.
+          </p>
+        </details>
+
+        <details class="group py-4">
+          <summary class="flex cursor-pointer list-none items-center justify-between gap-3 font-medium text-pd-ink marker:hidden [&::-webkit-details-marker]:hidden">
+            Is it free? Can I contribute?
+            <svg class="h-4 w-4 shrink-0 text-pd-muted transition-transform group-open:rotate-180" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
+          </summary>
+          <p class="mt-3 max-w-3xl text-sm">
+            Yes. Everything we write is open source, and Apple's code stays under the APSL. Development happens in the
+            open on <a href="https://github.com/PureDarwin/PureDarwin" class="text-pd-blue hover:underline">GitHub</a>;
+            packaging is the most useful place to start, and the
+            <a href="/handbook/contributing.html" class="text-pd-blue hover:underline">contribution guide</a> explains
+            the rest.
+          </p>
+        </details>
+
+      </div>
     </section>
 
   </main>
@@ -311,11 +420,37 @@ nix run .#vm</code></pre>
         Source on <a href="https://github.com/PureDarwin/puredarwin.github.io"
           class="text-pd-blue hover:underline">GitHub</a>.
       </p>
+      <p class="mt-3 text-xs text-pd-muted">
+        Hexley DarwinOS Mascot Copyright 2000 by Jon Hooper. All Rights Reserved.
+      </p>
     </div>
   </footer>
 
   <script>
-    document.getElementById("theme-toggle").addEventListener("click", function () {
+    (function () {
+      var toggle = document.getElementById("nav-toggle");
+      var panel = document.getElementById("mobile-nav");
+      var icons = toggle.querySelectorAll("svg");
+
+      function setOpen(open) {
+        panel.classList.toggle("hidden", !open);
+        icons[0].classList.toggle("hidden", open);
+        icons[1].classList.toggle("hidden", !open);
+        toggle.setAttribute("aria-expanded", open ? "true" : "false");
+        toggle.setAttribute("aria-label", (open ? "Close" : "Open") + " navigation menu");
+      }
+
+      toggle.addEventListener("click", function () {
+        setOpen(panel.classList.contains("hidden"));
+      });
+
+      // In-page anchors like #get-it do not navigate, so close by hand.
+      panel.addEventListener("click", function (e) {
+        if (e.target.closest("a")) { setOpen(false); }
+      });
+    })();
+
+    function toggleTheme() {
       var root = document.documentElement;
       var dark = root.dataset.theme !== "dark";
       root.dataset.theme = dark ? "dark" : "light";
@@ -323,7 +458,9 @@ nix run .#vm</code></pre>
       try {
         localStorage.setItem("mdbook-theme", JSON.stringify(dark ? "navy" : "light"));
       } catch (e) {}
-    });
+    }
+    document.getElementById("theme-toggle").addEventListener("click", toggleTheme);
+    document.getElementById("mobile-theme-toggle").addEventListener("click", toggleTheme);
   </script>
 
 </body>

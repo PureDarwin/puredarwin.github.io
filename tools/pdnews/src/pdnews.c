@@ -695,20 +695,20 @@ static void update_home(const char *root, struct entry *list, size_t n)
 
 	buf_add(&out, text, (size_t)(begin - text));
 	buf_puts(&out, HOME_BEGIN "\n");
-	buf_puts(&out, "      <ul class=\"mt-5 space-y-4\">\n");
+	buf_puts(&out, "        <ul class=\"mt-4 space-y-3\">\n");
 	for (i = 0; i < limit; i++) {
-		buf_puts(&out, "        <li>\n");
+		buf_puts(&out, "          <li>\n");
 		buf_printf(&out,
-			   "          <div class=\"text-sm text-pd-muted\">%s</div>\n",
+			   "            <div class=\"text-sm text-pd-muted\">%s</div>\n",
 			   list[i].date);
 		buf_printf(&out,
-			   "          <a href=\"/news/%s.html\" class=\"font-medium text-pd-ink hover:text-pd-blue\">\n",
+			   "            <a href=\"/news/%s.html\" class=\"font-medium text-pd-ink hover:text-pd-blue\">\n",
 			   list[i].slug);
-		buf_printf(&out, "            %s\n", list[i].title);
-		buf_puts(&out, "          </a>\n");
-		buf_puts(&out, "        </li>\n");
+		buf_printf(&out, "              %s\n", list[i].title);
+		buf_puts(&out, "            </a>\n");
+		buf_puts(&out, "          </li>\n");
 	}
-	buf_puts(&out, "      </ul>\n      ");
+	buf_puts(&out, "        </ul>\n        ");
 	buf_puts(&out, end);
 
 	write_file(full, out.data, out.len);
