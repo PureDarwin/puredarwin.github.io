@@ -1,5 +1,7 @@
 # Handbook
 
+![The PureDarwin logo](/img/handbook/pd-logo-bg000.jpg)
+
 This is the developer documentation for PureDarwin as it exists today, written for
 people who want to build it, boot it, and work on it.
 
@@ -21,16 +23,36 @@ kernel that reaches a prompt.
 Today PureDarwin boots to a shell on four targets, with a fifth reaching userspace, runs
 both an X11 and a Wayland desktop on x86_64, and cross-builds several hundred packages.
 
-## How the build is layered
+The project is a community effort, often described as the informal successor to
+OpenDarwin. There is no formal relationship, but PureDarwin would not exist without the
+work that project left behind.
 
-**Nix is the build system.** Everything is expressed as a flake output: components,
-kernel collections, disk images, and the QEMU runners that boot them. `nix build
-.#image-minimal` and `nix run .#vm` are the interface.
+## Goals
 
-Underneath, the Darwin sources are built by CMake. That CMake exists because Apple's
-Xcode projects had to be ported to it, and it is driven by Nix rather than used on its
-own. Configuring the tree with `cmake` by hand is not a supported path; see
-[The CMake tree](building/cmake.md) for what that means in practice.
+The goal has not changed since the project started: make Darwin usable on its own, by
+enabling anyone to retrieve, understand, modify, build, and distribute it, and by
+documenting the parts Apple does not. Why spend time on this? For learning and for fun.
+
+## What the "Pure" means
+
+[Pure as in beer](https://en.wikipedia.org/wiki/Reinheitsgebot). PureDarwin builds only
+from components Apple has released for use with Darwin, together with other open source
+software - collectively, upstream code. Nothing is lifted from macOS. That does not mean
+the upstream code is left untouched: we modify and extend it wherever the licenses
+allow, and most of this handbook describes exactly those modifications.
+
+## Hexley
+
+The platypus you will see around the site is [Hexley](../archive/about/Hexley.md),
+Darwin's unofficial mascot, created by Jon Hooper in 2000. He has been the face of
+Darwin projects far longer than PureDarwin has existed, and he is not going anywhere.
+
+## Getting the code
+
+Everything lives in the
+[PureDarwin repository](https://github.com/PureDarwin/PureDarwin) on GitHub. Development
+happens on the `next` branch; `main` holds the last frozen release. See
+[Contributing](contributing.md) for the branch model.
 
 ## Where to start
 
@@ -46,3 +68,28 @@ own. Configuring the tree with `cmake` by hand is not a supported path; see
 * [Debugging](debugging.md) is for when it does not boot.
 * [Roadmap](roadmap.md) and [Status](status.md) are where the project is going and what
   currently works.
+
+## Credits
+
+There are too many to thank, but some highlights:
+
+* [Apple](https://github.com/apple), Inc. for releasing
+  [Darwin](https://github.com/apple-oss-distributions) as open source
+* David Elliott and the Chameleon team for their work on boot-132
+* The xnu-dev team for their work on the XNU kernel
+* Rafirafi for his work on Generic Platform kexts
+* Mac OS Forge, the DarwinBuild project, and the MacPorts project
+* The OpenDarwin project, whose contributions PureDarwin still benefits from
+* [Probono](https://github.com/probonopd) for founding PureDarwin
+* [csekel](https://github.com/csekel) for believing and keeping PureDarwin going when nobody would — Rest in Peace
+* [vali0004](https://github.com/Vali0004) for pushing PureDarwin into a modern era
+* Everyone else contributing to Darwin
+
+## Notice
+
+PureDarwin and the PureDarwin website are independent resources and are not affiliated
+with, endorsed by, or sponsored by Apple Inc. Apple, Macintosh, macOS, and related
+trademarks and logos are the property of Apple Inc., registered in the U.S. and other
+countries. Darwin is licensed under the
+[Apple Public Source License (APSL)](https://opensource.apple.com/apsl/). All other
+trademarks are the property of their respective owners.
