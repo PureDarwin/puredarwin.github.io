@@ -20,7 +20,7 @@
         version = "0-unstable";
         src = self;
 
-        nativeBuildInputs = [ pkgs.mdbook pkgs.tailwindcss_4 pkgs.imagemagick ];
+        nativeBuildInputs = [ pkgs.mdbook pkgs.tailwindcss_4 ];
 
         # The landing page (src/index.html) is Tailwind; the handbook is mdBook
         # plus theme/puredarwin.css. Tailwind runs first and writes into src/,
@@ -31,19 +31,6 @@
             --input tailwind.css \
             --output src/css/site.css \
             --minify
-
-          # Wide screenshots are displayed at 1112px, and letting the browser
-          # downscale a 1920px source turns terminal text to mush. Resample
-          # once here with a good filter; the page offers both through srcset
-          # so high-density displays still get the full-size original.
-          for shot in src/img/news/*/*-wide.png; do
-            [ -e "$shot" ] || continue
-            magick "$shot" \
-              -filter Lanczos -resize 1112x \
-              -unsharp 0x0.6+0.6+0.01 \
-              -quality 92 -define webp:method=6 \
-              "''${shot%-wide.png}-1112.webp"
-          done
           runHook postBuild
         '';
 
@@ -76,24 +63,8 @@
 
       serve = pkgs.writeShellApplication {
         name = "serve-puredarwin-docs";
-        runtimeInputs = [ pkgs.mdbook pkgs.tailwindcss_4 pkgs.imagemagick ];
+        runtimeInputs = [ pkgs.mdbook pkgs.tailwindcss_4 ];
         text = ''
-          # Same resample the build does; without it the page 404s on the
-          # downscaled screenshot that srcset points at. Skipped when it is
-          # already newer than its source, so a restart is not a rebuild.
-          for shot in src/img/news/*/*-wide.png; do
-            [ -e "$shot" ] || continue
-            out="''${shot%-wide.png}-1112.webp"
-            if [ -e "$out" ] && [ "$out" -nt "$shot" ]; then
-              continue
-            fi
-            magick "$shot" \
-              -filter Lanczos -resize 1112x \
-              -unsharp 0x0.6+0.6+0.01 \
-              -quality 92 -define webp:method=6 \
-              "$out"
-          done
-
           # Tailwind has to keep up with edits to index.html, otherwise mdBook
           # live-reloads against a stale stylesheet and the landing page
           # renders with whatever classes existed last time.
