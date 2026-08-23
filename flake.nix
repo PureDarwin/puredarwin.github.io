@@ -28,7 +28,7 @@
         buildPhase = ''
           runHook preBuild
           tailwindcss \
-            --input src/css/tailwind.css \
+            --input tailwind.css \
             --output src/css/site.css \
             --minify
           runHook postBuild
@@ -65,20 +65,23 @@
         name = "serve-puredarwin-docs";
         runtimeInputs = [ pkgs.mdbook pkgs.tailwindcss_4 ];
         text = ''
-          # Keep the landing page stylesheet in step while serving. --watch
-          # would hold the terminal, so this is a one-shot build; re-run the
-          # app after editing index.html classes.
+          # Tailwind has to keep up with edits to index.html, otherwise mdBook
+          # live-reloads against a stale stylesheet and the landing page
+          # renders with whatever classes existed last time.
           tailwindcss \
-            --input src/css/tailwind.css \
+            --input tailwind.css \
             --output src/css/site.css \
-            --minify
+            --watch=always &
+          tailwind_pid=$!
+          trap 'kill "$tailwind_pid" 2>/dev/null || true' EXIT
 
-          exec mdbook serve \
+          mdbook serve \
             --hostname "''${MDBOOK_HOST:-127.0.0.1}" \
             --port "''${MDBOOK_PORT:-3000}" \
             "$@"
         '';
       };
+
     in {
       default = book;
       inherit book serve pdnews;

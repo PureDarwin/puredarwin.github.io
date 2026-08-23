@@ -1,0 +1,108 @@
+@import "tailwindcss";
+
+/* Only the landing page uses Tailwind. The handbook is mdBook plus
+   theme/puredarwin.css, and the tokens below are copied from it so the two
+   halves of the site read as one. */
+@source "./src/index.html";
+
+/* The scheme is resolved to a data-theme attribute before paint (see the
+   inline script in index.html) and shared with mdBook through the same
+   localStorage key, so a choice made in the handbook holds here and back. */
+/* :is() rather than :where(): :where() contributes no specificity, so a plain
+   utility emitted later in the sheet (.hidden) would beat dark:block and the
+   icon swap would never happen. */
+@custom-variant dark (&:is([data-theme="dark"], [data-theme="dark"] *));
+
+@theme {
+  /* Semantic colours resolve through the variables below, so light and dark
+     are defined once in :root rather than by doubling every utility with a
+     dark: variant. The palette matches theme/puredarwin.css. */
+  --color-pd-blue: var(--pd-link);
+  --color-pd-ink: var(--pd-heading);
+  --color-pd-body: var(--pd-fg);
+  --color-pd-muted: var(--pd-muted);
+  --color-pd-canvas: var(--pd-canvas);
+  --color-pd-surface: var(--pd-surface);
+  --color-pd-border: var(--pd-border);
+
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
+
+  --radius-card: 8px;
+  --shadow-card: var(--pd-shadow);
+}
+
+:root {
+  --pd-canvas: #f6f6f6;
+  --pd-surface: #fff;
+  --pd-border: #e3e3e3;
+  --pd-fg: #2f2f2f;
+  --pd-heading: #1b1b1b;
+  --pd-muted: #6f6f6f;
+  --pd-link: #0d6efd;
+  --pd-rail: #dcdcdc;
+  --pd-shadow: 0 4px 14px rgb(0 0 0 / 0.05);
+  color-scheme: light;
+}
+
+/* No-JS fallback. The attribute selector below is what normally applies. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --pd-canvas: #000;
+    --pd-surface: #121214;
+    --pd-border: #2a2a2e;
+    --pd-fg: #c7c7cc;
+    --pd-heading: #f2f2f4;
+    --pd-muted: #8e8e93;
+    --pd-link: #6ea8fe;
+    --pd-rail: #34343a;
+    --pd-shadow: 0 4px 14px rgb(0 0 0 / 0.4);
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --pd-canvas: #000;
+  --pd-surface: #121214;
+  --pd-border: #2a2a2e;
+  --pd-fg: #c7c7cc;
+  --pd-heading: #f2f2f4;
+  --pd-muted: #8e8e93;
+  --pd-link: #6ea8fe;
+  --pd-rail: #34343a;
+  --pd-shadow: 0 4px 14px rgb(0 0 0 / 0.4);
+  color-scheme: dark;
+}
+
+/* The handbook renders its body copy at this leading; matching it keeps the
+   two halves from feeling like different sites. */
+@layer base {
+  /* Matches the handbook, which sets the same pair on html. */
+  html {
+    scrollbar-color: var(--pd-rail) transparent;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--pd-rail);
+  }
+
+  body {
+    background: var(--color-pd-canvas);
+    color: var(--color-pd-body);
+    font-family: var(--font-sans);
+    line-height: 1.65;
+  }
+
+  h1,
+  h2,
+  h3 {
+    color: var(--color-pd-ink);
+    font-weight: 600;
+  }
+}

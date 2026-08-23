@@ -1,10 +1,62 @@
+/* Brand constants: the same in both schemes. */
 :root {
   --puredarwin-blue: #0d6efd;
-  --puredarwin-header: #000;
-  --puredarwin-canvas: #f6f6f6;
-  --puredarwin-border: #e3e3e3;
   --sidebar-width: min(var(--sidebar-target-width), 80vw);
   --content-max-width: 900px;
+  /* Matches the landing page's centred max-w-6xl (1152px) plus its px-5
+     gutter, so the logo and nav sit in the same place on both halves of the
+     site. The landing page scrolls the document and so reserves a scrollbar;
+     the handbook scrolls inside its own pane and does not, which would centre
+     its bar half a scrollbar further right. Subtract that width to match. */
+  --pd-scrollbar: 15px;
+  --pd-gutter: max(20px, calc((100% - var(--pd-scrollbar) - 1152px) / 2 + 20px));
+}
+
+/* Everything below is expressed against these tokens, so a scheme is defined
+   once here rather than by overriding rules further down. mdBook's own
+   variables are mapped onto them so its search, code and table chrome follow
+   too. `rust` renders light, `coal`/`navy`/`ayu` render dark. */
+.light,
+.rust {
+  --pd-canvas: #f6f6f6;
+  --pd-surface: #fff;
+  --pd-border: #e3e3e3;
+  --pd-rail: #dcdcdc;
+  --pd-fg: #2f2f2f;
+  --pd-heading: #1b1b1b;
+  --pd-muted: #6f6f6f;
+  --pd-sidebar-fg: #4a4a4a;
+  --pd-link: var(--puredarwin-blue);
+  --pd-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+  --pd-elevated: #f1f1f1;
+  --pd-header-bg: #000;
+  --pd-header-fg: #fff;
+  --pd-header-border: rgba(255, 255, 255, 0.25);
+  --pd-logo: url("../img/homepage/logo-mark-text-fff.svg");
+  --color-scheme: light;
+}
+
+.coal,
+.navy,
+.ayu {
+  --pd-canvas: #000;
+  --pd-surface: #121214;
+  --pd-border: #2a2a2e;
+  --pd-rail: #34343a;
+  --pd-fg: #c7c7cc;
+  --pd-heading: #f2f2f4;
+  --pd-muted: #8e8e93;
+  --pd-sidebar-fg: #b0b0b6;
+  --pd-link: #6ea8fe;
+  --pd-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+  --pd-elevated: #1c1c20;
+  /* The bar stays black in both schemes. On a black canvas it would vanish,
+     so the bottom edge becomes a visible white line instead. */
+  --pd-header-bg: #000;
+  --pd-header-fg: #fff;
+  --pd-header-border: rgba(255, 255, 255, 0.85);
+  --pd-logo: url("../img/homepage/logo-mark-text-fff.svg");
+  --color-scheme: dark;
 }
 
 .light,
@@ -12,21 +64,34 @@
 .coal,
 .navy,
 .ayu {
-  --bg: var(--puredarwin-canvas);
-  --fg: #2f2f2f;
-  --sidebar-bg: #fff;
-  --sidebar-fg: #4a4a4a;
-  --sidebar-non-existant: #aaa;
-  --links: var(--puredarwin-blue);
-  --sidebar-active: var(--puredarwin-blue);
-  --sidebar-spacer: #eee;
+  --bg: var(--pd-canvas);
+  --fg: var(--pd-fg);
+  --sidebar-bg: var(--pd-surface);
+  --sidebar-fg: var(--pd-sidebar-fg);
+  --sidebar-non-existant: var(--pd-muted);
+  --sidebar-active: var(--pd-link);
+  --sidebar-spacer: var(--pd-border);
   --sidebar-header-border-color: transparent;
-  --icons: #fff;
-  --icons-hover: #ccc;
-  --table-border-color: #ddd;
-  --table-header-bg: #eee;
-  --table-alternate-bg: #fafafa;
-  --color-scheme: light;
+  --links: var(--pd-link);
+  --inline-code-color: var(--pd-link);
+  --icons: var(--pd-header-fg);
+  --icons-hover: var(--pd-muted);
+  --scrollbar: var(--pd-rail);
+  --quote-bg: var(--pd-elevated);
+  --quote-border: var(--pd-border);
+  --table-border-color: var(--pd-border);
+  --table-header-bg: var(--pd-elevated);
+  --table-alternate-bg: var(--pd-elevated);
+  --searchbar-bg: var(--pd-surface);
+  --searchbar-fg: var(--pd-fg);
+  --searchbar-border-color: var(--pd-border);
+  --searchresults-li-bg: var(--pd-elevated);
+  --searchresults-border-color: var(--pd-border);
+  --searchresults-header-fg: var(--pd-muted);
+  --theme-popup-bg: var(--pd-surface);
+  --theme-popup-border: var(--pd-border);
+  --theme-hover: var(--pd-elevated);
+  --overlay-bg: rgba(0, 0, 0, 0.4);
 }
 
 html {
@@ -38,7 +103,7 @@ html,
 body,
 .page,
 .page-wrapper {
-  background: var(--puredarwin-canvas);
+  background: var(--pd-canvas);
 }
 
 body::before {
@@ -49,7 +114,7 @@ body::before {
   right: 0;
   left: 0;
   height: 51px;
-  background: var(--puredarwin-header);
+  background: var(--pd-header-bg);
 }
 
 .page-wrapper {
@@ -72,8 +137,8 @@ body::before {
   width: 100vw;
   margin: 0;
   padding: 0 24px;
-  background-color: var(--puredarwin-header);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+  background-color: var(--pd-header-bg);
+  border-bottom: 1px solid var(--pd-header-border);
 }
 
 #mdbook-menu-bar:hover,
@@ -85,7 +150,7 @@ html.sidebar-visible #mdbook-menu-bar {
 
 #mdbook-menu-bar .left-buttons {
   position: absolute;
-  left: 12px;
+  left: 10px;
 }
 
 #mdbook-menu-bar .right-buttons {
@@ -118,29 +183,72 @@ html.sidebar-visible #mdbook-menu-bar {
 .menu-bar .icon-button,
 .menu-bar .icon-button:hover,
 .menu-bar .icon-button:focus {
-  color: #fff;
+  color: var(--pd-header-fg);
 }
 
-/* The branded theme is deliberately fixed, like the former Docsify site. */
+/* mdBook's six-entry picker is replaced by a two-state toggle in
+   puredarwin.js. Hide the original in case scripting is unavailable. */
 #mdbook-theme-toggle,
 #mdbook-theme-list {
   display: none;
 }
 
+/* The replacement reuses mdBook's own icon-button class and .fa-svg wrapper,
+   so it inherits the same 1em box and line-height as the buttons either side
+   of it. Only the stroke needs saying: Lucide icons are drawn, not filled. */
+#pd-theme-toggle .fa-svg svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  vertical-align: -0.35em;
+}
+
 .menu-title {
   position: absolute;
-  top: 7px;
-  left: 50%;
-  width: 172px;
-  height: 36px;
+  top: 11px;
+  left: max(var(--pd-gutter), 132px);
+  width: 138px;
+  height: 28px;
   margin: 0;
   overflow: hidden;
   color: transparent;
-  background: url("../img/homepage/logo-mark-text-fff.svg") center / contain
-    no-repeat;
+  background: var(--pd-logo) left center / auto 28px no-repeat;
   font-size: 0;
-  transform: translateX(-50%);
+  transform: none;
 }
+
+/* The same links the landing page carries, so the two halves of the site have
+   the same navigation in the same place. Injected in puredarwin.js. */
+#pd-nav {
+  position: absolute;
+  top: 0;
+  right: max(calc(var(--pd-gutter) + var(--pd-scrollbar)), 68px);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  height: 50px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+#pd-nav a {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 14px;
+  text-decoration: none;
+}
+
+#pd-nav a:hover {
+  color: #fff;
+}
+
+@media (max-width: 760px) {
+  #pd-nav {
+    display: none;
+  }
+}
+
 
 a.menu-title {
   cursor: pointer;
@@ -148,14 +256,14 @@ a.menu-title {
 }
 
 a.menu-title:focus-visible {
-  outline: 2px solid #fff;
+  outline: 2px solid var(--pd-header-fg);
   outline-offset: 2px;
 }
 
 .sidebar {
   top: 51px;
-  background: #fff;
-  border-right: 1px solid var(--puredarwin-border);
+  background: var(--pd-surface);
+  border-right: 1px solid var(--pd-border);
 }
 
 .sidebar-scrollbox {
@@ -164,22 +272,22 @@ a.menu-title:focus-visible {
 
 .sidebar .chapter li a {
   border-radius: 4px;
-  color: #4a4a4a;
+  color: var(--pd-sidebar-fg);
   line-height: 1.5;
 }
 
 .sidebar .chapter li a:hover {
-  color: var(--puredarwin-blue);
+  color: var(--pd-link);
   text-decoration: none;
 }
 
 .sidebar .chapter li a.active {
-  color: var(--puredarwin-blue);
+  color: var(--pd-link);
   font-weight: 600;
 }
 
 .sidebar .chapter li a.active::before {
-  color: var(--puredarwin-blue);
+  color: var(--pd-link);
 }
 
 /* Keep article heading outlines, but suppress the orphaned rule mdBook emits
@@ -201,19 +309,19 @@ a.menu-title:focus-visible {
    without this they read as pages that do not exist. A rail plus a lighter,
    smaller face keeps the two apart however deeply the book nests. */
 .sidebar .on-this-page > ol {
-  border-inline-start: 1px solid #dcdcdc;
+  border-inline-start: 1px solid var(--pd-rail);
   margin-inline-start: 10px;
   padding-inline-start: 10px;
 }
 
 .sidebar .on-this-page a.header-in-summary {
-  color: #6f6f6f;
+  color: var(--pd-muted);
   font-size: 0.92em;
 }
 
 .sidebar .on-this-page a.header-in-summary:hover,
 .sidebar .on-this-page a.header-in-summary.active {
-  color: var(--puredarwin-blue);
+  color: var(--pd-link);
 }
 
 /* Keep the Docsify-style sidebar fixed-width and remove mdBook's chapter
@@ -228,7 +336,7 @@ a.menu-title:focus-visible {
 }
 
 .page-wrapper {
-  background: var(--puredarwin-canvas);
+  background: var(--pd-canvas);
 }
 
 .content {
@@ -236,14 +344,14 @@ a.menu-title:focus-visible {
   margin-top: 32px;
   margin-bottom: 48px;
   padding: 42px 54px 64px;
-  background: #fff;
-  border: 1px solid var(--puredarwin-border);
+  background: var(--pd-surface);
+  border: 1px solid var(--pd-border);
   border-radius: 8px;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+  box-shadow: var(--pd-shadow);
 }
 
 .content main {
-  color: #2f2f2f;
+  color: var(--pd-fg);
   line-height: 1.65;
 }
 
@@ -251,7 +359,7 @@ a.menu-title:focus-visible {
 .content h2,
 .content h3,
 .content h4 {
-  color: #1b1b1b;
+  color: var(--pd-heading);
   font-weight: 600;
 }
 
@@ -261,19 +369,26 @@ a.menu-title:focus-visible {
 
 .content h1 {
   padding-bottom: 0.3em;
-  border-bottom: 1px solid var(--puredarwin-border);
+  border-bottom: 1px solid var(--pd-border);
 }
 
 .content a {
-  color: var(--puredarwin-blue);
+  color: var(--pd-link);
 }
 
 .content code {
+  padding: 0.1em 0.35em;
+  background: var(--pd-elevated);
   border-radius: 4px;
 }
 
+.content pre code {
+  padding: 0;
+  background: none;
+}
+
 .content blockquote {
-  border-left-color: var(--puredarwin-blue);
+  border-left-color: var(--pd-link);
 }
 
 /* mdBook centres tables and sizes them to their content, so a page with
@@ -328,12 +443,4 @@ a.menu-title:focus-visible {
   body::before {
     display: none;
   }
-}
-
-/* Keep alternate mdBook color schemes readable inside the white Docsify card. */
-.coal .content main,
-.navy .content main,
-.ayu .content main,
-.rust .content main {
-  color: #2f2f2f;
 }

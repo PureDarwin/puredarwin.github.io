@@ -20,12 +20,32 @@
   <meta property="twitter:title" content="PureDarwin" />
   <link href="/css/site.css" rel="stylesheet">
   <link rel="icon" type="image/png" href="/img/favicon.png">
+  <script>
+    // mdBook stores its choice under "mdbook-theme" as one of its theme names.
+    // Map those onto the two schemes this page has, and fall back to the OS.
+    (function () {
+      var DARK = ["navy", "coal", "ayu"];
+      var stored;
+      try { stored = JSON.parse(localStorage.getItem("mdbook-theme")); } catch (e) {}
+      if (typeof stored !== "string") { stored = null; }
+      var dark = stored
+        ? DARK.indexOf(stored) !== -1
+        : window.matchMedia("(prefers-color-scheme: dark)").matches;
+      document.documentElement.dataset.theme = dark ? "dark" : "light";
+    })();
+  </script>
 </head>
 
 <body class="font-sans">
 
-  <header class="fixed inset-x-0 top-0 z-50 bg-black">
-    <nav class="mx-auto flex max-w-6xl items-center gap-6 px-5 py-3">
+  <header class="fixed inset-x-0 top-0 z-50 border-b border-white/25 bg-black dark:border-white/85">
+    <nav class="mx-auto flex h-[50px] max-w-6xl items-center gap-3 pr-5 pl-16 min-[1284px]:pl-5">
+      <button type="button" id="theme-toggle"
+        class="absolute left-[19px] top-1/2 z-10 -translate-y-1/2 rounded p-1.5 text-white/80 hover:text-white"
+        aria-label="Toggle light and dark theme">
+        <svg class="hidden h-5 w-5 dark:block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4" /> <path d="M12 2v2" /> <path d="M12 20v2" /> <path d="m4.93 4.93 1.41 1.41" /> <path d="m17.66 17.66 1.41 1.41" /> <path d="M2 12h2" /> <path d="M20 12h2" /> <path d="m6.34 17.66-1.41 1.41" /> <path d="m19.07 4.93-1.41 1.41" /></svg>
+        <svg class="h-5 w-5 dark:hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401" /></svg>
+      </button>
       <a href="/" class="shrink-0" aria-label="PureDarwin home">
         <img src="/img/homepage/logo-mark-text-fff.svg" alt="PureDarwin" height="28" class="h-7 w-auto">
       </a>
@@ -53,12 +73,12 @@
       </p>
       <div class="mt-7 flex flex-wrap gap-3">
         <a href="/handbook/_Handbook.html"
-          class="inline-flex items-center gap-2 rounded-full bg-pd-blue px-5 py-2.5 text-sm font-medium text-white hover:bg-blue-700">
+          class="inline-flex items-center gap-2 rounded-full bg-pd-blue px-5 py-2.5 text-sm font-medium text-white hover:bg-blue-700 dark:bg-white dark:text-black dark:hover:bg-neutral-200">
           <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 7v14" /> <path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z" /></svg>
           Read the Handbook
         </a>
         <a href="#get-it"
-          class="inline-flex items-center gap-2 rounded-full border border-pd-border bg-white px-5 py-2.5 text-sm font-medium text-pd-ink hover:border-pd-blue hover:text-pd-blue">
+          class="inline-flex items-center gap-2 rounded-full border border-pd-border bg-pd-surface px-5 py-2.5 text-sm font-medium text-pd-ink hover:border-pd-blue hover:text-pd-blue dark:border-white dark:bg-transparent dark:text-white dark:hover:border-white dark:hover:text-white">
           <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19h8" /> <path d="m4 17 6-6-6-6" /></svg>
           Get it
         </a>
@@ -75,7 +95,7 @@
       </figure>
     </section>
 
-    <section class="rounded-card border border-pd-border bg-white p-7 shadow-card sm:p-9">
+    <section class="rounded-card border border-pd-border bg-pd-surface p-7 shadow-card sm:p-9">
       <h2 class="text-2xl">What works today</h2>
       <p class="mt-3 max-w-3xl">
         PureDarwin boots to a shell on four targets. A fifth, the ARMv6 Pi Zero, reaches userspace but not yet a
@@ -83,19 +103,19 @@
       </p>
       <ul class="mt-6 grid gap-x-8 gap-y-3 sm:grid-cols-2">
         <li class="border-l-2 border-pd-blue pl-4">
-          <strong class="flex items-center gap-2 text-pd-ink"><svg class="h-4 w-4 shrink-0 text-pd-blue" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20v2" /> <path d="M12 2v2" /> <path d="M17 20v2" /> <path d="M17 2v2" /> <path d="M2 12h2" /> <path d="M2 17h2" /> <path d="M2 7h2" /> <path d="M20 12h2" /> <path d="M20 17h2" /> <path d="M20 7h2" /> <path d="M7 20v2" /> <path d="M7 2v2" /> <rect x="4" y="4" width="16" height="16" rx="2" /> <rect x="8" y="8" width="8" height="8" rx="1" /></svg>x86_64</strong>
+          <strong class="flex items-center gap-2 text-pd-ink"><svg class="h-4 w-4 shrink-0 text-pd-ink" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20v2" /> <path d="M12 2v2" /> <path d="M17 20v2" /> <path d="M17 2v2" /> <path d="M2 12h2" /> <path d="M2 17h2" /> <path d="M2 7h2" /> <path d="M20 12h2" /> <path d="M20 17h2" /> <path d="M20 7h2" /> <path d="M7 20v2" /> <path d="M7 2v2" /> <rect x="4" y="4" width="16" height="16" rx="2" /> <rect x="8" y="8" width="8" height="8" rx="1" /></svg>x86_64</strong>
           <span class="block text-sm text-pd-muted">QEMU and real hardware. The release target.</span>
         </li>
         <li class="border-l-2 border-pd-blue pl-4">
-          <strong class="flex items-center gap-2 text-pd-ink"><svg class="h-4 w-4 shrink-0 text-pd-blue" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="8" x="2" y="2" rx="2" ry="2" /> <rect width="20" height="8" x="2" y="14" rx="2" ry="2" /> <line x1="6" x2="6.01" y1="6" y2="6" /> <line x1="6" x2="6.01" y1="18" y2="18" /></svg>arm64, QEMU virt</strong>
+          <strong class="flex items-center gap-2 text-pd-ink"><svg class="h-4 w-4 shrink-0 text-pd-ink" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="8" x="2" y="2" rx="2" ry="2" /> <rect width="20" height="8" x="2" y="14" rx="2" ry="2" /> <line x1="6" x2="6.01" y1="6" y2="6" /> <line x1="6" x2="6.01" y1="18" y2="18" /></svg>arm64, QEMU virt</strong>
           <span class="block text-sm text-pd-muted">Boots to a shell; Xorg starts.</span>
         </li>
         <li class="border-l-2 border-pd-blue pl-4">
-          <strong class="flex items-center gap-2 text-pd-ink"><svg class="h-4 w-4 shrink-0 text-pd-blue" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2" /> <path d="M11 9h4a2 2 0 0 0 2-2V3" /> <circle cx="9" cy="9" r="2" /> <path d="M7 21v-4a2 2 0 0 1 2-2h4" /> <circle cx="15" cy="15" r="2" /></svg>Raspberry Pi 3</strong>
+          <strong class="flex items-center gap-2 text-pd-ink"><svg class="h-4 w-4 shrink-0 text-pd-ink" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2" /> <path d="M11 9h4a2 2 0 0 0 2-2V3" /> <circle cx="9" cy="9" r="2" /> <path d="M7 21v-4a2 2 0 0 1 2-2h4" /> <circle cx="15" cy="15" r="2" /></svg>Raspberry Pi 3</strong>
           <span class="block text-sm text-pd-muted">arm64, on real hardware.</span>
         </li>
         <li class="border-l-2 border-pd-blue pl-4">
-          <strong class="flex items-center gap-2 text-pd-ink"><svg class="h-4 w-4 shrink-0 text-pd-blue" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="16" height="20" x="4" y="2" rx="2" ry="2" /> <line x1="12" x2="12.01" y1="18" y2="18" /></svg>iPad 6 (T8010)</strong>
+          <strong class="flex items-center gap-2 text-pd-ink"><svg class="h-4 w-4 shrink-0 text-pd-ink" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="16" height="20" x="4" y="2" rx="2" ry="2" /> <line x1="12" x2="12.01" y1="18" y2="18" /></svg>iPad 6 (T8010)</strong>
           <span class="block text-sm text-pd-muted">Via checkm8 and PongoOS, on the device's own display.</span>
         </li>
       </ul>
@@ -108,13 +128,13 @@
       </a>
     </section>
 
-    <section id="get-it" class="mt-8 scroll-mt-24 rounded-card border border-pd-border bg-white p-7 shadow-card sm:p-9">
-      <h2 class="flex items-center gap-2.5 text-2xl"><svg class="h-6 w-6 text-pd-blue" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19h8" /> <path d="m4 17 6-6-6-6" /></svg>Get it</h2>
+    <section id="get-it" class="mt-8 scroll-mt-24 rounded-card border border-pd-border bg-pd-surface p-7 shadow-card sm:p-9">
+      <h2 class="flex items-center gap-2.5 text-2xl"><svg class="h-6 w-6 text-pd-ink" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19h8" /> <path d="m4 17 6-6-6-6" /></svg>Get it</h2>
 
-      <div class="mt-4 rounded border-l-4 border-amber-500 bg-amber-50 px-4 py-3">
+      <div class="mt-4 rounded border-l-4 border-amber-500 bg-amber-50 px-4 py-3 dark:bg-amber-500/10">
         <p class="flex gap-2.5 text-sm">
-          <svg class="mt-0.5 h-4 w-4 shrink-0 text-amber-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3" /> <path d="M12 9v4" /> <path d="M12 17h.01" /></svg>
-          <span><strong class="text-pd-ink">These are previews, not a release.</strong> They are development images, they
+          <svg class="mt-0.5 h-4 w-4 shrink-0 text-amber-600 dark:text-amber-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3" /> <path d="M12 9v4" /> <path d="M12 17h.01" /></svg>
+          <span><strong class="text-amber-900 dark:text-amber-200">These are previews, not a release.</strong> They are development images, they
           will have bugs, and they should not be treated as a stable version of anything. PureDarwin 20.5.0 is the
           release being worked towards; see the <a href="/handbook/roadmap.html"
             class="text-pd-blue hover:underline">roadmap</a>.</span>
@@ -168,8 +188,7 @@
       <p class="mt-2 max-w-3xl">
         Nix is the build system. On a Linux host with flakes enabled:
       </p>
-      <pre
-        class="mt-3 overflow-x-auto rounded border border-pd-border bg-pd-canvas p-4 text-sm"><code>nix-store --add-fixed sha256 /path/to/MacOSX11.3.sdk.tar.xz
+      <pre class="mt-3 overflow-x-auto rounded border border-pd-border bg-pd-canvas p-4 text-sm"><code>nix-store --add-fixed sha256 /path/to/MacOSX11.3.sdk.tar.xz
 nix build .#image-minimal
 nix run .#vm</code></pre>
       <p class="mt-3 max-w-3xl text-sm text-pd-muted">
@@ -183,8 +202,8 @@ nix run .#vm</code></pre>
 
     <div class="mt-8 grid gap-6 md:grid-cols-3">
 
-      <section class="rounded-card border border-pd-border bg-white p-6 shadow-card">
-        <h2 class="flex items-center gap-2 text-lg"><svg class="h-5 w-5 text-pd-blue" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 7v14" /> <path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z" /></svg>Documentation</h2>
+      <section class="rounded-card border border-pd-border bg-pd-surface p-6 shadow-card">
+        <h2 class="flex items-center gap-2 text-lg"><svg class="h-5 w-5 text-pd-ink" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 7v14" /> <path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z" /></svg>Documentation</h2>
         <p class="mt-2 text-sm">
           How the build works, what lives where, how an image is assembled, per-target status, a porting guide and a
           debugging guide.
@@ -194,8 +213,8 @@ nix run .#vm</code></pre>
         </a>
       </section>
 
-      <section class="rounded-card border border-pd-border bg-white p-6 shadow-card">
-        <h2 class="flex items-center gap-2 text-lg"><svg class="h-5 w-5 text-pd-blue" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="18" r="3" /> <circle cx="6" cy="6" r="3" /> <path d="M13 6h3a2 2 0 0 1 2 2v7" /> <line x1="6" x2="6" y1="9" y2="21" /></svg>Contribute</h2>
+      <section class="rounded-card border border-pd-border bg-pd-surface p-6 shadow-card">
+        <h2 class="flex items-center gap-2 text-lg"><svg class="h-5 w-5 text-pd-ink" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="18" r="3" /> <circle cx="6" cy="6" r="3" /> <path d="M13 6h3a2 2 0 0 1 2 2v7" /> <line x1="6" x2="6" y1="9" y2="21" /></svg>Contribute</h2>
         <p class="mt-2 text-sm">
           Development happens on the <code class="text-[0.9em]">next</code> branch. Packaging is the most useful place
           to start, and the contribution policy explains what we accept and why.
@@ -207,22 +226,37 @@ nix run .#vm</code></pre>
         </a>
       </section>
 
-      <section class="rounded-card border border-pd-border bg-white p-6 shadow-card">
-        <h2 class="flex items-center gap-2 text-lg"><svg class="h-5 w-5 text-pd-blue" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" /></svg>Community</h2>
+      <section class="rounded-card border border-pd-border bg-pd-surface p-6 shadow-card">
+        <h2 class="flex items-center gap-2 text-lg"><svg class="h-5 w-5 text-pd-ink" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" /></svg>Community</h2>
         <p class="mt-2 text-sm">
           Development happens in the open. Ask questions, watch the work, or chip in.
         </p>
-        <div class="mt-4 flex items-center gap-3">
-          <a href="https://discord.gg/9kz8XXRRcT" class="inline-flex items-center gap-1.5 text-sm font-medium text-pd-blue hover:underline">Discord<svg class="h-3 w-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6" /> <path d="M10 14 21 3" /> <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /></svg></a>
-          <a href="https://t.me/puredarwin" class="inline-flex items-center gap-1.5 text-sm font-medium text-pd-blue hover:underline">Telegram<svg class="h-3 w-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6" /> <path d="M10 14 21 3" /> <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /></svg></a>
-          <a href="https://x.com/puredarwin" class="inline-flex items-center gap-1.5 text-sm font-medium text-pd-blue hover:underline">X<svg class="h-3 w-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6" /> <path d="M10 14 21 3" /> <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /></svg></a>
-        </div>
+        <ul class="mt-4 space-y-2">
+          <li>
+            <a href="https://discord.gg/9kz8XXRRcT"
+              class="inline-flex items-center gap-2 text-sm font-medium text-pd-blue hover:underline">
+              <svg class="h-4 w-4 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M26.413,6.536c-1.971-.902-4.052-1.543-6.189-1.904-.292,.523-.557,1.061-.793,1.612-2.277-.343-4.592-.343-6.869,0-.236-.551-.5-1.089-.793-1.612-2.139,.365-4.221,1.006-6.194,1.909C1.658,12.336,.596,17.987,1.127,23.558h0c2.294,1.695,4.861,2.984,7.591,3.811,.615-.827,1.158-1.704,1.626-2.622-.888-.332-1.744-.741-2.56-1.222,.215-.156,.425-.316,.628-.472,4.806,2.26,10.37,2.26,15.177,0,.205,.168,.415,.328,.628,.472-.817,.483-1.676,.892-2.565,1.225,.467,.918,1.011,1.794,1.626,2.619,2.732-.824,5.301-2.112,7.596-3.808h0c.623-6.461-1.064-12.06-4.46-17.025Zm-15.396,13.596c-1.479,0-2.702-1.343-2.702-2.994s1.18-3.006,2.697-3.006,2.73,1.354,2.704,3.006-1.192,2.994-2.699,2.994Zm9.967,0c-1.482,0-2.699-1.343-2.699-2.994s1.18-3.006,2.699-3.006,2.723,1.354,2.697,3.006-1.189,2.994-2.697,2.994Z"></path></svg>Discord<svg class="h-3 w-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6" /> <path d="M10 14 21 3" /> <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /></svg>
+            </a>
+          </li>
+          <li>
+            <a href="https://t.me/puredarwin"
+              class="inline-flex items-center gap-2 text-sm font-medium text-pd-blue hover:underline">
+              <svg class="h-4 w-4 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16,2c-7.732,0-14,6.268-14,14s6.268,14,14,14,14-6.268,14-14S23.732,2,16,2Zm6.489,9.521c-.211,2.214-1.122,7.586-1.586,10.065-.196,1.049-.583,1.401-.957,1.435-.813,.075-1.43-.537-2.218-1.053-1.232-.808-1.928-1.311-3.124-2.099-1.382-.911-.486-1.412,.302-2.23,.206-.214,3.788-3.472,3.858-3.768,.009-.037,.017-.175-.065-.248-.082-.073-.203-.048-.29-.028-.124,.028-2.092,1.329-5.905,3.903-.559,.384-1.065,.571-1.518,.561-.5-.011-1.461-.283-2.176-.515-.877-.285-1.574-.436-1.513-.92,.032-.252,.379-.51,1.042-.773,4.081-1.778,6.803-2.95,8.164-3.517,3.888-1.617,4.696-1.898,5.222-1.907,.116-.002,.375,.027,.543,.163,.142,.115,.181,.27,.199,.379,.019,.109,.042,.357,.023,.551Z" fill-rule="evenodd"></path></svg>Telegram<svg class="h-3 w-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6" /> <path d="M10 14 21 3" /> <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /></svg>
+            </a>
+          </li>
+          <li>
+            <a href="https://x.com/puredarwin"
+              class="inline-flex items-center gap-2 text-sm font-medium text-pd-blue hover:underline">
+              <svg class="h-4 w-4 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M18.42,14.009L27.891,3h-2.244l-8.224,9.559L10.855,3H3.28l9.932,14.455L3.28,29h2.244l8.684-10.095,6.936,10.095h7.576l-10.301-14.991h0Zm-3.074,3.573l-1.006-1.439L6.333,4.69h3.447l6.462,9.243,1.006,1.439,8.4,12.015h-3.447l-6.854-9.804h0Z"></path></svg>X<svg class="h-3 w-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6" /> <path d="M10 14 21 3" /> <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /></svg>
+            </a>
+          </li>
+        </ul>
       </section>
 
     </div>
 
-    <section class="mt-8 rounded-card border border-pd-border bg-white p-7 shadow-card sm:p-9">
-      <h2 class="flex items-center gap-2.5 text-2xl"><svg class="h-6 w-6 text-pd-blue" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18h-5" /> <path d="M18 14h-8" /> <path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-4 0v-9a2 2 0 0 1 2-2h2" /> <rect width="8" height="4" x="10" y="6" rx="1" /></svg>Latest news</h2>
+    <section class="mt-8 rounded-card border border-pd-border bg-pd-surface p-7 shadow-card sm:p-9">
+      <h2 class="flex items-center gap-2.5 text-2xl"><svg class="h-6 w-6 text-pd-ink" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18h-5" /> <path d="M18 14h-8" /> <path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-4 0v-9a2 2 0 0 1 2-2h2" /> <rect width="8" height="4" x="10" y="6" rx="1" /></svg>Latest news</h2>
       <ul class="mt-5 space-y-4">
         <li>
           <div class="text-sm text-pd-muted">August 23, 2026</div>
@@ -250,10 +284,13 @@ nix run .#vm</code></pre>
 
   </main>
 
-  <footer class="border-t border-pd-border bg-[#e5e4e4]">
+  <footer class="border-t border-pd-border bg-black/5 dark:bg-black/20">
     <div class="mx-auto max-w-6xl px-5 py-10">
       <div class="flex flex-wrap items-center gap-4">
-        <img src="/img/homepage/logo-mark-text-1B1B1B.svg" alt="PureDarwin" height="28" class="h-7 w-auto">
+        <img src="/img/homepage/logo-mark-text-1B1B1B.svg" alt="PureDarwin" height="28"
+          class="h-7 w-auto dark:hidden">
+        <img src="/img/homepage/logo-mark-text-fff.svg" alt="PureDarwin" height="28"
+          class="hidden h-7 w-auto dark:block">
         <span class="ml-auto text-sm">Copyright 2026 PureDarwin / PD-Devs. All rights reserved.</span>
       </div>
       <p class="mt-6 text-xs text-pd-muted">
@@ -270,6 +307,18 @@ nix run .#vm</code></pre>
       </p>
     </div>
   </footer>
+
+  <script>
+    document.getElementById("theme-toggle").addEventListener("click", function () {
+      var root = document.documentElement;
+      var dark = root.dataset.theme !== "dark";
+      root.dataset.theme = dark ? "dark" : "light";
+      // Write back in mdBook's own format so the handbook opens in step.
+      try {
+        localStorage.setItem("mdbook-theme", JSON.stringify(dark ? "navy" : "light"));
+      } catch (e) {}
+    });
+  </script>
 
 </body>
 

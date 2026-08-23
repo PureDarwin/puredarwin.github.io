@@ -1,7 +1,5 @@
 # Summary
 
-[Home](index.html)
-
 - [News](news/_News.md)
 	- [The Road to 20.5.0](news/The-Road-to-20-5-0.md)
 	- [Remembering Cliff Sekel](news/Remembering-Cliff-Sekel.md)
