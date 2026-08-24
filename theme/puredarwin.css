@@ -132,7 +132,10 @@ body::before {
 #mdbook-menu-bar {
   position: fixed !important;
   z-index: 102;
-  top: 0;
+  /* mdBook writes a scroll-derived inline top value while managing its
+     normally in-flow menu. This theme keeps the bar fixed to the viewport,
+     so that value would move it down the screen unless the base rule wins. */
+  top: 0 !important;
   right: 0;
   left: 0;
   box-sizing: border-box;
