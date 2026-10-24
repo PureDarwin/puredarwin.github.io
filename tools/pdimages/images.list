@@ -2,16 +2,15 @@
 #
 # One record per line, fields separated by tabs:
 #
-#   file<TAB>kind<TAB>description
+#   file<TAB>kind<TAB>description[<TAB>label]
 #
 # kind picks the icon: "disk" for a disk image, "video" for a recording.
+# label is optional, the short name in the Download menu.
 # The base URL is set by PDIMAGES_BASE_URL, and defaults to the one below.
 # Lines starting with # and blank lines are ignored.
 
-puredarwin.img	disk	The full x86_64 system: X11, Wayland, Xfce, Wine, toolchains.
-puredarwin-minimal.img	disk	Small x86_64 image, the one used for most boot testing.
-puredarwin-acpi-experimental.img	disk	Full image with the experimental ACPI platform.
-puredarwin-minimal-acpi-experimental.img	disk	Minimal image with the experimental ACPI platform.
-puredarwin-arm64-virt.img	disk	Full arm64 image for the QEMU virt machine.
-puredarwin-arm64-virt-minimal.img	disk	Small arm64 virt image, the one used for most boot testing.
-puredarwin-arm64-rpi3-shell.mp4	video	Video: PureDarwin booting to a shell on a Raspberry Pi 3.
+puredarwin-25.5-gpu.img	disk	The Argon desktop for x86_64 with AMD, Intel and NVIDIA GPU drivers, Wi-Fi and the built-in apps. UEFI, including 32-bit UEFI.	Desktop
+puredarwin-25.5-gpu-sb.img	disk	The same desktop for machines with Secure Boot on. Enroll PUREDARWIN.cer once, see the Secure Boot page.	Desktop, Secure Boot
+puredarwin-25.5-gpu-legacy.img	disk	The same desktop for machines that boot with a legacy BIOS.	Desktop, legacy BIOS
+puredarwin-25.5-minimal.img	disk	A small x86_64 image that boots to a shell, the one used for most boot testing.	Minimal
+puredarwin-arm64-rpi3-shell.mp4	video	Video from the 20.5 era: PureDarwin booting to a shell on a Raspberry Pi 3.

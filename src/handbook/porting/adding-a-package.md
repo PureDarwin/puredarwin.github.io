@@ -1,38 +1,33 @@
-# Adding a package
+# Adding a Package
 
 Ports live in `nix/pkgs/`, grouped by what they are: `base` for build tools and core
-libraries, `x11`, `wayland`, `mesa`, `gtk`, `xfce`, `apps`, and `apple` for Apple
+libraries, `x11`, `wayland`, `mesa`, `gpu`, `gtk`, `xfce`, `apps`, and `apple` for Apple
 frameworks.
 
 There is no shared `mkPort` helper. The pattern is copied per file, which is worth
 knowing before you go looking for one. `nix/pkgs/base/yajl.nix` is a good short example
 to copy from.
 
-## The shape
+## The Shape
 
 ```nix
 { stdenv
 , lib
-, requireFile
+, cmake
 , darwinCrossToolchain
 , nativeLd
 , libSystem
 , yajl                       # the nixpkgs package, reused for version and src
 , targetTriple ? "x86_64-apple-darwin20.4"
+, appleSdk                   # the project's own SDK
 }:
 
-let
-  sdkTarball = requireFile {
-    name = "MacOSX11.3.sdk.tar.xz";
-    sha256 = "9adc1373d3879e1973d28ad9f17c9051b02931674a3ec2a2498128989ece2cb1";
-    message = ''...'';
-  };
-in
 stdenv.mkDerivation {
   pname = "puredarwin-yajl";
   inherit (yajl) version src;
 
   configurePhase = ''
+    export DARWIN_SDK_ROOT="${appleSdk}/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk"
     # point the build at the cross toolchain, the SDK sysroot and libSystem
   '';
 }
@@ -40,14 +35,15 @@ stdenv.mkDerivation {
 
 Points to note:
 
-* **Reuse `version` and `src` from nixpkgs** rather than fetching your own. It keeps the
-  port tracking upstream and avoids a second hash to maintain.
+* **Reuse `version` and `src` from nixpkgs.** It keeps the port tracking upstream and
+  avoids a second hash to maintain.
 * **The `configurePhase` is explicit.** Autotools and meson both need to be told about
-  the cross toolchain, the sysroot and the target triple; the standard nixpkgs cross
+  the cross toolchain, the sysroot and the target triple. The standard nixpkgs cross
   machinery does not apply here.
-* **The SDK block is repeated verbatim.** Never substitute a path to your own copy.
+* **Take the SDK from `appleSdk`.** The flake passes the project's own SDK to every
+  port. Never point a port at a copy of Apple's SDK.
 
-## arm64 variants
+## arm64 Variants
 
 An arm64 build of the same port is the same file called with a different triple:
 
@@ -56,24 +52,24 @@ targetTriple = "arm64-apple-darwin20.4";
 ```
 
 `nix/lib/target-info.nix` turns that into meson's `cpu_family`, `cpu` and `endian`, and
-the clang target. Do not also set `-target` in the package's own flags: an explicit one
+the clang target. Do not also set `-target` in the package's own flags. An explicit one
 overrides the wrapper's and silently produces objects for the wrong architecture.
 
 Register the variant in the arm64 package set so it appears as `<name>-arm64`.
 
-## Getting it into an image
+## Getting It Into an Image
 
 A built package is not on an image until `nix/image-contents.nix` puts it there. Add it
 to `imageExtraPackageSet` for the general images, and check whether it belongs in the
-narrower sets: `strippedExtraPackages` for the minimal and stripped images, and the
+narrower sets, `strippedExtraPackages` for the minimal and stripped images, and the
 Wayland-only set, which drops the X11 client stack and swaps several packages for builds
 made without X.
 
 That Wayland set is easy to miss. A package added only to the main set will be absent
 from `image-wayland` with no error.
 
-## Before you start
+## Before You Start
 
 Check whether the thing you need is already there. `nix flake show` lists several
-hundred packages, and near-misses are common: a library may exist as a static build when
+hundred packages, and near misses are common. A library may exist as a static build when
 you need a shared one, or as an `-arm64` variant only.

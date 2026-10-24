@@ -18,11 +18,14 @@ qemu-system-x86_64 -M q35 -m 4096 -smp 4 -vga std \
   -serial mon:stdio -no-reboot -no-shutdown
 ```
 
-Notes on the choices: `IvyBridge` because TCG works on some CPU models and dies on
-others, and this is a confirmed good one (see [Running on real hardware](hardware.md));
-`-vga std` because virtio-gpu in Blt-only mode gives no early framebuffer; the extra PCI
-MMIO window because the default is too small for what the firmware wants to map; and
-`-no-reboot -no-shutdown` so a panic leaves the machine sitting there for you to read.
+Notes on the choices:
+
+* `IvyBridge`, because TCG works on some CPU models and fails on others, and this one is
+  confirmed good (see [Running on Real Hardware](hardware.md)).
+* `-vga std`, because virtio-gpu in Blt-only mode gives no early framebuffer.
+* The extra PCI MMIO window, because the default is too small for what the firmware
+  wants to map.
+* `-no-reboot -no-shutdown`, so a panic leaves the machine on screen for you to read.
 
 ## nix run .#kvm
 
@@ -53,17 +56,17 @@ qemu-system-aarch64 -machine virt,gic-version=3 -cpu neoverse-n2 \
   -display none
 ```
 
-`neoverse-n2` rather than `max` is deliberate. `-cpu max` crashes the EDK2 firmware
-before it produces any output at all, which looks exactly like a dead serial port and
-wasted a lot of time once. `ramfb` is the display that works; the virt machine also
-needs the xHCI keyboard for input.
+`neoverse-n2` is deliberate. `-cpu max` crashes the EDK2 firmware before it prints
+anything, which looks exactly like a dead serial port and once wasted a lot of time.
+`ramfb` is the display that works. The virt machine also needs the xHCI keyboard for
+input.
 
 ## nix run .#arm64-uefi and .#arm64-uboot
 
-Two alternative arm64 paths kept for bringup work: a `virtio-gpu-pci` and GTK display
-variant, and a U-Boot boot rather than UEFI.
+Two more arm64 runners kept for bringup work. One uses `virtio-gpu-pci` with a GTK
+window, the other boots through U-Boot.
 
-## Environment variables
+## Environment Variables
 
 | Variable | Effect |
 | --- | --- |
@@ -78,7 +81,7 @@ variant, and a U-Boot boot rather than UEFI.
 A read-only image (a `result` symlink into the Nix store) is opened with `snapshot=on`
 automatically, so you can boot a store path without copying it first.
 
-## Working with a writable image
+## Working with a Writable Image
 
 For anything that needs to persist, copy the image out of the store, or drive a qcow2
 overlay on top of it. An overlay is the better default when you are iterating: it keeps

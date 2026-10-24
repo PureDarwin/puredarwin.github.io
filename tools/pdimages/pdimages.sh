@@ -10,6 +10,8 @@ ROOT="${PDIMAGES_ROOT:-.}"
 
 BEGIN_MARK="<!-- pdimages:list -->"
 END_MARK="<!-- /pdimages:list -->"
+MENU_BEGIN="<!-- pdimages:menu -->"
+MENU_END="<!-- /pdimages:menu -->"
 
 ICON_DISK='<svg class="mt-1 h-4 w-4 shrink-0 text-pd-muted" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v8" /> <path d="m16 6-4 4-4-4" /> <rect width="20" height="8" x="2" y="14" rx="2" /> <path d="M6 18h.01" /> <path d="M10 18h.01" /></svg>'
 ICON_VIDEO='<svg class="mt-1 h-4 w-4 shrink-0 text-pd-muted" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2" /> <path d="M7 3v18" /> <path d="M3 7.5h4" /> <path d="M3 12h18" /> <path d="M3 16.5h4" /> <path d="M17 3v18" /> <path d="M17 7.5h4" /> <path d="M17 16.5h4" /></svg>'
@@ -50,6 +52,26 @@ records() {
 	sed -e '/^[[:space:]]*#/d' -e '/^[[:space:]]*$/d' "$(manifest)"
 }
 
+# The short name for the Download menu: the label column if there is one, else
+# the description up to its first comma, colon or full stop.
+menu_label() {
+	if [ -n "$2" ]; then
+		printf '%s\n' "$2"
+		return
+	fi
+	printf '%s\n' "$1" | sed -e 's/[,:.].*//'
+}
+
+# Replaces what sits between two marker lines in a file with the contents of another.
+replace_block() {
+	awk -v begin="$2" -v end="$3" -v listfile="$4" '
+		index($0, begin) { print; while ((getline line < listfile) > 0) print line; skip = 1; next }
+		index($0, end)   { skip = 0 }
+		!skip            { print }
+	' "$1" > "$1.new"
+	mv "$1.new" "$1"
+}
+
 human_size() {
 	awk -v b="$1" 'BEGIN {
 		if (b >= 1073741824) { printf "%.1f GiB", b / 1073741824 }
@@ -68,7 +90,7 @@ hash_one() {
 }
 
 cmd_hash() {
-	records | while IFS='	' read -r file kind desc; do
+	records | while IFS='	' read -r file kind desc label; do
 		[ -n "$file" ] || continue
 		printf '%s  %s\n' "$(hash_one "$BASE_URL/$file")" "$file"
 	done
@@ -84,9 +106,10 @@ cmd_sync() {
 
 	tmp_sums=$(mktemp)
 	tmp_list=$(mktemp)
-	trap 'rm -f "$tmp_sums" "$tmp_list"' EXIT
+	tmp_menu=$(mktemp)
+	trap 'rm -f "$tmp_sums" "$tmp_list" "$tmp_menu"' EXIT
 
-	records | while IFS='	' read -r file kind desc; do
+	records | while IFS='	' read -r file kind desc label; do
 		[ -n "$file" ] || continue
 		url="$BASE_URL/$file"
 		echo "pdimages: hashing $file" >&2
@@ -111,16 +134,21 @@ cmd_sync() {
 			printf '          </div>\n'
 			printf '        </li>\n'
 		} >> "$tmp_list"
+
+		# recordings stay in the full list, the menu is for images
+		[ "$kind" = video ] && continue
+		{
+			printf '                <li><a href="%s" class="block px-4 py-2 hover:bg-pd-canvas">\n' "$url"
+			printf '                  <span class="block text-sm font-medium text-pd-ink">%s</span>\n' "$(menu_label "$desc" "$label")"
+			printf '                  <span class="block font-mono text-xs text-pd-muted">%s, %s</span></a></li>\n' \
+				"$file" "$(human_size "$size")"
+		} >> "$tmp_menu"
 	done
 
 	cp "$tmp_sums" "$sums"
 
-	awk -v begin="$BEGIN_MARK" -v end="$END_MARK" -v listfile="$tmp_list" '
-		index($0, begin) { print; while ((getline line < listfile) > 0) print line; skip = 1; next }
-		index($0, end)   { skip = 0 }
-		!skip            { print }
-	' "$index" > "$index.new"
-	mv "$index.new" "$index"
+	replace_block "$index" "$BEGIN_MARK" "$END_MARK" "$tmp_list"
+	replace_block "$index" "$MENU_BEGIN" "$MENU_END" "$tmp_menu"
 
 	echo "pdimages: wrote $sums and updated $index" >&2
 }

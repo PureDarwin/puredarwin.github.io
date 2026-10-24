@@ -36,6 +36,7 @@
   --pd-header-border: rgba(255, 255, 255, 0.25);
   --pd-logo: url("../img/homepage/logo-mark-text-fff.svg");
   --color-scheme: light;
+  --pd-header-dim: rgba(255, 255, 255, 0.8);
 }
 
 .coal,
@@ -52,13 +53,12 @@
   --pd-link: #6ea8fe;
   --pd-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
   --pd-elevated: #1c1c20;
-  /* The bar stays black in both schemes. On a black canvas it would vanish,
-     so the bottom edge becomes a visible white line instead. */
   --pd-header-bg: #000;
   --pd-header-fg: #fff;
   --pd-header-border: rgba(255, 255, 255, 0.85);
   --pd-logo: url("../img/homepage/logo-mark-text-fff.svg");
   --color-scheme: dark;
+  --pd-header-dim: rgba(255, 255, 255, 0.8);
 }
 
 .light,
@@ -238,13 +238,13 @@ html.sidebar-visible #mdbook-menu-bar {
 }
 
 #pd-nav a {
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--pd-header-dim);
   font-size: 14px;
   text-decoration: none;
 }
 
 #pd-nav a:hover {
-  color: #fff;
+  color: var(--pd-header-fg);
 }
 
 /* The hamburger and its dropdown exist only below 760px, where the inline
@@ -278,18 +278,18 @@ html.sidebar-visible #mdbook-menu-bar {
 #pd-mobile-nav a {
   display: block;
   padding: 10px 0;
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--pd-header-dim);
   font-size: 14px;
   text-decoration: none;
 }
 
 #pd-mobile-nav a:hover {
-  color: #fff;
+  color: var(--pd-header-fg);
 }
 
 #pd-mobile-nav .pd-mobile-theme-item {
   margin-top: 6px;
-  border-top: 1px solid rgba(255, 255, 255, 0.25);
+  border-top: 1px solid var(--pd-header-border);
   padding-top: 6px;
 }
 
@@ -300,13 +300,13 @@ html.sidebar-visible #mdbook-menu-bar {
   padding: 10px 0;
   border: none;
   background: none;
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--pd-header-dim);
   font-size: 14px;
   cursor: pointer;
 }
 
 #pd-mobile-theme:hover {
-  color: #fff;
+  color: var(--pd-header-fg);
 }
 
 #pd-mobile-theme .fa-svg {

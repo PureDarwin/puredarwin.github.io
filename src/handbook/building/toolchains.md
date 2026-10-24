@@ -1,9 +1,9 @@
-# Host tools and toolchains
+# Host Tools and Toolchains
 
 Cross-building Darwin from Linux needs tools that only exist in Apple's world. The
 project builds them itself, from Apple's own sources where they exist.
 
-## What tools/ builds
+## What tools/ Builds
 
 | Tool | Why it is needed |
 | --- | --- |
@@ -18,7 +18,7 @@ project builds them itself, from Apple's own sources where they exist.
 `LC_FILESET_ENTRY`, so it can read a kernel collection. That is how you inspect a KC
 without a Mac.
 
-## The bootstrap sequence
+## The Bootstrap Sequence
 
 There is a chicken-and-egg problem: the real linker is a Mach-O program that has to be
 built and linked. It is resolved in three steps.
@@ -31,23 +31,24 @@ built and linked. It is resolved in three steps.
 Alongside them, `nativeMigcom` and `nativeUnifdef` are built once and cached, and are
 what the dev shell exports as `NIX_MIGCOM_PATH` and `NIX_UNIFDEF_PATH`.
 
-Target triples are `x86_64-apple-darwin20.4`, `arm64-apple-darwin20.4` and
-`armv6-apple-darwin20.4`.
+The toolchain triples are `x86_64-apple-darwin20.4`, `arm64-apple-darwin20.4`,
+`armv6-apple-darwin20.4` and `riscv64-apple-darwin20.4`. The deployment target comes
+from the clang target below.
 
-## Target settings
+## Target Settings
 
 `nix/lib/target-info.nix` turns a triple into the settings a build system needs: the
 architecture, meson's `cpu_family` (arm64 becomes `aarch64`), `cpu`, endianness, and the
-clang target `<arch>-apple-macosx11.0`.
+clang target `<arch>-apple-macosx26.5`.
 
 It carries a warning that is easy to trip over and expensive to debug: **an explicit
 `-target` in a package's own flags overrides the wrapper's and silently produces objects
 for the wrong architecture.** They link, they install, and they fail at runtime in ways
 that look like something else entirely.
 
-## Two architecture-specific notes
+## Two Architecture-Specific Notes
 
-* Build arm64 with `-mcpu=apple-a10`. The default `macosx11.0` CPU emits LSE atomics,
+* Build arm64 with `-mcpu=apple-a10`. The default arm64 CPU emits LSE atomics,
   which fault on an A10.
 * Compiler builtins come from a real cross-built LLVM compiler-rt, for both
   architectures. Watch out for hidden visibility when adding to it.

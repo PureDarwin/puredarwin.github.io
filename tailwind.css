@@ -24,6 +24,8 @@
   --color-pd-canvas: var(--pd-canvas);
   --color-pd-surface: var(--pd-surface);
   --color-pd-border: var(--pd-border);
+  --color-pd-elevated: var(--pd-elevated);
+  --color-pd-accent: var(--pd-accent);
 
   --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
     Arial, sans-serif;
@@ -32,14 +34,20 @@
   --shadow-card: var(--pd-shadow);
 }
 
+/* The palette follows Argon. Canvas and hairline come from the menu bar
+   (MenuBarView.m), the warm neutrals from the Sunset desktop picture
+   (Dock/DesktopPictures/render.html), the accent from NSColor's default
+   controlAccentColor. Links use a deeper blue so text passes WCAG AA. */
 :root {
   --pd-canvas: #f6f6f6;
   --pd-surface: #fff;
+  --pd-elevated: #f1f1f1;
   --pd-border: #e3e3e3;
   --pd-fg: #2f2f2f;
   --pd-heading: #1b1b1b;
   --pd-muted: #6f6f6f;
   --pd-link: #0d6efd;
+  --pd-accent: #0d6efd;
   --pd-rail: #dcdcdc;
   --pd-shadow: 0 4px 14px rgb(0 0 0 / 0.05);
   color-scheme: light;
@@ -50,11 +58,13 @@
   :root:not([data-theme="light"]) {
     --pd-canvas: #000;
     --pd-surface: #121214;
+    --pd-elevated: #1c1c20;
     --pd-border: #2a2a2e;
     --pd-fg: #c7c7cc;
     --pd-heading: #f2f2f4;
     --pd-muted: #8e8e93;
     --pd-link: #6ea8fe;
+    --pd-accent: #0d6efd;
     --pd-rail: #34343a;
     --pd-shadow: 0 4px 14px rgb(0 0 0 / 0.4);
     color-scheme: dark;
@@ -64,11 +74,13 @@
 :root[data-theme="dark"] {
   --pd-canvas: #000;
   --pd-surface: #121214;
+  --pd-elevated: #1c1c20;
   --pd-border: #2a2a2e;
   --pd-fg: #c7c7cc;
   --pd-heading: #f2f2f4;
   --pd-muted: #8e8e93;
   --pd-link: #6ea8fe;
+  --pd-accent: #0d6efd;
   --pd-rail: #34343a;
   --pd-shadow: 0 4px 14px rgb(0 0 0 / 0.4);
   color-scheme: dark;

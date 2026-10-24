@@ -28,8 +28,8 @@ GPT
 +-- p3  APFS test partition (full images only)
 ```
 
-On arm64 the EFI binary is `BOOTAA64.EFI`. Some arm64 targets boot a RAM disk instead of
-a root partition; see [Image flavours](images/flavours.md).
+On arm64 the EFI binary is `BOOTAA64.EFI`. Some arm64 targets boot from a RAM disk with no root
+partition. See [Image Flavours](images/flavours.md).
 
 Nearly all of `/etc` is written by `image.nix` at image build time: `passwd`,
 `master.passwd`, `group`, `hosts`, `fstab`, `services`, `protocols`, `resolv.conf`,
@@ -37,4 +37,4 @@ Nearly all of `/etc` is written by `image.nix` at image build time: `passwd`,
 XDG environment defaults.
 
 If you are wondering why an edit to a config file in the guest does not survive a
-rebuild, this is why: change `image.nix`, not the image.
+rebuild, this is why. Change `image.nix`, and rebuild the image.

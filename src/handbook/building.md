@@ -1,38 +1,36 @@
 # Building
 
-PureDarwin is built with Nix. Every artifact the project produces, from a single library
-to a bootable disk image, is a flake output: components, kernel collections, disk
-images, and the QEMU runners that boot them. The short version, on a Linux host:
+PureDarwin is built with Nix. Everything the project produces, from a single library to
+a bootable disk image, is a flake output: components, kernel collections, disk images and
+the QEMU runners that boot them. The short version, on a Linux host:
 
 ```
-nix-store --add-fixed sha256 /path/to/MacOSX11.3.sdk.tar.xz
 nix build .#image-minimal
 nix run .#vm
 ```
 
-Under the Nix layer, the Darwin sources themselves are compiled by CMake. That CMake
-tree exists because Apple's Xcode projects had to be ported to it, and it is driven by
-Nix rather than used on its own; configuring it by hand is not a supported path. Both
-layers rely on a cross toolchain the project builds for itself, and there is one
-proprietary prerequisite that has not yet been designed out. Those four topics get a
-page each:
+Under the Nix layer, the Darwin sources are compiled with CMake. That CMake tree exists
+because Apple's Xcode projects had to be ported to something, and Nix drives it.
+Configuring it by hand is not supported. Both layers use cross toolchains the project
+builds for itself, and an SDK the project assembles from open source headers. Those
+topics get a page each:
 
-* [The Nix flake](building/flake.md) - the outputs, how they are organised, and the dev
-  shell.
-* [The CMake tree](building/cmake.md) - what CMake does here, and why it is not a
+* [The Nix Flake](building/flake.md) covers the outputs, how they are organised and the
+  dev shell.
+* [The CMake Tree](building/cmake.md) covers what CMake does here, and why it is not a
   supported entry point on its own.
-* [Host tools and toolchains](building/toolchains.md) - the cross compilers, the real
-  `ld64`, and the bootstrap sequence that produces them.
-* [The Apple SDK requirement](building/apple-sdk.md) - the one file you have to supply
-  yourself.
+* [Host Tools and Toolchains](building/toolchains.md) covers the cross compilers, the
+  real `ld64` and the bootstrap sequence that produces them.
+* [The SDK](building/apple-sdk.md) covers how the build gets its headers without
+  Apple's proprietary SDK.
 
-## Two traps
+## Two Traps
 
-**Untracked files are invisible.** The flake is evaluated from a `git+file://`
-source, so a file you have not `git add`ed does not exist as far as the build is
-concerned. The failure mode is not an error: the build quietly uses the old state, and
-your change appears to do nothing. Stage before you build.
+**Untracked files are invisible.** The flake is read as a `git+file://` source, so a file
+you have not added with `git add` does not exist as far as the build is concerned. The
+build does not fail. It quietly uses the old state, and your change seems to do nothing.
+Stage before you build.
 
-**CMake is not an entry point.** It is driven by Nix. The dev shell is for iterating on
-a single component, not for producing a system, so read
-[The CMake tree](building/cmake.md) before reaching for it.
+**CMake is not an entry point.** Nix drives it. The dev shell is for working on a single
+component. It does not produce a system. Read [The CMake Tree](building/cmake.md) before
+reaching for it.

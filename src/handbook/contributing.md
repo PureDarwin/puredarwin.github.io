@@ -15,14 +15,13 @@ Three categories of change are closed without review:
 
 ## Branches
 
-**Development happens on `next`. Each release is frozen onto `main`.**
+**`main` is frozen. Development happens on `upstream-xnu-12377`.**
 
-Open pull requests against `next`. `main` holds the last frozen release, so it is what
-you check out to get the state a release was cut from, not what you build on top of.
-Cleanup and stabilisation for a release also land on `next`, which is then merged to
-`main` and frozen.
+Open pull requests against `upstream-xnu-12377`. `main` holds an older state of the tree and
+does not take new work. The branch is named after the XNU release the system is built
+on. Cleanup and stabilisation for the next release also land on `upstream-xnu-12377`.
 
-## What new contributors may work on
+## What New Contributors May Work On
 
 If this is your first contribution, work on Nix packages: porting software, fixing a
 build, adding an arm64 variant, getting something onto an image. See
@@ -42,10 +41,10 @@ exports are one of the project's most common recurring bugs, so this work is gen
 wanted. Changing what a component does is an implementation change, and the restriction
 applies.
 
-The restriction lifts on maintainer judgement, not on a counter. There is no number of
-merged pull requests that earns access to the kernel, and one merged package is not a
+The restriction lifts on maintainer judgement. No count of
+merged pull requests earns access to the kernel, and one merged package is no
 qualification for XNU surgery. It lifts when you have been around long enough for the
-maintainers to know how you work, and it lifts by area rather than all at once.
+maintainers to know how you work, and it lifts one area at a time.
 
 If you think you are ready, or you have a change in a restricted area you believe is
 worth making, raise it in an issue or in Discord first. Asking is not an approval
@@ -79,7 +78,7 @@ proprietary implementations to check your work. If you cannot tell which side of
 line you are on, say so in the pull request description, naming your sources and the
 parts you are unsure about.
 
-## AI-assisted contributions
+## AI-Assisted Contributions
 
 Assisted and model-generated code is allowed. The test is the one applied to every
 contribution:
@@ -114,13 +113,13 @@ post and files it, is in exactly the same position and gets the same answer.
 `CODING_STYLE.md` covers formatting. Points that catch people out:
 
 * CMake only, and no Xcode projects in the main branch. This means no second build
-  system in the tree. It does not mean a hand-rolled CMake build is supported; see
-  [The CMake tree](building/cmake.md).
+  system in the tree. A hand-rolled CMake build is still unsupported. See
+  [The CMake Tree](building/cmake.md).
 * Kernel C++ is a restricted dialect. No STL, no libc++abi. Use `OSSharedPtr`, but keep
   it out of declarations, because it is not ABI-stable.
 * Keep cleanup separate from functional change.
 
-## Testing your change
+## Testing Your Change
 
 ```
 nix build .#image-minimal
@@ -139,9 +138,9 @@ change is somewhere that difference plausibly matters, running both genuinely he
 Remember that untracked files are invisible to the flake. Stage your work before you
 build, or you will test the old tree.
 
-## Reporting a bug
+## Reporting a Bug
 
 Include the target and how you were running it, the image, the boot-args, and the
 console output as text where possible. For hardware, add the machine model and firmware
-settings. A boot that stops with no output is very hard to act on;
+settings. A boot that stops with no output is very hard to act on.
 [Debugging](debugging.md) covers getting a console up first.

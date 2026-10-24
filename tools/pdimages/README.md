@@ -11,20 +11,23 @@ From the repository root:
     nix run .#pdimages -- hash    # print SHA256SUMS lines, change nothing
     nix run .#pdimages -- sync    # write src/SHA256SUMS and update index.html
 
-`sync` rewrites everything between the `<!-- pdimages:list -->` markers in
-`src/index.html`, so the download list, sizes and hashes there are generated
-rather than hand-edited. Do not edit inside the markers; edit the manifest and
-run `sync` again.
+`sync` rewrites everything between the `<!-- pdimages:list -->` markers and the
+`<!-- pdimages:menu -->` markers in `src/index.html`. The first is the download
+list with sizes and hashes. The second is the Download button's menu, one entry
+per disk image. Do not edit inside the markers. Edit the manifest and run `sync`
+again.
 
 ## The manifest
 
 `images.list` is the list of files, in the order they appear on the page. One
 record per line, tab separated:
 
-    file<TAB>kind<TAB>description
+    file<TAB>kind<TAB>description[<TAB>label]
 
-`kind` is `disk` or `video`, which only picks the icon. Adding an image is a
-line here plus a `sync`.
+`kind` is `disk` or `video`. It picks the icon, and videos are left out of the
+Download menu. `label` is optional and is the short name shown in the menu. Without
+it, the menu uses the description up to its first comma, colon or full stop.
+Adding an image is a line here plus a `sync`.
 
 ## Environment
 

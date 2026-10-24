@@ -1,4 +1,4 @@
-# Image flavours
+# Image Flavours
 
 Every image is the same `image.nix` derivation with different contents and geometry.
 Sizes are megabytes.
@@ -13,7 +13,19 @@ Sizes are megabytes.
 | `image-wayland` | `puredarwin-wayland.img` | 64 | 6144 | Wayland only: no X11 clients, no Xfce, sway and GTK built without X |
 | `image-minimal` | `puredarwin-minimal.img` | 60 | 200 | The usual boot-test image |
 | `image-minimal-debug` | `puredarwin-minimal-debug.img` | 64 | 384 | Minimal, debug kernel, tracing on |
-| `image-hfs` | `puredarwin.img` | 64 | 6144 | HFS+ root instead of ext4 |
+| `image-hfs` | `puredarwin.img` | 64 | 6144 | HFS+ root, for bisection and for macOS users |
+
+Newer images, built on the same derivation:
+
+| Package | Notes |
+| --- | --- |
+| `image-gpu` | The Argon desktop with the amdgpu, i915 and nouveau drivers in the auxiliary kernel collection, their firmware and the system Mesa. Also carries `BOOTIA32.EFI` for 32-bit UEFI machines |
+| `image-gpu-sb` | `image-gpu` signed for Secure Boot, with a Microsoft-signed shim and `PUREDARWIN.cer` to enroll |
+| `image-gpu-legacy` | `image-gpu` with a BIOS boot stack in the MBR |
+| `image-legacy`, `image-legacy-minimal` | BIOS boot for the full and minimal images |
+| `image-ia32`, `image-ia32-dual` | For 32-bit UEFI firmware. The dual image carries both loaders |
+| `image-apfs-minimal` | Minimal image with an APFS root |
+| `image-wayland-minimal` | The desktop session over a small base, the base of `image-gpu` |
 
 `image-hfs` has two uses.
 
@@ -40,7 +52,7 @@ read.
 | `ramdisk-arm64-t8010` | - | - | iPad 6, 160 MB ext4 ramdisk, loaded by PongoOS |
 | `image-arm64-bcm2837` | 64 | 1024 | Raspberry Pi 3, `puredarwin-rpi3.img` |
 
-## Geometry and ramdisk knobs
+## Geometry and RAM Disk Settings
 
 `image.nix` parameters you will meet when adding a flavour:
 
@@ -51,7 +63,7 @@ read.
 | `apfsMB` | 128 | APFS test partition size |
 | `rootFsType` | `ext4` | `ext4` or `hfs` |
 | `efiBinary` | `BOOTX64.EFI` | `BOOTAA64.EFI` on arm64 |
-| `netbootOnly` | false | Produce netboot artifacts instead of a disk image |
+| `netbootOnly` | false | Produce netboot artifacts and no disk image |
 | `useRamdisk` | false | Root from a RAM disk |
 | `ramdiskMB` | 128 | RAM disk size |
 | `ramdiskPrune` | empty | Paths to drop from the RAM disk only |
@@ -62,7 +74,7 @@ the way in, so anything not needed to run the system is worth removing. The T801
 prunes the kernels directory, every `include` tree, the pkgconfig directories and the
 guest header staging.
 
-## Baked boot-args
+## Built-In Boot Arguments
 
 The default, used by the full x86_64 images:
 

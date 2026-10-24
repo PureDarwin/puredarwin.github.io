@@ -12,18 +12,18 @@ about it.
 patches is a port that has to be re-done at every version bump, and a patch that works
 around a PureDarwin quirk hides a bug that will bite the next port too.
 
-So when a build fails, the first question is not "how do I patch this project" but
-**"what is PureDarwin claiming about itself that is not true?"** In practice the answer
-is usually one of:
+So when a build fails, start with one question: **"what is PureDarwin claiming about
+itself that is not true?"** In practice the answer is usually one of these:
 
-* a symbol that is implemented but not exported from libSystem;
-* a header that exists and promises a function the system does not have;
-* a link flag that makes every feature test succeed;
-* a configure check answered by Apple's SDK rather than by our runtime.
+* A symbol that is implemented but not exported from libSystem.
+* A header that exists and promises a function the system does not have.
+* A link flag that makes every feature test succeed.
+* A configure check answered by the SDK headers, where the runtime would answer
+  differently.
 
 Every one of those makes the port look broken when the platform is the thing that is
 lying. Fix the platform, and the unmodified upstream source usually just builds.
 
 This is not an absolute rule. Some projects genuinely conflate Darwin with macOS and
-Cocoa, WebKit being the standing example, and those need real patches. But reach for the
-patch second, not first.
+Cocoa, WebKit being the standing example, and those need real patches. Reach for the
+patch second.

@@ -1,67 +1,45 @@
-# The Apple SDK requirement
+# The SDK
 
-Building PureDarwin currently requires `MacOSX11.3.sdk.tar.xz`, a copy of Apple's macOS
-11.3 SDK. It is proprietary, it cannot be fetched automatically, and it cannot be
-redistributed, so you have to supply it.
+Every Darwin component is compiled against an SDK: the headers and stub libraries that
+describe the system it will run on. Apple's macOS SDK is proprietary and cannot be
+redistributed.
 
-**This is a known problem and removing it is on the [roadmap](../roadmap.md).** It is
-not a blocker for the 20.5.0 release, but it is the reason a build is not a single
-command on a clean machine.
+PureDarwin used to require a copy of Apple's `MacOSX11.3.sdk.tar.xz`, registered in the
+Nix store by hand. **That requirement is gone.** The build now assembles its own SDK from
+open source headers, and a clean machine needs nothing but the repository and Nix.
 
-## Registering it
+## How It Is Built
 
-```
-nix-store --add-fixed sha256 /path/to/MacOSX11.3.sdk.tar.xz
-```
-
-Expected sha256:
-
-```
-9adc1373d3879e1973d28ad9f17c9051b02931674a3ec2a2498128989ece2cb1
-```
-
-If it is missing, the build stops with:
-
-```
-MacOSX11.3.sdk.tar.xz (Apple SDK, proprietary - not fetchable/redistributable)
-is not yet in your Nix store. Register your local copy with:
-  nix-store --add-fixed sha256 /path/to/MacOSX11.3.sdk.tar.xz
-```
-
-## How it is wired in
-
-The mechanism is `requireFile`: Nix knows the hash and the message, but has no way to
-obtain the file. The flake also carries an `allowUnfreePredicate` narrowly scoped to
-this one name, so nothing else unfree slips in.
-
-The canonical definition lives in `nix/pkgs/toolchain/apple-sdk-pinned.nix`, which
-unpacks it to:
+`nix/pkgs/toolchain/apple-sdk-pinned.nix` builds the SDK. It collects the public headers
+from the in-tree sources (XNU's `bsd`, `osfmk`, `iokit` and `libkern` headers, libSystem,
+the frameworks and so on) and lays them out the way an SDK is laid out:
 
 ```
 $out/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk
 ```
 
-with a `MacOSX11.3.sdk` symlink beside it. Every port that needs a sysroot repeats the
-same `requireFile` block; there is no shared helper for it yet.
+It is built in two stages. The first stage has the hand-written headers that `migcom`
+needs. The second stage adds the `<mach/*.h>` headers that `migcom` generates from XNU's
+`.defs` files, so nothing generated is checked into the tree.
 
-Never hardcode a path to your own copy into a Nix file. The `requireFile` pattern is
-deliberate: it fails with instructions rather than with a path that only works on one
-machine.
+The small amount of content that has no open source origin is written by the project
+and lives in `nix/pkgs/toolchain/oss-sdk/`, laid out as the SDK tree. It is mostly a few
+reconstructed headers and text stubs (`.tbd` files) for frameworks.
 
-## Other licensing
+The flake wires this SDK in globally, so every target builds against it.
 
-The SDK is the one proprietary prerequisite, but it is not the only licensing question
-in the tree: corecrypto is GPL and in the default build, some of Apple's published
-source carries no usable grant, and GPL-licensed extras like fbDOOM are deliberately
-kept outside the tree using the same `requireFile`-style opt-in as the SDK. See
+## When a Header Is Missing
+
+Almost every gap found so far was a header that already existed somewhere in the tree
+and was not yet copied into the SDK. Look for it in the tree first. Only write new
+content in `oss-sdk/` when nothing in the tree provides it.
+
+Never copy content out of Apple's proprietary SDK to fill a gap, even to look at it. The
+whole point of this SDK is that every file in it has an open source origin.
+
+## Other Licensing
+
+The SDK is not the only licensing question in the tree. corecrypto is GPL and part of
+the default build, some of Apple's published source carries no usable license grant, and
+GPL extras such as fbDOOM are kept outside the tree as an opt-in. See
 [Licensing](../licensing.md).
-
-## Why it is still needed
-
-The SDK supplies headers and stub libraries that the project has not yet replaced with
-its own. Every component that stops needing it is one step closer to a fully open build;
-several already have their own headers, and the guest headers under `pd-guest-headers/`
-exist precisely so in-guest compilers never see Apple's.
-
-The work to finish this is tracked on the [Roadmap](../roadmap.md) alongside the related
-item of completing the Nix-on-macOS host path.
