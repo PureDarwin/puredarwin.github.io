@@ -43,7 +43,7 @@ do not reach the same places at the same times.
 | `rd=md0` | Root from the RAM disk |
 | `no_interrupt_masked_debug=1` | Needed on ARM targets |
 | `pdtrace=1` | Project tracing |
-| `cpus=1` | Start only the boot CPU. Works around the CPU startup freeze on some Intel laptops |
+| `cpus=1` | Start only the boot CPU. Rules out problems bringing up the other CPUs |
 | `pdapdbg=1` | Print each step of CPU startup straight to the screen |
 | `pdi915=0`, `pdamdgpu=0`, `pdnouveau=0` | Keep a DRM GPU driver from attaching, so the firmware framebuffer stays |
 | `pdfb_pattern=1` | Draw colour bars when amdgpu lights a display |
@@ -105,7 +105,6 @@ the kext loses `IOProviderClass` without any error.
 | SIGSEGV on the first `__thread` access | The TLV runtime was never initialised |
 | Everything stops during IOKit matching | A driver spinning in `start()`, blocking the quiesce |
 | `Unsupported CPU` before the console comes up | A CPU model missing from the kernel's table. Read the panic from memory with the QEMU monitor |
-| Freeze right after `processor_init`, before `Started cpu 1` | The CPU startup freeze on some Intel laptops. Boot with `cpus=1` |
 | `element modified after free` in a `kalloc` zone | Memory written after it was freed. A clock running far too fast in a VM made one such race easy to hit |
 
 ## When It Is the Filesystem

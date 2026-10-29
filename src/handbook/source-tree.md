@@ -30,11 +30,9 @@ around it, and `tools/` is what the host needs to build Darwin at all.
 iflib compatibility code, adds FreeBSD's `net80211` and the LinuxKPI from FreeBSD, and
 lets the `PDFBSD*` and `PDDRM*` kexts run FreeBSD and drm-kmod drivers unmodified.
 
-Note the license on `corecrypto`. It and the CommonCrypto code above it are GPL, and
-they are part of the default build. It descends from rafirafi's 2016 pdcrypto because no
-alternative existed. Replacing it is on the
-[Roadmap](roadmap.md#replace-corecrypto-blocked-on-an-alternative) and matters if you
-redistribute PureDarwin.
+The `corecrypto` kext builds from the MPL-2.0 fork in `external/corecrypto`. The old GPL
+corecrypto in `src/Libraries/libSystem/corecrypto` is only compiled into Security.framework.
+See [Licensing](licensing.md#corecrypto) if you redistribute PureDarwin.
 
 The ext4 driver is worth calling out. Darwin has no ext4, and PureDarwin uses it as the
 root filesystem, so it is entirely project code. It has been the source of a long list

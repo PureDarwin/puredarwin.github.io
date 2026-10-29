@@ -27,12 +27,6 @@ cleanup goes there like everything else.
 
 Each item is marked with where it stands.
 
-### CPU Startup on Recent Intel Laptops: In Progress
-
-Some Intel laptops from the Kaby Lake generation onward freeze when the kernel starts
-the second CPU, so they only boot with `cpus=1`. Done means every CPU comes up on these
-machines without a boot argument.
-
 ### Wi-Fi Through FreeBSD Drivers: In Progress
 
 USB and PCIe Wi-Fi now run on FreeBSD's drivers through `fbsdkpi`. The Realtek
@@ -99,30 +93,12 @@ application to a user who is not building from source. The Darwin answer to that
 disk image. The project already builds DMGs on the host side for the HFS+ image, so
 parts of the machinery exist.
 
-### Replace corecrypto: Blocked on an Alternative
+### Replace corecrypto in Security.framework: In Progress
 
-The `corecrypto` kext and the CommonCrypto pieces on top of it are GPL. Nobody chose
-that on the merits. It is what was available. Apple's own corecrypto cannot be used
-here, and the current code descends from rafirafi's 2016 pdcrypto with tiny-AES128-C
-adapted into it. That is what existed at the time, and it has kept the system booting
-since.
-
-The obvious question is why Apple's published CommonCrypto is not used. The answer is a
-licensing gap. Only some of its files carry a license header, and there is no
-repository-wide `LICENSE` file to cover the rest, so those files come with no grant at
-all. Under the project's [provenance rules](contributing.md#provenance) that makes them
-unusable. Code with no license is code we cannot touch, and Apple publishing it does not
-change that. libDER has the same problem.
-
-corecrypto is the exception to how the project handles GPL code elsewhere. It is a
-separately licensed component in the default build, where such things are normally
-[kept outside the tree](licensing.md#code-kept-outside-the-tree). It is in the tree
-because nothing else does the job, and the system needs it to boot.
-
-[NeoDarwinOS/corecrypto](https://github.com/NeoDarwinOS/corecrypto) is the intended
-replacement, so this item waits on that work.
-
-If you package or redistribute PureDarwin, this is the license you need to know about.
+The kernel, libSystem and the host tools already use the MPL-2.0 corecrypto fork in
+`external/corecrypto`. Security.framework still compiles the old GPL tree from Darling,
+because it needs RSA key generation and private-key operations, DER, EC, ECIES, DH and
+the ccz bignum, which the fork does not have yet. Done means the old tree is deleted.
 
 ### Finish the Nix-on-Darwin Host Path: Planned
 

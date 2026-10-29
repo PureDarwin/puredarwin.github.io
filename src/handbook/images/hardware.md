@@ -62,7 +62,7 @@ If you change it and the guest stops booting, suspect the CPU model before your 
 | Skylake desktop | Boots to the desktop |
 | Haswell | Confirmed on one board |
 | Ivy Bridge, Sandy Bridge | Works on some boards, reaches kernel handoff on all |
-| Kaby Lake and newer laptops | Some freeze when the second CPU starts. Boot with `cpus=1` |
+| Kaby Lake and newer | Works |
 | Meteor Lake | Confirmed on one board |
 
 ### AMD
@@ -82,9 +82,6 @@ If you change it and the guest stops booting, suspect the CPU model before your 
 * AHCI for SATA. RAID and Intel RST modes are not supported.
 
 ## Known Machine-Specific Issues
-
-**Intel laptops that freeze at CPU startup.** On some Kaby Lake and newer laptops the
-machine freezes the moment the kernel starts the second CPU. `cpus=1` works around it.
 
 **AMD Ryzen PFM64 window.** Boot-time PCI reallocation used to shrink the window that
 holds the EFI framebuffer, and the display disappeared. Old notes may mention
@@ -127,7 +124,6 @@ desktop image takes longer while GPU firmware loads.
 | Last thing on screen | Likely cause | What to try |
 | --- | --- | --- |
 | The loader's `MCFG` line, nothing after | The kernel stopped before its console came up, often an unsupported CPU model | Report the CPU model |
-| `[processor_init]` lines, no `Started cpu 1` | The CPU startup freeze on some Intel laptops | `cpus=1` |
 | `watching for ext4 boot volume` and no more | The root disk was not found | Try another USB port, or SATA in AHCI mode |
 | The display goes black or grey after the mode switch | A GPU driver | `pdamdgpu=0`, `pdi915=0` or `pdnouveau=0` |
 | A `panic(` line | A kernel panic | Photograph the whole screen |

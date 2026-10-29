@@ -108,12 +108,10 @@ Per-machine detail, including which Intel and AMD platforms have been tried, is 
 
 ## Known Issues
 
-* Some Intel laptops from the Kaby Lake generation onward freeze when the kernel starts
-  the second CPU. Booting with `cpus=1` works around it. This is being investigated.
 * The boot kernel collection is close to the 64 MiB limit the loader allows. New drivers
   that are not needed to mount root go into the auxiliary kernel collection.
-* `corecrypto` and CommonCrypto are GPL, and they are in the default build. See the
-  [Roadmap](roadmap.md#replace-corecrypto-blocked-on-an-alternative).
+* Security.framework still compiles the old GPL corecrypto. Everything else uses the
+  MPL-2.0 fork. See [Licensing](licensing.md#corecrypto).
 * Security is missing `trustd`, so certificate trust evaluation through the framework is
   not available. TLS in ported software goes through GnuTLS and works.
 * macOS hosts cannot build images, kernel collections or runners.

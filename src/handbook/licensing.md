@@ -50,15 +50,17 @@ own, and the SPDX header on the file in front of you is what governs it.
 PD 1.0 is the project's own licence, a BSD-2-Clause derivative. The text is in
 `PUREDARWIN_LICENSE.txt` at the root of the repository.
 
-## corecrypto Is the Exception
+## corecrypto
 
-The `corecrypto` kext and the CommonCrypto pieces above it are GPL. They are the only GPL
-software in the default build. Nobody chose that on the merits. Apple's own corecrypto
-cannot be used here, and the code descends from rafirafi's 2016 pdcrypto with
-tiny-AES128-C adapted into it, which is what existed at the time.
+The `corecrypto` kext, libSystem and the host linker build against
+[Vali0004/corecrypto](https://github.com/Vali0004/corecrypto), an interim MPL-2.0 fork of
+NeoDarwin's corecrypto. It sits in the tree as the `external/corecrypto` submodule. It is
+experimental and has not been reviewed for security.
 
-If you are redistributing PureDarwin, this is the licence to know about. Replacing it is
-on the [roadmap](roadmap.md#replace-corecrypto-blocked-on-an-alternative).
+The older GPLv3 corecrypto, which came from Darling, is still in
+`src/Libraries/libSystem/corecrypto`. Only Security.framework compiles it, because the
+fork does not have RSA key generation, EC or DH yet. If you redistribute PureDarwin, that
+copy inside Security.framework is the GPL code to know about.
 
 ## Published Is Not the Same as Licensed
 
@@ -66,9 +68,10 @@ Some source Apple has published carries no usable licence grant. The pattern is 
 repository where only some files have a per-file licence header and there is no
 repository-wide `LICENSE`, which leaves everything unheaded with nothing attached to it.
 
-CommonCrypto is the example that costs the project most. It is published, it is exactly
-what we want, and the unheaded parts cannot be used. That is why `corecrypto` here is a
-GPL descendant of other code.
+CommonCrypto is one example. The tree uses Apple's published CommonCrypto, and nearly all
+of it carries the APSL. Six files had no grant: the CommonKeyDerivationSPI, CommonRandomSPI
+and CommonCollabKeyGen sources and CommonBuffering.c. The project rewrote those from their
+public interfaces.
 
 Apple's libDER arrived with the same gap. That one had a better ending. The project
 wrote its own libDER, and it is PD 1.0 as a result.

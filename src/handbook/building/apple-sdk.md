@@ -39,7 +39,7 @@ whole point of this SDK is that every file in it has an open source origin.
 
 ## Other Licensing
 
-The SDK is not the only licensing question in the tree. corecrypto is GPL and part of
-the default build, some of Apple's published source carries no usable license grant, and
-GPL extras such as fbDOOM are kept outside the tree as an opt-in. See
+The SDK is not the only licensing question in the tree. Security.framework still
+compiles the old GPL corecrypto, some of Apple's published source carries no usable
+license grant, and GPL extras such as fbDOOM are kept outside the tree as an opt-in. See
 [Licensing](../licensing.md).
