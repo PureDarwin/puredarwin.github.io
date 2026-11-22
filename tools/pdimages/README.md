@@ -24,8 +24,10 @@ record per line, tab separated:
 
     file<TAB>kind<TAB>description[<TAB>label]
 
-`kind` is `disk` or `video`. It picks the icon, and videos are left out of the
-Download menu. `label` is optional and is the short name shown in the menu. Without
+`kind` is `disk`, `video` or `hydra`. It picks the icon, and videos are left out of the
+Download menu. A `hydra` record names a Hydra job (`release.wayland`) in place of a file: it links to
+that job's latest successful build and to Hydra's sha256 for it, and is not hashed here, since the
+file changes with every build. `label` is optional and is the short name shown in the menu. Without
 it, the menu uses the description up to its first comma, colon or full stop.
 Adding an image is a line here plus a `sync`.
 
@@ -33,6 +35,8 @@ Adding an image is a line here plus a `sync`.
 
 * `PDIMAGES_BASE_URL` - where the files are served from. Defaults to the
   project's own host.
+* `PDIMAGES_HYDRA_URL` - the jobset's job URL prefix for `hydra` records. Defaults to
+  `https://hydra.lab004.dev/job/puredarwin/ci-hydra`.
 * `PDIMAGES_ROOT` - repository root, defaults to the current directory.
 * `PDIMAGES_MANIFEST` - an alternative manifest path.
 

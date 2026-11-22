@@ -111,18 +111,18 @@
               </summary>
               <ul class="absolute left-0 z-20 mt-2 w-72 overflow-hidden rounded-card border border-pd-border bg-pd-surface py-1 shadow-card">
                 <!-- pdimages:menu -->
-                <li><a href="https://internal.lab004.dev/private/images/puredarwin-25.5-gpu.img" class="block px-4 py-2 hover:bg-pd-canvas">
+                <li><a href="https://hydra.lab004.dev/job/puredarwin/ci-hydra/release.wayland/latest/download/1" class="block px-4 py-2 hover:bg-pd-canvas">
                   <span class="block text-sm font-medium text-pd-ink">Desktop</span>
-                  <span class="block font-mono text-xs text-pd-muted">puredarwin-25.5-gpu.img, 1.2 GiB</span></a></li>
-                <li><a href="https://internal.lab004.dev/private/images/puredarwin-25.5-gpu-sb.img" class="block px-4 py-2 hover:bg-pd-canvas">
-                  <span class="block text-sm font-medium text-pd-ink">Desktop, Secure Boot</span>
-                  <span class="block font-mono text-xs text-pd-muted">puredarwin-25.5-gpu-sb.img, 1.2 GiB</span></a></li>
-                <li><a href="https://internal.lab004.dev/private/images/puredarwin-25.5-gpu-legacy.img" class="block px-4 py-2 hover:bg-pd-canvas">
-                  <span class="block text-sm font-medium text-pd-ink">Desktop, legacy BIOS</span>
-                  <span class="block font-mono text-xs text-pd-muted">puredarwin-25.5-gpu-legacy.img, 1.2 GiB</span></a></li>
-                <li><a href="https://internal.lab004.dev/private/images/puredarwin-25.5-minimal.img" class="block px-4 py-2 hover:bg-pd-canvas">
+                  <span class="block font-mono text-xs text-pd-muted">latest release.wayland, .img.zst</span></a></li>
+                <li><a href="https://hydra.lab004.dev/job/puredarwin/ci-hydra/release.nvidia-580/latest/download/1" class="block px-4 py-2 hover:bg-pd-canvas">
+                  <span class="block text-sm font-medium text-pd-ink">Desktop, NVIDIA 580</span>
+                  <span class="block font-mono text-xs text-pd-muted">latest release.nvidia-580, .img.zst</span></a></li>
+                <li><a href="https://hydra.lab004.dev/job/puredarwin/ci-hydra/release.minimal/latest/download/1" class="block px-4 py-2 hover:bg-pd-canvas">
                   <span class="block text-sm font-medium text-pd-ink">Minimal</span>
-                  <span class="block font-mono text-xs text-pd-muted">puredarwin-25.5-minimal.img, 322 MiB</span></a></li>
+                  <span class="block font-mono text-xs text-pd-muted">latest release.minimal, .img.zst</span></a></li>
+                <li><a href="https://hydra.lab004.dev/job/puredarwin/ci-hydra/release.arm64-virt-minimal/latest/download/1" class="block px-4 py-2 hover:bg-pd-canvas">
+                  <span class="block text-sm font-medium text-pd-ink">arm64 virtual machine</span>
+                  <span class="block font-mono text-xs text-pd-muted">latest release.arm64-virt-minimal, .img.zst</span></a></li>
                 <!-- /pdimages:menu -->
                 <li class="border-t border-pd-border"><a href="#get-it" class="block px-4 py-2 text-sm text-pd-blue hover:bg-pd-canvas">All downloads and checksums</a></li>
               </ul>
@@ -292,37 +292,37 @@
         <li class="flex gap-3">
           <svg class="mt-1 h-4 w-4 shrink-0 text-pd-muted" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v8" /> <path d="m16 6-4 4-4-4" /> <rect width="20" height="8" x="2" y="14" rx="2" /> <path d="M6 18h.01" /> <path d="M10 18h.01" /></svg>
           <div class="min-w-0">
-          <a href="https://internal.lab004.dev/private/images/puredarwin-25.5-gpu.img"
-            class="font-medium text-pd-blue hover:underline">puredarwin-25.5-gpu.img</a>
+          <a href="https://hydra.lab004.dev/job/puredarwin/ci-hydra/release.wayland/latest/download/1"
+            class="font-medium text-pd-blue hover:underline">Desktop</a>
           <span class="block text-sm text-pd-muted">The Argon desktop for x86_64 with AMD, Intel and NVIDIA GPU drivers, Wi-Fi and the built-in apps. UEFI, including 32-bit UEFI.</span>
-          <span class="mt-1 block break-all font-mono text-xs text-pd-muted">1.2 GiB <span class="select-all">d81d3f4c3594aaa914a5403abfd75eac8fc9043977ab95ae98a32005502e46da</span></span>
+          <span class="mt-1 block font-mono text-xs text-pd-muted">latest build of release.wayland, .img.zst, <a href="https://hydra.lab004.dev/job/puredarwin/ci-hydra/release.wayland/latest/download/2" class="text-pd-blue hover:underline">sha256</a></span>
           </div>
         </li>
         <li class="flex gap-3">
           <svg class="mt-1 h-4 w-4 shrink-0 text-pd-muted" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v8" /> <path d="m16 6-4 4-4-4" /> <rect width="20" height="8" x="2" y="14" rx="2" /> <path d="M6 18h.01" /> <path d="M10 18h.01" /></svg>
           <div class="min-w-0">
-          <a href="https://internal.lab004.dev/private/images/puredarwin-25.5-gpu-sb.img"
-            class="font-medium text-pd-blue hover:underline">puredarwin-25.5-gpu-sb.img</a>
-          <span class="block text-sm text-pd-muted">The same desktop for machines with Secure Boot on. Enroll PUREDARWIN.cer once, see the Secure Boot page.</span>
-          <span class="mt-1 block break-all font-mono text-xs text-pd-muted">1.2 GiB <span class="select-all">b5c23b382d56a51cccd1a6eb37e178d9f9a7580b696003124f7bcd1a2f66854d</span></span>
+          <a href="https://hydra.lab004.dev/job/puredarwin/ci-hydra/release.nvidia-580/latest/download/1"
+            class="font-medium text-pd-blue hover:underline">Desktop, NVIDIA 580</a>
+          <span class="block text-sm text-pd-muted">The same desktop with NVIDIA's 580 driver, for Maxwell, Pascal and Volta cards.</span>
+          <span class="mt-1 block font-mono text-xs text-pd-muted">latest build of release.nvidia-580, .img.zst, <a href="https://hydra.lab004.dev/job/puredarwin/ci-hydra/release.nvidia-580/latest/download/2" class="text-pd-blue hover:underline">sha256</a></span>
           </div>
         </li>
         <li class="flex gap-3">
           <svg class="mt-1 h-4 w-4 shrink-0 text-pd-muted" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v8" /> <path d="m16 6-4 4-4-4" /> <rect width="20" height="8" x="2" y="14" rx="2" /> <path d="M6 18h.01" /> <path d="M10 18h.01" /></svg>
           <div class="min-w-0">
-          <a href="https://internal.lab004.dev/private/images/puredarwin-25.5-gpu-legacy.img"
-            class="font-medium text-pd-blue hover:underline">puredarwin-25.5-gpu-legacy.img</a>
-          <span class="block text-sm text-pd-muted">The same desktop for machines that boot with a legacy BIOS.</span>
-          <span class="mt-1 block break-all font-mono text-xs text-pd-muted">1.2 GiB <span class="select-all">2ca1d4eac4dc180ee2c0ac065b772521b6f70774214e1fadb2697fd4d9d4ba58</span></span>
-          </div>
-        </li>
-        <li class="flex gap-3">
-          <svg class="mt-1 h-4 w-4 shrink-0 text-pd-muted" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v8" /> <path d="m16 6-4 4-4-4" /> <rect width="20" height="8" x="2" y="14" rx="2" /> <path d="M6 18h.01" /> <path d="M10 18h.01" /></svg>
-          <div class="min-w-0">
-          <a href="https://internal.lab004.dev/private/images/puredarwin-25.5-minimal.img"
-            class="font-medium text-pd-blue hover:underline">puredarwin-25.5-minimal.img</a>
+          <a href="https://hydra.lab004.dev/job/puredarwin/ci-hydra/release.minimal/latest/download/1"
+            class="font-medium text-pd-blue hover:underline">Minimal</a>
           <span class="block text-sm text-pd-muted">A small x86_64 image that boots to a shell, the one used for most boot testing.</span>
-          <span class="mt-1 block break-all font-mono text-xs text-pd-muted">322 MiB <span class="select-all">45fd9ad5d4fb77af47a8b4d02a49a8b9cd14d54e11915d2380e879b9d3442814</span></span>
+          <span class="mt-1 block font-mono text-xs text-pd-muted">latest build of release.minimal, .img.zst, <a href="https://hydra.lab004.dev/job/puredarwin/ci-hydra/release.minimal/latest/download/2" class="text-pd-blue hover:underline">sha256</a></span>
+          </div>
+        </li>
+        <li class="flex gap-3">
+          <svg class="mt-1 h-4 w-4 shrink-0 text-pd-muted" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v8" /> <path d="m16 6-4 4-4-4" /> <rect width="20" height="8" x="2" y="14" rx="2" /> <path d="M6 18h.01" /> <path d="M10 18h.01" /></svg>
+          <div class="min-w-0">
+          <a href="https://hydra.lab004.dev/job/puredarwin/ci-hydra/release.arm64-virt-minimal/latest/download/1"
+            class="font-medium text-pd-blue hover:underline">arm64 virtual machine</a>
+          <span class="block text-sm text-pd-muted">A small arm64 image for virtual machines (QEMU virt) that boots to a shell.</span>
+          <span class="mt-1 block font-mono text-xs text-pd-muted">latest build of release.arm64-virt-minimal, .img.zst, <a href="https://hydra.lab004.dev/job/puredarwin/ci-hydra/release.arm64-virt-minimal/latest/download/2" class="text-pd-blue hover:underline">sha256</a></span>
           </div>
         </li>
         <li class="flex gap-3">
@@ -338,9 +338,12 @@
       </ul>
 
       <p class="mt-4 max-w-3xl text-sm text-pd-muted">
-        The SHA-256 above each download is of the file as served. The same list is at
-        <a href="/SHA256SUMS" class="text-pd-blue hover:underline">SHA256SUMS</a>, so you can check a
-        download with <code class="font-mono text-xs">sha256sum -c SHA256SUMS --ignore-missing</code>.
+        The images are the latest successful builds from our
+        <a href="https://hydra.lab004.dev/jobset/puredarwin/ci-hydra" class="text-pd-blue hover:underline">Hydra</a>,
+        compressed with zstd. Each has its own sha256 file next to it. Check the download with
+        <code class="font-mono text-xs">sha256sum -c</code>, then unpack it with
+        <code class="font-mono text-xs">zstd -d</code> before writing it to a disk. The recording's checksum is in
+        <a href="/SHA256SUMS" class="text-pd-blue hover:underline">SHA256SUMS</a>.
       </p>
 
       <h3 class="mt-8 text-lg">Or build it yourself</h3>

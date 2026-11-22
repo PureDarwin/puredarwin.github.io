@@ -7,6 +7,8 @@ set -eu
 
 BASE_URL="${PDIMAGES_BASE_URL:-https://internal.lab004.dev/private/images}"
 ROOT="${PDIMAGES_ROOT:-.}"
+# hydra entries name a job, and link to its latest successful build
+HYDRA_URL="${PDIMAGES_HYDRA_URL:-https://hydra.lab004.dev/job/puredarwin/ci-hydra}"
 
 BEGIN_MARK="<!-- pdimages:list -->"
 END_MARK="<!-- /pdimages:list -->"
@@ -92,6 +94,7 @@ hash_one() {
 cmd_hash() {
 	records | while IFS='	' read -r file kind desc label; do
 		[ -n "$file" ] || continue
+		[ "$kind" = hydra ] && continue
 		printf '%s  %s\n' "$(hash_one "$BASE_URL/$file")" "$file"
 	done
 }
@@ -111,6 +114,32 @@ cmd_sync() {
 
 	records | while IFS='	' read -r file kind desc label; do
 		[ -n "$file" ] || continue
+
+		# a Hydra job changes with every build, so its size and hash are not on the page:
+		# the link is the latest build and the checksum is Hydra's own, next to it
+		if [ "$kind" = hydra ]; then
+			url="$HYDRA_URL/$file/latest/download/1"
+			sumurl="$HYDRA_URL/$file/latest/download/2"
+			{
+				printf '        <li class="flex gap-3">\n'
+				printf '          %s\n' "$ICON_DISK"
+				printf '          <div class="min-w-0">\n'
+				printf '          <a href="%s"\n' "$url"
+				printf '            class="font-medium text-pd-blue hover:underline">%s</a>\n' "$(menu_label "$desc" "$label")"
+				printf '          <span class="block text-sm text-pd-muted">%s</span>\n' "$desc"
+				printf '          <span class="mt-1 block font-mono text-xs text-pd-muted">latest build of %s, .img.zst, <a href="%s" class="text-pd-blue hover:underline">sha256</a></span>\n' \
+					"$file" "$sumurl"
+				printf '          </div>\n'
+				printf '        </li>\n'
+			} >> "$tmp_list"
+			{
+				printf '                <li><a href="%s" class="block px-4 py-2 hover:bg-pd-canvas">\n' "$url"
+				printf '                  <span class="block text-sm font-medium text-pd-ink">%s</span>\n' "$(menu_label "$desc" "$label")"
+				printf '                  <span class="block font-mono text-xs text-pd-muted">latest %s, .img.zst</span></a></li>\n' "$file"
+			} >> "$tmp_menu"
+			continue
+		fi
+
 		url="$BASE_URL/$file"
 		echo "pdimages: hashing $file" >&2
 		size=$(remote_size "$url")

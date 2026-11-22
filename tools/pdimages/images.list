@@ -4,13 +4,14 @@
 #
 #   file<TAB>kind<TAB>description[<TAB>label]
 #
-# kind picks the icon: "disk" for a disk image, "video" for a recording.
+# kind picks the icon: "disk" for a disk image, "video" for a recording, "hydra" for a Hydra job
+# (file is then the job name, release.<target>, linked to its latest successful build).
 # label is optional, the short name in the Download menu.
 # The base URL is set by PDIMAGES_BASE_URL, and defaults to the one below.
 # Lines starting with # and blank lines are ignored.
 
-puredarwin-25.5-gpu.img	disk	The Argon desktop for x86_64 with AMD, Intel and NVIDIA GPU drivers, Wi-Fi and the built-in apps. UEFI, including 32-bit UEFI.	Desktop
-puredarwin-25.5-gpu-sb.img	disk	The same desktop for machines with Secure Boot on. Enroll PUREDARWIN.cer once, see the Secure Boot page.	Desktop, Secure Boot
-puredarwin-25.5-gpu-legacy.img	disk	The same desktop for machines that boot with a legacy BIOS.	Desktop, legacy BIOS
-puredarwin-25.5-minimal.img	disk	A small x86_64 image that boots to a shell, the one used for most boot testing.	Minimal
+release.wayland	hydra	The Argon desktop for x86_64 with AMD, Intel and NVIDIA GPU drivers, Wi-Fi and the built-in apps. UEFI, including 32-bit UEFI.	Desktop
+release.nvidia-580	hydra	The same desktop with NVIDIA's 580 driver, for Maxwell, Pascal and Volta cards.	Desktop, NVIDIA 580
+release.minimal	hydra	A small x86_64 image that boots to a shell, the one used for most boot testing.	Minimal
+release.arm64-virt-minimal	hydra	A small arm64 image for virtual machines (QEMU virt) that boots to a shell.	arm64 virtual machine
 puredarwin-arm64-rpi3-shell.mp4	video	Video from the 20.5 era: PureDarwin booting to a shell on a Raspberry Pi 3.
