@@ -1,116 +1,122 @@
 # Source Tree
 
-A map of the repository. The short version: `src/` is Darwin, `nix/` is everything
-around it, and `tools/` is what the host needs to build Darwin at all.
+A map of the repository. `src/` holds the system itself, `nix/` holds the
+build around it, and `tools/` holds what the build computer needs to build Darwin at
+all.
+
+Many directories hold code that came from Apple or from other projects. The
+[Credits](credits.md) page says where each came from, and `NOTICE` in the repository
+lists the exact Apple release for each Apple directory.
 
 ## src/Kernel
 
-`src/Kernel/xnu` is the kernel. Next to it are `libkmod`, `libfirehose_kernel`,
-`fbsdkpi` and `src/Kernel/Extensions`, which holds the kexts. They fall into groups:
+`src/Kernel/xnu` is the kernel, PureDarwin's version of Apple's XNU. Beside it are
+`libkmod`, `libfirehose_kernel`, `fbsdkpi` and `src/Kernel/Extensions`, which holds the
+kernel extensions, or kexts. Kexts are Darwin's drivers and kernel modules, and they fall into groups:
 
-* **Platform**: `PDACPIPlatform` (built on uACPI), `AppleI386GenericPlatform`,
-  `AppleAPIC`, `AppleI386PCI`, `IOACPIFamily`, `IOPCIFamily`, `PDEcamPCI`, and for ARM
-  and RISC-V `PDArmPlatformExpert`, `PDArmPCI` and `PDRiscvPlatformExpert`.
-* **Storage**: `IOStorageFamily`, `IOATAFamily` and `IOATABlockStorage`, `IONVMEFamily`,
+* **Platform.** The code that describes the machine to the kernel. `PDACPIPlatform`
+  (built on uACPI), `AppleI386GenericPlatform`, `AppleAPIC`, `AppleI386PCI`,
+  `IOACPIFamily`, `IOPCIFamily`, `PDEcamPCI`, and for ARM and RISC-V
+  `PDArmPlatformExpert`, `PDArmPCI` and `PDRiscvPlatformExpert`.
+* **Storage.** `IOStorageFamily`, `IOATAFamily`, `IOATABlockStorage`, `IONVMEFamily`,
   `RavynAHCIPort`, `IOVirtIOBlock`, the SD card drivers for the boards, and the optical
-  families.
-* **Filesystems**: `ext4` and `Ext4FileSystemDriver`, `hfs` with `HFSEncodings`, `apfs`
+  disc families.
+* **Filesystems.** `ext4` and `Ext4FileSystemDriver`, `hfs` with `HFSEncodings`, `apfs`
   and `ApfsFileSystemDriver`, `msdosfs`, `cd9660` and `AppleFileSystemDriver`.
-* **Graphics**: `IOGraphicsFamily`, `IOGOPFramebuffer`, `IOVirtIOGPU`, `IONDRVSupport`,
-  `PDIOSurface`, and the DRM drivers `PDDRMamdgpu`, `PDDRMi915` and `PDDRMnouveau` with
-  `PDDRMDri`, which provides `/dev/dri`.
-* **Network**: `IONetworkingFamily`, `IO80211Family`, `IOVirtIONet`, `PDE1000`,
-  `PDRealtek8111`, `PDRalinkUSB`, and the FreeBSD drivers `PDFBSDem`, `PDFBSDigc`,
-  `PDFBSDrge`, `PDFBSDrtw89`, `PDFBSDrtwn` and `PDFBSDrun`.
-* **Input, USB and audio**: `IOHIDFamily`, `ApplePS2Controller`, `IOUSBFamily`,
+* **Graphics.** `IOGraphicsFamily`, `IOGOPFramebuffer`, `IOVirtIOGPU`, `IONDRVSupport`,
+  `PDIOSurface`, and the GPU drivers `PDDRMamdgpu`, `PDDRMi915` and `PDDRMnouveau`
+  with `PDDRMDri`, which provides `/dev/dri`. NVIDIA's own driver is loaded by
+  `PDNVLoader`.
+* **Network.** `IONetworkingFamily`, `IO80211Family`, `IOVirtIONet`, `PDE1000`,
+  `PDRealtek8111`, `PDRalinkUSB`, and the FreeBSD drivers whose names start with
+  `PDFBSD`.
+* **Input, USB and audio.** `IOHIDFamily`, `ApplePS2Controller`, `IOUSBFamily`,
   `RavynXHCIPort`, `IOAudioFamily` and `RavynHDAudio`.
-* **Support**: `corecrypto`, `pthread`, `Sandbox`, `amfi`, `GTrace` and `GMetric`.
+* **Support.** `corecrypto`, `pthread`, `Sandbox`, `amfi` and others.
 
-`fbsdkpi` is the FreeBSD compatibility layer. It builds on Haiku's FreeBSD network and
-iflib compatibility code, adds FreeBSD's `net80211` and the LinuxKPI from FreeBSD, and
-lets the `PDFBSD*` and `PDDRM*` kexts run FreeBSD and drm-kmod drivers unmodified.
+`fbsdkpi` lets FreeBSD drivers, and the Linux GPU drivers FreeBSD carries, run on XNU
+without changes. It's built on Haiku's FreeBSD compatibility code and adds FreeBSD's
+Wi-Fi stack and its Linux compatibility layer. The kexts whose names start with
+`PDFBSD` and `PDDRM` run on it.
 
-The `corecrypto` kext builds from the MPL-2.0 fork in `external/corecrypto`. The old GPL
-corecrypto in `src/Libraries/libSystem/corecrypto` is only compiled into Security.framework.
-See [Licensing](licensing.md#corecrypto) if you redistribute PureDarwin.
+The `corecrypto` kext is built from the MPL 2.0 fork in `external/corecrypto`, which
+started from NeoDarwin's corecrypto.
 
-The ext4 driver is worth calling out. Darwin has no ext4, and PureDarwin uses it as the
-root filesystem, so it is entirely project code. It has been the source of a long list
-of subtle bugs (see [Debugging](debugging.md)).
+The ext4 driver deserves a mention. Darwin has no ext4, and we use it as our root filesystem, so it's all our own code. It has caused a long list of subtle
+bugs over time (see [Debugging](debugging.md)).
 
 ## src/Libraries
 
-The userland foundation. Apple publishes some of it, and the rest is written here.
+The base of the userland. Apple publishes some of it, and the rest is written here or
+comes from other projects.
 
-* **The core**: `libSystem` and its sub-libraries, `dyld`, `libcxx`, `libcxxabi`,
-  `libunwind`, `llvm-libc`, `libdarwin`, `architecture`, `AvailabilityVersions`.
-* **Objective-C and system libraries**: `objc4`, `CoreServices`, `IOKit`,
+* **The core.** `libSystem` and its parts, `dyld` and `dyld4`, `libcxx`, `libcxxabi`,
+  `libunwind`, `llvm-libc`, `libdarwin`, `architecture` and `AvailabilityVersions`.
+* **Objective-C and system libraries.** `objc4`, `CoreServices`, `IOKit`,
   `DiskArbitration`, `Security` with `libDER`, `SystemConfiguration` and
-  `libSystemConfiguration`, `CommonCrypto`, `libsandbox`.
-* **Services**: `XPC` (which includes launchd, launchctl and notifyd), `syslog`,
-  `libsystem_trace`, `mDNSResponder`, `libresolv`, `bootp`, `eap8021x`, `ppp`.
-* **Graphics support**: `libdrm`, `libgbm`, and the project's own `PDGOP`, `PDSurface`
+  `libSystemConfiguration`, `CommonCrypto` and `libsandbox`.
+* **Services.** `XPC` (which holds launchd, launchctl and notifyd), `syslog`,
+  `libsystem_trace`, `mDNSResponder`, `libresolv`, `bootp`, `eap8021x` and `ppp`.
+* **Graphics support.** `libdrm`, `libgbm`, and our own `PDGOP`, `PDSurface`
   and `PDVirglShim`.
+* **Swift support.** `SwiftFoundation`, `SwiftFrameworks`, `SwiftOverlays` and
+  `SwiftSupplemental`, PureDarwin's Swift layers over its frameworks.
 
 ## src/Frameworks
 
-The frameworks above the core: `CoreFoundation`, `Foundation`, `AppKit`, `Cocoa`,
-`CoreGraphics` and `Onyx2D`, `CoreText`, `QuartzCore`, `CoreVideo`, `OpenGL`,
-`IOSurface`, `WindowServer`, `ApplicationServices` and a growing list of others.
+The frameworks that graphical programs use: `CoreFoundation`, `Foundation`, `AppKit`,
+`Cocoa`, `CoreGraphics` and `Onyx2D`, `CoreText`, `CoreData`, `QuartzCore`,
+`CoreVideo`, `OpenGL`, `IOSurface`, `WindowServer`, `ApplicationServices` and many
+smaller ones. Several of them started from Cocotron or NeoDarwin, as [Credits](credits.md) explains.
 
 ## src/Userspace
 
-The commands and apps that make the system usable.
+The commands and applications.
 
-* **Commands**: `shell_cmds`, `text_cmds`, `system_cmds`, `diskdev_cmds`, `ps`, `ping`,
-  `ioreg`, `sw_vers`, `netsetup`, `mdnsd`, `wifiutil`, `pdinstall`, `pdkext`,
-  `pdpowerd`, the `ext4tool` and `ext4util` maintenance tools, and `tcc`.
-* **The desktop**: `argon-session`, `MenuBar`, `Dock`, `Finder` (shown as Files),
-  `Terminal`, `Settings`, `Calculator`, `SystemInformation`, `Installer` and
-  `loginwindow`.
-* **X11 support**: `startx` and the two Xorg drivers `xf86-video-puredarwingop` and
+* **Commands.** `shell_cmds`, `text_cmds`, `system_cmds`, `diskdev_cmds`, `ps`, `ping`,
+  `netstat`, `ioreg`, `sw_vers`, `dtrace`, `netsetup`, `mdnsd`, `wifiutil`, `pdinstall`,
+  `pdkext`, `pdpowerd`, the `ext4tool` and `ext4util` maintenance tools, and `tcc`.
+* **The desktop.** `argon-session`, `MenuBar`, `Dock`, `Finder` (shown as Files),
+  `Terminal`, `Settings`, `Calculator`, `SystemInformation`, `TextEditor`,
+  `ImageViewer`, `Installer`, `loginwindow` and others.
+* **X11 support.** `startx` and the two Xorg drivers `xf86-video-puredarwingop` and
   `xf86-input-puredarwin`.
 
 ## src/ThirdParty
 
-Upstream projects vendored because they needed real porting work: `neuswc` and `neuwld`
-(the compositor and drawing library under Argon), `wayland`, `wayland-protocols`,
-`wlroots` and `sway`.
+Other projects kept in the tree because they needed real porting work: `neuswc` and
+`neuwld` (the compositor and drawing library under the desktop), `wayland`,
+`wayland-protocols`, `wlroots` and `sway`.
 
 ## projects/
 
-`libapfsrw`, the APFS read and write library the `apfs` kext shares.
+`libapfsrw`, the APFS read and write library the `apfs` kext uses.
+
+## external/
+
+`corecrypto`, the MPL 2.0 fork described above.
 
 ## nix/
 
-| Path | Contents |
-| --- | --- |
-| `nix/sources.nix` | Source tree pinning for in-tree components |
-| `nix/image-contents.nix` | What goes in each image, and the QEMU runners |
-| `nix/arm64.nix` | arm64 and armv6 kernels, kexts and userland |
-| `nix/riscv64.nix` | riscv64 kernels, kexts and userland |
-| `nix/lib/` | `kexts.nix` (every kext and which kernel collection lists it), `kc-kexts.nix`, `target-info.nix`, `secureboot.nix` |
-| `nix/pkgs/` | Ported third-party packages |
-| `nix/secureboot/` | The SBAT data and the keyless placeholder for Secure Boot images |
-
-The ports under `nix/pkgs/` are grouped by what they are:
+The build. [The Nix Flake](building/flake.md) describes the files. The ported software
+is in `nix/pkgs/`, grouped by kind:
 
 | Group | Contents |
 | --- | --- |
-| `base` | Build tools and core libraries: autotools, cmake, meson, ninja, perl, python, ncurses, openssl, curl, zsh, git |
-| `apple` | Apple components and the test programs that exercise them |
+| `base` | Build tools and core libraries, such as autotools, cmake, meson, perl, python, openssl, curl, zsh and git |
+| `apple` | Apple components and the test programs for them |
 | `x11` | The X server, its libraries and clients |
-| `apps` | End-user software, the built-in apps, terminals and Wine |
-| `gpu`, `mesa`, `wayland`, `gtk` | The graphics stack and the desktop libraries |
+| `apps` | Applications, terminals and Wine |
+| `gpu`, `mesa`, `wayland`, `gtk` | The graphics stack and desktop libraries |
 | `boot` | The shim for Secure Boot images |
-| `toolchain` | Host and cross machinery: clang, LLVM, `native-ld`, the kernel collection builders, the SDK |
+| `toolchain` | Compilers, LLVM, the linker, the kernel collection tools and the SDK |
 
-`ls nix/pkgs/<group>` is the current answer for any of them.
+`ls nix/pkgs/<group>` shows what's there today.
 
 ## tools/
 
-Host-side build tools: `cctools`, `mig`, `unifdef`, `dtrace_ctf`, `xar`, `iig-selfhost`.
-See [Host Tools and Toolchains](building/toolchains.md).
+Tools for the build computer: `cctools`, `mig`, `unifdef`, `dtrace_ctf`, `xar` and
+`iig-selfhost`. See [Host Tools and Toolchains](building/toolchains.md).
 
 ## cmake/
 

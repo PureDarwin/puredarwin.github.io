@@ -1,46 +1,52 @@
 # Targets
 
-PureDarwin builds for x86_64, arm64, armv6 and riscv64. x86_64 is the primary target.
-The others are at different stages of bringup.
+A target is a kind of machine PureDarwin is built for. PureDarwin builds for x86_64,
+arm64, armv6 and riscv64. x86_64 is the main target. The others are at different stages
+of bringup, which means getting a system to start on a new machine for the first time.
 
-| Target | Prefix | Boots to a shell | Display | Page |
-| --- | --- | --- | --- | --- |
-| x86_64 | none | Yes | The Argon desktop, with AMD, Intel and NVIDIA GPU drivers | [x86_64](targets/x86_64.md) |
-| arm64 QEMU virt | `-arm64`, `-arm64-virt` | Yes | ramfb console, Wayland image available | [arm64 virt](targets/arm64-virt.md) |
-| armv6 Pi Zero | `-arm32-bcm2835` | Not yet, reaches `dyld` | - | [Pi Zero](targets/armv6-bcm2835.md) |
+| Target | Boots to a shell | Display | Page |
+| --- | --- | --- | --- |
+| x86_64 PCs and laptops | Yes | The Argon desktop, with AMD, Intel and NVIDIA GPU drivers | [x86_64](targets/x86_64.md) |
+| arm64, QEMU virt | Yes | A simple framebuffer, and a Wayland image | [arm64 virt](targets/arm64-virt.md) |
+| armv6, Raspberry Pi Zero | Not yet, it reaches `dyld` | - | [Pi Zero](targets/armv6-bcm2835.md) |
 
-## Boards in Bringup
+## arm64 Hardware
 
-These boot on real hardware but do not have a page of their own yet.
+These don't have a page of their own yet.
 
-| Board | State |
+| Machine | State |
 | --- | --- |
-| Orange Pi Zero 3 (Allwinner H618) | Boots, with Ethernet |
-| Orange Pi Zero 4 (Allwinner A733) | Boots to a shell, from SD card or a USB stick |
-| Luckfox Pico (Rockchip RV1103, Cortex-A7) | Boots to a shell over USB |
-| NVIDIA Jetson TX1 | Boots, the nouveau GPU driver loads its firmware, GPU bringup in progress |
-| riscv64 QEMU virt | Builds, bringup in progress |
+| NVIDIA Jetson TX1 | Has booted to the desktop. GPU work is still in progress |
+| Lenovo ThinkPad X13s (Snapdragon 8cx Gen 3) | In bringup. Board support and the kernel build, and the USB driver starts on it |
+| Orange Pi Zero 3 (Allwinner H618) | Board support is in, but it hasn't been tested on hardware yet. No Wi-Fi, and no GPU because its Mali driver is GPL |
+| Orange Pi Zero 4 (Allwinner A733) | Board support is in, but it hasn't been tested on hardware yet. No Wi-Fi |
+| Google Pixel 3a (Snapdragon 670) | In bringup. Board support, a serial console and an Android boot image build |
+| Snapdragon 410 (MSM8916) USB stick | In bringup. Its storage works, and its GPU and Wi-Fi drivers are being written |
+| Apple A9 (iPhone 6s) | Runs under the Inferno emulator |
+| Apple M1 | Bringup in progress |
+| riscv64, QEMU virt | Builds, bringup in progress |
 
 ## Earlier Targets
 
-The Raspberry Pi 3 and the iPad 6 (T8010, through checkm8 and PongoOS) booted to a shell on
-the 20.5-era tree. They have not been brought up on the current `upstream-xnu-12377` tree.
-Their pages, [Pi 3](targets/arm64-bcm2837.md) and [T8010](targets/arm64-t8010.md),
-describe that earlier work.
+The Raspberry Pi 3 and the iPad 6 booted to a shell on PureDarwin's older Darwin 20.5
+tree. Their pages, [Pi 3](targets/arm64-bcm2837.md) and [iPad 6](targets/arm64-t8010.md),
+describe that work. Support for the iPad 6 is being brought over to the current tree.
 
 ## How the Boards Boot
 
-The arm64 boards boot xnu-loader as a Linux kernel image and read the device tree the
-board's own bootloader passes in. Board-specific code is only needed where the device
-tree cannot describe the hardware.
+The arm64 boards start xnu-loader as if it were a Linux kernel, from the board's own
+bootloader. The loader reads the device tree, the description of the hardware the board
+passes in. Board-specific code is only needed where the device tree can't describe the
+hardware.
 
-## Shared Rules
+## What All Targets Share
 
 Every target uses the same launchd and userland. All of them except armv6 boot through a
-kernel collection. armv6 uses a prelinked kernel. The differences are the platform
-expert, the kext list and how the kernel gets loaded.
+kernel collection, a single file that holds the kernel and its drivers. armv6 uses the
+older prelinked kernel format. What differs is the platform driver, the list of kexts
+and how the kernel is loaded.
 
-Most of the kernel and kext tree is shared between architectures, so ARM work can break
-x86 without anyone noticing until an image fails to boot. **Build and boot an x86_64
-image after touching shared XNU or kext code.** This is the most common way a working
-tree stops working.
+Most of the kernel and kext code is shared between architectures. ARM work can break
+x86_64 without anyone noticing until an image fails to boot. **After you touch shared
+kernel or kext code, build and boot an x86_64 image.** This is the most common way a
+working tree stops working.

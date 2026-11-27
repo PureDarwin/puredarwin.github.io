@@ -1,106 +1,97 @@
 # Roadmap
 
-Where PureDarwin is going. The near-term goal is a release. Everything after that is
-grouped by theme and not scheduled.
+Where PureDarwin is going. The near goal is a release, and everything after that's
+grouped by theme with no dates.
 
 ## The Next Release
 
-The next release is about making what already exists shippable: fixing bugs, closing
-the gaps that make the system awkward to use, and getting the supported targets to a
-state that can be handed to someone who is not a developer.
+The next release is about making what exists ready to hand to someone who isn't a
+developer. That means fixing bugs, closing the gaps that make the system awkward to use,
+and getting the main targets into a dependable state.
 
 Where the targets stand today:
 
 * x86_64 boots to the Argon desktop on real hardware, with AMD, Intel and NVIDIA GPU
-  drivers. It is the release target.
-* arm64 virt boots to a shell. The Jetson TX1, the Orange Pi Zero 3 and the Orange Pi
-  Zero 4 boot on real hardware, and more arm64 boards are in bringup. The Raspberry Pi 3
-  and the iPad 6 (T8010) booted on the 20.5-era tree only.
-* armv6 (Pi Zero) is not part of the release.
+  drivers. It's the release target.
+* arm64 boots to a shell in QEMU. The Jetson TX1 has booted to the desktop, the Orange Pi Zero 3
+  and Zero 4 have board support but haven't been tested on hardware yet, and more boards
+  are being brought up.
+* armv6 (the Raspberry Pi Zero) isn't part of the release.
 
 See [Status](status.md) for the detail.
 
-A release is a freeze. `main` is frozen, and development runs on `upstream-xnu-12377`. Release
-cleanup goes there like everything else.
+Work for the release happens on `main`, like everything else.
 
 ## After the Release
 
-Each item is marked with where it stands.
+Each item says where it stands.
 
 ### Wi-Fi Through FreeBSD Drivers: In Progress
 
-USB and PCIe Wi-Fi now run on FreeBSD's drivers through `fbsdkpi`. The Realtek
-RTL8192EU and the RTL8852B and RTL8852C join WPA2 networks. Next are the Ralink
-RT3572 on FreeBSD's `run` driver, the RTL8811AU, and MediaTek's MT7921 and MT7922. Done
-means one Wi-Fi stack for every adapter, so the older OpenBSD-based stack can go.
+USB and PCIe Wi-Fi run on FreeBSD's drivers through PureDarwin's driver compatibility
+layer. The Realtek RTL8192EU, RTL8852B and RTL8852C join WPA2 networks. Next are the
+Ralink RT3572 on FreeBSD's driver, the RTL8811AU, and MediaTek's MT7921 and MT7922. The
+aim is one Wi-Fi stack for every adapter, so the older OpenBSD-based one can go.
 
 ### FreeBSD Drivers on Every Architecture: In Progress
 
-The FreeBSD network drivers build for arm64 and the e1000 driver gets a DHCP lease on
-arm64 virt. Done means the same drivers on the arm64 boards, then on riscv64.
+The FreeBSD network drivers build for arm64, and the Intel e1000 driver gets a network
+address on the arm64 virtual machine. The aim is the same drivers on the arm64 boards,
+then on riscv64.
 
 ### Multiple Displays: In Progress
 
-An extended desktop works across several screens in VMs. Done means the same on real
-GPUs.
+A desktop stretched across several screens works in virtual machines, and the aim is the
+same on real GPUs.
 
 ### A Bigger Boot Kernel Collection: Planned
 
-The boot kernel collection is close to the 64 MiB the loader allows. Drivers that are not
-needed to mount root already go into the auxiliary collection. Done means the loader
-takes a larger collection, so this stops being a constraint.
+The kernel collection the loader starts with is close to the 64 MiB the loader allows.
+Drivers not needed to mount the root disk already go into a second collection, loaded
+later. The aim is a loader that takes a larger collection, so this stops being a limit.
 
-### Wayland for Wine: Planned
+### Wine on Wayland: Planned
 
-Wine uses the X11 driver on PureDarwin. `winewayland.drv` runs, but the images are built
-around the X11 path. Done means Wine is a full Wayland client and X11 is the
-compatibility path.
+Wine uses its X11 driver on PureDarwin. Its Wayland driver runs, but the images are
+built around X11. The aim is Wine as a full Wayland program, with X11 kept for
+compatibility.
 
-### Frameworks: Foundation, AppKit, CoreGraphics, Swift: In Progress
+### Frameworks and Swift: In Progress
 
-The built-in apps are AppKit apps, and the frameworks under them are filling out. Swift
-is not there yet. This is the difference between a Unix that boots and a Darwin that can
-run Darwin software.
+The built-in apps are AppKit apps, and the frameworks under them keep filling out. Swift
+support has started and works in part. These frameworks are
+what separate a Unix that boots from a Darwin that runs Darwin software.
 
-### Later Darwin Components: Planned
+### Newer Darwin Components: Planned
 
-Move to newer versions of Apple's open source components where that works with the
+Move to newer versions of Apple's open source components where they work with the
 project's own SDK.
 
-### pdpkgs and Declarative System Configuration: Planned
+### pdpkgs and Declarative Configuration: Planned
 
-The long-term answer to how a PureDarwin system is described is a NixOS-style
-`configuration.nix`, backed by a package repository called **pdpkgs**.
+The long-term plan is to describe a PureDarwin system in one configuration file, the way
+NixOS does, backed by a package collection called **pdpkgs**.
 
-The reasoning is worth spelling out, because it looks like a detour. The alternative to
-building on Nix is inventing a build system, and that means rebuilding cross-compilation
-from scratch. Cross-compilation is the one thing this project cannot afford to break,
-because it is how the whole system is produced. So the project builds on Nix.
+This can look like a detour. The other choice would be to invent a build system, which
+means rebuilding cross-compilation from scratch. Cross-compilation is how the whole
+system is produced, and we can't afford to break it. So we build on
+Nix.
 
-pdpkgs is a nixpkgs-compatible package set that falls through to nixpkgs wherever it does
-not need to differ. It is evaluated on the build host and produces a PureDarwin system,
-the same way a NixOS image is built today. Much of what lives in `nix/` moves into it
-over time, and `nix/image-contents.nix` is already a hand-rolled draft of the idea.
+pdpkgs would be a package set that works like nixpkgs and falls back to nixpkgs wherever
+it doesn't need to differ. Much of `nix/` would move into it over time.
+`nix/image-contents.nix` is already a hand-made first draft of the idea.
 
-This lands after the release, and not by a small margin. It is months of work, and doing
-it before a release would mean rebuilding the build while trying to stabilise the system
-it builds.
+This comes well after the release. It's months of work, and doing it first would mean
+rebuilding the build while trying to stabilise the system it builds.
 
-### Application Packaging with DMGs: Planned
+### Application Packaging with Disk Images: Planned
 
-pdpkgs answers how the system is assembled. It does not answer how someone ships an
-application to a user who is not building from source. The Darwin answer to that is a
-disk image. The project already builds DMGs on the host side for the HFS+ image, so
-parts of the machinery exist.
+pdpkgs covers how the system is put together. Shipping an application to a user who
+doesn't build from source is a separate question, and on Darwin the usual answer is a
+disk image file, a DMG. The build already makes DMGs for the HFS+ image, so some of the
+pieces exist.
 
-### Replace corecrypto in Security.framework: In Progress
+### Building on a Mac: Planned
 
-The kernel, libSystem and the host tools already use the MPL-2.0 corecrypto fork in
-`external/corecrypto`. Security.framework still compiles the old GPL tree from Darling,
-because it needs RSA key generation and private-key operations, DER, EC, ECIES, DH and
-the ccz bignum, which the fork does not have yet. Done means the old tree is deleted.
-
-### Finish the Nix-on-Darwin Host Path: Planned
-
-macOS hosts can build the kernel and libSystem, but images, kernel collections and the
-runners are Linux only. Done means a macOS host is a full build machine.
+A Mac can build the kernel and libSystem, but not images, kernel collections or the
+QEMU scripts. The aim is a Mac that can build the whole system.

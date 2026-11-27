@@ -4,7 +4,7 @@ Ports live in `nix/pkgs/`, grouped by what they are: `base` for build tools and 
 libraries, `x11`, `wayland`, `mesa`, `gpu`, `gtk`, `xfce`, `apps`, and `apple` for Apple
 frameworks.
 
-There is no shared `mkPort` helper. The pattern is copied per file, which is worth
+There's no shared `mkPort` helper. The pattern is copied per file, which is worth
 knowing before you go looking for one. `nix/pkgs/base/yajl.nix` is a good short example
 to copy from.
 
@@ -39,8 +39,8 @@ Points to note:
   avoids a second hash to maintain.
 * **The `configurePhase` is explicit.** Autotools and meson both need to be told about
   the cross toolchain, the sysroot and the target triple. The standard nixpkgs cross
-  machinery does not apply here.
-* **Take the SDK from `appleSdk`.** The flake passes the project's own SDK to every
+  machinery doesn't apply here.
+* **Take the SDK from `appleSdk`.** The flake passes our own SDK to every
   port. Never point a port at a copy of Apple's SDK.
 
 ## arm64 Variants
@@ -52,14 +52,14 @@ targetTriple = "arm64-apple-darwin20.4";
 ```
 
 `nix/lib/target-info.nix` turns that into meson's `cpu_family`, `cpu` and `endian`, and
-the clang target. Do not also set `-target` in the package's own flags. An explicit one
+the clang target. Don't also set `-target` in the package's own flags. An explicit one
 overrides the wrapper's and silently produces objects for the wrong architecture.
 
 Register the variant in the arm64 package set so it appears as `<name>-arm64`.
 
 ## Getting It Into an Image
 
-A built package is not on an image until `nix/image-contents.nix` puts it there. Add it
+A built package isn't on an image until `nix/image-contents.nix` puts it there. Add it
 to `imageExtraPackageSet` for the general images, and check whether it belongs in the
 narrower sets, `strippedExtraPackages` for the minimal and stripped images, and the
 Wayland-only set, which drops the X11 client stack and swaps several packages for builds

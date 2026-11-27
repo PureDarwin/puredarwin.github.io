@@ -1,11 +1,11 @@
 # Running in QEMU
 
-The flake ships runners so you do not have to remember QEMU invocations. Each is a `nix
+The flake ships runners so you don't have to remember QEMU invocations. Each is a `nix
 run` app.
 
 ## nix run .#vm
 
-The default. Portable, no KVM required.
+This is the default runner, and it works without KVM.
 
 ```
 qemu-system-x86_64 -M q35 -m 4096 -smp 4 -vga std \
@@ -58,7 +58,7 @@ qemu-system-aarch64 -machine virt,gic-version=3 -cpu neoverse-n2 \
 
 `neoverse-n2` is deliberate. `-cpu max` crashes the EDK2 firmware before it prints
 anything, which looks exactly like a dead serial port and once wasted a lot of time.
-`ramfb` is the display that works. The virt machine also needs the xHCI keyboard for
+`ramfb` is the display that works, and the virt machine also needs the xHCI keyboard for
 input.
 
 ## nix run .#arm64-uefi and .#arm64-uboot
@@ -84,5 +84,5 @@ automatically, so you can boot a store path without copying it first.
 ## Working with a Writable Image
 
 For anything that needs to persist, copy the image out of the store, or drive a qcow2
-overlay on top of it. An overlay is the better default when you are iterating: it keeps
+overlay on top of it. An overlay is the better default when you're iterating: it keeps
 the pristine image intact and throwing away the overlay is a clean reset.

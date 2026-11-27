@@ -1,44 +1,44 @@
 # The CMake Tree
 
-## Support Statement, First
+## Read This First
 
-**Nix is the build system. CMake is a tool that Nix drives. Building the tree by
-invoking `cmake` yourself is unsupported, and it is going to stay that way.**
+**Nix is the build system, and CMake is a tool that Nix drives. Running `cmake` on the
+tree yourself isn't supported, and we don't plan to change that.**
 
-The reason is worth stating plainly, because from the outside a CMake tree looks like
-something you should be able to configure and build.
+From the outside a CMake tree looks like something you should be able to configure and
+build, so here's why you can't.
 
-Apple ships these components as Xcode projects. Getting them to build anywhere else
-meant porting those projects to CMake. An Xcode project encodes a great deal that CMake
-has no direct equivalent for, so the port forces choices inside CMake that are
-undesirable on their own terms, and it leaves gaps that are filled with extra glue on
-the Nix side. The result works, and it works reliably when Nix drives it, but the
-dependency graph is fragile: order, toolchain wiring, generated headers and install
-components all depend on the surrounding derivation setting things up correctly.
+Apple ships these components as Xcode projects, and getting them to build anywhere else
+meant porting those projects to CMake. An Xcode project encodes a lot that CMake has no
+direct equivalent for. The port forces some choices inside CMake that we wouldn't make
+otherwise, and it leaves gaps that extra glue on the Nix side fills. The result works,
+and it works reliably when Nix drives it, but the order, the toolchain wiring, the
+generated headers and the install components all depend on the surrounding derivation
+setting things up correctly.
 
-So: build with `nix build`. Bug reports against a hand-rolled `cmake` configure will not
-be actioned. The dev shell exists so you can work on one component at a
-time. It does not produce a system.
+So build with `nix build`. We won't act on bug reports against a hand-rolled `cmake`
+configure. The dev shell lets you work on one component at a time, but it doesn't
+produce a system.
 
-Note that `CODING_STYLE.md` requires "the CMake build system only" for in-tree code.
-That rule means no second build system in the tree. It does not mean a bare CMake build
-is a supported product.
+`CODING_STYLE.md` asks for "the CMake build system only" in in-tree code. That means we
+don't want a second build system in the tree. It doesn't make a bare CMake build a
+supported product.
 
-The rest of this page documents the layer, because you will need to read and modify it.
+You'll still need to read and change this layer, so the rest of this page describes it.
 
 ## Top-Level Rules
 
-`CMakeLists.txt` at the root enforces a few things up front:
+`CMakeLists.txt` at the root sets a few rules up front:
 
-* Clang only. GCC is rejected, and so is the Xcode generator.
+* Only Clang is allowed. GCC is rejected, and so is the Xcode generator.
 * `CMAKE_MACOSX_MIN_VERSION` is 26.5.
-* Objective-C is enabled project-wide, because libdispatch's `object.m` needs the
-  frontend.
+* Objective-C is turned on for the whole project, because libdispatch's `object.m`
+  needs the frontend.
 
 It then builds several symlink farms under `generated-headers/`, for `objc`,
-`Foundation`, `mach-o`, `dlfcn` and `CoreFoundation`. These exist so that in-tree
-sources can use the flat `<CoreFoundation/CFAvailability.h>` style include that Apple
-frameworks expect, without every consumer needing bespoke include paths.
+`Foundation`, `mach-o`, `dlfcn` and `CoreFoundation`. They let in-tree sources use the
+flat `<CoreFoundation/CFAvailability.h>` style of include that Apple frameworks expect,
+without every consumer needing its own include paths.
 
 ## Configuration Switches
 
@@ -55,8 +55,8 @@ frameworks expect, without every consumer needing bespoke include paths.
 
 ## build.nix
 
-`build.nix` is the single derivation that wraps this tree. Every in-tree component
-package is the same derivation with different arguments:
+`build.nix` is the one derivation that wraps this tree. Every in-tree component package
+is that same derivation with different arguments:
 
 | Argument | Effect |
 | --- | --- |
@@ -68,9 +68,9 @@ package is the same derivation with different arguments:
 | `prebuiltLibSystem` | Reuse an existing libSystem build |
 | `extraCmakeFlags` | Per-target flags, such as the machine config |
 
-This is also where the guest's `/etc`-adjacent bits of a component land: the libSystem
-install rule stages `dyld`, `launchd_real`, `notifyd` and its LaunchDaemon plist, and
-the guest C headers under `pd-guest-headers/`, which `image.nix` later moves to
+Some of a component's system files are put in place here too. The libSystem install
+rule stages `dyld`, `launchd_real`, `notifyd` and its LaunchDaemon plist, along with the
+guest C headers under `pd-guest-headers/`, which `image.nix` later moves to
 `/usr/include`.
 
 ## The cmake/ Helper Modules

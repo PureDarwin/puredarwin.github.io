@@ -1,20 +1,19 @@
 # armv6 Raspberry Pi Zero
 
-The earliest target, and the only 32-bit one. It boots as far as userspace but does not
-reach a shell yet.
+This is our earliest target and the only 32-bit one. It boots as far as userspace but
+doesn't reach a shell yet.
 
 ## Building
 
 ```
-nix build .#kernel-arm32-bcm2835          # also -debug and -dev
-nix build .#kexts-arm32-bcm2835
-nix build .#prelinked-arm32-bcm2835
-nix build .#userland-arm32-bcm2835
+nix build .#kernel.kernel-arm32-bcm2835          # also -debug and -dev
+nix build .#kernel.kexts-arm32-bcm2835
+nix build .#kernel.prelinked-arm32-bcm2835
+nix build .#pd.arm32.userland-arm32-bcm2835
 ```
 
-There is no image target for this board in the flake yet. A custom disk image aimed at
-USB booting is being put together. It is work in progress, and you cannot build it
-today.
+There's no image target for this board in the flake yet. We're putting together a custom
+disk image for USB booting, but it's still in progress and you can't build it today.
 
 ## Why It Is Different
 
@@ -27,8 +26,8 @@ Apple last shipped a very long time ago. That makes this a real port:
 
 ## State
 
-The kernel boots, mounts root and gets into userspace. Execution reaches `dyld`, which
-then fails on pthreads. That is a long way past where this target was when the
+The kernel boots, mounts root and gets into userspace, where execution reaches `dyld`
+and then fails on pthreads. That's a long way past where this target was when the
 port started, when the question was whether a 32-bit XNU would build at all and the
 error count was around 700.
 
@@ -39,14 +38,14 @@ real work.
 ## Kexts
 
 Seven: `corecrypto`, `pthread`, `ext4`, `IOStorageFamily`, `Ext4FileSystemDriver`,
-`PDBcm2835SD`, `PDArmPlatformExpert`. `corecrypto` is not optional even here, because
+`PDBcm2835SD`, `PDArmPlatformExpert`. `corecrypto` isn't optional even here, because
 `read_random()` dereferences NULL without it.
 
 ## Related Tooling
 
 Bootloader work uses
 [lk-overlay, `llvm-vc4-vce` branch](https://github.com/librerpi/lk-overlay/tree/llvm-vc4-vce),
-which is still experimental and does not support this board properly. Build it from
+which is still experimental and doesn't support this board properly. Build it from
 its own `nix develop`, then `VC4_TOOLCHAIN=gcc ./build.sh <project>`. Be aware that
 unreferenced modules link out silently, which makes a missing feature look like a broken
 one.

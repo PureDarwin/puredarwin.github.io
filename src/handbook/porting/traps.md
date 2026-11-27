@@ -1,7 +1,7 @@
 # Recurring Traps
 
-These have each cost days at least once. They are listed roughly in order of how often
-they come up.
+Each of these has cost us days at least once. They're listed roughly by how often they
+come up.
 
 ## The libSystem Export List
 
@@ -14,14 +14,14 @@ This has blocked whole subsystems: OpenGL was unavailable because five symbols w
 missing from the export list, and dyld aborted at startup over a missing
 `__dyld_is_memory_immutable`.
 
-When a symbol "does not exist", grep the export lists before grepping the source.
+When a symbol "doesn't exist", grep the export lists before grepping the source.
 `DYLD_PRINT_SEGMENTS` helps symbolicate what actually got loaded.
 
 ## dynamic_lookup Poisons Feature Detection
 
 `-undefined dynamic_lookup` in `LDFLAGS` makes **every** link test succeed, because any
 undefined symbol is deferred to runtime. Configure scripts then conclude the system has
-functions it does not have.
+functions it doesn't have.
 
 Mesa detecting `memfd_create` and Wine taking the ELF path in ntdll were both this. If a
 port has decided the system supports something surprising, check the link flags first.
@@ -48,13 +48,12 @@ the same time prevent the real libc implementation from being pulled in. The tel
 self-referential `bl` in the disassembly of the function.
 
 Related: an exported bootstrap `posix_memalign` that failed for alignments over 16
-silently poisoned libOSMesa and libc++abi. The result was a blank render with no
-error. Hidden visibility fixed it.
+silently poisoned libOSMesa and libc++abi. The result was a blank render with no error, and hidden visibility fixed it.
 
 ## Untracked Files Are Invisible to the Flake
 
-The build reads the tree through `git+file://`. A file you have not staged does not
-exist. Symptom: your change appears to do nothing at all.
+The build reads the tree through `git+file://`, so a file you haven't staged doesn't
+exist for it, and your change seems to do nothing at all.
 
 ### The `result` Gitignore Pattern
 
@@ -65,14 +64,14 @@ This is deliberate. `nix build` drops a `result` symlink in whatever directory y
 it from, and people run it from all over the tree, so `src/Kernel/xnu/result` and
 friends turn up routinely and none of them should ever be committed.
 
-The cost is that any real file or directory called `result` is invisible too. There is
+The cost is that any real file or directory called `result` is invisible too. There's
 already one in the tree, `src/Libraries/libSystem/libc/gen/FreeBSD/result`, which
-survives only because it was committed before the rule existed. Git does not ignore
-files it already tracks. Add a new one and it silently will not exist, which
+survives only because it was committed before the rule existed. Git doesn't ignore
+files it already tracks. Add a new one and it silently won't exist, which
 combines with the untracked-files problem above into a genuinely confusing afternoon.
 
 A better rule is wanted here and nobody has written one yet. Anchoring to the root
-misses the subdirectory builds that motivated the pattern, and gitignore cannot match
+misses the subdirectory builds that motivated the pattern, and gitignore can't match
 "symlink into the Nix store", which is the thing actually being excluded. Until then, if
 a file named `result` refuses to be added, this is why, and `git add -f` is the escape
 hatch.
@@ -91,25 +90,24 @@ that look like memory corruption.
 
 ## Do Not Guess at Include Guards
 
-When adding to a vendored header, read the guard. Do not assume the conventional name
-for it. Getting it wrong produces a header that is included twice or not at all.
+When you add to a vendored header, read its guard instead of assuming the usual name. Getting it wrong produces a header that's included twice or not at all.
 
 ## dlerror Can Lie
 
-Under the pthread variant of dyld there is no `pthread_key_create`, so `dlerror()`
+Under the pthread variant of dyld there's no `pthread_key_create`, so `dlerror()`
 always returns NULL. glib read that as "the lookup succeeded" and carried on with a NULL
 function pointer.
 
 ## Kernel-Specific Ones
 
-* Kexts have no STL and no libc++abi. C++ in a kext is a restricted dialect. See
-  `CODING_STYLE.md`.
+* Kexts have no STL and no libc++abi. C++ in a kext is a restricted dialect, as
+  `CODING_STYLE.md` explains.
 * `kc-tools` truncates a kext's Info.plist `<dict>` after an XML comment, so the kext
   loses `IOProviderClass` and never matches.
 
 ## Early Boot Logging Is Not What You Think
 
-A trace that never appears has not necessarily failed to run. In early userspace, which
+A trace that never appears hasn't necessarily failed to run. In early userspace, which
 means launchd and the first daemons, the logging helpers buffer, and nothing you emit
 that way reaches a console you can see. Write straight to the console file descriptor
 instead. In kernel code the equivalent question is `IOLog` against `kprintf`: they do

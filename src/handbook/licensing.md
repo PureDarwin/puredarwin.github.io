@@ -1,101 +1,96 @@
 # Licensing
 
-PureDarwin has no single licence. It is Apple's open source under the APSL, plus
-BSD-licensed code from FreeBSD, plus MIT-licensed work from Haiku and other projects,
-plus code written here. That is normal for a system of this shape. It means "what licence
-is PureDarwin" has no single answer, and anyone packaging or redistributing it needs the
-detail.
+PureDarwin doesn't have a single licence. It's Apple's open source, mostly under the
+Apple Public Source License, mixed with code from FreeBSD, Haiku, Cocotron, NeoDarwin,
+LLVM and other projects, plus the code we've written ourselves. That's normal for a
+system built this way, but it means there's no one answer to "what licence is PureDarwin
+under", and anyone who packages or shares it needs the detail.
 
-This page is an orientation. It is not legal advice. The authority is always the header
-on the file in front of you.
+This page is a guide and isn't legal advice. The licence of a file is the one stated in that
+file, in its SPDX line and copyright notice. `NOTICE` in the repository describes the whole tree, and nothing on this page changes the licence of any file.
+
+## PureDarwin's Own Code
+
+New code written for PureDarwin is, as a rule, under "MPL-2.0 OR BSD-2-Clause". You may
+use it under either licence. Code added inside a component that has its own licence
+takes that component's licence. The project's BSD-style licence text is
+`PUREDARWIN_LICENSE.txt` in the repository.
+
+This describes the project's practice, and the notice in each file still decides its
+licence.
 
 ## The Broad Shape
 
 | Area | Usually |
 | --- | --- |
-| `src/Kernel/xnu`, most kexts | APSL 2.0, Apple's own sources |
+| `src/Kernel/xnu`, Apple's kexts | APSL 2.0, Apple's sources |
 | `src/Libraries/libSystem`, `objc4` | APSL 2.0 |
-| `src/Libraries/libcxx`, `libcxxabi`, `libunwind` | Apache 2.0 with LLVM exception |
-| `src/Libraries/mDNSResponder` | Apache 2.0 |
-| `src/Userspace` BSD commands | BSD, from the FreeBSD and NetBSD trees |
-| `src/Frameworks/Foundation` | Contains MPL 2.0 code, treated as MPL by convention. See below |
-| `src/Frameworks/CoreGraphics`, `Onyx2D` | MIT, descended from Cocotron |
-| `src/Kernel/Extensions/ext4`, `src/Libraries/libDER` | PD 1.0, written for this project |
-| `src/Kernel/fbsdkpi` and the `PDFBSD*` drivers | BSD from FreeBSD, MIT from Haiku |
-| Other project-written code | Varies per component. Check the header |
+| `src/Libraries/libcxx`, `libcxxabi`, `libunwind`, `llvm-libc` | Apache 2.0 with the LLVM exception |
+| `src/Libraries/mDNSResponder` | Mostly Apache 2.0 |
+| `src/Frameworks/CoreFoundation` | Apache 2.0, from Apple's Swift releases |
+| `src/Frameworks/Foundation` | MPL 2.0 |
+| `src/Frameworks/AppKit`, `CoreGraphics`, `Onyx2D`, `CoreData` | MIT, from Cocotron, with PureDarwin's additions under PureDarwin's licence |
+| `src/Userspace` BSD commands | BSD licences, from FreeBSD and NetBSD |
+| `src/Kernel/fbsdkpi` and the FreeBSD drivers | BSD from FreeBSD, MIT from Haiku |
+| `external/corecrypto` | MPL 2.0 |
+| ext4, libDER and other PureDarwin code | MPL-2.0 OR BSD-2-Clause |
 
-Foundation is worth a note. It contains MPL 2.0 code, and the project treats the whole
-component as MPL. That is a working convention. Handling it uniformly keeps merging
-simple, and contributors are encouraged to do the same. The licence itself does not
-require it.
+## XPC as an Example
 
-## XPC in Detail
+`src/Libraries/XPC` shows why one answer doesn't work, because it's one directory with
+parts under different licences:
 
-`src/Libraries/XPC` is the clearest example of why a single answer does not work. It is
-one directory holding components under different terms:
-
-| Component | Licence |
+| Part | Licence |
 | --- | --- |
-| `libinfo` | APSL 2.0 |
-| `libnv` | BSD-2-Clause, from the FreeBSD Foundation |
-| `libxpc` | BSD-2-Clause |
-| `launchd` | APSL 2.0 |
-| `launchctl` | APSL 2.0 |
-| `logd` | PD-1.0, a BSD-2-Clause derivative |
+| `libinfo`, `notify` | APSL 2.0, from Apple |
+| `launchd`, `launchctl` | APSL 2.0 |
+| `libnv` | BSD-2-Clause, from FreeBSD |
+| `libxpc` | BSD-2-Clause, from NextBSD |
 
-There is no aggregate licence for the directory. Collecting differently licensed
-components in one place does not give them shared terms, so each of the above keeps its
-own, and the SPDX header on the file in front of you is what governs it.
+Putting code with different licences in one directory doesn't give it a shared
+licence. Each part keeps its own.
 
-PD 1.0 is the project's own licence, a BSD-2-Clause derivative. The text is in
-`PUREDARWIN_LICENSE.txt` at the root of the repository.
+## GPL Code
 
-## corecrypto
+Some kernel files are offered by their authors under a choice of licences, such as
+"GPL-2.0 OR BSD-3-Clause". We use them under the permissive choice.
 
-The `corecrypto` kext, libSystem and the host linker build against
-[Vali0004/corecrypto](https://github.com/Vali0004/corecrypto), an interim MPL-2.0 fork of
-NeoDarwin's corecrypto. It sits in the tree as the `external/corecrypto` submodule. It is
-experimental and has not been reviewed for security.
+The Linux GPU drivers in drm-kmod are GPL only. The build fetches them and builds them
+as optional kernel extensions, which keeps GPL code out of PureDarwin's sources. Anyone
+who distributes those extensions, or an image that includes them, has to decide for
+themselves whether that's compatible with the GPL and the other licences.
 
-The older GPLv3 corecrypto, which came from Darling, is still in
-`src/Libraries/libSystem/corecrypto`. Only Security.framework compiles it, because the
-fork does not have RSA key generation, EC or DH yet. If you redistribute PureDarwin, that
-copy inside Security.framework is the GPL code to know about.
+The same idea applies elsewhere. fbDOOM is GPL, so it's kept outside the tree and built
+only when asked for. Keeping it optional means the default build has one less licence to
+think about.
 
 ## Published Is Not the Same as Licensed
 
-Some source Apple has published carries no usable licence grant. The pattern is a
-repository where only some files have a per-file licence header and there is no
-repository-wide `LICENSE`, which leaves everything unheaded with nothing attached to it.
+Some source Apple has published carries no usable licence. The pattern is a repository
+where only some files have a licence header and there's no licence for the repository
+as a whole. The files without a header then have no licence at all.
 
-CommonCrypto is one example. The tree uses Apple's published CommonCrypto, and nearly all
-of it carries the APSL. Six files had no grant: the CommonKeyDerivationSPI, CommonRandomSPI
-and CommonCollabKeyGen sources and CommonBuffering.c. The project rewrote those from their
-public interfaces.
+CommonCrypto is one example. Nearly all of Apple's published CommonCrypto carries the
+APSL, but a few files had no licence. We rewrote those from their public interfaces. Apple's libDER had the same gap, so we wrote our own libDER.
 
-Apple's libDER arrived with the same gap. That one had a better ending. The project
-wrote its own libDER, and it is PD 1.0 as a result.
-
-Check licensing file by file before building a port around an Apple component. Finding
+Check licences file by file before you build a port around an Apple component. Finding
 out late is expensive, because by then somebody has read the code.
 
-## Code Kept Outside the Tree
+## Credit
 
-The project avoids folding another independently licensed substantial component into the
-default distribution when keeping it external works just as well.
+Licences decide what you must do. Credit is a separate question, and we hold
+ourselves to the same rule we ask of anyone who builds on our work:
 
-fbDOOM is the working example. It is GPL, so it lives in an external checkout, pointed at
-by `PUREDARWIN_FBDOOM_SOURCE_ENV` and built with `--impure`. This is no objection to the
-GPL. A GPL component in the tree brings obligations for everyone who packages or
-redistributes PureDarwin. Keeping it opt-in means the default build has one less licence
-to reason about, and people who want fbDOOM can still have it.
+* Keep every copyright notice, licence notice and SPDX line in the files you take.
+* Say plainly, wherever you describe your work, what you took from other projects and
+  what you wrote yourself.
+* Don't describe someone else's work as your own, in code or in announcements.
 
-If you need to add something that must stay external, copy the fbDOOM shape. The
-principle applies beyond the GPL. ZFS, under the CDDL, is the other obvious candidate.
+The [Credits](credits.md) page is how we do this for our own sources. The rule
+for forks is in [Contributing](contributing.md#forks-and-credit).
 
-## Contributing
+## Contributing Code
 
-What the project can accept, and the clean-room rules for writing drivers from
-datasheets, are in [Contributing](contributing.md#provenance) and in `CONTRIBUTING.md`.
-The short version is that every contribution has to be yours to give under a compatible
-licence, and code whose licensing is unknown cannot be accepted or even looked at.
+What the project can accept, and the rules for writing drivers from datasheets, are in
+[Contributing](contributing.md#provenance) and in `CONTRIBUTING.md`. Every contribution has to be yours to give under a compatible licence, and code whose licence is
+unknown can't be accepted or even looked at.

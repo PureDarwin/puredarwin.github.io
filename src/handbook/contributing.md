@@ -1,123 +1,127 @@
 # Contributing
 
-Contributions are welcome. The project is on
-[GitHub](https://github.com/PureDarwin/PureDarwin) and there is a
-[Discord](https://discord.gg/9kz8XXRRcT) where most discussion happens.
+Contributions are welcome. The code is on
+[GitHub](https://github.com/PureDarwin/PureDarwin), and most discussion happens on
+[Discord](https://discord.gg/9kz8XXRRcT).
 
-`CONTRIBUTING.md` in the repository is the authoritative policy, and it explains the
-reasoning behind everything here. This page is the summary, plus the practical detail
-that is specific to working in the tree.
-
-Three categories of change are closed without review:
-[kernel and system-library changes from first-time contributors](#what-new-contributors-may-work-on),
-[code whose licensing is unknown or unassured](#provenance), and
-[changes the submitter cannot explain in review](#ai-assisted-contributions).
+`CONTRIBUTING.md` in the repository is the full policy, with the reasons behind each
+rule. This page is a summary, plus practical detail about working in the tree.
 
 ## Branches
 
-**`main` is frozen. Development happens on `upstream-xnu-12377`.**
+Work happens on `main`, so open pull requests against `main`. Releases are built from
+`main`, and each release image is named after the commit it was built from, so there's
+no separate release branch.
 
-Open pull requests against `upstream-xnu-12377`. `main` holds an older state of the tree and
-does not take new work. The branch is named after the XNU release the system is built
-on. Cleanup and stabilisation for the next release also land on `upstream-xnu-12377`.
-
-## What New Contributors May Work On
+## Where New Contributors Start
 
 If this is your first contribution, work on Nix packages: porting software, fixing a
-build, adding an arm64 variant, getting something onto an image. See
-[Adding a package](porting/adding-a-package.md).
+build, adding an arm64 build, or getting something onto an image. See
+[Adding a Package](porting/adding-a-package.md). This is where new contributors help
+most right away, and where a mistake is cheap and easy to review.
 
-**First-time contributors may not modify existing kernel or system-library
-implementations, and such changes are closed without review.** This is about blast
-radius. These components all depend on each other, and a one-line change in libSystem
-can take out the whole system, producing eight bugs in eight places that look unrelated
-to what you touched, often only visible on real hardware and weeks later. Reviewing that
-properly costs more than writing it.
+**If you're new to the tree, talk to us before you change the kernel or the core
+system libraries.** Open an issue or ask on Discord first, and describe what you want to
+change and why. A pull request in these areas that arrives without that conversation may
+be closed and pointed to one, instead of being reviewed.
 
-The exemption is additive libSystem integration work. Adding an existing library or
-component to the libSystem build, its exports, or the integration machinery around it is
-fine, as long as the change does not alter the underlying library's behaviour. Missing
-exports are one of the project's most common recurring bugs, so this work is genuinely
-wanted. Changing what a component does is an implementation change, and the restriction
-applies.
+These parts all depend on each other. A one-line
+change in libSystem can cause bugs in many places that look unrelated to what you
+touched, often only on real hardware and weeks later. Reviewing such a change properly
+costs more than writing it.
 
-The restriction lifts on maintainer judgement. No count of
-merged pull requests earns access to the kernel, and one merged package is no
-qualification for XNU surgery. It lifts when you have been around long enough for the
-maintainers to know how you work, and it lifts one area at a time.
+Adding to the libSystem build is the exception. Adding an existing library to the
+build, or exporting a function that's already written, doesn't need a conversation
+first, as long as it doesn't change what the library does. Missing exports are one of
+the most common bugs, so this work is wanted.
 
-If you think you are ready, or you have a change in a restricted area you believe is
-worth making, raise it in an issue or in Discord first. Asking is not an approval
-ceremony: restricted areas have high review costs and often contain constraints that are
-not obvious from the code, so a short conversation establishes whether the approach is
-viable before either of you spends real time on it.
+The need to ask first goes away as the maintainers get to know how you work, one area
+at a time. There's no count of merged pull requests that earns it.
 
 ## Provenance
 
-Every contribution has to be yours to give, under a compatible licence.
+Every contribution has to be yours to give, under a licence compatible with the project.
 
-**Code of unknown or unassured licensing cannot be accepted and cannot be looked at.**
-Do not paste it into an issue, a pull request or a chat channel: once a maintainer has
-seen it, whether the project's own implementation was influenced by it becomes a real
-question, and nothing later fixes that. Leaked Apple source, decompiled Apple binaries,
-or code derived from proprietary Apple implementation material falls squarely in this
-category. Do not provide it to project maintainers.
+**Code whose licence is unknown or unclear can't be accepted, and can't be looked
+at.** Don't paste it into an issue, a pull request or a chat. Once a maintainer has
+seen it, whether the project's own code was influenced by it becomes a real question,
+and nothing fixes that later. Leaked Apple source, decompiled Apple programs and code
+derived from Apple's closed implementations all fall into this group.
 
-Clean-room work is permitted, and much of the project depends on it: drivers written
-from a manufacturer's datasheet, code written against a published standard, and work
-based on observing real hardware.
+When you bring in code from another project, say where it came from and include its
+licence.
 
-The line is implementation material versus interface knowledge. Learning what a register
-does, what a protocol looks like on the wire, or what a structure layout must be to
-interoperate is interface knowledge, and you may write from it. Reading a proprietary
-implementation and writing code from what you saw is derivation.
+Clean-room work is allowed, and much of the project depends on it. That means drivers
+written from a manufacturer's datasheet, code written against a published standard, and
+work based on watching how real hardware behaves. The line is between interface
+knowledge and implementation. Knowing what a register does, or what a protocol looks
+like on the wire, is interface knowledge, and you may write from it. Reading someone's
+closed implementation and writing code from what you saw is copying.
 
-In practice: work from sources you can name, and cite them in the commit message or a
-comment, the way the LAN78xx driver names its datasheet. Do not go looking at
-proprietary implementations to check your work. If you cannot tell which side of the
-line you are on, say so in the pull request description, naming your sources and the
-parts you are unsure about.
+Name your sources in the commit message or a comment, the way the LAN78xx driver names
+its datasheet. If you're unsure which side of the line you're on, say so in the pull
+request.
 
-## AI-Assisted Contributions
+## Forks and Credit
 
-Assisted and model-generated code is allowed. The test is the one applied to every
-contribution:
+PureDarwin is open source, and forks are welcome. The same credit rule applies to
+everyone who builds on someone else's work, PureDarwin included:
 
-**Can you stand behind this as your own work, licensed appropriately, and have you
-reviewed it yourself?**
+* **Keep the notices.** Keep every copyright notice, licence notice and SPDX line in the
+  files you take, even where a licence would let you drop them.
+* **Say what you inherited.** Wherever you describe your system, in READMEs, release
+  notes, announcements and posts, say what it's based on. Say which of the features you
+  show come from the projects you started from, and which are new in your work.
+* **Name your starting point.** Name the project and the revision you started from.
+* **Renaming doesn't change authorship.** Code with new names, bundle identifiers or
+  paths is still the work of the people who wrote it.
+* **Send fixes back** where you can.
 
-For purposes of review there is no distinction between code you wrote unaided and code
-produced with a model. You must understand it, defend it, and take responsibility for
-what you submit, which means having read the output line by line and being confident it
-is not reproducing licensed code from elsewhere.
+The licences decide what you're legally required to do, and these points are what the
+project asks on top of that. We follow them ourselves for the projects we build on, and
+the [Credits](credits.md) page records what came from where. If you find
+something there that's wrong or missing, tell us and we will fix it.
 
-One requirement is worth stating on its own, because it is the most common failure. For
-non-trivial changes to existing code, inspect the history of the code you are changing
-and understand why the current implementation exists. This applies both to you and to
-any model assisting you. A lot of this tree looks wrong until you know why it is that
-way, and most of the odd-looking code is a fix for a specific bug with a commit message
-that says so. Read `git log` and `git blame` on what you are touching. A confident, tidy
-change that quietly reverts one of those fixes is the classic assisted contribution.
+`NOTICE` in the repository has the full text of this request, and the summary of what the
+licences require.
 
-How it is enforced: you will be asked questions about your patch, and if you cannot
-answer them the pull request is closed as-is. Not trick questions, but the kind of thing
-anyone who understands the change should be able to answer without preparation, and the
-kind someone merely submitting generated or copied code usually cannot.
+## Work Done With AI Tools
 
-None of this is aimed at people who use models. It is the standard for everyone: a
-person who hand-writes a patch they do not really understand, or copies one from a forum
-post and files it, is in exactly the same position and gets the same answer.
+Code written with the help of a model is allowed. The test is the same one applied to
+every contribution: **can you stand behind it as your own work, under the right
+licence, and have you reviewed it yourself?**
+
+You must understand the change, be able to explain it, and take responsibility for it.
+For changes to existing code, read the history of what you're changing first. Much of
+this tree looks wrong until you know why it's that way, and the commit that made it so
+usually says. A tidy change that quietly undoes one of those fixes is the most common
+failure.
+
+Pull request descriptions, issues and review replies must be written by you, in your own
+words. Translation tools are fine. `CONTRIBUTING.md` has the rules for pull requests
+opened by automated tools.
+
+You'll be asked questions about your patch, and if you can't answer them, the pull
+request is closed. That applies the same way to someone who copied a patch from a forum
+without understanding it.
 
 ## Style
 
-`CODING_STYLE.md` covers formatting. Points that catch people out:
+`CODING_STYLE.md` covers formatting. Some points that catch people out:
 
-* CMake only, and no Xcode projects in the main branch. This means no second build
-  system in the tree. A hand-rolled CMake build is still unsupported. See
+* CMake is the only build system in the tree, with no Xcode projects. Building the tree
+  by running CMake by hand is still not supported. See
   [The CMake Tree](building/cmake.md).
-* Kernel C++ is a restricted dialect. No STL, no libc++abi. Use `OSSharedPtr`, but keep
-  it out of declarations, because it is not ABI-stable.
-* Keep cleanup separate from functional change.
+* C++ in the kernel is limited, with no standard library and no libc++abi.
+* Keep cleanup separate from functional changes.
+
+## Pull Requests
+
+* One logical change per pull request.
+* Commit messages are a subject line, with only trailers such as `Signed-off-by:` below
+  it. Put anything longer in the pull request description.
+* Say what you tested, on which target, and how. For hardware changes, say which
+  machine.
 
 ## Testing Your Change
 
@@ -126,21 +130,20 @@ nix build .#image-minimal
 nix run .#vm
 ```
 
-**Build and boot x86_64 after touching anything shared between architectures.** The
-kernel and most kexts are shared, and ARM work leaking arm-only code into shared files
-is the most common way the primary target breaks.
+**If you touched anything shared between architectures, build and boot x86_64.** Most
+of the kernel and kext code is shared, and ARM work leaking into shared files is the
+most common way the main target breaks.
 
-Testing under both KVM (`nix run .#kvm`) and plain QEMU with TCG (`nix run .#vm`) is
-recommended but not required. They exercise different paths, and the lead maintainer
-does not test TCG routinely, so a TCG regression can sit unnoticed for a while. If your
-change is somewhere that difference plausibly matters, running both genuinely helps.
+Testing under both KVM (`nix run .#kvm`) and plain QEMU (`nix run .#vm`) is useful but
+not required. They take different paths through the kernel, and the plain QEMU path is
+tested less often.
 
-Remember that untracked files are invisible to the flake. Stage your work before you
-build, or you will test the old tree.
+Files you haven't added to git are invisible to the build, so add your work before you
+build, or you'll test the old tree.
 
 ## Reporting a Bug
 
-Include the target and how you were running it, the image, the boot-args, and the
-console output as text where possible. For hardware, add the machine model and firmware
-settings. A boot that stops with no output is very hard to act on.
-[Debugging](debugging.md) covers getting a console up first.
+Write the report yourself. Include the target, the image, whether it ran in QEMU or on
+real hardware, the boot arguments, and the console output as text where you can. For
+hardware, add the machine model and firmware settings. A boot that stops with no output
+is very hard to act on, so [Debugging](debugging.md) explains how to get a console first.

@@ -1,19 +1,18 @@
 # arm64 QEMU virt
 
-The arm64 development target. Boots to a shell.
+This is our arm64 development target, and it boots to a shell.
 
 ## Building
 
 ```
-nix build .#kernel-arm64-virt      # or -debug
-nix build .#kexts-arm64
-nix build .#kc-arm64
+nix build .#kernel.arm64.virt.release      # or .debug
+nix build .#kernel.kexts-arm64
+nix build .#kc.arm64.virt.release
 nix build .#image-arm64-virt-minimal
 nix run .#arm64-virt
 ```
 
-`userland-arm64` and the ports with an `-arm64` suffix supply the guest software.
-`image-arm64-virt-wayland` adds a Wayland session.
+`.#pd.arm64` holds the arm64 userland and ported software, and `image-arm64-virt-wayland` adds a Wayland session.
 
 ## State
 
@@ -24,7 +23,7 @@ and xHCI input working. FreeBSD's e1000 driver runs here too and gets a DHCP lea
 
 **Use `-cpu neoverse-n2` or `cortex-a710`.** With `-cpu max`, the EDK2 firmware crashes
 before printing anything. That looks like a silent serial port and a loader problem, and
-it is neither.
+it's neither.
 
 **Use `-M virt,gic-version=3`.** The platform expects a GICv3.
 
@@ -40,9 +39,9 @@ FIQ. Routed any other way, the system stalls before reaching a shell.
 
 ## Root Filesystem Options
 
-Two shapes are available. `image-arm64-virt` is a normal disk image.
-`image-arm64-virt-minimal` uses a 512 MB RAM disk with `rd=md0`. It is faster to iterate
-on, and it is the shape shared with the netboot and T8010 paths.
+There are two shapes. `image-arm64-virt` is a normal disk image, and
+`image-arm64-virt-minimal` uses a 512 MB RAM disk with `rd=md0`. It's faster to iterate
+on, and it's the shape shared with the netboot and T8010 paths.
 
 ## Other Things Proven Here
 

@@ -1,20 +1,21 @@
 # Kernel Collections
 
-Modern Darwin does not load kexts from disk at boot. The kernel and its boot-time kexts
+Modern Darwin doesn't load kexts from disk at boot. The kernel and its boot-time kexts
 are linked ahead of time into a single Mach-O of type `MH_FILESET`, the kernel
 collection, and the loader loads that. PureDarwin does the same, using `kc-builder` from
 the `kc-tools` repository.
 
-Build one with `nix build .#kc`, or `.#kc-arm64`, `.#kc-arm64-t8010` and
-`.#kc-arm64-bcm2837`. The 32-bit ARM target uses the older prelinked-kernel format
-through `prelink-builder`, as `.#prelinked-arm32-bcm2835`.
+Build one with `nix build .#kc.default`, or `.#kc.gpu`, `.#kc.nvidia` and
+`.#kc.arm64.<board>.release` for the arm64 boards. The 32-bit ARM target uses the older
+prelinked-kernel format through `prelink-builder`, as
+`.#kernel.prelinked-arm32-bcm2835`.
 
 ## The Kext List
 
 `nix/lib/kexts.nix` lists every kext the build produces. Each entry says which
 architectures build it and which architectures' boot kernel collections include it. The
 x86_64 entries that go into the boot collection come first, in link order. The image
-build and the guest's own `pd-rebuild-kc` both read this list, so they cannot drift
+build and the guest's own `pd-rebuild-kc` both read this list, so they can't drift
 apart. Read that file for the current list.
 
 Each kext also builds as its own Nix derivation, so changing one kext rebuilds only that
@@ -28,7 +29,7 @@ close to that limit. So the desktop images split their kexts in two:
 * **The boot collection** holds what the system needs to reach root: the platform, PCI,
   storage, filesystems, USB, input and the firmware framebuffer.
 * **The auxiliary collection** holds the large drivers that can wait: the DRM GPU
-  drivers and the USB Wi-Fi drivers. It is installed as
+  drivers and the USB Wi-Fi drivers. It's installed as
   `/Library/KernelCollections/AuxiliaryKernelExtensions.kc` and loaded once root is
   mounted.
 
@@ -50,7 +51,7 @@ board only needs what it has.
 | armv6 bcm2835 | `prelinked-arm32-bcm2835.nix` | As bcm2837, without graphics |
 
 Every builder also appends each `System.kext/PlugIns/*.kext` from the kernel output as a
-codeless entry. That is how the pseudo-kexts that declare kernel symbol sets get into the
+codeless entry. That's how the pseudo-kexts that declare kernel symbol sets get into the
 collection.
 
 ## Ordering and Other Traps

@@ -5,27 +5,26 @@ project's harder problems have been found.
 
 ## Writing an Image
 
-Build an image, copy it out of the Nix store and write it to a disk. Check the device name
-twice. `dd` to the wrong device destroys the host.
+Build an image, copy it out of the Nix store and write it to a disk. Check the device name twice, because `dd` to the wrong device wipes it.
 
 ```
-nix build .#image-gpu
+nix build .#image-wayland
 cp result/*.img /tmp/pd.img
 sudo dd if=/tmp/pd.img of=/dev/sdX bs=4M status=progress conv=fsync
 sync
 ```
 
-Wait for `sync` to return before you unplug the drive. A stick pulled early can still
+Wait for `sync` to return before you unplug the drive, because a stick pulled early can still
 hold parts of the previous image. To check what you wrote, mount the first partition and
 compare the sha256 of `EFI/BOOT/kernel` with the one in the image.
 
-`image-gpu` is the desktop image with every GPU driver. `image-minimal` is the small
+`image-wayland` is the desktop image with the GPU drivers, and `image-minimal` is the small
 image for boot testing. See [Image Flavours](flavours.md).
 
 ## What Is Known to Work
 
-This is a record of what has been tried. It makes no compatibility promise. A machine
-missing from these tables has usually not been tested.
+This is a record of what we've tried, not a compatibility promise, and a machine missing
+from these tables usually hasn't been tested.
 
 ### Virtualisation
 
@@ -35,7 +34,7 @@ missing from these tables has usually not been tested.
 | QEMU TCG | Works on some CPU models and fails on others. IvyBridge is confirmed |
 | QEMU named CPU models | Work. Use `host` passthrough when you can, because some named models omit CPUID details the kernel reads |
 
-That TCG caveat is why `nix run .#vm` passes `-cpu IvyBridge`. It is a known good model.
+That TCG caveat is why `nix run .#vm` passes `-cpu IvyBridge`, a model we know works.
 If you change it and the guest stops booting, suspect the CPU model before your change.
 
 ### Drivers
@@ -76,28 +75,27 @@ If you change it and the guest stops booting, suspect the CPU model before your 
 
 ## Firmware Settings
 
-* UEFI boot. The `-legacy` images also boot on BIOS machines.
-* Secure Boot either off, or on with an `-sb` image. See [Secure Boot](secure-boot.md)
+* UEFI boot. The full `image` also boots on BIOS machines.
+* Secure Boot either off, or on with `image-sb`. See [Secure Boot](secure-boot.md)
   for the one-time setup.
-* AHCI for SATA. RAID and Intel RST modes are not supported.
+* AHCI for SATA. RAID and Intel RST modes aren't supported.
 
 ## Known Machine-Specific Issues
 
 **AMD Ryzen PFM64 window.** Boot-time PCI reallocation used to shrink the window that
-holds the EFI framebuffer, and the display disappeared. Old notes may mention
-`pci=0x4000000` as a workaround. It is fixed now, and the boot argument is no longer
-needed.
+holds the EFI framebuffer, and the display disappeared. Old notes may mention `pci=0x4000000` as a workaround, but it's fixed now and the boot
+argument isn't needed.
 
 **Devices behind a closed PCI bridge window.** If firmware leaves a bridge window closed,
 a device behind it reads back all `0xff` over MMIO. This is what made an RTL8168 look
 like a dead card.
 
-**PS/2 controllers that are not there.** On laptops with no 8042 controller, an early
+**PS/2 controllers that aren't there.** On laptops with no 8042 controller, an early
 version of the PS/2 driver spun forever and held up IOKit for six minutes. This is fixed.
-If a machine with no 8042 hangs partway through IOKit, that is the shape of the bug.
+If a machine with no 8042 hangs partway through IOKit, that's the shape of the bug.
 
 **SATA disks stuck with TFD 0x80.** FRE has to stay enabled across COMRESET, or the first
-D2H FIS is dropped. QEMU tolerates it, real controllers do not.
+D2H FIS is dropped. QEMU tolerates it, real controllers don't.
 
 ## What a Healthy Boot Looks Like
 
@@ -137,12 +135,12 @@ After a hang or a power cut, the kernel log of the last boot is on the root part
 
 ## Getting Output
 
-Serial is the best console when you have it. `serial=` is a bitmask: 1 read, 2 write, 3
-both. Use `serial=3` unless you have a reason not to. Verbose logging over a slow serial
+Serial is the best console when you have it. `serial=` is a bitmask (1 read, 2 write,
+3 both), and `serial=3` is right unless you have a reason not to. Verbose logging over a slow serial
 line can push back hard enough to look exactly like a hang.
 
 For machines with no serial port, the kernel can paint progress bars on the framebuffer.
-On a laptop or a modern desktop board that is often the only signal, and it is enough to
+On a laptop or a modern desktop board that's often the only signal, and it's enough to
 tell how far boot got.
 
 The kernel log is also saved to `/var/log/dmesg-boot.0.txt` and `dmesg-boot.1.txt`

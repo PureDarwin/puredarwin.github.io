@@ -5,21 +5,19 @@ What happens between power-on and the desktop.
 ## 1. Firmware to Loader
 
 UEFI firmware (OVMF on x86_64, AAVMF on arm64) finds `\EFI\BOOT\BOOTX64.EFI` on the EFI
-system partition. That is `xnu-loader`, PureDarwin's bootloader. Apple's `boot.efi` is
-not open source, so this is project code.
+system partition. That's `xnu-loader`, our own bootloader, which we wrote because Apple's `boot.efi`
+isn't open source.
 
 Other paths lead to the same loader:
 
 * Machines with 32-bit UEFI firmware load `\EFI\BOOT\BOOTIA32.EFI`, the 32-bit build of
-  the loader, which the GPU images also carry.
+  the loader, which the full image also carries.
 * Secure Boot images put a Microsoft-signed shim at `BOOTX64.EFI`. The shim checks the
   loader's signature against the PureDarwin certificate you enrolled, then starts it.
-* The `-legacy` images carry a BIOS boot stack in the MBR for machines without UEFI.
+* The full `image` carries a BIOS boot stack in the MBR for machines without UEFI.
 * The loader also boots as a Multiboot2 kernel from GRUB, or through QEMU's `-kernel`.
 * The arm64 boards start the loader as a Linux kernel image from their own bootloader.
-  The Raspberry Pi boots through its firmware chain. The iPad (T8010) is reached through
-  checkm8 and a modified PongoOS, which chainloads the kernel with its `pdload` and
-  `pdboot` module.
+  The Raspberry Pi boots through its firmware chain.
 
 ## 2. Loader Work
 
@@ -32,7 +30,7 @@ The loader:
 * fills in the boot arguments structure, including the framebuffer the firmware handed
   it, and jumps to the kernel.
 
-The loader reads `boot-args.txt` by its long file name. If you edit the file with
+The loader reads `boot-args.txt` by its long file name, so if you edit the file with
 `mtools`, write it under the long name. A copy written under the short name
 `BOOT-A~1.TXT` loses the long name, and the loader quietly falls back to its built-in
 defaults.
@@ -47,7 +45,7 @@ arm64 the loader fills a 64-bit Video structure, and the kernel wants `v_display
 The kernel starts, brings up the platform expert for the machine and starts the kexts
 linked into the kernel collection. `AppleFileSystemDriver` matches the volume whose UUID
 equals `boot-uuid` and publishes `boot-uuid-media`. The filesystem driver (`ext4.kext`
-on most images, `hfs.kext` on `image-hfs`, `apfs.kext` on `image-apfs-minimal`) mounts it
+on most images, `hfs.kext` on `image-hfs`, `apfs.kext` on `image-apfs`) mounts it
 as root.
 
 If the root is a RAM disk, `rd=md0` in the boot arguments points the kernel at the md
@@ -58,9 +56,8 @@ loaded. See [Kernel Collections](kernel-collections.md).
 
 ## 4. launchd
 
-The kernel runs launchd as PID 1. PureDarwin's launchd and XPC live in
-`src/Libraries/XPC`. Apple's last open source launchd was the one from Mac OS X 10.9,
-far behind the Darwin version PureDarwin targets, so this is the project's own
+The kernel runs launchd as PID 1. Our launchd and XPC live in `src/Libraries/XPC`. Apple's last open source launchd was the one from Mac OS X 10.9,
+far behind the Darwin version PureDarwin targets, so this is our own
 implementation.
 
 launchd starts the jobs in `/System/Library/LaunchDaemons`. On a standard image these
@@ -94,7 +91,7 @@ loader cache location.
 
 ## The Generated /etc
 
-`image.nix` writes all of this. None of it is stored in the repository as files:
+`image.nix` writes all of this, and none of it is stored in the repository as files:
 
 * `passwd` and `master.passwd`. Both are needed. Darwin's libinfo reads `master.passwd`
   when euid is 0 and does **not** fall back to `passwd`. Without it every `getpwnam` for

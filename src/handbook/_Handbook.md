@@ -2,98 +2,80 @@
 
 ![The PureDarwin logo](/img/handbook/pd-logo-bg000.jpg)
 
-This is the developer documentation for PureDarwin as it exists today. It is written for
-people who want to build it, boot it and work on it.
+This handbook is for people who want to build PureDarwin, boot it and work on it. It
+describes the system as it's today.
 
 ## What PureDarwin Is
 
-Darwin is the open source operating system Apple releases as the foundation of macOS. It
-has never been a complete, bootable system on its own. Apple publishes the kernel and a
-large amount of userland. The pieces that turn that into something you can boot have
-always been missing, and more of them go missing with each release.
+Darwin is the open source core of Apple's operating systems. Apple used to release bootable Darwin, but it stopped in the mid 2000s (see
+[Darwin's History](history.md)). Today it publishes its kernel, XNU, and a big part of
+its Unix userland as source code only, and that isn't enough to boot a computer. There's no bootloader, there are few
+drivers for ordinary PC hardware, and none of the graphical frameworks are there. Each
+release leaves out a little more.
 
-PureDarwin fills those gaps. Where Apple ships source, we build it. Where Apple ships
-nothing, or stopped shipping years ago, we write our own: the bootloader, the ext4
-filesystem driver, most of the drivers, a launchd and XPC current enough for the Darwin
-version we target, and a long list of frameworks that otherwise exist only as headers.
-On top of that sits a set of ported software (Wayland, Mesa, GTK, Wine, a compiler
-toolchain and more), so the result is a system you can use day to day.
+PureDarwin turns those releases into a system you can boot. We combine Apple's
+releases with other open source projects, extend both where they fall short, and write
+our own code where nothing suitable exists. The [Credits](credits.md) page says which is
+which.
 
-The kernel is XNU 12377, and the system identifies itself as version 26.5, build 25F74.
-On x86_64 it boots to Argon, the PureDarwin desktop, with GPU drivers for AMD, Intel and
-NVIDIA cards. It also boots on several arm64 machines, from QEMU to single board
-computers such as the Jetson TX1 and the Orange Pi Zero 3 and Zero 4.
+The result today:
 
-The project is a community effort, often described as the informal successor to
-OpenDarwin. There is no formal relationship, but PureDarwin would not exist without the
-work that project left behind.
+* PureDarwin's kernel, based on Apple's current XNU release. The system reports itself as
+  Darwin 26.5, so programs built for that version find what they expect.
+* On x86_64 PCs, a desktop called Argon, with drivers for AMD, Intel and NVIDIA
+  graphics cards.
+* On arm64, a shell in QEMU and a desktop on the NVIDIA Jetson TX1, with more boards in
+  bring-up.
+* A set of ported software, such as Wayland, Mesa, GTK, Wine and a compiler toolchain.
+
+PureDarwin is a community project, often called the informal successor to OpenDarwin. There's no formal link, but PureDarwin would not exist without the work
+OpenDarwin left behind.
 
 ## Goals
 
-The goal has not changed since the project started. Make Darwin usable on its own, so
-anyone can retrieve, understand, modify, build and distribute it, and document the parts
-Apple does not. Why spend time on this? For learning, and for fun.
+Our goal hasn't changed since the project began. Make Darwin usable on its own, so
+anyone can get it, understand it, change it, build it and share it. Document the parts Apple doesn't. We do it to learn, and because it's fun.
 
-## What the "Pure" Means
+## What "Pure" Means
 
-[Pure as in beer](https://en.wikipedia.org/wiki/Reinheitsgebot). PureDarwin builds from
-components Apple has released for use with Darwin, together with other open source
-software. Nothing is lifted from macOS. The upstream code is not left untouched. We
-modify and extend it wherever the licenses allow, and most of this handbook describes
-those changes.
+[Pure as in beer](https://en.wikipedia.org/wiki/Reinheitsgebot). PureDarwin is built
+from components Apple has released as open source and from other open source software.
+Nothing is taken from Apple's closed products. PureDarwin changes and extends the open
+source code where the licences allow, and much of this handbook describes those changes.
 
 ## Hexley
 
-The platypus you will see around the site is [Hexley](../archive/about/Hexley.md),
-Darwin's unofficial mascot, created by Jon Hooper in 2000. He has been the face of
-Darwin projects far longer than PureDarwin has existed, and he is staying.
+The platypus you see around the site is [Hexley](../archive/about/Hexley.md), Darwin's
+unofficial mascot. Jon Hooper drew him in 2000. He was the face of Darwin projects long
+before PureDarwin existed, and he is staying.
 
 ## Getting the Code
 
-Everything lives in the
-[PureDarwin repository](https://github.com/PureDarwin/PureDarwin) on GitHub. Development
-happens on the `upstream-xnu-12377` branch. `main` is frozen. See
-[Contributing](contributing.md) for the branch model.
+Everything is in the [PureDarwin repository](https://github.com/PureDarwin/PureDarwin)
+on GitHub. Work happens on the `main` branch.
 
 ## Where to Start
 
-* [Getting Started](getting-started.md) takes you from a Linux machine to a booting VM.
-* [Building](building.md) explains the flake, the CMake layer under it and the host
-  toolchains.
-* [Source Tree](source-tree.md) is the map of what lives where.
-* [Images and Boot](images.md) covers how a disk image is assembled and what happens
-  between firmware and the desktop.
-* [Targets](targets.md) lists every machine PureDarwin builds for and how far each gets.
-* [Porting Guide](porting.md) is for adding software, and for the traps that keep
-  costing people days.
-* [Debugging](debugging.md) is for when it does not boot.
+* [Getting Started](getting-started.md) takes you from a Linux machine to PureDarwin
+  running in a virtual machine.
+* [Building](building.md) explains how the build works.
+* [Source Tree](source-tree.md) is a map of the repository.
+* [Images and Boot](images.md) explains how a disk image is put together and how it
+  boots.
+* [Targets](targets.md) lists the machines PureDarwin runs on and how far each gets.
+* [Porting Guide](porting.md) is for adding software.
+* [Debugging](debugging.md) is for when it doesn't boot.
+* [Credits](credits.md) says where each part of the system came from.
+* [Licensing](licensing.md) and [Contributing](contributing.md) explain the rules for
+  using and adding code.
 * [Roadmap](roadmap.md) and [Status](status.md) cover where the project is going and
   what works today.
 
-## Credits
-
-There are too many people to thank, but some highlights:
-
-* [Apple](https://github.com/apple), Inc. for releasing
-  [Darwin](https://github.com/apple-oss-distributions) as open source
-* David Elliott and the Chameleon team for their work on boot-132
-* The xnu-dev team for their work on the XNU kernel
-* Rafirafi for his work on Generic Platform kexts
-* Mac OS Forge, the DarwinBuild project and the MacPorts project
-* The OpenDarwin project, whose contributions PureDarwin still benefits from
-* The FreeBSD and Haiku projects, whose drivers and compatibility layers run many of our
-  devices
-* [Probono](https://github.com/probonopd) for founding PureDarwin
-* [csekel](https://github.com/csekel) for believing in PureDarwin and keeping it going
-  when nobody else would. Rest in peace
-* [vali0004](https://github.com/Vali0004) for pushing PureDarwin into a modern era
-* Everyone else contributing to Darwin
-
 ## Notice
 
-PureDarwin and the PureDarwin website are independent resources and are not affiliated
-with, endorsed by or sponsored by Apple Inc. Apple, Macintosh, macOS and related
-trademarks and logos are the property of Apple Inc., registered in the U.S. and other
-countries. Darwin is licensed under the
+PureDarwin and its website are independent and aren't affiliated with, endorsed by
+or sponsored by Apple Inc. Apple, Macintosh, macOS and related trademarks and logos are
+the property of Apple Inc., registered in the U.S. and other countries. Darwin is
+licensed under the
 [Apple Public Source License (APSL)](https://opensource.apple.com/apsl/). All other
 trademarks are the property of their respective owners.
