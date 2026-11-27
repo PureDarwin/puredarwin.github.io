@@ -8,9 +8,9 @@
   <meta property="og:title" content="PureDarwin" />
   <meta property="og:locale" content="en_US" />
   <meta name="description"
-    content="Darwin you can actually boot. A community project that fills in what Apple leaves out." />
+    content="A free operating system built from Apple's open source Darwin releases. PureDarwin combines and extends existing open source projects and adds its own code where nothing exists." />
   <meta property="og:description"
-    content="Darwin you can actually boot. A community project that fills in what Apple leaves out." />
+    content="A free operating system built from Apple's open source Darwin releases. PureDarwin combines and extends existing open source projects and adds its own code where nothing exists." />
   <meta property="og:image" content="/img/ogimg.jpg" />
   <link rel="canonical" href="https://www.puredarwin.org/" />
   <meta property="og:url" content="https://www.puredarwin.org/" />
@@ -98,30 +98,31 @@
       <div>
         <h1 class="text-4xl leading-tight font-semibold text-pd-ink sm:text-5xl">Darwin you can boot.</h1>
         <p class="mt-5 text-lg leading-relaxed">
-          <strong class="text-pd-ink">PureDarwin writes the pieces Apple leaves out.</strong><br>
-          Apple publishes the kernel and much of the userland.<br>
-          We add the bootloader, the drivers and a desktop.
+          <strong class="text-pd-ink">PureDarwin is a free operating system built from Apple's open source Darwin releases.</strong>
+          Apple publishes the kernel and much of the Unix userland, but never enough to boot a computer.
+          We combine and extend existing open source projects, and write our own code where nothing exists,
+          to provide a bootloader, drivers, frameworks, a desktop and the build that puts them together.
         </p>
         <div class="mt-7 flex flex-wrap gap-3">
         <details id="download-menu" class="group relative">
               <summary class="inline-flex cursor-pointer list-none items-center gap-2 rounded-full bg-pd-accent px-5 py-2 text-sm font-medium text-white shadow-card hover:brightness-110 marker:hidden [&::-webkit-details-marker]:hidden">
                 <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3" /> <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /> <path d="m7 10 5 5 5-5" /></svg>
-                Download
+                Download a developer preview
                 <svg class="h-4 w-4 transition-transform group-open:rotate-180" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
               </summary>
               <ul class="absolute left-0 z-20 mt-2 w-72 overflow-hidden rounded-card border border-pd-border bg-pd-surface py-1 shadow-card">
                 <!-- pdimages:menu -->
                 <li><a href="https://hydra.lab004.dev/job/puredarwin/ci-hydra/release.wayland/latest/download/1" class="block px-4 py-2 hover:bg-pd-canvas">
-                  <span class="block text-sm font-medium text-pd-ink">Desktop</span>
+                  <span class="block text-sm font-medium text-pd-ink">Desktop (Argon, Wayland)</span>
                   <span class="block font-mono text-xs text-pd-muted">latest release.wayland, .img.zst</span></a></li>
                 <li><a href="https://hydra.lab004.dev/job/puredarwin/ci-hydra/release.nvidia-580/latest/download/1" class="block px-4 py-2 hover:bg-pd-canvas">
-                  <span class="block text-sm font-medium text-pd-ink">Desktop, NVIDIA 580</span>
+                  <span class="block text-sm font-medium text-pd-ink">Desktop with NVIDIA driver</span>
                   <span class="block font-mono text-xs text-pd-muted">latest release.nvidia-580, .img.zst</span></a></li>
                 <li><a href="https://hydra.lab004.dev/job/puredarwin/ci-hydra/release.minimal/latest/download/1" class="block px-4 py-2 hover:bg-pd-canvas">
-                  <span class="block text-sm font-medium text-pd-ink">Minimal</span>
+                  <span class="block text-sm font-medium text-pd-ink">Minimal (shell only, no desktop)</span>
                   <span class="block font-mono text-xs text-pd-muted">latest release.minimal, .img.zst</span></a></li>
                 <li><a href="https://hydra.lab004.dev/job/puredarwin/ci-hydra/release.arm64-virt-minimal/latest/download/1" class="block px-4 py-2 hover:bg-pd-canvas">
-                  <span class="block text-sm font-medium text-pd-ink">arm64 virtual machine</span>
+                  <span class="block text-sm font-medium text-pd-ink">arm64 VM (shell only)</span>
                   <span class="block font-mono text-xs text-pd-muted">latest release.arm64-virt-minimal, .img.zst</span></a></li>
                 <!-- /pdimages:menu -->
                 <li class="border-t border-pd-border"><a href="#get-it" class="block px-4 py-2 text-sm text-pd-blue hover:bg-pd-canvas">All downloads and checksums</a></li>
@@ -136,6 +137,7 @@
               Check the Repo
             </a>
         </div>
+        <p class="mt-3 text-sm text-pd-muted">Test builds from the current code, for a VM or spare hardware. No installer yet.</p>
       </div>
       <figure class="mx-auto w-full max-w-xl lg:max-w-none">
         <img src="/img/homepage/screenshot-hexley-2026.png" width="1803" height="1057"
@@ -145,6 +147,25 @@
             Calculator. Running in QEMU, with OpenGL through virgl on the host's Radeon RX 7800 XT.
           </figcaption>
       </figure>
+    </section>
+
+    <section class="mt-10 rounded-card border border-pd-border bg-pd-surface p-7 shadow-card sm:p-9">
+      <h2 class="text-2xl">Built on</h2>
+      <p class="mt-3 max-w-3xl">
+        PureDarwin stands on a lot of other people's work. The kernel and most of the core system are
+        <a href="/handbook/credits.html#apples-darwin-releases" class="text-pd-blue hover:underline">Apple's Darwin open source releases</a>.
+        AppKit, CoreGraphics, CoreData and the Onyx2D drawing engine started from
+        <a href="/handbook/credits.html#cocotron" class="text-pd-blue hover:underline">Cocotron</a>, by Christopher J. W. Lloyd
+        and its contributors, by way of the copies <a href="/handbook/credits.html#ravynos" class="text-pd-blue hover:underline">ravynOS</a> carries.
+        Foundation grew from the small first version in <a href="/handbook/credits.html#foundation" class="text-pd-blue hover:underline">NeoDarwin's Foundation</a>,
+        and dyld and corecrypto come through <a href="/handbook/credits.html#neodarwin" class="text-pd-blue hover:underline">NeoDarwin</a>. The Metal frontend is
+        <a href="/handbook/credits.html#darling-metal" class="text-pd-blue hover:underline">Darling Metal</a>. Drivers run on code from <a href="/handbook/credits.html#freebsd" class="text-pd-blue hover:underline">FreeBSD</a> and <a href="/handbook/credits.html#haiku" class="text-pd-blue hover:underline">Haiku</a>, ACPI on <a href="/handbook/credits.html#uacpi" class="text-pd-blue hover:underline">uACPI</a>, XPC on <a href="/handbook/credits.html#nextbsd" class="text-pd-blue hover:underline">NextBSD's libxpc</a>,
+        and the desktop on <a href="/handbook/credits.html#wayland" class="text-pd-blue hover:underline">Wayland</a>, wlroots, neuswc and <a href="/handbook/credits.html#mesa" class="text-pd-blue hover:underline">Mesa</a>. The compiler is <a href="/handbook/credits.html#llvm" class="text-pd-blue hover:underline">LLVM</a>.
+      </p>
+      <p class="mt-3 max-w-3xl">
+        Our own work is what ties these together and fills the gaps between them. The
+        <a href="/handbook/credits.html" class="text-pd-blue hover:underline">Credits page</a> says what came from where, and what PureDarwin added to it.
+      </p>
     </section>
 
     <div class="mt-12 grid gap-x-8 gap-y-10 border-y border-pd-border py-10 md:grid-cols-2 lg:grid-cols-4">
@@ -163,8 +184,8 @@
       <section>
         <h2 class="flex items-center gap-2 text-base font-semibold"><svg class="h-5 w-5 text-pd-ink" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="18" r="3" /> <circle cx="6" cy="6" r="3" /> <path d="M13 6h3a2 2 0 0 1 2 2v7" /> <line x1="6" x2="6" y1="9" y2="21" /></svg>Contribute</h2>
         <p class="mt-2 text-sm">
-          Development happens on the <code class="text-[0.9em]">upstream-xnu-12377</code> branch, and <code class="text-[0.9em]">main</code> is frozen. Packaging is the most useful place
-          to start, and the contribution policy explains what we accept and why.
+          Work happens on the <code class="text-[0.9em]">main</code> branch. Porting and packaging software is the best
+          place to start. The contribution guide explains what we accept and why.
         </p>
         <a href="https://github.com/PureDarwin/PureDarwin"
           class="mt-4 inline-flex items-center gap-2 text-sm font-medium text-pd-blue hover:underline">
@@ -176,7 +197,7 @@
       <section>
         <h2 class="flex items-center gap-2 text-base font-semibold"><svg class="h-5 w-5 text-pd-ink" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" /></svg>Community</h2>
         <p class="mt-2 text-sm">
-          Development happens in the open. Ask questions, watch the work, or chip in.
+          Development happens in the open, and everyone is welcome to ask questions, follow the work or help out.
         </p>
         <ul class="mt-4 space-y-2">
           <li>
@@ -234,56 +255,38 @@
     <section class="mt-10 overflow-hidden rounded-card border border-pd-border bg-pd-surface shadow-card">
       <div class="p-7 sm:p-9">
       <h2 class="text-2xl">What works today</h2>
-      <p class="mt-3 max-w-3xl">
-        PureDarwin boots to the Argon desktop on x86_64, and to a shell on arm64 in QEMU and on a growing list of
-        boards.
-      </p>
-      <ul class="mt-6 grid gap-x-8 gap-y-3 sm:grid-cols-2">
-        <li class="border-l-2 border-pd-blue pl-4">
-          <strong class="flex items-center gap-2 text-pd-ink"><svg class="h-4 w-4 shrink-0 text-pd-ink" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20v2" /> <path d="M12 2v2" /> <path d="M17 20v2" /> <path d="M17 2v2" /> <path d="M2 12h2" /> <path d="M2 17h2" /> <path d="M2 7h2" /> <path d="M20 12h2" /> <path d="M20 17h2" /> <path d="M20 7h2" /> <path d="M7 20v2" /> <path d="M7 2v2" /> <rect x="4" y="4" width="16" height="16" rx="2" /> <rect x="8" y="8" width="8" height="8" rx="1" /></svg>x86_64</strong>
-          <span class="block text-sm text-pd-muted">The Argon desktop on QEMU and real hardware, with AMD, Intel and NVIDIA GPU drivers. The release target.</span>
-        </li>
-        <li class="border-l-2 border-pd-blue pl-4">
-          <strong class="flex items-center gap-2 text-pd-ink"><svg class="h-4 w-4 shrink-0 text-pd-ink" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="8" x="2" y="2" rx="2" ry="2" /> <rect width="20" height="8" x="2" y="14" rx="2" ry="2" /> <line x1="6" x2="6.01" y1="6" y2="6" /> <line x1="6" x2="6.01" y1="18" y2="18" /></svg>arm64, QEMU virt</strong>
-          <span class="block text-sm text-pd-muted">Boots to a shell, with a Wayland image available.</span>
-        </li>
-        <li class="border-l-2 border-pd-blue pl-4">
-          <strong class="flex items-center gap-2 text-pd-ink"><svg class="h-4 w-4 shrink-0 text-pd-ink" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2" /> <path d="M11 9h4a2 2 0 0 0 2-2V3" /> <circle cx="9" cy="9" r="2" /> <path d="M7 21v-4a2 2 0 0 1 2-2h4" /> <circle cx="15" cy="15" r="2" /></svg>NVIDIA Jetson TX1</strong>
-          <span class="block text-sm text-pd-muted">arm64, Tegra X1.</span>
-        </li>
-        <li class="border-l-2 border-pd-blue pl-4">
-          <strong class="flex items-center gap-2 text-pd-ink"><svg class="h-4 w-4 shrink-0 text-pd-ink" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2" /> <path d="M11 9h4a2 2 0 0 0 2-2V3" /> <circle cx="9" cy="9" r="2" /> <path d="M7 21v-4a2 2 0 0 1 2-2h4" /> <circle cx="15" cy="15" r="2" /></svg>Orange Pi Zero 3</strong>
-          <span class="block text-sm text-pd-muted">arm64, Allwinner H618.</span>
-        </li>
-        <li class="border-l-2 border-pd-blue pl-4">
-          <strong class="flex items-center gap-2 text-pd-ink"><svg class="h-4 w-4 shrink-0 text-pd-ink" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2" /> <path d="M11 9h4a2 2 0 0 0 2-2V3" /> <circle cx="9" cy="9" r="2" /> <path d="M7 21v-4a2 2 0 0 1 2-2h4" /> <circle cx="15" cy="15" r="2" /></svg>Orange Pi Zero 4</strong>
-          <span class="block text-sm text-pd-muted">arm64, Allwinner A733.</span>
-        </li>
-        <li class="border-l-2 border-pd-blue pl-4">
-          <a href="/handbook/targets.html" class="text-sm font-medium text-pd-blue hover:underline">And other boards in bringup</a>
-        </li>
-      </ul>
-      <p class="mt-6 max-w-3xl">
-        On x86_64 that means an ext4 root, wired networking and Wi-Fi with DHCP end to end, OpenGL on real GPUs,
-        Wine running Windows GUI applications, and a compiler toolchain that runs on PureDarwin itself. It boots with
-        UEFI, Secure Boot or a legacy BIOS.
-      </p>
+      <div class="mt-3 max-w-3xl space-y-3 leading-relaxed">
+        <p>
+          On a PC, PureDarwin boots to its own desktop, Argon, in QEMU or on real hardware. It has drivers for AMD,
+          Intel and NVIDIA graphics, wired and Wi-Fi networking, and ext4 disks. There's a terminal, a file manager,
+          settings, a text editor, an image viewer and a few other apps, Wine for Windows programs, and a compiler
+          that runs on PureDarwin itself.
+        </p>
+        <p>
+          On arm64 it boots to a shell in QEMU, and there's a QEMU image with a Wayland desktop too. Real arm64
+          boards are earlier along. The NVIDIA Jetson TX1 has booted to the desktop, the Orange Pi Zero 3 and Zero 4
+          have board support but haven't been tested on hardware yet, and more boards are in bring-up.
+        </p>
+        <p>
+          PCs can boot it from UEFI or a legacy BIOS. Secure Boot works with an image you build yourself, because
+          signed downloads aren't published yet.
+        </p>
+      </div>
       <a href="/handbook/status.html" class="mt-5 inline-block text-sm font-medium text-pd-blue hover:underline">
-        Full status matrix, per target
+        Full status for each target
       </a>
       </div>
     </section>
 
     <section id="get-it" class="mt-10 scroll-mt-24 overflow-hidden rounded-card border border-pd-border bg-pd-surface shadow-card">
       <div class="p-7 sm:p-9">
-      <h2 class="flex items-center gap-2.5 text-2xl"><svg class="h-6 w-6 text-pd-ink" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19h8" /> <path d="m4 17 6-6-6-6" /></svg>Get it</h2>
+      <h2 class="flex items-center gap-2.5 text-2xl"><svg class="h-6 w-6 text-pd-ink" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19h8" /> <path d="m4 17 6-6-6-6" /></svg>Download a developer preview</h2>
 
       <div class="mt-4 rounded border-l-4 border-amber-500 bg-amber-50 px-4 py-3 dark:bg-amber-500/10">
-        <p class="flex gap-2.5 text-sm">
-          <svg class="mt-0.5 h-4 w-4 shrink-0 text-amber-600 dark:text-amber-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3" /> <path d="M12 9v4" /> <path d="M12 17h.01" /></svg>
-          <span><strong class="text-amber-900 dark:text-amber-200">These are developer previews of upstream-xnu-12377.</strong> They are test images, not releases. They will have bugs,
-          and they are no stable version of anything. See the <a href="/handbook/roadmap.html"
-            class="text-pd-blue hover:underline">roadmap</a> for what comes next.</span>
+        <p class="text-sm">
+          These are test images built from the current code. They boot straight into PureDarwin and are meant for
+          trying it out in a VM or on spare hardware. There's no installer download yet, and things will break. See the
+          <a href="/handbook/roadmap.html" class="text-pd-blue hover:underline">roadmap</a> for what comes next.
         </p>
       </div>
 
@@ -293,8 +296,8 @@
           <svg class="mt-1 h-4 w-4 shrink-0 text-pd-muted" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v8" /> <path d="m16 6-4 4-4-4" /> <rect width="20" height="8" x="2" y="14" rx="2" /> <path d="M6 18h.01" /> <path d="M10 18h.01" /></svg>
           <div class="min-w-0">
           <a href="https://hydra.lab004.dev/job/puredarwin/ci-hydra/release.wayland/latest/download/1"
-            class="font-medium text-pd-blue hover:underline">Desktop</a>
-          <span class="block text-sm text-pd-muted">The Argon desktop for x86_64 with AMD, Intel and NVIDIA GPU drivers, Wi-Fi and the built-in apps. UEFI, including 32-bit UEFI.</span>
+            class="font-medium text-pd-blue hover:underline">Desktop (Argon, Wayland)</a>
+          <span class="block text-sm text-pd-muted">The Argon desktop on Wayland, with AMD, Intel and NVIDIA (nouveau) GPU drivers, Wi-Fi, the built-in apps and Wine. Boots from UEFI, including 32-bit UEFI.</span>
           <span class="mt-1 block font-mono text-xs text-pd-muted">latest build of release.wayland, .img.zst, <a href="https://hydra.lab004.dev/job/puredarwin/ci-hydra/release.wayland/latest/download/2" class="text-pd-blue hover:underline">sha256</a></span>
           </div>
         </li>
@@ -302,8 +305,8 @@
           <svg class="mt-1 h-4 w-4 shrink-0 text-pd-muted" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v8" /> <path d="m16 6-4 4-4-4" /> <rect width="20" height="8" x="2" y="14" rx="2" /> <path d="M6 18h.01" /> <path d="M10 18h.01" /></svg>
           <div class="min-w-0">
           <a href="https://hydra.lab004.dev/job/puredarwin/ci-hydra/release.nvidia-580/latest/download/1"
-            class="font-medium text-pd-blue hover:underline">Desktop, NVIDIA 580</a>
-          <span class="block text-sm text-pd-muted">The same desktop with NVIDIA's 580 driver, for Maxwell, Pascal and Volta cards.</span>
+            class="font-medium text-pd-blue hover:underline">Desktop with NVIDIA driver</a>
+          <span class="block text-sm text-pd-muted">The Argon desktop with NVIDIA's own 580 driver, for Maxwell, Pascal and Volta cards.</span>
           <span class="mt-1 block font-mono text-xs text-pd-muted">latest build of release.nvidia-580, .img.zst, <a href="https://hydra.lab004.dev/job/puredarwin/ci-hydra/release.nvidia-580/latest/download/2" class="text-pd-blue hover:underline">sha256</a></span>
           </div>
         </li>
@@ -311,8 +314,8 @@
           <svg class="mt-1 h-4 w-4 shrink-0 text-pd-muted" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v8" /> <path d="m16 6-4 4-4-4" /> <rect width="20" height="8" x="2" y="14" rx="2" /> <path d="M6 18h.01" /> <path d="M10 18h.01" /></svg>
           <div class="min-w-0">
           <a href="https://hydra.lab004.dev/job/puredarwin/ci-hydra/release.minimal/latest/download/1"
-            class="font-medium text-pd-blue hover:underline">Minimal</a>
-          <span class="block text-sm text-pd-muted">A small x86_64 image that boots to a shell, the one used for most boot testing.</span>
+            class="font-medium text-pd-blue hover:underline">Minimal (shell only, no desktop)</a>
+          <span class="block text-sm text-pd-muted">A small x86_64 image that boots to a shell. No desktop, no GPU drivers and no Wine. We use it for boot testing.</span>
           <span class="mt-1 block font-mono text-xs text-pd-muted">latest build of release.minimal, .img.zst, <a href="https://hydra.lab004.dev/job/puredarwin/ci-hydra/release.minimal/latest/download/2" class="text-pd-blue hover:underline">sha256</a></span>
           </div>
         </li>
@@ -320,8 +323,8 @@
           <svg class="mt-1 h-4 w-4 shrink-0 text-pd-muted" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v8" /> <path d="m16 6-4 4-4-4" /> <rect width="20" height="8" x="2" y="14" rx="2" /> <path d="M6 18h.01" /> <path d="M10 18h.01" /></svg>
           <div class="min-w-0">
           <a href="https://hydra.lab004.dev/job/puredarwin/ci-hydra/release.arm64-virt-minimal/latest/download/1"
-            class="font-medium text-pd-blue hover:underline">arm64 virtual machine</a>
-          <span class="block text-sm text-pd-muted">A small arm64 image for virtual machines (QEMU virt) that boots to a shell.</span>
+            class="font-medium text-pd-blue hover:underline">arm64 VM (shell only)</a>
+          <span class="block text-sm text-pd-muted">A small arm64 image for QEMU's virt machine that boots to a shell. No desktop.</span>
           <span class="mt-1 block font-mono text-xs text-pd-muted">latest build of release.arm64-virt-minimal, .img.zst, <a href="https://hydra.lab004.dev/job/puredarwin/ci-hydra/release.arm64-virt-minimal/latest/download/2" class="text-pd-blue hover:underline">sha256</a></span>
           </div>
         </li>
@@ -339,24 +342,26 @@
 
       <p class="mt-4 max-w-3xl text-sm text-pd-muted">
         The images are the latest successful builds from our
-        <a href="https://hydra.lab004.dev/jobset/puredarwin/ci-hydra" class="text-pd-blue hover:underline">Hydra</a>,
-        compressed with zstd. Each has its own sha256 file next to it. Check the download with
-        <code class="font-mono text-xs">sha256sum -c</code>, then unpack it with
-        <code class="font-mono text-xs">zstd -d</code> before writing it to a disk. The recording's checksum is in
+        <a href="https://hydra.lab004.dev/jobset/puredarwin/ci-hydra" class="text-pd-blue hover:underline">Hydra</a>
+        build server, compressed with zstd, and each one has its own sha256 file next to it.
+      </p>
+      <p class="mt-3 max-w-3xl text-sm text-pd-muted">
+        Check the download with <code class="font-mono text-xs">sha256sum -c</code>, then unpack it with
+        <code class="font-mono text-xs">zstd -d</code> before you write it to a disk. The recording's checksum is in
         <a href="/SHA256SUMS" class="text-pd-blue hover:underline">SHA256SUMS</a>.
       </p>
 
       <h3 class="mt-8 text-lg">Or build it yourself</h3>
       <p class="mt-2 max-w-3xl">
-        Nix is the build system. On a Linux host with flakes enabled:
+        Nix is the build system, so all you need is a Linux host with flakes enabled:
       </p>
-      <pre class="mt-3 overflow-x-auto rounded border border-pd-border bg-pd-canvas p-4 text-sm"><code>git clone -b upstream-xnu-12377 https://github.com/PureDarwin/PureDarwin
+      <pre class="mt-3 overflow-x-auto rounded border border-pd-border bg-pd-canvas p-4 text-sm"><code>git clone https://github.com/PureDarwin/PureDarwin
 cd PureDarwin
 nix build .#image-minimal
 nix run .#vm</code></pre>
       <p class="mt-3 max-w-3xl text-sm text-pd-muted">
-        No Apple files are needed. The build assembles its own SDK from open source headers, so the repository and
-        Nix are all it takes.
+        The build assembles its own SDK from open source headers, so no Apple files are needed and the
+        repository and Nix are all it takes.
       </p>
       <a href="/handbook/getting-started.html" class="mt-4 inline-block text-sm font-medium text-pd-blue hover:underline">
         Getting Started, in full
@@ -375,38 +380,34 @@ nix run .#vm</code></pre>
             What is Darwin?
             <svg class="h-4 w-4 shrink-0 text-pd-muted transition-transform group-open:rotate-180" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
           </summary>
-          <p class="mt-3 max-w-3xl text-sm">
-            Darwin is the open-source core of macOS and iOS: the XNU kernel plus a large part of the Unix userland,
-            published by Apple under the <a href="https://opensource.apple.com/apsl/"
-              class="text-pd-blue hover:underline">Apple Public Source License</a>. Every Mac and iPhone runs on it,
-            but Apple only ships it as source code. There is no Darwin you can install from Apple.
-          </p>
+          <div class="mt-3 max-w-3xl space-y-3 text-sm leading-relaxed">
+            <p>Darwin is the open source core of Apple's operating systems. It's made up of the XNU kernel and a large part of the Unix userland, and Apple publishes it under the <a href="https://opensource.apple.com/apsl/" class="text-pd-blue hover:underline">Apple Public Source License</a>.</p>
+            <p>Every Mac and iPhone runs on Darwin. Apple used to release bootable Darwin images you could install, but it stopped in the mid 2000s, and today it publishes Darwin as source code only.</p>
+          </div>
         </details>
 
         <details class="group py-4">
           <summary class="flex cursor-pointer list-none items-center justify-between gap-3 font-medium text-pd-ink marker:hidden [&::-webkit-details-marker]:hidden">
-            What is PureDarwin, and what is it not?
+            What is PureDarwin?
             <svg class="h-4 w-4 shrink-0 text-pd-muted transition-transform group-open:rotate-180" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
           </summary>
-          <p class="mt-3 max-w-3xl text-sm">
-            PureDarwin is a community project that turns Apple's Darwin releases into a standalone, bootable operating
-            system. We write the missing pieces ourselves: the bootloader, drivers, init and a desktop. PureDarwin is
-            its own system. It is no macOS clone, and it is not affiliated with or endorsed by Apple. There are no
-            proprietary Apple binaries in our images.
-          </p>
+          <div class="mt-3 max-w-3xl space-y-3 text-sm leading-relaxed">
+            <p>PureDarwin is a community project that turns Apple's Darwin releases into an operating system you can boot.</p>
+            <p>We combine and extend existing open source projects, and write our own code, such as the bootloader and the desktop, where nothing exists. The <a href="/handbook/credits.html" class="text-pd-blue hover:underline">Credits page</a> says what came from where.</p>
+            <p>PureDarwin isn't affiliated with or endorsed by Apple, and our images contain no proprietary Apple binaries.</p>
+          </div>
         </details>
 
         <details class="group py-4">
           <summary class="flex cursor-pointer list-none items-center justify-between gap-3 font-medium text-pd-ink marker:hidden [&::-webkit-details-marker]:hidden">
-            What can I actually do with it?
+            What can I do with it?
             <svg class="h-4 w-4 shrink-0 text-pd-muted transition-transform group-open:rotate-180" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
           </summary>
-          <p class="mt-3 max-w-3xl text-sm">
-            Boot a real Darwin system in QEMU or on hardware, use the Argon desktop and its apps, run Windows programs
-            through Wine, compile software with the on-system toolchain, and explore how the XNU kernel works outside
-            of macOS. It is a system for developers and the curious. It is not ready to be a daily driver yet. See
-            <a href="/handbook/status.html" class="text-pd-blue hover:underline">what works today</a>.
-          </p>
+          <div class="mt-3 max-w-3xl space-y-3 text-sm leading-relaxed">
+            <p>It's a system for developers and the curious, and it isn't ready to be a daily driver yet. Today you can:</p>
+            <ul class="list-disc space-y-1 pl-5"><li>boot a real Darwin system in QEMU or on hardware</li><li>use the Argon desktop and its apps</li><li>run Windows programs through Wine</li><li>compile software with the compilers that run on PureDarwin itself</li><li>explore how the XNU kernel works outside Apple's systems</li></ul>
+            <p>See <a href="/handbook/status.html" class="text-pd-blue hover:underline">what works today</a> for the details.</p>
+          </div>
         </details>
 
         <details class="group py-4">
@@ -414,12 +415,12 @@ nix run .#vm</code></pre>
             Can it run macOS or iOS apps?
             <svg class="h-4 w-4 shrink-0 text-pd-muted transition-transform group-open:rotate-180" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
           </summary>
-          <p class="mt-3 max-w-3xl text-sm">
-            A select few. Graphical macOS apps are built against frameworks Apple never open sourced, so PureDarwin
-            reimplements them. Its own AppKit runs the built-in apps, and a handful of unmodified macOS apps run as well,
-            Firefox among them. Most macOS apps do not run yet. Command-line Darwin software and open source software
-            generally work, and Wine runs Windows GUI applications on the desktop.
-          </p>
+          <div class="mt-3 max-w-3xl space-y-3 text-sm leading-relaxed">
+            <p>Some macOS apps, and the list is growing.</p>
+            <p>Graphical Mac apps rely on frameworks Apple has never published as source, such as AppKit and Metal, so we provide our own. Our AppKit started from Cocotron and we've extended it a lot. It runs the apps that come with PureDarwin, and a growing set of unmodified Mac apps start and run, including Firefox and TextMate.</p>
+            <p>Plenty of Mac apps still don't run, usually because they need a framework or interface we haven't written yet.</p>
+            <p>Command-line Darwin software and most open source software build and run, and Wine runs Windows programs on the desktop.</p>
+          </div>
         </details>
 
         <details class="group py-4">
@@ -427,13 +428,10 @@ nix run .#vm</code></pre>
             Is it free? Can I contribute?
             <svg class="h-4 w-4 shrink-0 text-pd-muted transition-transform group-open:rotate-180" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
           </summary>
-          <p class="mt-3 max-w-3xl text-sm">
-            Yes. Everything we write is open source, and Apple's code stays under the APSL. Development happens in the
-            open on <a href="https://github.com/PureDarwin/PureDarwin" class="text-pd-blue hover:underline">GitHub</a>.
-            Packaging is the most useful place to start, and the
-            <a href="/handbook/contributing.html" class="text-pd-blue hover:underline">contribution guide</a> explains
-            the rest.
-          </p>
+          <div class="mt-3 max-w-3xl space-y-3 text-sm leading-relaxed">
+            <p>Yes. Everything we write is open source, and code from Apple and other projects keeps its own licence.</p>
+            <p>Development happens in the open on <a href="https://github.com/PureDarwin/PureDarwin" class="text-pd-blue hover:underline">GitHub</a>. Porting and packaging software is the best place to start, and the <a href="/handbook/contributing.html" class="text-pd-blue hover:underline">contribution guide</a> explains the rest.</p>
+          </div>
         </details>
 
       </div>

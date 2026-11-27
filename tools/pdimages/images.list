@@ -10,8 +10,8 @@
 # The base URL is set by PDIMAGES_BASE_URL, and defaults to the one below.
 # Lines starting with # and blank lines are ignored.
 
-release.wayland	hydra	The Argon desktop for x86_64 with AMD, Intel and NVIDIA GPU drivers, Wi-Fi and the built-in apps. UEFI, including 32-bit UEFI.	Desktop
-release.nvidia-580	hydra	The same desktop with NVIDIA's 580 driver, for Maxwell, Pascal and Volta cards.	Desktop, NVIDIA 580
-release.minimal	hydra	A small x86_64 image that boots to a shell, the one used for most boot testing.	Minimal
-release.arm64-virt-minimal	hydra	A small arm64 image for virtual machines (QEMU virt) that boots to a shell.	arm64 virtual machine
+release.wayland	hydra	The Argon desktop on Wayland, with AMD, Intel and NVIDIA (nouveau) GPU drivers, Wi-Fi, the built-in apps and Wine. Boots from UEFI, including 32-bit UEFI.	Desktop (Argon, Wayland)
+release.nvidia-580	hydra	The Argon desktop with NVIDIA's own 580 driver, for Maxwell, Pascal and Volta cards.	Desktop with NVIDIA driver
+release.minimal	hydra	A small x86_64 image that boots to a shell. No desktop, no GPU drivers and no Wine. We use it for boot testing.	Minimal (shell only, no desktop)
+release.arm64-virt-minimal	hydra	A small arm64 image for QEMU's virt machine that boots to a shell. No desktop.	arm64 VM (shell only)
 puredarwin-arm64-rpi3-shell.mp4	video	Video from the 20.5 era: PureDarwin booting to a shell on a Raspberry Pi 3.
