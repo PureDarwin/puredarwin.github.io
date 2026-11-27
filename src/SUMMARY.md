@@ -10,6 +10,7 @@
 # Handbook
 
 - [Overview](handbook/_Handbook.md)
+- [Darwin's History](handbook/history.md)
 - [Getting Started](handbook/getting-started.md)
 - [Building](handbook/building.md)
 	- [The Nix Flake](handbook/building/flake.md)
@@ -34,6 +35,7 @@
 	- [Adding a Package](handbook/porting/adding-a-package.md)
 	- [Recurring Traps](handbook/porting/traps.md)
 - [Debugging](handbook/debugging.md)
+- [Credits](handbook/credits.md)
 - [Licensing](handbook/licensing.md)
 - [Contributing](handbook/contributing.md)
 - [Roadmap](handbook/roadmap.md)
